@@ -1,6 +1,32 @@
-p#notice = notice
+.event_date.unit.one-of-five
+  p.dateinfo 
+    ' #{@event.date.strftime("%b")}
+    span #{@event.date.strftime("%d")}
 
+.event_details.unit.four-of-five
+  h2 = link_to @event.title, @event
+  
+  p.details
+    ' LOCATION - #{@event.location}
+    br
+    ' DATE: #{@event.date.strftime("%m -%b - %Y")}
+    ' TIME:
 
-= link_to 'Edit', edit_event_path(@event)
-'|
-= link_to 'Back', events_path
+.event_info.unit.span-grid
+  - unless @event.image_link.blank?
+    img.post-image alt="#{event.imageAlt}" height="132" src="#{event.image_link}" width="225"
+  
+  p #{@event.description.html_safe}
+
+  - unless @event.description2.blank?
+    p #{@event.description2.html_safe}
+
+  - unless @event.description3.blank?
+    p #{@event.description3.html_safe}
+
+  - unless @event.more_link.blank?
+    p
+      a.more href="#{@event.more_link}" title="#{@event.moreTitle}"  Find out more &raquo;
+  - unless @event.link.blank? 
+    p
+      a.more href="#{@event.link}" title="#{@event.linktitle}"  Visit the website &raquo;
