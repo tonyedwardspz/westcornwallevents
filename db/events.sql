@@ -1,3 +1,12 @@
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "+00:00";
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+
+
 INSERT INTO `events` (`date`, `dateend`, `title`, `location`, `link`, `linkTitle`, `time`, `more_link`, `moreTitle`, `description`, `description2`, `description3`, `image_link`, `imageAlt`) VALUES('2015-02-07', NULL, 'Afternoon Tea', 'Trelowarren Mansion House', 'http://www.trelowarrenretreat.org.uk', 'Trelowarren Retreat Afternoon Tea', '2.30pm to 5.30pm', '', '', 'Savour the ambience of the Mansion House, browse local art work, linger in the library and enjoy the tranquil atmosphere.', '', NULL, '', '');
 INSERT INTO `events` (`date`, `dateend`, `title`, `location`, `link`, `linkTitle`, `time`, `more_link`, `moreTitle`, `description`, `description2`, `description3`, `image_link`, `imageAlt`) VALUES('2015-02-05', '2015-02-07', 'King Arthur The Panto', 'Threemilestone Community Centre', 'https://www.facebook.com/events/1532723183652397/?ref_dashboard_filter=upcoming', 'King Arthur panto', '7.30pm', '', '', 'TADS Presents King Arthur The Panto\r\nby Darren Edwards, Directed by Pat Hope \r\n\r\nThreemilestone Community Centre\r\n5th - 7th Feb 2015 7.30 pm\r\n7th Feb 2015 2.30 pm\r\n\r\nTickets Â£5.50 all seats\r\nFrom Barbara on 01872 273555,\r\nThreemilestone Post Office', '', NULL, '', '');
 INSERT INTO `events` (`date`, `dateend`, `title`, `location`, `link`, `linkTitle`, `time`, `more_link`, `moreTitle`, `description`, `description2`, `description3`, `image_link`, `imageAlt`) VALUES('2015-01-28', '0000-00-00', 'Ceramic Workshops', 'Redruth, TR15 3AJ', 'http://www.gailaspden.co.uk', 'Gail Aspden Ceramics', '10.30 am - 12.30 pm', '', '', 'Opportunity for adults to learn new skills and have fun creating clay pieces. 20 pounds per session or 110 pounds for 6 weeks starting Jan 28th til March 4th. Tea and coffee will be provided. All abilities welcome.', 'For further details and booking: gailaspden@hotmail.co.uk', NULL, '', '');
@@ -96,3 +105,7 @@ INSERT INTO `events` (`date`, `dateend`, `title`, `location`, `link`, `linkTitle
 INSERT INTO `events` (`date`, `dateend`, `title`, `location`, `link`, `linkTitle`, `time`, `more_link`, `moreTitle`, `description`, `description2`, `description3`, `image_link`, `imageAlt`) VALUES('2015-06-28', NULL, 'Kabasa', 'Ritz Penzance', '', '', '8:30pm - 11:45pm', '', '', 'From pre-revolution Havana, to the hip beaches of Rio, to 70\\''s New York and the awesome Fania label, Kabasa! has collected some of the finest Latin music (from Cuban Son & vintage NY Salsa, to Cumbia, Afrobeat & Samba...) and given it our own shot of rum and twist of lime. Our unique arrangements fuse elements of Latin Funk & Jazz with influences from Spain, Trinidad, Jamaica, Africa, North & South Brazil, Columbia and of course Cuba!', '', NULL, '', '');
 INSERT INTO `events` (`date`, `dateend`, `title`, `location`, `link`, `linkTitle`, `time`, `more_link`, `moreTitle`, `description`, `description2`, `description3`, `image_link`, `imageAlt`) VALUES('2015-07-11', '2015-05-12', 'S.W.A.T', 'Ritz Penzance', '', '', '9pm', '', '', 'SWAT DJs present another night of amazing dance music served up by some of the best talent in the SW. ', 'Another night not to miss....', NULL, '', '');
 INSERT INTO `events` (`date`, `dateend`, `title`, `location`, `link`, `linkTitle`, `time`, `more_link`, `moreTitle`, `description`, `description2`, `description3`, `image_link`, `imageAlt`) VALUES('2015-07-18', NULL, 'Elegy', 'Ritz Penzance', '', '', '9:00pm', '', '', 'After a little break we will be back at the Ritz to Kick off Summer for you. You know what to expect! House / DNB / Whatever else we fancy. See you there.', '', NULL, '', '../images/2015/elegy.jpg');
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

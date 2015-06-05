@@ -13,26 +13,23 @@
 
 ActiveRecord::Schema.define(version: 20150605115411) do
 
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
-
   create_table "events", force: :cascade do |t|
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
     t.date     "date"
     t.date     "dateend"
-    t.string   "title"
-    t.string   "location"
-    t.string   "link"
-    t.string   "linktitle"
-    t.string   "time"
-    t.string   "more_link"
-    t.string   "moreTitle"
-    t.string   "description"
-    t.string   "description2"
-    t.string   "description3"
-    t.string   "image_link"
-    t.string   "imageAlt"
+    t.string   "title",        limit: 255
+    t.string   "location",     limit: 255
+    t.string   "link",         limit: 255
+    t.string   "linktitle",    limit: 255
+    t.string   "time",         limit: 255
+    t.string   "more_link",    limit: 255
+    t.string   "moreTitle",    limit: 255
+    t.string   "description",  limit: 255
+    t.string   "description2", limit: 255
+    t.string   "description3", limit: 255
+    t.string   "image_link",   limit: 255
+    t.string   "imageAlt",     limit: 255
   end
 
 end
