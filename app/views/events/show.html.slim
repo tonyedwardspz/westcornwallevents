@@ -10,7 +10,8 @@
     ' LOCATION - #{@event.location}
     br
     ' DATE: #{@event.date.strftime("%m -%b - %Y")}
-    ' TIME:
+    - unless event.time.blank?
+      ' TIME: #{event.time}
 
 .event_info.unit.span-grid
   - unless @event.image_link.blank?
