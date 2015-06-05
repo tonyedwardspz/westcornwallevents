@@ -17,6 +17,7 @@ html
 
     #fb-root
 
+    / Header
     #header-wrap
       .container
         .grid
@@ -52,92 +53,121 @@ html
 
     #header_border
     
+    / Content
     #content-wrap
       .container
         .grid
+          #content.unit.three-of-four
+            = yield
 
-          = yield
-
-
-
-
-
-div style=("clear: both;") 
-#footer-wrap
-  .container
-    .grid
-      #col-a.unit.one-of-three
-        h5 Get Involved
-        a href="http://www.facebook.com/WestCornwallEvents" title="Facebook" /
-        .facebook
-        a href="https://twitter.com/WestCornwall" title="Twitter" /
-        .twitter
-        a href="https://www.youtube.com/user/purelypenzance" title="Youtube" /
-        .you-tube
-      
-      #col-b.unit.one-of-three.footer-list
-        h5 Find Local Events
-        ul
-          li
-            a href="http://www.westcornwallevents.co.uk/events_2014.php" title=("Events in Cornwall 2014")  Local events this year
-          li
-            a href="http://www.westcornwallevents.co.uk/events_2015.php" title=("Events in Cornwall 2015")  Local events next year
-          li
-            a href="http://www.westcornwallevents.co.uk/annual_events_and_festivals.php" title=("Annual Events around West Cornwall")  Annual Events
-      
-      #col-c.unit.one-of-three.footer-list
-        h5 Popular Pages
-        ul
-          li
-            a href="http://www.westcornwallevents.co.uk/search.php" title=("Search for your event")  Search for an event
-          li
-            a href="http://www.westcornwallevents.co.uk/venues.php" title=("West Cornwall event venues")  Event Venues
-          li
-            a href="http://www.westcornwallevents.co.uk/annual_events_and_festivals.php" title=("Special Events")  Special Events
-
-      .unit.one-of-two.bottom_footer.footer_left
-        ul
-          li &copy; 2015
-          li 
-            ' Developed by
-            a href="http://www.purelywebdesign.co.uk" target="_blank" title="West Cornwall Web Design" Tony Edwards
-      
-      .unit.one-of-two.bottom_footer.footer_right
-        ul
-          li
-            a href="http://www.westcornwallevents.co.uk/website/sitemap.php" Site map |
-          li
-            a href="http://www.westcornwallevents.co.uk/website/advertise.php" Advertise |
-          li
-            a href="http://www.westcornwallevents.co.uk/website/legal.php" Legal Stuff |
-          li
-            a href="http://www.westcornwallevents.co.uk" title="Home" Home |
-          li
-            a href="#top" Top
+          / Sidebar
+          #sidebar.unit.one-of-four
+            .grid
+              #social.unit.span-grid.sidemenu
+                a href="http://www.facebook.com/WestCornwallEvents" title="Facebook" 
+                  .facebook
+                a href="https://twitter.com/WestCornwall" title="Twitter" 
+                  .twitter
+                a href="https://www.youtube.com/user/purelypenzance" title="Youtube" 
+                  .you-tube
+              #annual_event.unit.span-grid.sidemenu.popular
+                h4
+                  a href="http://www.westcornwallevents.co.uk/annual_events_and_festivals.html" title="Annual West Cornwall Events"  Annual Festivals
+                ul
+                  li
+                    a href="http://www.westcornwallevents.co.uk/festival/penzance_mazey_day_golowan.php" title="penzance golowan and mazy day"  Mazey Day &amp; the Golowan Festival
+                    br
+                    span Penzance comes to life for the festival of St. John.
+                  li
+                    a href="http://www.westcornwallevents.co.uk/festival/newlyn_fish_festival.php" title="newlyn fish festival"  The Newlyn Fish Festival
+                    br
+                    span Cornwall's biggest one-day event.
+                  li
+                    a href="http://www.westcornwallevents.co.uk/festival/montol_festival_penzance.php" title="penzance and newlyn montol festival"  The Montol Festival
+                    br
+                    span West Cornwall's festival of Mid Winter.
+                  li
+                    a href="http://www.westcornwallevents.co.uk/festival/firework_displays.php" title="Cornwall firework and bonfire displays"  Fireworks Displays
+                    br
+                    span The skies above West Cornwall light up for spectacular firework displays.
 
 
-script src="http://www.google.co.uk/cse/brand?form=cse-search-box&amp;lang=en" type="text/javascript" 
-script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js" 
-script src="../scripts/script.js" type="text/javascript" 
-javascript:
-  | var sc_project=5688210;
-  | var sc_invisible=1;
-  | var sc_security="bc0c5f7d";
-script src="http://www.statcounter.com/counter/counter.js" type="text/javascript" 
-javascript:
-  | var _gaq = _gaq || [];
-      | _gaq.push(['_setAccount', 'UA-8692299-3']);
-      | _gaq.push(['_trackPageview']);
-      | (function() {
-          | var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-          | ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-          | var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-      | })();
-javascript:
-  | (function(d, s, id) {
-      | var js, fjs = d.getElementsByTagName(s)[0];
-      | if (d.getElementById(id)) return;
-      | js = d.createElement(s); js.id = id;
-      | js.src = "//connect.facebook.net/en_GB/all.js#xfbml=1&appId=113071438739907";
-      | fjs.parentNode.insertBefore(js, fjs);
-      | }(document, 'script', 'facebook-jssdk'));
+    /Footer
+    div style="clear: both;"
+    #footer-wrap
+      .container
+        .grid
+          #col-a.unit.one-of-three
+            h5 Get Involved
+            a href="http://www.facebook.com/WestCornwallEvents" title="Facebook" /
+            .facebook
+            a href="https://twitter.com/WestCornwall" title="Twitter" /
+            .twitter
+            a href="https://www.youtube.com/user/purelypenzance" title="Youtube" /
+            .you-tube
+          
+          #col-b.unit.one-of-three.footer-list
+            h5 Find Local Events
+            ul
+              li
+                a href="http://www.westcornwallevents.co.uk/events_2014.php" title=("Events in Cornwall 2014")  Local events this year
+              li
+                a href="http://www.westcornwallevents.co.uk/events_2015.php" title=("Events in Cornwall 2015")  Local events next year
+              li
+                a href="http://www.westcornwallevents.co.uk/annual_events_and_festivals.php" title=("Annual Events around West Cornwall")  Annual Events
+          
+          #col-c.unit.one-of-three.footer-list
+            h5 Popular Pages
+            ul
+              li
+                a href="http://www.westcornwallevents.co.uk/search.php" title=("Search for your event")  Search for an event
+              li
+                a href="http://www.westcornwallevents.co.uk/venues.php" title=("West Cornwall event venues")  Event Venues
+              li
+                a href="http://www.westcornwallevents.co.uk/annual_events_and_festivals.php" title=("Special Events")  Special Events
+
+          .unit.one-of-two.bottom_footer.footer_left
+            ul
+              li &copy; 2015
+              li 
+                ' Developed by
+                a href="http://www.purelywebdesign.co.uk" target="_blank" title="West Cornwall Web Design" Tony Edwards
+          
+          .unit.one-of-two.bottom_footer.footer_right
+            ul
+              li
+                a href="http://www.westcornwallevents.co.uk/website/sitemap.php" Site map |
+              li
+                a href="http://www.westcornwallevents.co.uk/website/advertise.php" Advertise |
+              li
+                a href="http://www.westcornwallevents.co.uk/website/legal.php" Legal Stuff |
+              li
+                a href="http://www.westcornwallevents.co.uk" title="Home" Home |
+              li
+                a href="#top" Top
+
+
+    script src="http://www.google.co.uk/cse/brand?form=cse-search-box&amp;lang=en" type="text/javascript" 
+
+    javascript:
+       var sc_project=5688210;
+       var sc_invisible=1;
+       var sc_security="bc0c5f7d";
+    script src="http://www.statcounter.com/counter/counter.js" type="text/javascript" 
+    javascript:
+       var _gaq = _gaq || [];
+          _gaq.push(['_setAccount', 'UA-8692299-3']);
+         _gaq.push(['_trackPageview']);
+         (function() {
+               var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+               ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+               var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+           })();
+    javascript:
+       (function(d, s, id) {
+           var js, fjs = d.getElementsByTagName(s)[0];
+           if (d.getElementById(id)) return;
+           js = d.createElement(s); js.id = id;
+           js.src = "//connect.facebook.net/en_GB/all.js#xfbml=1&appId=113071438739907";
+           fjs.parentNode.insertBefore(js, fjs);
+           }(document, 'script', 'facebook-jssdk'));
