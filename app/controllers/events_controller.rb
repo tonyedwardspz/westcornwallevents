@@ -4,7 +4,15 @@ class EventsController < ApplicationController
   # GET /events
   # GET /events.json
   def index
-    @events = Event.all
+
+    if params[:month] && params[:year]
+      month = Date::MONTHNAMES.index(params[:month])
+      @events = Event.where('extract(month from date) = ?', month).where('extract(year from date) = ?', params[:year]).order('date')
+    elsif params[:year]
+      @events = Event.where('extract(year from date) = ?', params[:year]).where('date > ?', DateTime.now).order('date').limit(5)
+    else
+      @events = Event.all
+    end
   end
 
   # GET /events/1
