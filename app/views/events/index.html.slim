@@ -1,19 +1,53 @@
-h1 Listing events
+h1
+  a#top MONTH NAME 2015 Events Calendar
+.fb-wrap
+  .fb-like data-action="like" data-layout="standard" data-share="true" data-show-faces="false" 
+#event.container
+  .grid
+    - @events.empty?
+      p No results found
 
-table
-  thead
-    tr
-      th
-      th
-      th
-
-  tbody
     - @events.each do |event|
-      tr
-        td = link_to 'Show', event
-        td = link_to 'Edit', edit_event_path(event)
-        td = link_to 'Destroy', event, data: {:confirm => 'Are you sure?'}, :method => :delete
+      .event_date.unit.one-of-five
+        p.dateinfo 
+          ' #{event.date.strftime("%b")}
+          span #{event.date.strftime("%d")}
 
-br
+      .event_details.unit.four-of-five
+        h2 #{event.title}
+        p.details
+          ' LOCATION - #{event.location}
+          br
+          ' DATE: #{event.date}
+          ' TIME:
+      
+      .event_info.unit.span-grid
+        - unless event.image_link.blank?
+          img.post-image alt="#{event.imageAlt}" height="132" src="#{event.image_link}" width="225"
+        
+        p #{event.description.html_safe}
 
-= link_to 'New Event', new_event_path
+        - unless event.description2.blank?
+          p #{event.description2.html_safe}
+
+        - unless event.description3.blank?
+          p #{event.description3.html_safe}
+
+        - unless event.more_link.blank?
+          p
+            a.more href="#{event.more_link}" title="#{event.moreTitle}"  Find out more &raquo;
+        - unless event.link.blank? 
+          p
+            a.more href="#{event.link}" title="#{event.linktitle}"  Visit the website &raquo;
+
+        = link_to 'Show', event
+
+
+p
+  ' Can't find the event you were looking for? If we've missed something important let us know it's happening on
+  a href="http://www.facebook.com/WestCornwallEvents" title="Facebook"  facebook
+  ' We'll do the rest!
+p
+  ' Event organisers can
+  a href="#"  submit events
+  ' for free.
