@@ -1,42 +1,13 @@
 p#notice = notice
 
+h1 = @festival.title
 p
-  strong Title:
-  = @festival.title
-p
-  strong Date:
-  = @festival.date
-p
-  strong End date:
-  = @festival.end_date
-p
-  strong Content:
-  = @festival.content
-p
-  strong Image:
-  = @festival.image
-p
-  strong Image alt:
-  = @festival.image_alt
-p
-  strong Image2:
-  = @festival.image2
-p
-  strong Image2 alt:
-  = @festival.image2_alt
-p
-  strong Video1:
-  = @festival.video1
-p
-  strong Video2:
-  = @festival.video2
-p
-  strong Meta title:
-  = @festival.meta_title
-p
-  strong Meta description:
-  = @festival.meta_description
+  = @festival.date.strftime("%d %B")
+  |  to 
+  = @festival.end_date.strftime("%d %B %Y")
 
-= link_to 'Edit', edit_festival_path(@festival)
-'|
-= link_to 'Back', festivals_path
+  = image_tag("#{@festival.image}", alt: "#{@festival.image_alt}", class: "float-right")
+
+  = @festival.content.html_safe
+
+= render 'shared/monthly_navigation'
