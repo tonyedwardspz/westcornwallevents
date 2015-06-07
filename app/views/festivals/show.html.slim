@@ -5,7 +5,7 @@ p
   = @festival.date.strftime("%d %B")
   |  to 
   = @festival.end_date.strftime("%d %B %Y")
-
+p
   = image_tag("#{@festival.image}", alt: "#{@festival.image_alt}", class: "float-right")
 
   = @festival.content.html_safe
