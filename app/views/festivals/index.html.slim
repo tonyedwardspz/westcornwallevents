@@ -1,0 +1,43 @@
+h1 Listing festivals
+
+table
+  thead
+    tr
+      th Title
+      th Date
+      th End date
+      th Content
+      th Image
+      th Image alt
+      th Image2
+      th Image2 alt
+      th Video1
+      th Video2
+      th Meta title
+      th Meta description
+      th
+      th
+      th
+
+  tbody
+    - @festivals.each do |festival|
+      tr
+        td = festival.title
+        td = festival.date
+        td = festival.end_date
+        td = festival.content
+        td = festival.image
+        td = festival.image_alt
+        td = festival.image2
+        td = festival.image2_alt
+        td = festival.video1
+        td = festival.video2
+        td = festival.meta_title
+        td = festival.meta_description
+        td = link_to 'Show', festival
+        td = link_to 'Edit', edit_festival_path(festival)
+        td = link_to 'Destroy', festival, data: {:confirm => 'Are you sure?'}, :method => :delete
+
+br
+
+= link_to 'New Festival', new_festival_path
