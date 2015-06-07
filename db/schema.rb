@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150606102614) do
+ActiveRecord::Schema.define(version: 20150605115411) do
 
   create_table "events", force: :cascade do |t|
     t.datetime "created_at",               null: false
@@ -30,23 +30,6 @@ ActiveRecord::Schema.define(version: 20150606102614) do
     t.string   "description3", limit: 255
     t.string   "image_link",   limit: 255
     t.string   "imageAlt",     limit: 255
-  end
-
-  create_table "festivals", force: :cascade do |t|
-    t.datetime "created_at",                     null: false
-    t.datetime "updated_at",                     null: false
-    t.string   "title",            limit: 255
-    t.date     "date"
-    t.date     "enddate"
-    t.text     "content",          limit: 65535
-    t.string   "image",            limit: 255
-    t.string   "image_alt",        limit: 255
-    t.string   "image2",           limit: 255
-    t.string   "image2_alt",       limit: 255
-    t.string   "video1",           limit: 255
-    t.string   "video2",           limit: 255
-    t.string   "meta_title",       limit: 255
-    t.string   "meta_description", limit: 255
   end
 
 end
