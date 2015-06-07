@@ -15,7 +15,7 @@ class EventsController < ApplicationController
         @events = Event.where('extract(year from date) = ?', params[:year]).where('date > ?', DateTime.now).order('date').limit(5)
       end
     else
-      @events = Event.all
+      @events = Event.where('date > ?', DateTime.now).order('date')
     end
   end
 
