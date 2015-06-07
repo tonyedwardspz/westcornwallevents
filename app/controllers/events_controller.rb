@@ -9,11 +9,7 @@ class EventsController < ApplicationController
       month = Date::MONTHNAMES.index(params[:month])
       @events = Event.where('extract(month from date) = ?', month).where('extract(year from date) = ?', params[:year]).order('date')
     elsif params[:year]
-      if params[:year] > Time.now.year.to_s
-        @events = Event.where('extract(year from date) = ?', params[:year]).limit(5)
-      else
-        @events = Event.where('extract(year from date) = ?', params[:year]).where('date > ?', DateTime.now).order('date').limit(5)
-      end
+      @events = Event.where('extract(year from date) = ?', params[:year]).where('date > ?', DateTime.now).order('date').limit(5)
     else
       @events = Event.all
     end
