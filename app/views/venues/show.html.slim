@@ -1,0 +1,36 @@
+p#notice = notice
+
+p
+  strong Title:
+  = @venue.title
+p
+  strong Name:
+  = @venue.name
+p
+  strong Phone:
+  = @venue.phone
+p
+  strong Email:
+  = @venue.email
+p
+  strong Url:
+  = @venue.url
+p
+  strong Address:
+  = @venue.address
+p
+  strong Postcode:
+  = @venue.postcode
+p
+  strong Image:
+  = @venue.image
+p
+  strong Image alt:
+  = @venue.image_alt
+p
+  strong Content:
+  = @venue.content
+
+= link_to 'Edit', edit_venue_path(@venue)
+'|
+= link_to 'Back', venues_path
