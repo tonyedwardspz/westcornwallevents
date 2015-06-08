@@ -1,22 +1,24 @@
 $(document).ready(function(e){
     applyActiveClass();
     injectMobileNav();
+
+    $("#menu").click(function(e){
+        $("#nav").toggle();
+    });
+
+    $(".hide_me").click(function(e){
+        
+        var offsetTop = $(window).scrollTop();
+
+        if (offsetTop > 300){
+            $(".body_navigation:eq( 1 )").toggle();
+        }else{
+            $(".body_navigation:eq( 0 )").toggle();
+        }
+    }); 
 });
 
-$("#menu").click(function(e){
-    $("#nav").toggle();
-});
-
-$(".hide_me").click(function(e){
-    
-    var offsetTop = $(window).scrollTop();
-
-    if (offsetTop > 300){
-        $(".body_navigation:eq( 1 )").toggle();
-    }else{
-        $(".body_navigation:eq( 0 )").toggle();
-    }
-});   
+  
 
 $(window).resize(function(){
     
