@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150607202213) do
+ActiveRecord::Schema.define(version: 20150608073508) do
 
   create_table "events", force: :cascade do |t|
     t.datetime "created_at",               null: false
@@ -48,6 +48,7 @@ ActiveRecord::Schema.define(version: 20150607202213) do
     t.datetime "created_at",                     null: false
     t.datetime "updated_at",                     null: false
     t.string   "summary",          limit: 255
+    t.string   "snippet",          limit: 255
   end
 
 end
