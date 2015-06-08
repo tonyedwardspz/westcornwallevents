@@ -1,0 +1,39 @@
+h1 Listing venues
+
+table
+  thead
+    tr
+      th Title
+      th Name
+      th Phone
+      th Email
+      th Url
+      th Address
+      th Postcode
+      th Image
+      th Image alt
+      th Content
+      th
+      th
+      th
+
+  tbody
+    - @venues.each do |venue|
+      tr
+        td = venue.title
+        td = venue.name
+        td = venue.phone
+        td = venue.email
+        td = venue.url
+        td = venue.address
+        td = venue.postcode
+        td = venue.image
+        td = venue.image_alt
+        td = venue.content
+        td = link_to 'Show', venue
+        td = link_to 'Edit', edit_venue_path(venue)
+        td = link_to 'Destroy', venue, data: {:confirm => 'Are you sure?'}, :method => :delete
+
+br
+
+= link_to 'New Venue', new_venue_path
