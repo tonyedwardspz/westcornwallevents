@@ -1,0 +1,9 @@
+h1 Annual Events and Festivals
+
+- @festivals.each do |festival|
+
+  .event_details.unit.span-grid
+    h4 = link_to "#{festival.title}", festival
+    = image_tag(festival.image, alt: festival.image_alt, class: "post-image")
+    p #{festival.summary}
+    = link_to 'Show', festival
