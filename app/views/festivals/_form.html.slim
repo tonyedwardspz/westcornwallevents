@@ -1,0 +1,21 @@
+= simple_form_for(@festival) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :title
+    = f.input :date
+    = f.input :end_date
+    = f.input :content
+    = f.input :image
+    = f.input :image_alt
+    = f.input :image2
+    = f.input :image2_alt
+    = f.input :video1
+    = f.input :video2
+    = f.input :meta_title
+    = f.input :meta_description
+    = f.input :summary
+    = f.input :snippet
+
+  .form-actions
+    = f.button :submit
