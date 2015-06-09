@@ -279,6 +279,10 @@ hr {
     text-decoration: none;
 }
 
+#title a{
+    color: black;
+}
+
 th, td { padding: 5px 30px;}
 
 td:first-child, th:first-child { padding: 5px 30px 5px 0;}
