@@ -4,18 +4,18 @@
     span #{@event.date.strftime("%d")}
 
 .event_details.unit.four-of-five
-  h2 = link_to @event.title, @event
+  h2 #{@event.title}
   
   p.details
     ' LOCATION - #{@event.location}
     br
-    ' DATE: #{@event.date.strftime("%m -%b - %Y")}
-    - unless event.time.blank?
-      ' TIME: #{event.time}
+    ' DATE: #{@event.date.strftime("%m %b %Y")}
+    - unless @event.time.nil?
+      '  - TIME: #{@event.time}
 
 .event_info.unit.span-grid
   - unless @event.image_link.blank?
-    img.post-image alt="#{event.imageAlt}" height="132" src="#{event.image_link}" width="225"
+    img.post-image alt="#{@event.imageAlt}" height="132" src="#{@event.image_link}" width="225"
   
   p #{@event.description.html_safe}
 
