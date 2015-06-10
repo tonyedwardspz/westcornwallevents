@@ -29,9 +29,9 @@ html
               li.home
                 a href="/" title="Home" Home
               li.2015
-                = link_to "2015 Events", events_path(:year => "2015"), :title => "Events in Cornwall 2015"
+                = link_to "#{Time.now.year} Events", events_path(:year => "#{Time.now.year}"), :title => "Events in Cornwall #{Time.now.year}"
               li.2016
-                = link_to "2016 Events", events_path(:year => "2016"), :title => "Events in Cornwall 2016"
+                = link_to "#{1.year.from_now.year} Events", events_path(:year => "#{1.year.from_now.year}"), :title => "Events in Cornwall #{1.year.from_now.year}"
               li.annual
                 a href="/festivals" title="Annual Cornish festivals" Annual Events
               li.submit 
@@ -115,7 +115,7 @@ html
               li
                 = link_to "Cornwall #{Time.now.year} Events", events_path(:year => "#{Time.now.year}"), :title => "Events in Cornwall 2015"
               li
-                = link_to "Cornwall 2016 Events", events_path(:year => "2016"), :title => "Events in Cornwall 2016"
+                = link_to "Cornwall {1.year.from_now.year} Events", events_path(:year => "{1.year.from_now.year}"), :title => "Events in Cornwall {1.year.from_now.year}"
               li
                 a href="/festivals" title="Annual Cornish festivals 2015" Annual Events and Festivals
           
