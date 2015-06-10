@@ -1,9 +1,8 @@
-h1 Listing venues
+h1 All Venues
 
 table
   thead
     tr
-      th Title
       th Name
       th Phone
       th Email
@@ -20,7 +19,6 @@ table
   tbody
     - @venues.each do |venue|
       tr
-        td = venue.title
         td = venue.name
         td = venue.phone
         td = venue.email
