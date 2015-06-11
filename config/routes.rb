@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  get 'submit_event/index'
+
+
   resources :venues, :festivals, :events
 
   get 'home/index'
