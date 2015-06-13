@@ -6,4 +6,4 @@ h1 Annual Events and Festivals
     h4 = link_to "#{festival.title}", festival
     = image_tag(festival.image, alt: festival.image_alt, class: "post-image")
     p #{festival.summary}
-    = link_to 'Show', festival
+    = link_to 'View more details', festival, class: "more"

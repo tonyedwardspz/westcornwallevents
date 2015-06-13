@@ -4,7 +4,6 @@ html
     title #{@page_title} | West Cornwall Events
     meta charset="UTF-8"
     = stylesheet_link_tag 'application'
-    = javascript_include_tag 'application'
     = csrf_meta_tag
 
     meta name="description" content="Description tag"
@@ -63,6 +62,8 @@ html
         .grid
           #content.unit.three-of-four
             = yield
+
+            .google-ad-body
 
           / Sidebar
           #sidebar.unit.one-of-four
@@ -149,7 +150,9 @@ html
                 a href="#top" Top
 
 
-    script src="http://www.google.co.uk/cse/brand?form=cse-search-box&amp;lang=en" type="text/javascript" 
+    script src="http://www.google.co.uk/cse/brand?form=cse-search-box&amp;lang=en"
+    script src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" async
+    = javascript_include_tag 'application'
 
     javascript:
        var sc_project=5688210;

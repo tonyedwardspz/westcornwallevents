@@ -9,15 +9,12 @@ $(document).ready(function(e){
     $(".hide_me").click(function(e){
         
         var offsetTop = $(window).scrollTop();
+        
+        $(".body_navigation").toggle();
+    });
 
-        if (offsetTop > 300){
-            $(".body_navigation:eq( 1 )").toggle();
-        }else{
-            $(".body_navigation:eq( 0 )").toggle();
-        }
-    }); 
+    googleAdvertsInit(); 
 });
-
   
 
 $(window).resize(function(){
@@ -29,6 +26,7 @@ $(window).resize(function(){
         $(".body_navigation").removeAttr("style");
     }  
 });
+
 
 function applyActiveClass(){
 
@@ -53,6 +51,7 @@ function applyActiveClass(){
             break;
     }
 }
+
 
 function injectMobileNav(){
     $("#nav").addClass("js").before('<div id="menu"><img src="http://www.westcornwallevents.co.uk/images/nav-icon.png" alt="Navigation"></div>');
