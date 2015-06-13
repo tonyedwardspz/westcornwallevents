@@ -34,8 +34,9 @@ html
                 = link_to "#{1.year.from_now.year} Events", events_path(:year => "#{1.year.from_now.year}"), :title => "Events in Cornwall #{1.year.from_now.year}"
               li.annual
                 a href="/festivals" title="Annual Cornish festivals" Annual Events
-              li.submit 
-                a href="#" title="Submit an event for free" Submit Event
+              li.submit
+                = link_to 'Submit Event', submit_event_path
+                /a href="" title="Submit an event for free" Submit Event
 
           #search
             form action="#" id="cse-search-box"
