@@ -31,11 +31,13 @@ class EventsController < ApplicationController
 
   # GET /events/new
   def new
+    @page_title = "Create a new festival"
     @event = Event.new
   end
 
   # GET /events/1/edit
   def edit
+    @page_title = "Edit festival #{@event.title}"
   end
 
   # POST /events

@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get 'submit_event/index'
+  get 'submit_event' => 'submit_event#index', as: :submit_event
 
 
   resources :venues, :festivals, :events
