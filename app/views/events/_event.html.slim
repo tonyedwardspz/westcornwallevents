@@ -25,9 +25,12 @@
   - unless event.description3.blank?
     p #{event.description3.html_safe}
 
-  - unless event.more_link.blank?
-    p
-      a.more href="#{event.more_link}" title="#{event.moreTitle}"  Find out more &raquo;
-  - unless event.link.blank? 
-    p
-      a.more href="#{event.link}" title="#{event.linktitle}"  Visit the website &raquo;
+  - if event.festival
+    = link_to ' Find out more »', festival_path(event.festival_id), class: "more"
+  - else
+    - unless event.more_link.blank?
+      p
+        a.more href="#{event.more_link}" title="#{event.moreTitle}"  Find out more &raquo;
+    - unless event.link.blank? 
+      p
+        a.more href="#{event.link}" title="#{event.linktitle}"  Visit the website &raquo;
