@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150610073654) do
+ActiveRecord::Schema.define(version: 20150614111058) do
 
   create_table "events", force: :cascade do |t|
     t.datetime "created_at",               null: false
@@ -30,7 +30,10 @@ ActiveRecord::Schema.define(version: 20150610073654) do
     t.string   "description3", limit: 255
     t.string   "image_link",   limit: 255
     t.string   "imageAlt",     limit: 255
+    t.integer  "festival_id",  limit: 4
   end
+
+  add_index "events", ["festival_id"], name: "index_events_on_festival_id", using: :btree
 
   create_table "festivals", force: :cascade do |t|
     t.string   "title",            limit: 255
