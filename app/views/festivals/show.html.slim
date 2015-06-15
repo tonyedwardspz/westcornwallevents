@@ -3,8 +3,11 @@ p#notice = notice
 h1 = @festival.title
 p
   = @festival.date.strftime("%d %B")
-  |  to 
-  = @festival.end_date.strftime("%d %B %Y")
+  - if !@festival.end_date.blank? && @festival.end_date != @festival.date
+    |  to 
+    = @festival.end_date.strftime("%d %B")
+  |   
+  = @festival.date.strftime("%Y")
 p
   = image_tag("#{@festival.image}", alt: "#{@festival.image_alt}", class: "float-right")
 
