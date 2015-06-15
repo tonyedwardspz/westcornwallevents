@@ -4,6 +4,7 @@
     span #{@event.date.strftime("%d")}
 
 .event_details.unit.four-of-five
+  - if @event.festival
   h2 #{@event.title}
   
   p.details
@@ -24,10 +25,3 @@
 
   - unless @event.description3.blank?
     p #{@event.description3.html_safe}
-
-  - unless @event.more_link.blank?
-    p
-      a.more href="#{@event.more_link}" title="#{@event.moreTitle}"  Find out more &raquo;
-  - unless @event.link.blank? 
-    p
-      a.more href="#{@event.link}" title="#{@event.linktitle}"  Visit the website &raquo;

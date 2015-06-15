@@ -102,7 +102,7 @@ html
               li
                 = link_to "Cornwall #{Time.now.year} Events", events_path(:year => "#{Time.now.year}"), :title => "Events in Cornwall 2015"
               li
-                = link_to "Cornwall {1.year.from_now.year} Events", events_path(:year => "{1.year.from_now.year}"), :title => "Events in Cornwall {1.year.from_now.year}"
+                = link_to "Cornwall #{1.year.from_now.year} Events", events_path(:year => "#{1.year.from_now.year}"), :title => "Events in Cornwall #{1.year.from_now.year}"
               li
                 a href="/festivals" title="Annual Cornish festivals 2015" Annual Events and Festivals
           

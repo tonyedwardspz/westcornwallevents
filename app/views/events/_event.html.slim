@@ -4,7 +4,10 @@
     span #{event.date.strftime("%d")}
 
 .event_details.unit.four-of-five
-  h2 = link_to event.title, event
+  - if event.festival
+    h2 = link_to event.title, event.festival
+  - else
+    h2 = link_to event.title, event
   
   p.details
     ' LOCATION - #{event.location}
@@ -26,11 +29,11 @@
     p #{event.description3.html_safe}
 
   - if event.festival
-    = link_to ' Find out more »', festival_path(event.festival_id), class: "more"
+    = link_to 'Find out more', festival_path(event.festival_id), class: "more"
   - else
     - unless event.more_link.blank?
       p
-        a.more href="#{event.more_link}" title="#{event.moreTitle}"  Find out more &raquo;
+        a.more href="#{event.more_link}" title="#{event.moreTitle}"  Find out more
     - unless event.link.blank? 
       p
-        a.more href="#{event.link}" title="#{event.linktitle}"  Visit the website &raquo;
+        a.more href="#{event.link}" title="#{event.linktitle}"  Visit the website
