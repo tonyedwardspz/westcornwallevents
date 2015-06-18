@@ -5,26 +5,31 @@ class VenuesController < ApplicationController
   # GET /venues.json
   def index
     @venues = Venue.all
+    @page_title = "Event venues around Cornwall"
   end
 
   # GET /venues/1
   # GET /venues/1.json
   def show
+    @page_title = @venue.name
   end
 
   # GET /venues/new
   def new
     @venue = Venue.new
+    @page_title = "New venue"
   end
 
   # GET /venues/1/edit
   def edit
+    @page_title = "Edit venue"
   end
 
   # POST /venues
   # POST /venues.json
   def create
     @venue = Venue.new(venue_params)
+    @page_title = "Create new venue"
 
     respond_to do |format|
       if @venue.save

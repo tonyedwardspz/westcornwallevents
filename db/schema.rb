@@ -11,11 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150614111058) do
+ActiveRecord::Schema.define(version: 20150617090507) do
 
   create_table "events", force: :cascade do |t|
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
     t.date     "date"
     t.date     "dateend"
     t.string   "title",        limit: 255
@@ -25,15 +25,17 @@ ActiveRecord::Schema.define(version: 20150614111058) do
     t.string   "time",         limit: 255
     t.string   "more_link",    limit: 255
     t.string   "moreTitle",    limit: 255
-    t.string   "description",  limit: 255
-    t.string   "description2", limit: 255
-    t.string   "description3", limit: 255
+    t.text     "description",  limit: 65535
+    t.text     "description2", limit: 65535
+    t.text     "description3", limit: 65535
     t.string   "image_link",   limit: 255
     t.string   "imageAlt",     limit: 255
     t.integer  "festival_id",  limit: 4
+    t.integer  "venue_id",     limit: 4
   end
 
   add_index "events", ["festival_id"], name: "index_events_on_festival_id", using: :btree
+  add_index "events", ["venue_id"], name: "index_events_on_venue_id", using: :btree
 
   create_table "festivals", force: :cascade do |t|
     t.string   "title",            limit: 255
@@ -63,9 +65,9 @@ ActiveRecord::Schema.define(version: 20150614111058) do
     t.string   "postcode",   limit: 255
     t.string   "image",      limit: 255
     t.string   "image_alt",  limit: 255
-    t.string   "content",    limit: 255
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.text     "content",    limit: 65535
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
   end
 
 end
