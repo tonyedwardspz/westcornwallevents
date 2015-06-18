@@ -1,36 +1,34 @@
-h1 All Venues
+h1 Venues around West Cornwall
 
-table
-  thead
-    tr
-      th Name
-      th Phone
-      th Email
-      th Url
-      th Address
-      th Postcode
-      th Image
-      th Image alt
-      th Content
-      th
-      th
-      th
+- @venues.each do |venue|
+  .event_details.unit.span-grid
+    h4 = link_to "#{venue.name}", venue
+    - if venue.image
+      = image_tag(venue.image, alt: venue.image_alt, class: "post-image float-right", height: "125")
+    p #{venue.address}, #{venue.postcode}
+    = link_to 'View venue details', venue, class: "more"
 
-  tbody
-    - @venues.each do |venue|
-      tr
-        td = venue.name
-        td = venue.phone
-        td = venue.email
-        td = venue.url
-        td = venue.address
-        td = venue.postcode
-        td = venue.image
-        td = venue.image_alt
-        td = venue.content
-        td = link_to 'Show', venue
-        td = link_to 'Edit', edit_venue_path(venue)
-        td = link_to 'Destroy', venue, data: {:confirm => 'Are you sure?'}, :method => :delete
+
+
+
+
+/ table
+
+/   tbody
+/     - @venues.each do |venue|
+/       tr
+/         td = venue.name
+/         td = venue.phone
+/         td = venue.email
+/         td = venue.url
+/         td = venue.address
+/         td = venue.postcode
+/         td = venue.image
+/         td = venue.image_alt
+/         td = venue.content
+/         td = link_to 'Show', venue
+/         td = link_to 'Edit', edit_venue_path(venue)
+/         td = link_to 'Destroy', venue, data: {:confirm => 'Are you sure?'}, :method => :delete
 
 br
 
