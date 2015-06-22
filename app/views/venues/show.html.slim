@@ -12,6 +12,6 @@ p
   br
   | #{@venue.address}, #{@venue.postcode}
   br
-  a href="#{@venue.url}" title="Ritz Penzance Music Venue" www.ritzpz.co.uk
+  a href="#{@venue.url}" title="#{@venue.name}" #{@venue.url}
                     
 = @venue.content.html_safe
