@@ -1,33 +1,17 @@
 p#notice = notice
 
-p
-  strong Name:
-  = @venue.name
-p
-  strong Phone:
-  = @venue.phone
-p
-  strong Email:
-  = @venue.email
-p
-  strong Url:
-  = @venue.url
-p
-  strong Address:
-  = @venue.address
-p
-  strong Postcode:
-  = @venue.postcode
-p
-  strong Image:
-  = @venue.image
-p
-  strong Image alt:
-  = @venue.image_alt
-p
-  strong Content:
-  = @venue.content
+<a id="top"></a>
+h1 = @venue.name
 
-= link_to 'Edit', edit_venue_path(@venue)
-'|
-= link_to 'Back', venues_path
+= image_tag(@venue.image, :alt => @venue.image_alt, :class => "float-right")
+
+p 
+  strong #{@venue.name}
+  - if @venue.phone.present?
+    |  (#{@venue.phone}) 
+  br
+  | #{@venue.address}, #{@venue.postcode}
+  br
+  a href="#{@venue.url}" title="#{@venue.name}" #{@venue.url}
+                    
+= @venue.content.html_safe
