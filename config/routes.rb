@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :users
   get 'submit_event' => 'submit_event#index', as: :submit_event
 
 

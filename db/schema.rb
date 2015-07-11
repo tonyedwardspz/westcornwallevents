@@ -11,63 +11,73 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150617090507) do
+ActiveRecord::Schema.define(version: 20150711141441) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
   create_table "events", force: :cascade do |t|
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
     t.date     "date"
     t.date     "dateend"
-    t.string   "title",        limit: 255
-    t.string   "location",     limit: 255
-    t.string   "link",         limit: 255
-    t.string   "linktitle",    limit: 255
-    t.string   "time",         limit: 255
-    t.string   "more_link",    limit: 255
-    t.string   "moreTitle",    limit: 255
-    t.text     "description",  limit: 65535
-    t.text     "description2", limit: 65535
-    t.text     "description3", limit: 65535
-    t.string   "image_link",   limit: 255
-    t.string   "imageAlt",     limit: 255
-    t.integer  "festival_id",  limit: 4
-    t.integer  "venue_id",     limit: 4
+    t.string   "title"
+    t.string   "location"
+    t.string   "link"
+    t.string   "linktitle"
+    t.string   "time"
+    t.string   "more_link"
+    t.string   "moreTitle"
+    t.text     "description"
+    t.text     "description2"
+    t.text     "description3"
+    t.string   "image_link"
+    t.string   "imageAlt"
+    t.integer  "festival_id"
+    t.integer  "venue_id"
   end
 
   add_index "events", ["festival_id"], name: "index_events_on_festival_id", using: :btree
   add_index "events", ["venue_id"], name: "index_events_on_venue_id", using: :btree
 
   create_table "festivals", force: :cascade do |t|
-    t.string   "title",            limit: 255
+    t.string   "title"
     t.date     "date"
     t.date     "end_date"
-    t.text     "content",          limit: 65535
-    t.string   "image",            limit: 255
-    t.string   "image_alt",        limit: 255
-    t.string   "image2",           limit: 255
-    t.string   "image2_alt",       limit: 255
-    t.string   "video1",           limit: 255
-    t.string   "video2",           limit: 255
-    t.string   "meta_title",       limit: 255
-    t.string   "meta_description", limit: 255
-    t.datetime "created_at",                     null: false
-    t.datetime "updated_at",                     null: false
-    t.text     "summary",          limit: 65535
-    t.string   "snippet",          limit: 255
+    t.text     "content"
+    t.string   "image"
+    t.string   "image_alt"
+    t.string   "image2"
+    t.string   "image2_alt"
+    t.string   "video1"
+    t.string   "video2"
+    t.string   "meta_title"
+    t.string   "meta_description"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+    t.text     "summary"
+    t.string   "snippet"
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string   "name"
+    t.string   "password_digest"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
   end
 
   create_table "venues", force: :cascade do |t|
-    t.string   "name",       limit: 255
-    t.string   "phone",      limit: 255
-    t.string   "email",      limit: 255
-    t.string   "url",        limit: 255
-    t.string   "address",    limit: 255
-    t.string   "postcode",   limit: 255
-    t.string   "image",      limit: 255
-    t.string   "image_alt",  limit: 255
-    t.text     "content",    limit: 65535
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
+    t.string   "name"
+    t.string   "phone"
+    t.string   "email"
+    t.string   "url"
+    t.string   "address"
+    t.string   "postcode"
+    t.string   "image"
+    t.string   "image_alt"
+    t.text     "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end
