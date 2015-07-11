@@ -1,4 +1,5 @@
 class FestivalsController < ApplicationController
+  skip_before_action :authorize, only: [:index, :show]
   before_action :set_festival, only: [:show, :edit, :update, :destroy]
 
   # GET /festivals
