@@ -1,0 +1,10 @@
+h1 Listing users
+
+- @users.each do |user|
+  p #{user.name}
+  p = link_to 'Show', user
+  p = link_to 'Edit', edit_user_path(user)
+  p = link_to 'Destroy', user, data: {:confirm => 'Are you sure?'}, :method => :delete
+  hr
+
+= link_to 'New User', new_user_path

@@ -1,2 +1,13 @@
-h1 Sessions#new
-p Find me in app/views/sessions/new.html.slim
+- if flash[:alert]
+  p Error: #{flash[:alert]}
+
+h1 Please log in
+
+= form_tag do |t|
+  = label_tag :name, 'Name:'
+  = text_field_tag :name, params[:name]
+  = label_tag :password
+  = password_field_tag :password, params[:password]
+  = submit_tag 'Login'
+
+end
