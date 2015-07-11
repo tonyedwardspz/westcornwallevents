@@ -5,6 +5,13 @@ class ApplicationController < ActionController::Base
 
   $sidebar_festivals = Festival.all.order('date').limit('4')
 
+  before_action :authorize
 
+  protected
+  def authorize
+    unless User.find_by(id: session[:user_id])
+      redirect_to login_url, notice: "Please log in"
+    end
+  end
 
 end
