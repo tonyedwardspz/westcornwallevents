@@ -1,4 +1,12 @@
 Rails.application.routes.draw do
+  get 'admin/index'
+
+  get 'sessions/new'
+
+  get 'sessions/create'
+
+  get 'sessions/destroy'
+
   resources :users
   get 'submit_event' => 'submit_event#index', as: :submit_event
 
