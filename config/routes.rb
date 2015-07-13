@@ -5,6 +5,8 @@ Rails.application.routes.draw do
 
   get 'admin' => 'admin#index'
 
+  get 'sessions' => "sessions#destroy", as: :logout
+
   controller :sessions do
     get 'login' => :new
     post 'login' => :create
