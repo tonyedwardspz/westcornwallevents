@@ -1,0 +1,43 @@
+.event_date.unit.one-of-five
+  p.dateinfo 
+    ' #{event.date.strftime("%b")}
+    span #{event.date.strftime("%d")}
+
+.event_details.unit.four-of-five
+  - if event.festival
+    h2 = link_to event.title, event.festival
+  - else
+    h2 = link_to event.title, event
+  
+  p.details
+    - if event.venue
+      ' LOCATION - 
+      = link_to event.venue.name, venue_path(event.venue_id)
+    - else
+      ' LOCATION - #{event.location}
+    br
+    ' DATE: #{event.date.strftime("%m %b %Y")}
+    - unless event.time.blank?
+      ' TIME: #{event.time}
+
+.event_info.unit.span-grid
+  - unless event.image_link.blank?
+    img.post-image alt="#{event.imageAlt}" height="132" src="#{event.image_link}" width="225"
+  
+  p #{event.description.html_safe}
+
+  - unless event.description2.blank?
+    p #{event.description2.html_safe}
+
+  - unless event.description3.blank?
+    p #{event.description3.html_safe}
+
+  - if event.festival
+    = link_to 'Find out more', festival_path(event.festival_id), class: "more"
+  - else
+    - unless event.more_link.blank?
+      p
+        a.more href="#{event.more_link}" title="#{event.moreTitle}"  Find out more
+    - unless event.link.blank? 
+      p
+        a.more href="#{event.link}" title="#{event.linktitle}"  Visit the website
