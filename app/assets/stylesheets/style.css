@@ -698,7 +698,7 @@ div#event.container {
 }
 
 .you-tube, .twitter, .facebook{
-    background: url(../stylesheets/sprites.png) no-repeat;
+    background: url(../images/sprites.png) no-repeat;
     display: inline-block;
 }
 
