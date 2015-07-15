@@ -1,11 +1,4 @@
 Rails.application.routes.draw do
-  namespace :admin do
-    resources :users
-  end
-  namespace :admin do
-  get 'events/index'
-  end
-
   resources :venues, :festivals, :events, :users
 
   get 'submit_event' => 'submit_event#index', as: :submit_event
@@ -15,11 +8,14 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resources :events
+    resources :users
+    get 'events/index'
   end
 
   controller :sessions do
     get 'login' => :new
     post 'login' => :create
+
   end
 
   get "sessions/create"
