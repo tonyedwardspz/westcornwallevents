@@ -8,71 +8,45 @@ nav class="navbar navbar-default navbar-static-top" role="navigation" style="mar
         </button>
         = link_to "West Cornwall Events", root_path, class: "navbar-brand", title: "West Cornwall Events"
 
-    <ul class="nav navbar-top-links navbar-right">
-
-        <li class="dropdown">
-            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+    ul.nav.navbar-top-links.navbar-right
+        li.dropdown
+            a.dropdown-toggle data-toggle="dropdown" href="#"
                 <i class="fa fa-bell fa-fw"></i>  <i class="fa fa-caret-down"></i>
-            </a>
-            <ul class="dropdown-menu dropdown-alerts">
-                <li>
-                    <a href="#">
-                        <div>
+            ul.dropdown-menu.dropdown-alerts
+                li
+                    a href="#"
+                        div
                             <i class="fa fa-comment fa-fw"></i> New Comment
                             <span class="pull-right text-muted small">4 minutes ago</span>
-                        </div>
-                    </a>
-                </li>
-                <li class="divider"></li>
-                <li>
-                    <a href="#">
-                        <div>
+                li.divider
+                li
+                    a href="#"
+                        div
                             <i class="fa fa-twitter fa-fw"></i> 3 New Followers
                             <span class="pull-right text-muted small">12 minutes ago</span>
-                        </div>
-                    </a>
-                </li>
-                <li class="divider"></li>
-                <li>
-                    <a href="#">
-                        <div>
+                li.divider
+                li
+                    a href="#"
+                        div
                             <i class="fa fa-envelope fa-fw"></i> Message Sent
                             <span class="pull-right text-muted small">4 minutes ago</span>
-                        </div>
-                    </a>
-                </li>
-                <li class="divider"></li>
-                <li>
-                    <a class="text-center" href="#">
-                        <strong>See All Alerts</strong>
+                li.divider
+                li
+                    a.text-center href="#"
+                        strong See All Alerts
                         <i class="fa fa-angle-right"></i>
-                    </a>
-                </li>
-            </ul>
-            <!-- /.dropdown-alerts -->
-        </li>
-        <!-- /.dropdown -->
-        <li class="dropdown">
-            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                <i class="fa fa-user fa-fw"></i>  <i class="fa fa-caret-down"></i>
-            </a>
-            <ul class="dropdown-menu dropdown-user">
-                <li><a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
-                </li>
-                <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
-                </li>
-                <li class="divider"></li>
-                <li>
-                  = link_to('logout', logout_path)
-                  <i class="fa fa-sign-out fa-fw"></i>
-                </li>
-            </ul>
-            <!-- /.dropdown-user -->
-        </li>
-        <!-- /.dropdown -->
-    </ul>
-    <!-- /.navbar-top-links -->
 
+
+        li.dropdown
+            a.dropdown-toggle data-toggle="dropdown" href="#"
+                <i class="fa fa-gear fa-fw"></i>  <i class="fa fa-caret-down"></i>
+            ul.dropdown-menu.dropdown-user
+                li
+                    <a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
+                li.divider
+                li
+                    = link_to "Logout", logout_path, title: "Logout"
+                    i.fa.fa-sign-out.fa-fw
 
 
     .navbar-default.sidebar role="navigation"
@@ -86,30 +60,25 @@ nav class="navbar navbar-default navbar-static-top" role="navigation" style="mar
                         <button class="btn btn-default" type="button">
                             <i class="fa fa-search"></i>
                         </button>
-
                 li
                     = link_to admin_path do
                         i.fa.fa-home.fa-fw
                         ' Admin dashboard
-
                 li
                     a href="#"
                         i.fa.fa-calendar.fa-fw
                         ' Events
                         span.fa.arrow
-
                     ul.nav.nav-second-level
                         li = link_to "View Events", admin_events_path
                         li = link_to "Create New Event", new_admin_event_path
                         li
                             a href="#" Authorise Events
-
                 li
                     a href="#"
-                        i.fa.fa-calendar.fa-fw
+                        i.fa.fa-user.fa-fw
                         ' Users
                         span.fa.arrow
-
                     ul.nav.nav-second-level
                         li = link_to "View Users", admin_users_path
                         li = link_to "Create New User", new_admin_user_path
