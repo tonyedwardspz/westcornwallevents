@@ -49,4 +49,11 @@ namespace :deploy do
     end
   end
 
+  task :restart do
+    on roles(:web) do
+      execute :sudo, 'service', 'unicorn', 'restart'
+    end
+  end
 end
+
+after 'deploy', 'deploy:restart'
