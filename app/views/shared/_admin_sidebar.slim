@@ -1,0 +1,134 @@
+<!-- Navigation -->
+<nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="index.html">West Cornwall Events</a>
+    </div>
+    <!-- /.navbar-header -->
+
+    <ul class="nav navbar-top-links navbar-right">
+
+        <li class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                <i class="fa fa-bell fa-fw"></i>  <i class="fa fa-caret-down"></i>
+            </a>
+            <ul class="dropdown-menu dropdown-alerts">
+                <li>
+                    <a href="#">
+                        <div>
+                            <i class="fa fa-comment fa-fw"></i> New Comment
+                            <span class="pull-right text-muted small">4 minutes ago</span>
+                        </div>
+                    </a>
+                </li>
+                <li class="divider"></li>
+                <li>
+                    <a href="#">
+                        <div>
+                            <i class="fa fa-twitter fa-fw"></i> 3 New Followers
+                            <span class="pull-right text-muted small">12 minutes ago</span>
+                        </div>
+                    </a>
+                </li>
+                <li class="divider"></li>
+                <li>
+                    <a href="#">
+                        <div>
+                            <i class="fa fa-envelope fa-fw"></i> Message Sent
+                            <span class="pull-right text-muted small">4 minutes ago</span>
+                        </div>
+                    </a>
+                </li>
+                <li class="divider"></li>
+                <li>
+                    <a class="text-center" href="#">
+                        <strong>See All Alerts</strong>
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                </li>
+            </ul>
+            <!-- /.dropdown-alerts -->
+        </li>
+        <!-- /.dropdown -->
+        <li class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                <i class="fa fa-user fa-fw"></i>  <i class="fa fa-caret-down"></i>
+            </a>
+            <ul class="dropdown-menu dropdown-user">
+                <li><a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
+                </li>
+                <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
+                </li>
+                <li class="divider"></li>
+                <li>
+                  = link_to('logout', logout_path)
+                  <i class="fa fa-sign-out fa-fw"></i>
+                </li>
+            </ul>
+            <!-- /.dropdown-user -->
+        </li>
+        <!-- /.dropdown -->
+    </ul>
+    <!-- /.navbar-top-links -->
+
+
+
+
+
+    <div class="navbar-default sidebar" role="navigation">
+        <div class="sidebar-nav navbar-collapse">
+
+            <ul class="nav" id="side-menu">
+                <li class="sidebar-search">
+                    <div class="input-group custom-search-form">
+                        <input type="text" class="form-control" placeholder="Search...">
+                        <span class="input-group-btn">
+                        <button class="btn btn-default" type="button">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </span>
+                    </div>
+                </li>
+
+                li
+                    = link_to admin_path do
+                        i.fa.fa-home.fa-fw
+                        ' Admin dashboard
+
+                <li>
+                    <a href="#"><i class="fa fa-calendar fa-fw"></i> Events<span class="fa arrow"></span></a>
+                    <ul class="nav nav-second-level">
+                        li = link_to "View Events", admin_events_path
+                        li = link_to "Create New Event", new_admin_event_path
+                        li
+                            a href="morris.html" Authorise Event
+                    </ul>
+                    <!-- /.nav-second-level -->
+                </li>
+
+                <li>
+                    <a href="#"><i class="fa fa-user fa-fw"></i> Users<span class="fa arrow"></span></a>
+                    <ul class="nav nav-second-level">
+                        <li>
+                            <a href="flot.html">View Events</a>
+                        </li>
+                        <li>
+                            <a href="morris.html">Create New Event</a>
+                        </li>
+                        <li>
+                            <a href="morris.html">Authorise Event</a>
+                        </li>
+                    </ul>
+                    <!-- /.nav-second-level -->
+                </li>
+            </ul>
+        </div>
+        <!-- /.sidebar-collapse -->
+    </div>
+    <!-- /.navbar-static-side -->
+</nav>
