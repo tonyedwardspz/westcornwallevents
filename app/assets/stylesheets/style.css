@@ -221,7 +221,7 @@ hr {
 }
 
 #header_border {
-    background: url(/assets/layout/header_bottom_border.jpg) repeat;
+    background: url(/images/layout/header_bottom_border.jpg) repeat;
     height: 1px;
     width: 100%;
 }
@@ -263,7 +263,7 @@ hr {
 }
 
 #title-wrap {
-    background: url(../assets/layout/title_bg.jpg) repeat;
+    background: url(../images/layout/title_bg.jpg) repeat;
     margin: 45px 0 0 0;
     min-height: 100px;
     width: 100%;
@@ -511,7 +511,7 @@ td:first-child, th:first-child { padding: 5px 30px 5px 0;}
 
 
 #footer-wrap {
-    background: url(../assets/layout/bg.jpg);
+    background: url(../images/layout/bg.jpg);
     min-height: 160px;
     width: 100%;
     padding-top: 15px;
@@ -698,7 +698,7 @@ div#event.container {
 }
 
 .you-tube, .twitter, .facebook{
-    background: url(sprites.png) no-repeat;
+    background: url(../images/layout/sprites.png) no-repeat;
     display: inline-block;
 }
 

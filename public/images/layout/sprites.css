@@ -1,0 +1,22 @@
+.you-tube, .twitter, .facebook{
+	background: url(sprites.png) no-repeat;
+}
+
+.you-tube{
+	background-position: 0 0;
+	width: 64px;
+	height: 64px;
+}
+
+.twitter{
+	background-position: -70px 0;
+	width: 64px;
+	height: 64px;
+}
+
+.facebook{
+	background-position: -144px 0;
+	width: 64px;
+	height: 64px;
+}
+
