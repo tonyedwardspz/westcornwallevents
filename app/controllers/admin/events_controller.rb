@@ -2,6 +2,8 @@ class Admin::EventsController < Admin::AdminAreaController
   before_action :set_event, only: [:show, :edit, :update, :destroy]
 
   def index
+    @events = Event.all.limit(20).order("title")
+    @page_title = "View Events"
   end
 
   # GET /events/new
