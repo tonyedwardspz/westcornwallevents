@@ -1,2 +1,11 @@
-h1 Admin::Events#index
-p Find me in app/views/admin/events/index.html.slim
+#page-wrapper
+    .row
+        .col-lg-12
+            h1.page-header 
+              = @page_title || "Page Title"
+    .row
+        
+        - @events.empty?
+            p No results found
+
+        = render @events
