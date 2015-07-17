@@ -81,6 +81,8 @@ GEM
     execjs (2.5.2)
     factory_girl (4.5.0)
       activesupport (>= 3.0.0)
+    friendly_id (5.1.0)
+      activerecord (>= 4.0.0)
     globalid (0.3.3)
       activesupport (>= 4.1.0)
     hike (1.2.3)
@@ -162,9 +164,6 @@ GEM
       sprockets (>= 2.8, < 4.0)
       sprockets-rails (>= 2.0, < 4.0)
       tilt (~> 1.1)
-    seed_dump (3.2.2)
-      activerecord (~> 4)
-      activesupport (~> 4)
     simple_form (3.1.0)
       actionpack (~> 4.0)
       activemodel (~> 4.0)
@@ -231,6 +230,7 @@ DEPENDENCIES
   capistrano-rbenv
   coffee-rails (~> 4.1.0)
   factory_girl
+  friendly_id (~> 5.1.0)
   jbuilder (~> 2.0)
   jquery-rails
   minitest-documentation
@@ -240,7 +240,6 @@ DEPENDENCIES
   pg
   rails (= 4.2.1)
   sass-rails (~> 5.0)
-  seed_dump
   simple_form (~> 3.1.0)
   simplecov
   slim-rails
