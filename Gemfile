@@ -30,7 +30,7 @@ group :development, :test do
 end
 
 #gem 'seed_dump'
-gem 'has_permalink'
+gem 'friendly_id', '~> 5.1.0'
 gem 'slim-rails'
 gem 'unicorn'
 gem 'simple_form', '~> 3.1.0'
