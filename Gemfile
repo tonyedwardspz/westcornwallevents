@@ -29,7 +29,8 @@ group :development, :test do
   gem 'spring'
 end
 
-gem 'seed_dump'
+#gem 'seed_dump'
+gem 'has_permalink'
 gem 'slim-rails'
 gem 'unicorn'
 gem 'simple_form', '~> 3.1.0'
