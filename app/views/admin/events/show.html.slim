@@ -7,8 +7,9 @@
 
             .event_date.unit.one-of-five
               p.dateinfo 
-                ' #{@event.date.strftime("%b")}
-                span #{@event.date.strftime("%d")}
+                - if @event.date
+                  ' #{@event.date.strftime("%b")}
+                  span #{@event.date.strftime("%d")}
 
             .event_details.unit.four-of-five
               - if @event.festival
@@ -17,9 +18,10 @@
               p.details
                 ' LOCATION - #{@event.location}
                 br
-                ' DATE: #{@event.date.strftime("%m %b %Y")}
-                - unless @event.time.nil?
-                  '  - TIME: #{@event.time}
+                - if @event.date
+                  ' DATE: #{@event.date.strftime("%m %b %Y")}
+                  - unless @event.time.nil?
+                    '  - TIME: #{@event.time}
 
             .event_info.unit.span-grid
               - unless @event.image_link.blank?

@@ -10,7 +10,7 @@
   p.details
     ' LOCATION - #{@event.location}
     br
-    ' DATE: #{@event.date.strftime("%m %b %Y")}
+    ' DATE: #{@event.date.strftime("%d %b %Y")}
     - unless @event.time.nil?
       '  - TIME: #{@event.time}
 

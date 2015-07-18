@@ -8,6 +8,7 @@
                 = event.title
         .panel-body
             p.dateinfo 
+              - if event.date
                 ' #{event.date.strftime("%b")}
                 span #{event.date.strftime("%d")}
               
@@ -18,9 +19,10 @@
                 - else
                   ' LOCATION - #{event.location}
                 br
-                ' DATE: #{event.date.strftime("%m %b %Y")}
-                - unless event.time.blank?
-                  ' TIME: #{event.time}
+                - if event.date
+                  ' DATE: #{event.date.strftime("%m %b %Y")}
+                  - unless event.time.blank?
+                    ' TIME: #{event.time}
 
         .panel-footer
             = link_to 'Show', admin_event_path(:id => event.id)

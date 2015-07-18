@@ -2,7 +2,7 @@ class Admin::EventsController < Admin::AdminAreaController
   before_action :set_event, only: [:show, :edit, :update, :destroy]
 
   def index
-    @events = Event.all.limit(20).order("title")
+    @events = Event.all.order('id desc')
     @page_title = "View Events"
   end
 
@@ -21,6 +21,10 @@ class Admin::EventsController < Admin::AdminAreaController
   # POST /events.json
   def create
     @event = Event.new(event_params)
+    @event.date = @event.date.strftime("%m/%d/%Y")
+    if @event.dateend.present?
+      @event.dateend = @event.dateend.strftime("%m/%d/%Y")
+    end
 
     respond_to do |format|
       if @event.save
