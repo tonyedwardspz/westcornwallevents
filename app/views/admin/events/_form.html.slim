@@ -1,25 +1,50 @@
 = simple_form_for(@event, html: {class: 'form-vertical'}) do |f|
   = f.error_notification
 
-  .form-inputs
+  .col-md-6
 
-    = f.input :title
-    = f.input :date
-    = f.input :dateend
+    = f.input :title, required: :true, label: "Event Title", input_html: { placeholder: "Aesome Event Title" }
+    = f.input :date, as: :string, label: "Start Date", required: :true
+    = f.input :dateend, as: :string, label: "End Date"
     = f.input :time
-    = f.input :location
-    = f.association :venue
-    = f.association :festival
-    = f.input :link
-    = f.input :linktitle
-    = f.input :more_link
-    = f.input :moreTitle
-    = f.input :description
-    = f.input :description2
-    = f.input :description3 
-    = f.input :image_link
-    = f.input :imageAlt
 
-  .form-actions
+    .panel.panel-default
+      .panel-heading
+        ' Description Text
+      .panel-body
+        = f.input :description, label: "Paragraph 1", required: :true
+        = f.input :description2, label: "Paragraph 2"
+        = f.input :description3, label: "Paragraph 3"
+
+  .col-md-6
+
+    .panel.panel-default
+      .panel-heading
+        ' Event location
+      .panel-body
+        = f.association :venue
+        ' OR
+        = f.input :location, label: "Address", input_html: { placeholder: "Penlee Park, Penzance, TR18 2XX"}
+
+    .panel.panel-default
+      .panel-heading
+        ' Images
+      .panel-body
+        = f.input :image_link, label: "Image URL", input_html: { placeholder: "/festival/image_name.jpg" }
+        = f.input :imageAlt, label: "Image Alt Text", input_html: { placeholder: "3 - 5 word description of image" }
+
+    .panel.panel-default
+      .panel-heading
+        ' Official External Website Link 
+      .panel-body
+        = f.input :link, as: :url, label: "URL", input_html: { placeholder: "http://www.awebsite.com"}
+        = f.input :linktitle, label: "URL Title Text", input_html: { placeholder: "3 - 5 word description of link" }
+
+    .panel.panel-default
+      .panel-heading
+        ' Is this event for an existing festival
+      .panel-body
+        = f.association :festival
+
+  .form-actions.col-xs-12
     = f.button :submit
-
