@@ -26,5 +26,7 @@
 
         .panel-footer
             = link_to 'Show', admin_event_path(:id => event.id)
-            '  |
+            '  |  
             = link_to 'Edit', edit_admin_event_path(:id => event.id)
+            '  |  
+            = link_to 'Delete', admin_event_path(:id => event.id), :method => :delete, data: { confirm: 'Are you sure?' }

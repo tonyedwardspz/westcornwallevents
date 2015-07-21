@@ -3,23 +3,17 @@
 
   .col-md-6
 
-    = f.input :title, required: :true, label: "Event Title", input_html: { 
-      placeholder: "Aesome Event Title" 
-    }
+    = f.input :title, required: :true, label: "Event Title", input_html: { placeholder: "Awesome Event Title" }
     = f.input :date, as: :string, label: "Start Date", required: :true, input_html: { placeholder: "22/07/2015"}
-    = f.input :dateend, as: :string, label: "End Date (if multi day event)", , input_html: { placeholder: "23/07/2015"}
+    = f.input :dateend, as: :string, label: "End Date (if multi day event)", input_html: { placeholder: "23/07/2015"}
     = f.input :time, input_html: { placeholder: "9:00 pm" }
 
     .panel.panel-default
       .panel-heading
         ' Description Text
       .panel-body
-        = f.input :description, label: "Paragraph 1", required: :true, input_html: { 
-          placeholder: "Event description text. This is the text that will be displayed in the lists of events" 
-        }
-        = f.input :description2, label: "Paragraph 2", input_html: { 
-          placeholder: "Further decription text. This text will be displayed om the individual events page." 
-        }
+        = f.input :description, label: "Paragraph 1", required: :true, input_html: { placeholder: "Event description text. This is the text that will be displayed in the lists of events" }
+        = f.input :description2, label: "Paragraph 2", input_html: { placeholder: "Further decription text. This text will be displayed om the individual events page." }
         = f.input :description3, label: "Paragraph 3"
 
   .col-md-6
