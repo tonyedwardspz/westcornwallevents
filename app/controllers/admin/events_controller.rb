@@ -2,7 +2,7 @@ class Admin::EventsController < Admin::AdminAreaController
   before_action :set_event, only: [:show, :edit, :update, :destroy]
 
   def index
-    @events = Event.all.order('date')
+    @events = Event.all.order('date DESC')
     @page_title = "View Events"
   end
 
