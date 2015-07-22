@@ -26,18 +26,11 @@
   
   p #{event.description.html_safe}
 
-  - unless event.description2.blank?
-    p #{event.description2.html_safe}
-
-  - unless event.description3.blank?
-    p #{event.description3.html_safe}
 
   - if event.festival
     = link_to 'Find out more', event.festival, class: "more"
   - else
-    - unless event.more_link.blank?
-      p
-        a.more href="#{event.more_link}" title="#{event.moreTitle}"  Find out more
-    - unless event.link.blank? 
-      p
-        a.more href="#{event.link}" title="#{event.linktitle}"  Visit the website
+    = link_to 'Find out more',  event, class: "more"
+  - unless event.link.blank? 
+    p
+      a.more href="#{event.link}" title="#{event.linktitle}"  Visit the website
