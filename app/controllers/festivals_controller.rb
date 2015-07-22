@@ -68,8 +68,8 @@ class FestivalsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_festival
       @festival = Festival.friendly.find(params[:id])
-      if @festival.image_link.present?
-        startString = @festival.image_link[0,4].downcase
+      if @festival.image.present?
+        startString = @festival.image[0,4].downcase
         if startString != "http"
           if startString == "www."
             @festival.image = @festival.image.prepend("http://")
