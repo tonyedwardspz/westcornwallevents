@@ -24,7 +24,7 @@ class EventsController < ApplicationController
 
     for event in @events
       if event.image_link.present?
-        startString = event.image_link[0,3].downcase
+        startString = event.image_link[0,4].downcase
         if startString != "http"
           if startString == "www."
             event.image_link = event.image_link.prepend("http://")
@@ -98,7 +98,7 @@ class EventsController < ApplicationController
     def set_event
       @event = Event.friendly.find(params[:id])
       if @event.image_link.present?
-        startString = @event.image_link[0,3].downcase
+        startString = @event.image_link[0,4].downcase
         if startString != "http"
           if startString == "www."
             @event.image_link = @event.image_link.prepend("http://")
