@@ -22,6 +22,18 @@ class EventsController < ApplicationController
       @page_title = "Upcoming events and festivals"
     end
 
+    for event in @events
+      if event.image_link.present?
+        startString = event.image_link[0,3].downcase
+        if startString != "http"
+          if startString == "www."
+            event.image_link = event.image_link.prepend("http://")
+          else
+            event.image_link = event.image_link.prepend("http://www.westcornwallevents.co.uk/images/")
+          end
+        end
+      end
+    end
   end
 
   # GET /events/1
