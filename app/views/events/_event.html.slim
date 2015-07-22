@@ -30,6 +30,3 @@
     = link_to 'Find out more', event.festival, class: "more"
   - else
     = link_to 'Find out more',  event, class: "more"
-  - unless event.link.blank? 
-    p
-      a.more href="#{event.link}" title="#{event.linktitle}"  Visit the website

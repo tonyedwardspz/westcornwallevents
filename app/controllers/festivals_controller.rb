@@ -68,6 +68,18 @@ class FestivalsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_festival
       @festival = Festival.friendly.find(params[:id])
+      if @festival.image_link.present?
+        startString = @festival.image_link[0,4].downcase
+        if startString != "http"
+          if startString == "www."
+            @festival.image = @festival.image.prepend("http://")
+          elsif startString[0,1] == "/"
+            @festival.image = @festival.image.prepend("http://www.westcornwallevents.co.uk/images")
+          else
+            @festival.image = @festival.image.prepend("http://www.westcornwallevents.co.uk/images/")
+          end
+        end
+      end
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
