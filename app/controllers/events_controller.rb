@@ -95,7 +95,7 @@ class EventsController < ApplicationController
           end
         end
       end
-      return event
+      return @event
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
