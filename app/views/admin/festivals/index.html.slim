@@ -1,0 +1,21 @@
+#page-wrapper
+  .row
+    .col-lg-12
+      h1.page-header 
+        = @page_title || "Page Title"
+
+      table.table
+        thead
+          tr
+            th Title
+            th
+            th
+            th
+
+        tbody
+          - @admin_festivals.each do |admin_festival|
+            tr
+              td = admin_festival.title
+              td = link_to 'Show', admin_festival
+              td = link_to 'Edit', edit_admin_festival_path(admin_festival)
+              td = link_to 'Destroy', admin_festival, data: {:confirm => 'Are you sure?'}, :method => :delete

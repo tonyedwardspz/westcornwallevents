@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  namespace :admin do
+    resources :festivals
+  end
   resources :venues, :festivals, :events, :users
 
   get 'submit_event' => 'submit_event#index', as: :submit_event

@@ -1,0 +1,19 @@
+p#notice = notice
+
+h1 = @admin_festival.title
+p
+  = @admin_festival.date.strftime("%d %B")
+  - if !@admin_festival.end_date.blank? && @admin_festival.end_date != @admin_festival.date
+    |  to 
+    = @admin_festival.end_date.strftime("%d %B")
+  |   
+  = @admin_festival.date.strftime("%Y")
+p
+  = image_tag("#{@admin_festival.image}", alt: "#{@admin_festival.image_alt}", class: "float-right")
+
+  = @admin_festival.content.html_safe
+
+
+= link_to 'Edit', edit_admin_festival_path(@admin_festival)
+'|
+= link_to 'Back', admin_festivals_path
