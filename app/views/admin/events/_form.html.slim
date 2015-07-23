@@ -7,8 +7,10 @@
         ' Basic Details
       .panel-body
         = f.input :title, required: :true, label: "Event Title", input_html: { placeholder: "Awesome Event Title" }
-        = f.input :date, as: :string, label: "Start Date", required: :true, input_html: { placeholder: "22/07/2015"}
-        = f.input :dateend, as: :string, label: "End Date (if multi day event)", input_html: { placeholder: "23/07/2015"}
+        .col-xs-6.dateStart
+          = f.input :date, as: :string, label: "Start Date", required: :true, input_html: { placeholder: "22/07/2015"}
+        .col-xs-6.dateEnd
+          = f.input :dateend, as: :string, label: "End Date (if multi day event)", input_html: { placeholder: "23/07/2015"}
         = f.input :time, input_html: { placeholder: "9:00 pm" }
 
     .panel.panel-default
@@ -21,13 +23,12 @@
         = f.input :description4, label: "Ticket and Contact Info", input_html: { placeholder: "Just for you Mike :)", rows: "3"}
 
   .col-md-6
-
     .panel.panel-default
       .panel-heading
         ' Event location
       .panel-body
         = f.association :venue
-        ' OR
+        .text-center OR
         = f.input :location, label: "Address", input_html: { placeholder: "Penlee Park, Penzance, TR18 2XX"}
 
     .panel.panel-default
@@ -52,3 +53,4 @@
 
   .form-actions.col-xs-12
     = f.button :submit
+
