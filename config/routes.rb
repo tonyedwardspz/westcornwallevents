@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  namespace :admin do
+    resources :venues
+  end
   resources :venues, only: [:index, :show]
   resources :festivals, only: [:index, :show]
   resources :events, only: [:index, :show]
