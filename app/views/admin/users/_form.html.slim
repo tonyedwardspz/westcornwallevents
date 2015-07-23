@@ -1,9 +1,10 @@
-= simple_form_for(user) do |f|
+= simple_form_for(@admin_user) do |f|
   = f.error_notification
 
   .form-inputs
-    = f.input :name
-    = f.input :password
+    = f.input :name, required: true
+    = f.input :password, required: true
+    = f.input :password_confirmation, required: true
 
   .form-actions
     = f.button :submit

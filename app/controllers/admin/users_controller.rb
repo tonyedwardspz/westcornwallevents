@@ -1,24 +1,28 @@
-class Admin::UsersController < Admin::AdminAreaController
+  class Admin::UsersController < Admin::AdminAreaController
   before_action :set_admin_user, only: [:show, :edit, :update, :destroy]
 
   # GET /admin/users
   # GET /admin/users.json
   def index
     @admin_users = User.all
+    @page_title = "View all Users | West Cornwall Events"
   end
 
   # GET /admin/users/1
   # GET /admin/users/1.json
   def show
+    @page_title = "View User | West Cornwall Events"
   end
 
   # GET /admin/users/new
   def new
     @admin_user = User.new
+    @page_title = "New User | West Cornwall Events"
   end
 
   # GET /admin/users/1/edit
   def edit
+    @page_title = "Edit User | West Cornwall Events"
   end
 
   # POST /admin/users
@@ -69,6 +73,6 @@ class Admin::UsersController < Admin::AdminAreaController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def admin_user_params
-      params[:admin_user]
+      params.require(:user).permit(:name, :password, :password_confirmation)
     end
 end
