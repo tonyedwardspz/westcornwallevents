@@ -14,7 +14,7 @@ class Admin::EventsController < Admin::AdminAreaController
 
   # GET /events/1/edit
   def edit
-    @page_title = "Edit: #{@event.title}"
+    @page_title = "Edit Event: #{@event.title}"
   end
 
   # POST /events

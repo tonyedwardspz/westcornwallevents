@@ -32,6 +32,9 @@
   - unless @event.description3.blank?
     p #{@event.description3.html_safe}
 
+  - unless @event.description4.blank?
+    p #{@event.description4.html_safe}
+
   - if @event.festival
     = link_to 'Find out more', @event.festival, class: "more"
   - else

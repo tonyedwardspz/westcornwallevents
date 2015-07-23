@@ -1,36 +1,40 @@
 #page-wrapper
-    .row
-        .col-lg-12
-            h1.page-header #{@page_title}
-    .row
-        .col-lg-12
+  .row
+    .col-lg-12
+      h1.page-header #{@page_title}
+  .row
+    .col-lg-12
 
-            .event_date.unit.one-of-five
-              p.dateinfo 
-                - if @event.date
-                  ' #{@event.date.strftime("%b")}
-                  span #{@event.date.strftime("%d")}
+      .event_date.unit.one-of-five
+        p.dateinfo 
+          - if @event.date
+            ' #{@event.date.strftime("%b")}
+            span #{@event.date.strftime("%d")}
 
-            .event_details.unit.four-of-five
-              - if @event.festival
-              h2 #{@event.title}
-              
-              p.details
-                ' LOCATION - #{@event.location}
-                br
-                - if @event.date
-                  ' DATE: #{@event.date.strftime("%m %b %Y")}
-                  - unless @event.time.nil?
-                    '  - TIME: #{@event.time}
+      .event_details.unit.four-of-five
+        - if @event.festival
+        h2 #{@event.title}
+        
+        p.details
+          ' LOCATION - #{@event.location}
+          br
+          - if @event.date
+            ' DATE: #{@event.date.strftime("%m %b %Y")}
+            - unless @event.time.nil?
+              '  - TIME: #{@event.time}
 
-            .event_info.unit.span-grid
-              - unless @event.image_link.blank?
-                img.post-image alt="#{@event.imageAlt}" height="132" src="#{@event.image_link}" width="225"
-              
-              p #{@event.description.html_safe}
+      .event_info.unit.span-grid
+        - unless @event.image_link.blank?
+          img.post-image alt="#{@event.imageAlt}" height="132" src="#{@event.image_link}" width="225"
+        
+        p #{@event.description.html_safe}
 
-              - unless @event.description2.blank?
-                p #{@event.description2.html_safe}
+        - unless @event.description2.blank?
+          p #{@event.description2.html_safe}
 
-              - unless @event.description3.blank?
-                p #{@event.description3.html_safe}
+        - unless @event.description3.blank?
+          p #{@event.description3.html_safe}
+
+        - unless @event.description4.blank?
+          p #{@event.description4.html_safe}
+
