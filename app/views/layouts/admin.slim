@@ -2,7 +2,6 @@ doctype html
 html lang="en"
 
 head
-
     meta charset="utf-8"
     meta http-equiv="X-UA-Compatible" content="IE=edge"
     meta name="viewport" content="width=device-width, initial-scale=1"
@@ -10,7 +9,7 @@ head
     meta name="author" content="Tony Edwards"
     = csrf_meta_tag
 
-    title Admin - West Cornwall Events
+    title #{@page_title}
 
     = stylesheet_link_tag 'bootstrap.min'
     = stylesheet_link_tag 'font-awesome.min'

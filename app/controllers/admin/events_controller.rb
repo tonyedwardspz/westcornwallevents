@@ -8,7 +8,7 @@ class Admin::EventsController < Admin::AdminAreaController
 
   # GET /events/new
   def new
-    @page_title = "Create a new festival"
+    @page_title = "Create a new event"
     @event = Event.new
   end
 

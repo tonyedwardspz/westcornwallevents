@@ -5,11 +5,10 @@ class EventsController < ApplicationController
   # GET /events
   # GET /events.json
   def index
-
     if params[:month] && params[:year]
       month = Date::MONTHNAMES.index(params[:month])
       @events = Event.where('extract(month from date) = ?', month).where('extract(year from date) = ?', params[:year]).order('date')
-      @page_title = "#{params[:month]} #{params[:year]} Events"
+      @page_title = "#{params[:month]} #{params[:year]} Events | West Cornwall Events"
     elsif params[:year]
       if params[:year] > Time.now.year.to_s
         @events = Event.where('extract(year from date) = ?', params[:year]).limit(5)
