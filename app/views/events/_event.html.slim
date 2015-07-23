@@ -16,9 +16,12 @@
     - else
       ' LOCATION - #{event.location}
     br
-    ' DATE: #{event.date.strftime("%d %b %Y")}
+    - unless event.dateend.blank?
+      ' DATE: #{event.date.day.ordinalize} to #{event.dateend.day.ordinalize} #{event.dateend.strftime("%b %Y")}
+    - else
+      ' DATE: #{event.date.day.ordinalize} #{event.date.strftime("%b %Y")}
     - unless event.time.blank?
-      ' TIME: #{event.time}
+      '  - TIME: #{event.time}
 
 .event_info.unit.span-grid
   - unless event.image_link.blank?

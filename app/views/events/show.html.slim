@@ -12,10 +12,13 @@
     = link_to @event.venue.name, venue_path(@event.venue_id)
   - else
     ' LOCATION - #{@event.location}
-    br
-    ' DATE: #{@event.date.strftime("%d %b %Y")}
-    - unless @event.time.nil?
-      '  - TIME: #{@event.time}
+  br
+  - unless @event.dateend.blank?
+    ' DATE: #{@event.date.day.ordinalize} to #{@event.dateend.day.ordinalize} #{@event.dateend.strftime("%b %Y")}
+  - else
+    ' DATE: #{@event.date.day.ordinalize} #{@event.date.strftime("%b %Y")}
+  - unless @event.time.blank?
+    '  - TIME: #{@event.time}
 
 .event_info.unit.span-grid
   - unless @event.image_link.blank?
@@ -28,3 +31,9 @@
 
   - unless @event.description3.blank?
     p #{@event.description3.html_safe}
+
+  - if @event.festival
+    = link_to 'Find out more', @event.festival, class: "more"
+  - else
+    - unless @event.link.empty?
+      = link_to 'Visit the website', @event.link, class: "more"

@@ -26,35 +26,78 @@ location = /venues/minack_theatre.php {
 location = /about.php {
   return 301 /;
 }
-location = /events_2014/july.php {
-  return 301 /events?month=July&year=2014;
-}
-location = /events_2014/october.php {
-  return 301 /events?month=October&year=2014;
-}
-location = /events_2014/november.php {
-  return 301 /events?month=November&year=2014;
-}
-location = /events_2014/august.php {
-  return 301 /events?month=August&year=2014;
-}
-location = /events_2014/september.php {
-  return 301 /events?month=September&year=2014;
-}
-location = /events_2015.php {
-  return 301 /events?year=2015;
-}
-location = /events_2013/june.html {
-  return 301 /events?month=June&year=2013;
-}
-location = /events_2011/december.html {
-  return 301 /events?month=December&year=2011;
-}
-
-
 // Other Snippets
 server {
     # redirect all urls to non www
     server_name www.westcornwallevents.com;
     return 301 $scheme://westcornwallevents.com$request_uri;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+location = /events_2011/december.html {
+  return 301 /events?month=December&year=2011;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
