@@ -1,10 +1,10 @@
-class Admin::VenuesController < ApplicationController
+class Admin::VenuesController < Admin::AdminAreaController
   before_action :set_admin_venue, only: [:show, :edit, :update, :destroy]
 
   # GET /admin/venues
   # GET /admin/venues.json
   def index
-    @admin_venues = Admin::Venue.all
+    @admin_venues = Venue.all
   end
 
   # GET /admin/venues/1
@@ -14,7 +14,7 @@ class Admin::VenuesController < ApplicationController
 
   # GET /admin/venues/new
   def new
-    @admin_venue = Admin::Venue.new
+    @admin_venue = Venue.new
   end
 
   # GET /admin/venues/1/edit
@@ -24,7 +24,7 @@ class Admin::VenuesController < ApplicationController
   # POST /admin/venues
   # POST /admin/venues.json
   def create
-    @admin_venue = Admin::Venue.new(admin_venue_params)
+    @admin_venue = Venue.new(admin_venue_params)
 
     respond_to do |format|
       if @admin_venue.save
@@ -64,11 +64,11 @@ class Admin::VenuesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_admin_venue
-      @admin_venue = Admin::Venue.find(params[:id])
+      @admin_venue = Venue.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def admin_venue_params
-      params[:admin_venue]
+      params.require(:admin_venue).permit(:name, :phone, :email, :url, :address, :postcode, :image, :image_alt, :content)
     end
 end
