@@ -45,8 +45,9 @@ nav class="navbar navbar-default navbar-static-top" role="navigation" style="mar
                     <a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
                 li.divider
                 li
-                    = link_to "Logout", logout_path, title: "Logout"
-                    i.fa.fa-sign-out.fa-fw
+                    = link_to logout_path do
+                        i.fa.fa-sign-out.fa-fw
+                        ' Logout
 
 
     .navbar-default.sidebar role="navigation"
@@ -75,3 +76,11 @@ nav class="navbar navbar-default navbar-static-top" role="navigation" style="mar
                     ul.nav.nav-second-level
                         li = link_to "View Users", admin_users_path
                         li = link_to "Create New User", new_admin_user_path
+                li
+                    a href="#"
+                        i.fa.fa-smile-o.fa-fw
+                        ' Festivals
+                        span.fa.arrow
+                    ul.nav.nav-second-level
+                        li = link_to "View Festivals", admin_festivals_path
+                        li = link_to "Create New Festival", new_admin_festival_path
