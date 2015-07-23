@@ -84,3 +84,11 @@ nav class="navbar navbar-default navbar-static-top" role="navigation" style="mar
                     ul.nav.nav-second-level
                         li = link_to "View Festivals", admin_festivals_path
                         li = link_to "Create New Festival", new_admin_festival_path
+                li
+                    a href="#"
+                        i.fa.fa-building-o.fa-fw
+                        ' Venues
+                        span.fa.arrow
+                    ul.nav.nav-second-level
+                        li = link_to "View Venues", admin_venues_path
+                        li = link_to "Create New Venue", new_admin_venue_path
