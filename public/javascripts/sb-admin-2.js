@@ -1,6 +1,12 @@
 $(function() {
 
     $('#side-menu').metisMenu();
+    $('#festival_date').datepicker({
+        dateFormat: 'dd/mm/yy'
+    });
+    $('#festival_end_date').datepicker({
+        dateFormat: 'dd/mm/yy'
+    });
     $('#event_date').datepicker({
         dateFormat: 'dd/mm/yy'
     });

@@ -1,21 +1,47 @@
 = simple_form_for(@admin_festival, html: {class: 'form-vertical'}) do |f|
   = f.error_notification
 
-  .form-inputs
-    = f.input :title
-    = f.input :date
-    = f.input :end_date
-    = f.input :content
-    = f.input :image
-    = f.input :image_alt
-    = f.input :image2
-    = f.input :image2_alt
-    = f.input :video1
-    = f.input :video2
-    = f.input :meta_title
-    = f.input :meta_description
-    = f.input :summary
-    = f.input :snippet
+  .col-md-6
+    .panel.panel-default
+      .panel-heading
+        ' Basic Details
+      .panel-body
+        = f.input :title, required: :true, label: "Festival Name", input_html: { placeholder: "Awesome Festival Name" }
+        .col-xs-6.dateStart
+          = f.input :date, as: :string, label: "Start Date", input_html: { placeholder: "23/07/2015"}, required: :true
+        .col-xs-6.dateStart
+          = f.input :end_date, as: :string, label: "End Date (if multi day)", input_html: { placeholder: "28/07/2015"}
+    .panel.panel-default
+      .panel-heading
+        ' Content
+      .panel-body
+        = f.input :snippet, label: "Snippet", required: :true, input_html: { placeholder: "A Sentance describing the festival."}
+        = f.input :summary, label: "Summary Text", required: :true, input_html: { placeholder: "A couple of sentaces to describe the festival. This is used in the list of festivals.", rows: "3"}
+        = f.input :content, label: "Main Content", required: :true, input_html: { placeholder: "Festival description text.", rows: "15"}
+  
+  .col-md-6
+    .panel.panel-default
+      .panel-heading
+        ' Images
+      .panel-body
+        = f.input :image, label: "Image URL", input_html: { placeholder: "foldername/file_name.jpg" }
+        = f.input :image_alt, label: "Image Alt Text", input_html: { placeholder: "3 - 5 word description of image" }
+        = f.input :image2, label: "Image URL", input_html: { placeholder: "foldername/file_name.jpg" }
+        = f.input :image2_alt, label: "Image Alt Text", input_html: { placeholder: "3 - 5 word description of image" }
 
-  .form-actions
+    .panel.panel-default
+      .panel-heading
+        ' YouTube Embed Code
+      .panel-body
+        = f.input :video1
+        = f.input :video2
+
+    .panel.panel-default
+      .panel-heading
+        ' Seo Stuff
+      .panel-body
+        = f.input :meta_title, label: "Meta Title", input_html: { placeholder: "Title tag" }
+        = f.input :meta_description, label: "Meta Description"
+
+  .form-actions.col-xs-12
     = f.button :submit
