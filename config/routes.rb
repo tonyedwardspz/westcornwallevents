@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
-  resources :venues, only: [:index, :show]
-  resources :festivals, only: [:index, :show]
-  resources :events, only: [:index, :show]
+  resources :venues
+  resources :festivals
+  resources :events
   resources :users
 
   get 'submit_event' => 'submit_event#index', as: :submit_event
