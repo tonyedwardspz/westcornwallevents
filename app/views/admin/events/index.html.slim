@@ -1,11 +1,23 @@
 #page-wrapper
-    .row
-        .col-lg-12
-            h1.page-header 
-              = @page_title || "Page Title"
-    .row
-        
-        - @events.empty?
-            p No results found
+  .row
 
-        = render @events
+    .col-lg-12
+      h1.page-header 
+        = @page_title || "Page Title"
+      
+      .panel.panel-default
+        .panel-body
+          .dataTable_wrapper
+            table.table.table-stripedt.able-bordered.table-hover#dataTables-example data-page-length="30"
+              thead
+                tr
+                  th Title
+                  th Start Date
+                  th 
+                  th 
+                  th 
+              tbody    
+                - @events.empty?
+                    p No results found
+
+                = render @events
