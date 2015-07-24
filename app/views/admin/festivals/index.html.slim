@@ -1,21 +1,26 @@
 #page-wrapper
   .row
+
     .col-lg-12
       h1.page-header 
         = @page_title || "Page Title"
-
-      table.table
-        thead
-          tr
-            th Title
-            th
-            th
-            th
-
-        tbody
-          - @admin_festivals.each do |admin_festival|
-            tr
-              td = admin_festival.title
-              td = link_to 'Show', admin_festival_path(:id => admin_festival.id)
-              td = link_to 'Edit', edit_admin_festival_path(:id => admin_festival.id)
-              td = link_to 'Destroy', admin_festival_path(:id => admin_festival.id), data: {:confirm => 'Are you sure?'}, :method => :delete
+      
+      .panel.panel-default
+        .panel-body
+          .dataTable_wrapper
+            table.table.table-stripedt.able-bordered.table-hover#dataTables-example data-page-length="30"
+              thead
+                tr
+                  th Name
+                  th Start Date
+                  th 
+                  th 
+                  th 
+              tbody 
+                - @admin_festivals.each do |admin_festival|
+                  tr
+                    td = admin_festival.title
+                    td = admin_festival.date
+                    td = link_to 'Show', admin_festival_path(:id => admin_festival.id)
+                    td = link_to 'Edit', edit_admin_festival_path(:id => admin_festival.id)
+                    td = link_to 'Destroy', admin_festival_path(:id => admin_festival.id), data: {:confirm => 'Are you sure?'}, :method => :delete

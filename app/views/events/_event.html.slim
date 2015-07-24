@@ -17,7 +17,7 @@
       ' LOCATION - #{event.location}
     br
     - unless event.dateend.blank?
-      ' DATE: #{event.date.day.ordinalize} to #{event.dateend.day.ordinalize} #{event.dateend.strftime("%b %Y")}
+      ' DATE: #{event.date.day.ordinalize} #{event.dateend.strftime("%b")} to #{event.dateend.day.ordinalize} #{event.dateend.strftime("%b %Y")}
     - else
       ' DATE: #{event.date.day.ordinalize} #{event.date.strftime("%b %Y")}
     - unless event.time.blank?

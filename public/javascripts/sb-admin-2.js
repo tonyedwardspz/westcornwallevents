@@ -14,6 +14,12 @@ $(function() {
         dateFormat: 'dd/mm/yy'
     });
 
+    $('#dataTables-example').DataTable({
+        responsive: true,
+        "columnDefs": [
+            { "orderable": false, "targets": [2,3,4] }
+          ]
+    });
 });
 
 //Loads the correct sidebar on window load,

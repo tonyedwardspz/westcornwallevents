@@ -1,32 +1,7 @@
- 
-.col-md-6
-    .panel.panel-primary
-        .panel-heading
-              - if event.festival
-                = event.title
-              - else
-                = event.title
-        .panel-body
-            p.dateinfo 
-              - if event.date
-                ' #{event.date.strftime("%b")}
-                span #{event.date.strftime("%d")}
-              
-            p.details
-                - if event.venue
-                  ' LOCATION - 
-                  = link_to event.venue.name, venue_path(event.venue_id)
-                - else
-                  ' LOCATION - #{event.location}
-                br
-                - if event.date
-                  ' DATE: #{event.date.strftime("%m %b %Y")}
-                  - unless event.time.blank?
-                    ' TIME: #{event.time}
-
-        .panel-footer
-            = link_to 'Show', admin_event_path(:id => event.id)
-            '  |  
-            = link_to 'Edit', edit_admin_event_path(:id => event.id)
-            '  |  
-            = link_to 'Delete', admin_event_path(:id => event.id), :method => :delete, data: { confirm: 'Are you sure?' }
+  tr
+    td #{event.title}
+    td #{event.date.day.ordinalize} #{event.date.strftime("%b %Y")}
+    td.center = link_to 'Show', admin_event_path(:id => event.id)
+    td.center = link_to 'Edit', edit_admin_event_path(:id => event.id)
+    td.center = link_to 'Delete', admin_event_path(:id => event.id), :method => :delete, data: { confirm: 'Are you sure?' }
+    
