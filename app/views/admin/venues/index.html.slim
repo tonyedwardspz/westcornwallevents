@@ -1,19 +1,25 @@
-h1 Listing admin_venues
+#page-wrapper
+  .row
+    .col-md-12
+      h1.page-header 
+        = @page_title || "Page Title"
+  .row
+    .col-md-12 
 
-table.table
-  thead
-    tr
-      th Name
-      th Address
-      th
-      th
-      th
+      table.table
+        thead
+          tr
+            th Name
+            th Address
+            th
+            th
+            th
 
-  tbody
-    - @admin_venues.each do |admin_venue|
-      tr
-        td = admin_venue.name
-        td = admin_venue.address
-        td = link_to 'Show', admin_venue
-        td = link_to 'Edit', edit_admin_venue_path(admin_venue)
-        td = link_to 'Destroy', admin_venue, data: {:confirm => 'Are you sure?'}, :method => :delete
+        tbody
+          - @admin_venues.each do |admin_venue|
+            tr
+              td = admin_venue.name
+              td = admin_venue.address
+              td = link_to 'Show', admin_venue
+              td = link_to 'Edit', edit_admin_venue_path(admin_venue)
+              td = link_to 'Destroy', admin_venue, data: {:confirm => 'Are you sure?'}, :method => :delete
