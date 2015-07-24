@@ -69,6 +69,17 @@ class Admin::FestivalsController < Admin::AdminAreaController
     # Use callbacks to share common setup or constraints between actions.
     def set_admin_festival
       @admin_festival = Festival.find(params[:id])
+      if @admin_festival.image.present?
+        startString = @admin_festival.image[0,4].downcase
+        if startString != "http"
+          if startString == "www."
+            @admin_festival.image = @admin_festival.image.prepend("http://")
+          else
+            @admin_festival.image = @admin_festival.image.prepend("http://www.westcornwallevents.co.uk/images/")
+          end
+        end
+      end
+      return @admin_festival
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

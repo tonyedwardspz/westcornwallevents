@@ -65,17 +65,6 @@ class Admin::VenuesController < Admin::AdminAreaController
     # Use callbacks to share common setup or constraints between actions.
     def set_admin_venue
       @admin_venue = Venue.find(params[:id])
-      if @admin_venue.image.present?
-        startString = @admin_venue.image[0,4].downcase
-        if startString != "http"
-          if startString == "www."
-            @admin_venue.image = @admin_venue.image.prepend("http://")
-          else
-            @admin_venue.image = @admin_venue.image.prepend("http://www.westcornwallevents.co.uk/images/")
-          end
-        end
-      end
-      return @admin_venue
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
