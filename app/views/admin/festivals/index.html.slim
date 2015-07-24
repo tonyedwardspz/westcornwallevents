@@ -16,6 +16,6 @@
           - @admin_festivals.each do |admin_festival|
             tr
               td = admin_festival.title
-              td = link_to 'Show', admin_festival
-              td = link_to 'Edit', edit_admin_festival_path(admin_festival)
-              td = link_to 'Destroy', admin_festival, data: {:confirm => 'Are you sure?'}, :method => :delete
+              td = link_to 'Show', admin_festival_path(:id => admin_festival.id)
+              td = link_to 'Edit', edit_admin_festival_path(:id => admin_festival.id)
+              td = link_to 'Destroy', admin_festival_path(:id => admin_festival.id), data: {:confirm => 'Are you sure?'}, :method => :delete
