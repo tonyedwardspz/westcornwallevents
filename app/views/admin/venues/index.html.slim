@@ -20,6 +20,6 @@
             tr
               td = admin_venue.name
               td = admin_venue.address
-              td = link_to 'Show', admin_venue
-              td = link_to 'Edit', edit_admin_venue_path(admin_venue)
-              td = link_to 'Destroy', admin_venue, data: {:confirm => 'Are you sure?'}, :method => :delete
+              td = link_to 'Show', admin_venue_path(:id => admin_venue.id)
+              td = link_to 'Edit', edit_admin_venue_path(:id => admin_venue.id)
+              td = link_to 'Destroy', admin_venue_path(:id => admin_venue.id), data: {:confirm => 'Are you sure?'}, :method => :delete
