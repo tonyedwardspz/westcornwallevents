@@ -1,25 +1,26 @@
 #page-wrapper
   .row
-    .col-md-12
+
+    .col-lg-12
       h1.page-header 
         = @page_title || "Page Title"
-  .row
-    .col-md-12 
-
-      table.table
-        thead
-          tr
-            th Name
-            th Address
-            th
-            th
-            th
-
-        tbody
-          - @admin_venues.each do |admin_venue|
-            tr
-              td = admin_venue.name
-              td = admin_venue.address
-              td = link_to 'Show', admin_venue_path(:id => admin_venue.id)
-              td = link_to 'Edit', edit_admin_venue_path(:id => admin_venue.id)
-              td = link_to 'Destroy', admin_venue_path(:id => admin_venue.id), data: {:confirm => 'Are you sure?'}, :method => :delete
+      
+      .panel.panel-default
+        .panel-body
+          .dataTable_wrapper
+            table.table.table-stripedt.able-bordered.table-hover#dataTables-example data-page-length="30"
+              thead
+                tr
+                  th Name
+                  th Address
+                  th
+                  th
+                  th
+              tbody 
+                - @admin_venues.each do |admin_venue|
+                  tr
+                    td = admin_venue.name
+                    td = admin_venue.address
+                    td = link_to 'Show', admin_venue_path(:id => admin_venue.id)
+                    td = link_to 'Edit', edit_admin_venue_path(:id => admin_venue.id)
+                    td = link_to 'Destroy', admin_venue_path(:id => admin_venue.id), data: {:confirm => 'Are you sure?'}, :method => :delete
