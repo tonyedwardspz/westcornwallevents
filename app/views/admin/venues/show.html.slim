@@ -13,10 +13,10 @@
         br
         | #{@admin_venue.address}, #{@admin_venue.postcode}
         br
-        a href="#{@admin_venue.url}" title="#{@admin_venue.name}" #{@admin_venue.url}
+        a href="#{@admin_venue.url}" title="#{@admin_venue.LinkAlt}" #{@admin_venue.url}
                           
       = @admin_venue.content.html_safe
 
       = link_to 'Edit', edit_admin_venue_path(:id => @admin_venue.id)
-      '|
+      '  |
       = link_to 'Back', admin_venues_path

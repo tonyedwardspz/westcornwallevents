@@ -24,14 +24,14 @@
         ' Venue Link
       .panel-body
         = f.input :url, label: "URL", input_html: { placeholder: "http://www.venue.com" }
-        = f.input :LinkAlt, label: "URL Title Text", input_html: { placeholder: "3 - 5 word description of link" }
+        = f.input :LinkAlt, label: "URL Title Text", input_html: { placeholder: "Venue Name, Town" }
         
     .panel.panel-default
       .panel-heading
         ' Image
       .panel-body
         = f.input :image, label: "Image URL", input_html: { placeholder: "foldername/file_name.jpg" }
-        = f.input :image_alt, label: "Image Alt Text", input_html: { placeholder: "3 - 5 word description of image" }
+        = f.input :image_alt, label: "Image Alt Text", input_html: { placeholder: "3 - 5 word description of venue" }
 
   .form-actions.col-xs-12
     = f.button :submit

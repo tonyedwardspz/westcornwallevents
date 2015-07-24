@@ -5,20 +5,24 @@ class Admin::VenuesController < Admin::AdminAreaController
   # GET /admin/venues.json
   def index
     @admin_venues = Venue.all
+    @page_title = "All Venues"
   end
 
   # GET /admin/venues/1
   # GET /admin/venues/1.json
   def show
+    @page_title = @admin_venue.name
   end
 
   # GET /admin/venues/new
   def new
     @admin_venue = Venue.new
+    @page_title = "New Venue"
   end
 
   # GET /admin/venues/1/edit
   def edit
+    @page_title = "Edit: #{@admin_venue.name}"
   end
 
   # POST /admin/venues
