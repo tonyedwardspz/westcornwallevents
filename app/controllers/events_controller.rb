@@ -96,17 +96,17 @@ class EventsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_event
       @event = Event.friendly.find(params[:id])
-      if @event.image_link.present?
-        startString = @event.image_link[0,4].downcase
-        if startString != "http"
-          if startString == "www."
-            @event.image_link = @event.image_link.prepend("http://")
-          else
-            @event.image_link = @event.image_link.prepend("http://www.westcornwallevents.co.uk/images/")
-          end
-        end
-      end
-      return @event
+      # if @event.image_link.present?
+      #   startString = @event.image_link[0,4].downcase
+      #   if startString != "http"
+      #     if startString == "www."
+      #       @event.image_link = @event.image_link.prepend("http://")
+      #     else
+      #       @event.image_link = @event.image_link.prepend("http://www.westcornwallevents.co.uk/images/")
+      #     end
+      #   end
+      # end
+      # return @event
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

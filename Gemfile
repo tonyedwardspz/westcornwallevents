@@ -33,6 +33,7 @@ gem 'seed_dump'
 gem 'friendly_id', '~> 5.1.0'
 gem 'slim-rails'
 gem 'unicorn'
+gem 'carrierwave', '~> 0.9'
 gem 'simple_form', '~> 3.1.0'
 gem 'factory_girl', group: [:development, :test]
 gem 'minitest-rails'

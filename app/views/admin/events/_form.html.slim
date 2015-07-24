@@ -1,4 +1,4 @@
-= simple_form_for(@event, html: {class: 'form-vertical'}) do |f|
+= simple_form_for(@event, html: {class: 'form-vertical', multipart: true}) do |f|
   = f.error_notification
 
   .col-md-6
@@ -35,7 +35,8 @@
       .panel-heading
         ' Images
       .panel-body
-        = f.input :image_link, label: "Image URL", input_html: { placeholder: "foldername/file_name.jpg" }
+        p
+          = f.file_field :image_link, label: "Image URL", input_html: { placeholder: "foldername/file_name.jpg" }
         = f.input :imageAlt, label: "Image Alt Text", input_html: { placeholder: "3 - 5 word description of image" }
 
     .panel.panel-default
@@ -52,4 +53,4 @@
         = f.association :festival
 
   .form-actions.col-xs-12
-    = f.button :submit
+    = f.button :submit, class: "btn btn-primary"
