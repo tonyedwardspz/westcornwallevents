@@ -1,0 +1,13 @@
+#page-wrapper
+  .row
+    .col-md-12
+      h1.page-header 
+        = @page_title || "Page Title"
+  .row
+
+    == render 'form'
+
+    = link_to 'Show', @admin_venue
+    '|
+    = link_to 'Back', admin_venues_path
+
