@@ -1,10 +1,10 @@
-class Admin::PagesController < ApplicationController
+class Admin::PagesController < Admin::AdminAreaController
   before_action :set_admin_page, only: [:show, :edit, :update, :destroy]
 
   # GET /admin/pages
   # GET /admin/pages.json
   def index
-    @admin_pages = Admin::Page.all
+    @admin_pages = Page.all
   end
 
   # GET /admin/pages/1
@@ -14,7 +14,7 @@ class Admin::PagesController < ApplicationController
 
   # GET /admin/pages/new
   def new
-    @admin_page = Admin::Page.new
+    @admin_page = Page.new
   end
 
   # GET /admin/pages/1/edit
@@ -24,7 +24,7 @@ class Admin::PagesController < ApplicationController
   # POST /admin/pages
   # POST /admin/pages.json
   def create
-    @admin_page = Admin::Page.new(admin_page_params)
+    @admin_page = Page.new(admin_page_params)
 
     respond_to do |format|
       if @admin_page.save
@@ -64,11 +64,11 @@ class Admin::PagesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_admin_page
-      @admin_page = Admin::Page.find(params[:id])
+      @admin_page = Page.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def admin_page_params
-      params[:admin_page]
+      params.require(:page).permit(:title, :slug, :content)
     end
 end
