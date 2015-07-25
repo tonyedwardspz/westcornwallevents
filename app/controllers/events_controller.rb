@@ -23,16 +23,7 @@ class EventsController < ApplicationController
 
     for event in @events
       if event.image_link.present?
-        if event.image_link.instance_of? String
-          startString = event.image_link[0,4].downcase
-          if startString != "http"
-            if startString == "www."
-              event.image_link = event.image_link.prepend("http://")
-            else
-              event.image_link = event.image_link.prepend("http://www.westcornwallevents.co.uk/images/")
-            end
-          end
-        end
+        prepareURLString(event)
       end
     end
   end
@@ -98,21 +89,27 @@ class EventsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_event
       @event = Event.friendly.find(params[:id])
-      # if @event.image_link.present?
-      #   startString = @event.image_link[0,4].downcase
-      #   if startString != "http"
-      #     if startString == "www."
-      #       @event.image_link = @event.image_link.prepend("http://")
-      #     else
-      #       @event.image_link = @event.image_link.prepend("http://www.westcornwallevents.co.uk/images/")
-      #     end
-      #   end
-      # end
-      # return @event
+      if @event.image_link.present?
+        prepareURLString(@event)
+      end
+      return @event
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def event_params
       params.require(:event).permit(:date, :dateend, :title, :location, :link, :linktitle, :time, :more_link, :moreTitle, :description, :description2, :description3, :description4, :image_link, :imageAlt, :festival_id, :venue_id)
     end
+
+    def prepareURLString (event)
+    if event.image_link.instance_of? String
+      startString = event.image_link[0,4].downcase
+      if startString != "http"
+        if startString == "www."
+          event.image_link = event.image_link.prepend("http://")
+        else
+          event.image_link = event.image_link.prepend("http://www.westcornwallevents.co.uk/images/")
+        end
+      end
+    end
+  end
 end
