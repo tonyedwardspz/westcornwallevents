@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :pages
   resources :venues
   resources :festivals
   resources :events
@@ -9,7 +10,7 @@ Rails.application.routes.draw do
   get '/admin' => 'admin#index'
 
   namespace :admin do
-    resources :venues, :festivals, :events, :users, :festivals
+    resources :venues, :festivals, :events, :users, :festivals, :pages
     get 'events/index'
   end
 

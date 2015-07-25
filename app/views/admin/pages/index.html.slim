@@ -1,0 +1,26 @@
+#page-wrapper
+  .row
+    .col-lg-12
+      h1.page-header 
+        = @page_title || "Page Title"
+      
+      .panel.panel-default
+        .panel-body
+          .dataTable_wrapper
+            table.table.table-stripedt.able-bordered.table-hover#dataTables-example data-page-length="30"
+              thead
+                tr
+                  th Title
+                  th
+                  th
+                  th
+                  th
+
+              tbody
+                - @admin_pages.each do |admin_page|
+                  tr
+                    td #{admin_page.title}
+                    td = link_to 'Show', admin_page_path(:id => admin_page.id)
+                    td = link_to 'Edit', edit_admin_page_path(admin_page)
+                    td = link_to 'Destroy', admin_page_path(:id => admin_page.id), data: {:confirm => 'Are you sure?'}, :method => :delete
+                    td

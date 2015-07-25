@@ -1,0 +1,15 @@
+#page-wrapper
+  .row
+    .col-md-12
+      h1.page-header 
+
+      p#notice = notice
+      p
+        strong Title:
+        = @admin_page.title
+      p
+        strong Slug:
+        = @admin_page.slug
+      p
+        strong Content:
+        = @admin_page.content.html_safe

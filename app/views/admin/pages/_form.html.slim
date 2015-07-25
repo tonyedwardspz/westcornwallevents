@@ -1,0 +1,14 @@
+= simple_form_for(@admin_page, html: {class: 'form-vertical'}) do |f|
+  = f.error_notification
+
+  .col-xs-12
+    .panel.panel-default
+      .panel-heading
+        ' Basic Details
+      .panel-body
+        = f.input :title, required: :true, label: "Page Title", input_html: { placeholder: "Awesome Page Title" }
+        = f.input :slug, required: :true, label: "Link Text", input_html: { placeholder: "Awesome Event Title" }
+        = f.input :content, label: "Page Content", input_html: { placeholder: "HTML allowed", rows: "30"}
+
+  .form-actions.col-xs-12
+    = f.button :submit
