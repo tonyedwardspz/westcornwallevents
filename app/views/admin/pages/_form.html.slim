@@ -1,7 +1,14 @@
-= simple_form_for(@admin_page) do |f|
+= simple_form_for(@admin_page, html: {class: 'form-vertical'}) do |f|
   = f.error_notification
 
-  .form-inputs
+  .col-xs-12
+    .panel.panel-default
+      .panel-heading
+        ' Basic Details
+      .panel-body
+        = f.input :title
+        = f.input :slug
+        = f.input :content
 
-  .form-actions
+  .form-actions.col-xs-12
     = f.button :submit

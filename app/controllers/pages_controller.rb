@@ -1,4 +1,5 @@
 class PagesController < ApplicationController
+  skip_before_action :authorize, only: [:index, :show]
   before_action :set_page, only: [:show, :edit, :update, :destroy]
 
   # GET /pages

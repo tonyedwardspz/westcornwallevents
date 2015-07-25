@@ -4,8 +4,6 @@ table
   thead
     tr
       th Title
-      th Slug
-      th Content
       th
       th
       th
@@ -14,8 +12,6 @@ table
     - @pages.each do |page|
       tr
         td = page.title
-        td = page.slug
-        td = page.content
         td = link_to 'Show', page
         td = link_to 'Edit', edit_page_path(page)
         td = link_to 'Destroy', page, data: {:confirm => 'Are you sure?'}, :method => :delete
