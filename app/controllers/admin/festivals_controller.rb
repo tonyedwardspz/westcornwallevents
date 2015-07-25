@@ -22,7 +22,7 @@ class Admin::FestivalsController < Admin::AdminAreaController
 
   # GET /admin/festivals/1/edit
   def edit
-    @page_title = "Edit Event"
+    @page_title = "Edit Event: #{@admin_festival.title}"
   end
 
   # POST /admin/festivals

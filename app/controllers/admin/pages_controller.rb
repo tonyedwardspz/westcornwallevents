@@ -5,20 +5,24 @@ class Admin::PagesController < Admin::AdminAreaController
   # GET /admin/pages.json
   def index
     @admin_pages = Page.all
+    @page_title = "View Pages"
   end
 
   # GET /admin/pages/1
   # GET /admin/pages/1.json
   def show
+    @page_title = "#{@admin_page.title}"
   end
 
   # GET /admin/pages/new
   def new
     @admin_page = Page.new
+    @page_title = "New Page"
   end
 
   # GET /admin/pages/1/edit
   def edit
+    @page_title = "Edit Page: #{@admin_page.title}"
   end
 
   # POST /admin/pages
