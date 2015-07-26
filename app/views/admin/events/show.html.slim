@@ -18,10 +18,12 @@
         p.details
           ' LOCATION - #{@event.location}
           br
-          - if @event.date
-            ' DATE: #{@event.date.strftime("%m %b %Y")}
-            - unless @event.time.nil?
-              '  - TIME: #{@event.time}
+          - unless @event.dateend.blank?
+            ' DATE: #{@event.date.day.ordinalize} to #{@event.dateend.day.ordinalize} #{@event.dateend.strftime("%b %Y")}
+          - else
+            ' DATE: #{@event.date.day.ordinalize} #{@event.date.strftime("%b %Y")}
+          - unless @event.time.blank?
+            '  - TIME: #{@event.time}
 
       .event_info.unit.span-grid
         - unless @event.image_link.blank?

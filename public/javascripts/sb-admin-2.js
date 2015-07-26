@@ -15,10 +15,7 @@ $(function() {
     });
 
     $('#dataTables-example').DataTable({
-        responsive: true,
-        "columnDefs": [
-            { "orderable": false, "targets": [2,3,4] }
-          ]
+        responsive: true
     });
 });
 
