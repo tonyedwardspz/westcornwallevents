@@ -4,5 +4,7 @@ class Event < ActiveRecord::Base
   friendly_id :title, use: [:slugged, :finders]
   belongs_to :festival
   belongs_to :venue
-  validates :title, presence: true
+  validates :title, presence: true, uniqueness: true
+  validates :date, presence: true
+  validates :description, presence: true
 end
