@@ -36,7 +36,10 @@
         ' Images
       .panel-body
         p
-          = f.file_field :image_link, label: "Image URL", input_html: { placeholder: "foldername/file_name.jpg" }
+          - unless @event.image_link.blank?
+            img.post-image alt="#{@event.imageAlt}" height="132" src="#{@event.image_link}" width="225"
+          - else 
+            = f.file_field :image_link, label: "Image URL", input_html: { placeholder: "foldername/file_name.jpg" }
         = f.input :imageAlt, label: "Image Alt Text", input_html: { placeholder: "3 - 5 word description of image" }
 
     .panel.panel-default

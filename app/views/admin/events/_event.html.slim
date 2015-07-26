@@ -1,6 +1,6 @@
   tr
     td #{event.title}
-    td #{event.date.strftime("%d %b %Y")}
+    td #{event.date.strftime("%m %b %Y")}
     -if event.venue.present?
       td #{event.venue.name}
     - else

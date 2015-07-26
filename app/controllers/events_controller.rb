@@ -65,12 +65,17 @@ class EventsController < ApplicationController
   # PATCH/PUT /events/1.json
   def update
     respond_to do |format|
+      # if @event.image_link.present?
+      #   if @event.update(event_params_without_image)
+      #     format.html { redirect_to @event, notice: 'Event was successfully updated.' }
+      #   else
+      #     format.html { render :edit }
+      #   end
+      # els
       if @event.update(event_params)
         format.html { redirect_to @event, notice: 'Event was successfully updated.' }
-        format.json { render :show, status: :ok, location: @event }
       else
         format.html { render :edit }
-        format.json { render json: @event.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -98,6 +103,10 @@ class EventsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def event_params
       params.require(:event).permit(:date, :dateend, :title, :location, :link, :linktitle, :time, :more_link, :moreTitle, :description, :description2, :description3, :description4, :image_link, :imageAlt, :festival_id, :venue_id)
+    end
+
+    def event_params_without_image
+      params.require(:event).permit(:date, :dateend, :title, :location, :link, :linktitle, :time, :more_link, :moreTitle, :description, :description2, :description3, :description4, :imageAlt, :festival_id, :venue_id)
     end
 
     def prepareURLString (event)
