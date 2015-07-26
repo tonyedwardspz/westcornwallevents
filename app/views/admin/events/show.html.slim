@@ -1,42 +1,84 @@
 #page-wrapper
   .row
     .col-lg-12
-      h1.page-header #{@page_title}
+      - if @event.festival
+        h1.page-header #{@event.festival.title}
+      - elsif @event.title.present?
+        h1.page-header #{@event.title}
+      - else
+        h1.page-header NO EVENT TITLE
   .row
-    .col-lg-12
+    .col-md-8
+      .panel.panel-default
+        .panel-heading
+          ' Event Details
+        .panel-body
 
-      .event_date.unit.one-of-five
-        p.dateinfo 
-          - if @event.date
-            ' #{@event.date.strftime("%b")}
-            span #{@event.date.strftime("%d")}
-
-      .event_details.unit.four-of-five
-        - if @event.festival
-        h2 #{@event.title}
-        
-        p.details
-          ' LOCATION - #{@event.location}
-          br
-          - unless @event.dateend.blank?
-            ' DATE: #{@event.date.day.ordinalize} to #{@event.dateend.day.ordinalize} #{@event.dateend.strftime("%b %Y")}
+          - if @event.venue
+            p LOCATION - 
+            = link_to @event.venue.name, venue_path(@event.venue_id)
+          - elsif @event.location.present?
+            p LOCATION - #{@event.location}
           - else
-            ' DATE: #{@event.date.day.ordinalize} #{@event.date.strftime("%b %Y")}
-          - unless @event.time.blank?
-            '  - TIME: #{@event.time}
-
-      .event_info.unit.span-grid
-        - unless @event.image_link.blank?
-          img.post-image alt="#{@event.imageAlt}" height="132" src="#{@event.image_link}" width="225"
+            p LOCATION - No Location !!!!!!!!!!
+          
+          - if @event.dateend.blank?
+            p DATE: #{@event.date.day.ordinalize} #{@event.date.strftime("%b %Y")}
+          - elsif @event.date.present?
+            p DATE: #{@event.date.day.ordinalize} to #{@event.dateend.day.ordinalize} #{@event.dateend.strftime("%b %Y")}
+          - else
+            p DATE: No Date !!!!!!!!!!!!!!
         
-        p #{@event.description.html_safe}
+          - if @event.time.present?
+            p TIME: #{@event.time}
 
-        - unless @event.description2.blank?
-          p #{@event.description2.html_safe}
+          - if @event.link.present?
+            p LINK: #{@event.link}
+            - if @event.linktitle.present?
+              
+              ' LINK TITLE: #{@event.linktitle}
+            - else
+              ' LINK TITLE: No link title !!!!!!!!!!!!!
 
-        - unless @event.description3.blank?
-          p #{@event.description3.html_safe}
+      .panel.panel-default
+        .panel-heading
+          ' Content
+        .panel-body
 
-        - unless @event.description4.blank?
-          p #{@event.description4.html_safe}
+          - if @event.description.present?
+            p #{@event.description.html_safe}
+          - else
+            p NO DESCRIPTION !!!!!!!!!!!!!!!!!!
 
+          - unless @event.description2.blank?
+            p #{@event.description2.html_safe}
+
+          - unless @event.description3.blank?
+            p #{@event.description3.html_safe}
+
+          - unless @event.description4.blank?
+            p #{@event.description4.html_safe}
+
+      .panel.panel-default
+        .panel-heading
+          ' Actions
+        .panel-body
+          = link_to 'Edit', edit_admin_event_path(:id => @event.id), class: "btn btn-primary"
+          '   
+          = link_to 'Delete', admin_event_path(:id => @event.id), :method => :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger"
+
+    .col-md-4
+      .panel.panel-default
+        .panel-heading
+          ' Image
+        .panel-body
+          - if @event.image_link.present?
+            img src="#{@event.image_link}" width="225"
+            - if @event.imageAlt.present?
+              p #{@event.imageAlt}
+            - else
+              p ALT TEST: No alt test !!!!!!!!!!!!!
+          - else
+            img src="http://placehold.it/225x150"
+
+    
