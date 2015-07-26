@@ -34,11 +34,9 @@ class VenuesController < ApplicationController
 
     respond_to do |format|
       if @venue.save
-        format.html { redirect_to @venue, notice: 'Venue was successfully created.' }
-        format.json { render :show, status: :created, location: @venue }
+        format.html { redirect_to admin_venues_url(@venue), notice: 'Venue was successfully created.' }
       else
         format.html { render :new }
-        format.json { render json: @venue.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -48,11 +46,9 @@ class VenuesController < ApplicationController
   def update
     respond_to do |format|
       if @venue.update(venue_params)
-        format.html { redirect_to @venue, notice: 'Venue was successfully updated.' }
-        format.json { render :show, status: :ok, location: @venue }
+        format.html { redirect_to admin_venues_url(@venue), notice: 'Venue was successfully updated.' }
       else
         format.html { render :edit }
-        format.json { render json: @venue.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -62,8 +58,7 @@ class VenuesController < ApplicationController
   def destroy
     @venue.destroy
     respond_to do |format|
-      format.html { redirect_to venues_url, notice: 'Venue was successfully destroyed.' }
-      format.json { head :no_content }
+      format.html { redirect_to admin_venues_url, notice: 'Venue was successfully destroyed.' }
     end
   end
 
