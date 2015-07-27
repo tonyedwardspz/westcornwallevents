@@ -34,7 +34,7 @@ class VenuesController < ApplicationController
 
     respond_to do |format|
       if @venue.save
-        format.html { redirect_to admin_venues_url(@venue), notice: 'Venue was successfully created.' }
+        format.html { redirect_to admin_venue_url(@venue), notice: 'Venue was successfully created.' }
       else
         format.html { render :new }
       end
@@ -46,7 +46,7 @@ class VenuesController < ApplicationController
   def update
     respond_to do |format|
       if @venue.update(venue_params)
-        format.html { redirect_to admin_venues_url(@venue), notice: 'Venue was successfully updated.' }
+        format.html { redirect_to admin_venue_url(@venue), notice: 'Venue was successfully updated.' }
       else
         format.html { render :edit }
       end
@@ -58,7 +58,7 @@ class VenuesController < ApplicationController
   def destroy
     @venue.destroy
     respond_to do |format|
-      format.html { redirect_to admin_venues_url, notice: 'Venue was successfully destroyed.' }
+      format.html { redirect_to admin_venue_url, notice: 'Venue was successfully destroyed.' }
     end
   end
 

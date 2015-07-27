@@ -29,7 +29,7 @@ class PagesController < ApplicationController
 
     respond_to do |format|
       if @page.save
-        format.html { redirect_to @page, notice: 'Page was successfully created.' }
+        format.html { redirect_to admin_page_path(@page), notice: 'Page was successfully created.' }
       else
         format.html { render :new }
       end
