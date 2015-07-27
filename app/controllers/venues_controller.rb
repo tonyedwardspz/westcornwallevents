@@ -30,8 +30,6 @@ class VenuesController < ApplicationController
   # POST /venues.json
   def create
     @venue = Venue.new(venue_params)
-    @page_title = "Create new venue"
-
     respond_to do |format|
       if @venue.save
         format.html { redirect_to admin_venue_url(@venue), notice: 'Venue was successfully created.' }
