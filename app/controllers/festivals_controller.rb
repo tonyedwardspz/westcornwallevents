@@ -43,9 +43,9 @@ class FestivalsController < ApplicationController
   def update
     respond_to do |format|
       if @festival.update(festival_params)
-        format.html { redirect_to admin_festival_path(@festival), notice: 'Festival was successfully updated.' }
+        format.html { redirect_to admin_festival_url(:id => @festival.id), notice: 'Festival was successfully updated.' }
       else
-        format.html { render :edit }
+        format.html { redirect_to edit_admin_festival_path(@festival) }
       end
     end
   end
@@ -55,7 +55,7 @@ class FestivalsController < ApplicationController
   def destroy
     @festival.destroy
     respond_to do |format|
-      format.html { redirect_to admin_festivals_url, notice: 'Festival was successfully destroyed.' }
+      format.html { redirect_to admin_festival_url, notice: 'Festival was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -80,6 +80,6 @@ class FestivalsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def festival_params
-      params.require(:festival).permit(:title, :date, :date_end, :content, :image, :image_alt, :image2, :image2_alt, :video1, :video2, :meta_title, :meta_description, :summary, :snippet)
+      params.require(:festival).permit(:title, :date, :end_date, :content, :image, :image_alt, :image2, :image2_alt, :video1, :video2, :meta_title, :meta_description, :summary, :snippet)
     end
 end

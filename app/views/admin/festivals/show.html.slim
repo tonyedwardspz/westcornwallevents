@@ -3,19 +3,48 @@
     .col-lg-12
       h1.page-header 
         = @admin_festival.title
-      p
-        = @admin_festival.date.strftime("%d %B")
-        - if !@admin_festival.end_date.blank? && @admin_festival.end_date != @admin_festival.date
-          |  to 
-          = @admin_festival.end_date.strftime("%d %B")
-        |   
-        = @admin_festival.date.strftime("%Y")
-      p
-        = image_tag("#{@admin_festival.image}", alt: "#{@admin_festival.image_alt}", class: "float-right")
 
-        = @admin_festival.content.html_safe
+    .col-md-8
+      .panel.panel-default
+        .panel-heading
+          ' Festival Details
+        .panel-body
 
+          - if @admin_festival.end_date.blank?
+            p DATE: #{@admin_festival.date.day.ordinalize} #{@admin_festival.date.strftime("%b %Y")}
+          - elsif @admin_festival.date.present?
+            p DATE: #{@admin_festival.date.day.ordinalize} to #{@admin_festival.end_date.day.ordinalize} #{@admin_festival.end_date.strftime("%b %Y")}
+          - else
+            p DATE: No Date !!!!!!!!!!!!!!
 
-      = link_to 'Edit', edit_admin_festival_path(@admin_festival)
-      '|
-      = link_to 'Back', admin_festivals_path
+      .panel.panel-default
+        .panel-heading
+          ' Festival Content
+        .panel-body
+
+          - if @admin_festival.content.present?
+            = @admin_festival.content
+          - else
+            p CONTENT: No Content !!!!!!!!!!
+
+      .panel.panel-default
+        .panel-heading
+          ' Actions
+        .panel-body
+          = link_to 'Edit', edit_admin_festival_path(@admin_festival), class: "btn btn-primary"
+          '   
+          = link_to 'Delete', admin_festival_path(@admin_festival), :method => :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger"
+
+    .col-md-4
+      .panel.panel-default
+        .panel-heading
+          ' Image
+        .panel-body
+          - if @admin_festival.image.present?
+            img src="#{@admin_festival.image}" width="225"
+            - if @admin_festival.image_alt.present?
+              p ALT TEXT: #{@admin_festival.image_alt}
+            - else
+              p ALT TEST: No alt test !!!!!!!!!!!!!
+          - else
+            img src="http://placehold.it/225x150"

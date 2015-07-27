@@ -29,14 +29,17 @@ class Admin::FestivalsController < Admin::AdminAreaController
   # POST /admin/festivals.json
   def create
     @admin_festival = Festival.new(admin_festival_params)
+    @admin_festival = Event.new(event_params)
+    @admin_festival.date = @admin_festival.date.strftime("%m/%d/%Y")
+    if @admin_festival.end_date.present?
+      @admin_festival.end_date = @admin_festival.end_date.strftime("%m/%d/%Y")
+    end
 
     respond_to do |format|
       if @admin_festival.save
         format.html { redirect_to @admin_festival, notice: 'Festival was successfully created.' }
-        format.json { render :show, status: :created, location: @admin_festival }
       else
         format.html { render :new }
-        format.json { render json: @admin_festival.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -47,10 +50,8 @@ class Admin::FestivalsController < Admin::AdminAreaController
     respond_to do |format|
       if @admin_festival.update(admin_festival_params)
         format.html { redirect_to @admin_festival, notice: 'Festival was successfully updated.' }
-        format.json { render :show, status: :ok, location: @admin_festival }
       else
         format.html { render :edit }
-        format.json { render json: @admin_festival.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -61,7 +62,6 @@ class Admin::FestivalsController < Admin::AdminAreaController
     @admin_festival.destroy
     respond_to do |format|
       format.html { redirect_to admin_festivals_url, notice: 'Festival was successfully destroyed.' }
-      format.json { head :no_content }
     end
   end
 
@@ -84,6 +84,6 @@ class Admin::FestivalsController < Admin::AdminAreaController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def admin_festival_params
-      params.require(:festival).permit(:title, :date, :date_end, :content, :image, :image_alt, :image2, :image2_alt, :video1, :video2, :meta_title, :meta_description, :summary, :snippet)
+      params.require(:festival).permit(:title, :date, :end_date, :content, :image, :image_alt, :image2, :image2_alt, :video1, :video2, :meta_title, :meta_description, :summary, :snippet)
     end
 end

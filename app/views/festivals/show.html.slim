@@ -1,13 +1,10 @@
 p#notice = notice
 
 h1 = @festival.title
-p
-  = @festival.date.strftime("%d %B")
-  - if !@festival.end_date.blank? && @festival.end_date != @festival.date
-    |  to 
-    = @festival.end_date.strftime("%d %B")
-  |   
-  = @festival.date.strftime("%Y")
+- if @festival.end_date.blank?
+  p DATE: #{@festival.date.day.ordinalize} #{@festival.date.strftime("%b %Y")}
+- elsif @festival.date.present?
+  p DATE: #{@festival.date.day.ordinalize} to #{@festival.end_date.day.ordinalize} #{@festival.end_date.strftime("%b %Y")}
 p
   = image_tag("#{@festival.image}", alt: "#{@festival.image_alt}", class: "float-right")
 
