@@ -6,8 +6,8 @@ class ApplicationController < ActionController::Base
   $sidebar_festivals = Festival.all.order('date').limit('4')
 
   def not_found
-  raise ActionController::RoutingError.new('Not Found')
-end
+    raise ActionController::RoutingError.new('Not Found')
+  end
 
   protected
   def authorize

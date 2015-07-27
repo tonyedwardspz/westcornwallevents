@@ -18,10 +18,12 @@ class FestivalsController < ApplicationController
   # GET /festivals/new
   def new
     @festival = Festival.new
+    @page_title = "Create new festival"
   end
 
   # GET /festivals/1/edit
   def edit
+    @page_title = "Edit festival: #{@festival.title}"
   end
 
   # POST /festivals

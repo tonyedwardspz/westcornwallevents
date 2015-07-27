@@ -6,20 +6,24 @@ class PagesController < ApplicationController
   # GET /pages.json
   def index
     @pages = Page.all
+    @page_title = "All pages"
   end
 
   # GET /pages/1
   # GET /pages/1.json
   def show
+    @page_title = page.title
   end
 
   # GET /pages/new
   def new
     @page = Page.new
+    @page_title = "New page"
   end
 
   # GET /pages/1/edit
   def edit
+    @page_title = "Edit page: #{@page.title}"
   end
 
   # POST /pages
