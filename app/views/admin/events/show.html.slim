@@ -16,7 +16,7 @@
 
           - if @event.venue
             p LOCATION - 
-            = link_to @event.venue.name, venue_path(@event.venue_id)
+            ' = link_to @event.venue.name, venue_path(@event.venue_id)
           - elsif @event.location.present?
             p LOCATION - #{@event.location}
           - else
