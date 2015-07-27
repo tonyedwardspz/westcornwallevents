@@ -102,14 +102,20 @@ html lang="en"
                 = link_to "Cornwall #{1.year.from_now.year} Events", events_path(:year => "#{1.year.from_now.year}"), :title => "Events in Cornwall #{1.year.from_now.year}"
               li
                 = link_to "Annual Events and Festivals", festivals_path, title: "Annual Events and Festivals"
+              li
+                = link_to "Venues", venues_path, title: "West Cornwall Venues"
 
           #col-c.unit.one-of-three.footer-list
             h5 Popular Pages
             ul
               li
-                = link_to "Venues", venues_path, title: "West Cornwall Venues"
+                = link_to "About Us", "http://westcornwallevents.co.uk/pages/about", title: "About us"
               li
-                = link_to "Community Festivals", festivals_path, title: "Annnual Community Events"
+                = link_to "Link Exchange", "http://westcornwallevents.co.uk/pages/link-exchange", title: "Cornwall Link Exchange"
+              li
+                = link_to "Credits & Thanks", "http://westcornwallevents.co.uk/pages/credits", title: "Credits and thanks"
+              li
+                = link_to "Privacy & Legal Information", "http://westcornwallevents.co.uk/pages/legal-information", title: "West Cornwall Venues"
 
           .unit.one-of-two.bottom_footer.footer_left
             ul
@@ -124,7 +130,7 @@ html lang="en"
               /   a href="http://www.westcornwallevents.co.uk/website/legal.php" Legal Stuff  |
               li
                 = link_to "Home", root_path, title: "Home"
-                '  | 
+                '  |  
               li
                 a href="#top" title="Top" Top
 
