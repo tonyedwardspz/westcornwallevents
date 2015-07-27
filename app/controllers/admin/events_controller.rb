@@ -17,6 +17,12 @@ class Admin::EventsController < Admin::AdminAreaController
     @page_title = "Edit Event: #{@event.title}"
   end
 
+  # GET /events/1
+  # GET /events/1.json
+  def show
+    @page_title = @event.title
+  end
+
   # POST /events
   # POST /events.json
   def create

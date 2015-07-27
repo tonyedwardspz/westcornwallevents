@@ -23,7 +23,7 @@
         .panel-body
 
           - if @admin_festival.content.present?
-            = @admin_festival.content
+            =  youtube_parse(@admin_festival.content.html_safe
           - else
             p CONTENT: No Content !!!!!!!!!!
 
