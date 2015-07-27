@@ -94,10 +94,10 @@ html lang="en"
               .you-tube
           
           #col-b.unit.one-of-three.footer-list
-            h5 Find Local Events
+            h5 Popular Pages
             ul
               li
-                = link_to "Cornwall #{Time.now.year} Events", events_path(:year => "#{Time.now.year}"), :title => "Events in Cornwall 2015"
+                = link_to "Cornwall #{Time.now.year} Events", events_path(:year => "#{Time.now.year}"), :title => "Events in Cornwall #{Time.now.year}"
               li
                 = link_to "Cornwall #{1.year.from_now.year} Events", events_path(:year => "#{1.year.from_now.year}"), :title => "Events in Cornwall #{1.year.from_now.year}"
               li
@@ -106,7 +106,7 @@ html lang="en"
                 = link_to "Venues", venues_path, title: "West Cornwall Venues"
 
           #col-c.unit.one-of-three.footer-list
-            h5 Popular Pages
+            h5 Site Information
             ul
               li
                 = link_to "About Us", "http://westcornwallevents.co.uk/pages/about", title: "About us"
@@ -126,8 +126,6 @@ html lang="en"
           
           .unit.one-of-two.bottom_footer.footer_right
             ul
-              / li
-              /   a href="http://www.westcornwallevents.co.uk/website/legal.php" Legal Stuff  |
               li
                 = link_to "Home", root_path, title: "Home"
                 '  |  
