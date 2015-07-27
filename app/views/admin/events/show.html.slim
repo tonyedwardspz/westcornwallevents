@@ -72,10 +72,10 @@
         .panel-heading
           ' Image
         .panel-body
-          p #{@event.image_link.raw}
+          p #{@event.image_link}
 
           - if @event.image_link.present?
-            img src="#{@event.image_link.url}" width="225"
+            img src="#{@event.image_link}" width="225"
             - if @event.imageAlt.present?
               p #{@event.imageAlt}
             - else

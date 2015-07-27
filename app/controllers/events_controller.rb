@@ -106,15 +106,15 @@ class EventsController < ApplicationController
     end
 
     def prepareURLString (event)
-    if event.image_link.instance_of? String
-      startString = event.image_link[0,4].downcase
-      if startString != "http"
-        if startString == "www."
-          event.image_link = event.image_link.prepend("http://")
-        else
-          event.image_link = event.image_link.prepend("http://www.westcornwallevents.co.uk/images/")
+      if event.image_link.instance_of? String
+        startString = event.image_link[0,4].downcase
+        if startString != "http"
+          if startString == "www."
+            event.image_link = event.image_link.prepend("http://")
+          else
+            event.image_link = event.image_link.prepend("http://www.westcornwallevents.co.uk/images/")
+          end
         end
       end
-    end
   end
 end
