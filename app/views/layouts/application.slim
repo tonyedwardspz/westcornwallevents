@@ -11,7 +11,7 @@ html lang="en"
     meta name="author" content="Tony Edwards"
     
     /[if IE]
-        script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"
+      script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"
 
   body#top
 
@@ -103,19 +103,19 @@ html lang="en"
               li
                 = link_to "Annual Events and Festivals", festivals_path, title: "Annual Events and Festivals"
               li
-                = link_to "Venues", venues_path, title: "West Cornwall Venues"
+                = link_to "Event Venues", venues_path, title: "West Cornwall Event Venues"
 
           #col-c.unit.one-of-three.footer-list
             h5 Site Information
             ul
+              li
+                = link_to 'Submit Event', submit_event_path, title: "Submit event"
               li
                 = link_to "About Us", "http://westcornwallevents.co.uk/pages/about", title: "About us"
               li
                 = link_to "Link Exchange", "http://westcornwallevents.co.uk/pages/link-exchange", title: "Cornwall Link Exchange"
               li
                 = link_to "Credits & Thanks", "http://westcornwallevents.co.uk/pages/credits", title: "Credits and thanks"
-              li
-                = link_to "Privacy & Legal Information", "http://westcornwallevents.co.uk/pages/legal-information", title: "West Cornwall Venues"
 
           .unit.one-of-two.bottom_footer.footer_left
             ul
@@ -128,6 +128,9 @@ html lang="en"
             ul
               li
                 = link_to "Home", root_path, title: "Home"
+                '  |  
+              li 
+                = link_to "Privacy & Legal Information", "http://westcornwallevents.co.uk/pages/legal-information", title: "West Cornwall Venues"
                 '  |  
               li
                 a href="#top" title="Top" Top
