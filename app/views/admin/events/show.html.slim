@@ -72,13 +72,12 @@
         .panel-heading
           ' Image
         .panel-body
-          p #{@event.image_link}
-
+          p DEBUG INFO: #{@event.image_link.url}
           - if @event.image_link.present?
-            img src="#{@event.image_link}" width="225"
+            = image_tag @event.image_link, alt: @event.imageAlt, width: 225
             - if @event.imageAlt.present?
-              p #{@event.imageAlt}
+              p ALT TEXT: #{@event.imageAlt}
             - else
-              p ALT TEST: No alt test !!!!!!!!!!!!!
+              p ALT TEXT: No alt test !!!!!!!!!!!!!
           - else
             img src="http://placehold.it/225x150"

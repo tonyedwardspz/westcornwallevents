@@ -35,6 +35,11 @@ class AttachmentUploader < CarrierWave::Uploader::Base
   # version :thumb do
   #   process :resize_to_fit => [50, 50]
   # end
+  # def url(options = {})
+  #   url = super(options)
+  #   url = url.gsub(/\/uploads\/http%3A\//) if url =~ /http/
+  #   return url
+  # end
 
   # Add a white list of extensions which are allowed to be uploaded.
   # For images you might use something like this:

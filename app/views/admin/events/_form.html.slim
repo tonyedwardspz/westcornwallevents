@@ -37,7 +37,7 @@
       .panel-body
         p
           - unless @event.image_link.blank?
-            img.post-image alt="#{@event.imageAlt}" height="132" src="#{@event.image_link}" width="225"
+            = image_tag @event.image_link, alt: @event.imageAlt, width: 225, height: 132, class: "post-image"
           - else 
             = f.file_field :image_link, label: "Image URL", input_html: { placeholder: "foldername/file_name.jpg" }
         = f.input :imageAlt, label: "Image Alt Text", input_html: { placeholder: "3 - 5 word description of image" }
