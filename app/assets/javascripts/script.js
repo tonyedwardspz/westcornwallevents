@@ -13,9 +13,9 @@ $(document).ready(function(e){
         $(".body_navigation").toggle();
     });
 
-    googleAdvertsInit(); 
+    googleAdvertsInit();
 });
-  
+
 
 $(window).resize(function(){
     
@@ -28,7 +28,7 @@ $(window).resize(function(){
 });
 
 
-function applyActiveClass(){
+var applyActiveClass = function(){
 
     var myElement = $("body").attr('class');
 
@@ -53,6 +53,6 @@ function applyActiveClass(){
 }
 
 
-function injectMobileNav(){
+var injectMobileNav = function(){
     $("#nav").addClass("js").before('<div id="menu"><img src="http://www.westcornwallevents.co.uk/images/nav-icon.png" alt="Navigation"></div>');
 }
