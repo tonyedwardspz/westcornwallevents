@@ -1,9 +1,9 @@
 p#notice = notice
 
-<a id="top"></a>
-h1 = @venue.name
+h1#top = @venue.name
 
-= image_tag(@venue.image, :alt => @venue.image_alt, :class => "float-right")
+- if @venue.image
+  = image_tag(@venue.image, :alt => @venue.image_alt, :class => "float-right")
 
 p 
   strong #{@venue.name}
@@ -15,3 +15,8 @@ p
   a href="#{@venue.url}" title="#{@venue.name}" #{@venue.url}
                     
 = @venue.content.html_safe
+
+- if @venue_events
+  h2 Upcoming Events
+
+  = render :partial => @venue_events, :as => :event
