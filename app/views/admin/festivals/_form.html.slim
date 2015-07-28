@@ -43,8 +43,10 @@
         = f.input :meta_title, label: "Meta Title", input_html: { placeholder: "Title tag" }
         = f.input :meta_description, label: "Meta Description"
 
-  .form-actions.col-xs-12
-    = f.button :submit, class: "btn btn-primary"
-    '   
-    = link_to "Cancel", admin_festival_path, class: "btn btn-warning"
+  .col-xs-12
+    .panel.panel-default
+      .panel-body
+        = f.button :submit, class: "btn btn-primary"
+        '   
+        = link_to "Cancel", admin_festival_path, class: "btn btn-warning"
 

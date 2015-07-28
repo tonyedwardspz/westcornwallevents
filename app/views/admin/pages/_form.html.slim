@@ -10,7 +10,9 @@
         = f.input :slug, required: :true, label: "Link Text", input_html: { placeholder: "Short Page Name" }
         = f.input :content, required: true, label: "Page Content", input_html: { placeholder: "HTML allowed", rows: "30"}
 
-  .form-actions.col-xs-12
-    = f.button :submit, class: "btn btn-primary"
-    '   
-    = link_to "Cancel", admin_page_path, class: "btn btn-warning"
+  .col-xs-12
+    .panel.panel-default
+      .panel-body
+        = f.button :submit, class: "btn btn-primary"
+        '   
+        = link_to "Cancel", admin_page_path, class: "btn btn-warning"

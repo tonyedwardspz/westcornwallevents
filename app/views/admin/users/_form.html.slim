@@ -1,13 +1,18 @@
 = simple_form_for(@admin_user) do |f|
   = f.error_notification
 
-  .form-inputs
-    = f.input :name, required: true
-    = f.input :password, required: true
-    = f.input :password_confirmation, required: true
+  .col-xs-12
+    .panel.panel-default
+      .panel-heading
+        ' Admin details
+      .panel-body
+        = f.input :name, required: true
+        = f.input :password, required: true
+        = f.input :password_confirmation, required: true
 
-  .form-actions.col-xs-12
-    = f.button :submit, class: "btn btn-primary"
-    '   
-    = link_to "Cancel", admin_users_path, class: "btn btn-warning"
-
+  .col-xs-12
+    .panel.panel-default
+      .panel-body
+        = f.button :submit, class: "btn btn-primary"
+        '   
+        = link_to "Cancel", admin_users_path, class: "btn btn-warning"
