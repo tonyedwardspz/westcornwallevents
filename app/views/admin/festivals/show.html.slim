@@ -48,3 +48,13 @@
               p ALT TEST: No alt test !!!!!!!!!!!!!
           - else
             img src="http://placehold.it/225x150"
+            
+
+      .panel.panel-default
+        .panel-heading
+          ' Youtube
+        .panel-body
+          - if @admin_festival.video1.present?
+            img src="http://img.youtube.com/vi/#{@admin_festival.video1}/2.jpg"
+          - if @admin_festival.video2.present?
+            img src="http://img.youtube.com/vi/#{@admin_festival.video2}/2.jpg"

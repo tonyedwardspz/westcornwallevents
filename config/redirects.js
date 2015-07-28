@@ -101,6 +101,10 @@ location ~* "^\/website\/link_exchange\.(php|html?)" {
   return 301 /pages/link-exchange;
 }
 
+location ^~ /blog/ {
+  return 301 /pages/blog;
+}
+
 
 
 server {
