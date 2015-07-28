@@ -13,6 +13,7 @@ class VenuesController < ApplicationController
   # GET /venues/1.json
   def show
     @page_title = @venue.name
+    @venue_events = @venue.events
   end
 
   # GET /venues/new
