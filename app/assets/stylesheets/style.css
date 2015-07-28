@@ -455,7 +455,7 @@ td:first-child, th:first-child { padding: 5px 30px 5px 0;}
     padding-top: 21px;
 }
 
-#annual_event {} #annual_event h3 {
+#annual_event h3 {
     text-align: left;
     padding-left: 10px;
     color: #FF409F;
