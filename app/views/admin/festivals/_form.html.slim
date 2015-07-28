@@ -44,4 +44,7 @@
         = f.input :meta_description, label: "Meta Description"
 
   .form-actions.col-xs-12
-    = f.button :submit
+    = f.button :submit, class: "btn btn-primary"
+    '   
+    = link_to "Cancel", admin_festival_path, class: "btn btn-warning"
+

@@ -11,4 +11,6 @@
         = f.input :content, required: true, label: "Page Content", input_html: { placeholder: "HTML allowed", rows: "30"}
 
   .form-actions.col-xs-12
-    = f.button :submit
+    = f.button :submit, class: "btn btn-primary"
+    '   
+    = link_to "Cancel", admin_page_path, class: "btn btn-warning"

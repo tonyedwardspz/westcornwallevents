@@ -33,5 +33,8 @@
         = f.input :image, label: "Image URL", input_html: { placeholder: "foldername/file_name.jpg" }
         = f.input :image_alt, label: "Image Alt Text", input_html: { placeholder: "3 - 5 word description of venue" }
 
-  .form-actions.col-xs-12
-    = f.button :submit
+    .form-actions.col-xs-12
+    = f.button :submit, class: "btn btn-primary"
+    '   
+    = link_to "Cancel", admin_venues_path, class: "btn btn-warning"
+

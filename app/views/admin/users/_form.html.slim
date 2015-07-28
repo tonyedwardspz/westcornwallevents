@@ -6,5 +6,8 @@
     = f.input :password, required: true
     = f.input :password_confirmation, required: true
 
-  .form-actions
-    = f.button :submit
+  .form-actions.col-xs-12
+    = f.button :submit, class: "btn btn-primary"
+    '   
+    = link_to "Cancel", admin_users_path, class: "btn btn-warning"
+
