@@ -1,3 +1,0 @@
-location = /festival/penzance_mazey_day_golowan.php {
-  return 301 /festivals/mazey-day-and-golowan-festival;
-}
