@@ -1,9 +1,9 @@
 p#notice = notice
 
-<a id="top"></a>
-h1 = @venue.name
+h1#top = @venue.name
 
-= image_tag(@venue.image, :alt => @venue.image_alt, :class => "float-right")
+- if @venue.image
+  = image_tag(@venue.image, :alt => @venue.image_alt, :class => "float-right")
 
 p 
   strong #{@venue.name}
