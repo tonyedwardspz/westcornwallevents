@@ -15,7 +15,7 @@
             p TITLE: No venue title !!!!!!!!!!!!
 
           - if @admin_venue.phone.present?
-            p PHONE: (#{@admin_venue.phone}) 
+            p PHONE: #{@admin_venue.phone}
           - else
             p PHONE: No phone number !!!!!!!!!!!
 
@@ -35,7 +35,7 @@
           - if @admin_venue.url.present?
             p URL: #{@admin_venue.url}
             - if @admin_venue.LinkAlt.present?
-              p LINK ALT: @admin_venue.LinkAlt
+              p LINK ALT: #{@admin_venue.LinkAlt}
             - else
               p LINK ALT: !!!!!!!!!
 
