@@ -2,21 +2,69 @@
   .row
     .col-md-12
       h1.page-header 
-        = @admin_venue.name
+        = @page_title
 
-      = image_tag(@admin_venue.image, :alt => @admin_venue.image_alt, :class => "float-right")
+    .col-md-8
+      .panel.panel-default
+        .panel-heading
+          ' Festival Details
+        .panel-body
+          - if @admin_venue.name.present?
+            p TITLE: #{@admin_venue.name}
+          - else
+            p TITLE: No venue title !!!!!!!!!!!!
 
-      p 
-        strong #{@admin_venue.name}
-        - if @admin_venue.phone.present?
-          |  (#{@admin_venue.phone}) 
-        br
-        | #{@admin_venue.address}, #{@admin_venue.postcode}
-        br
-        a href="#{@admin_venue.url}" title="#{@admin_venue.LinkAlt}" #{@admin_venue.url}
-                          
-      = @admin_venue.content.html_safe
+          - if @admin_venue.phone.present?
+            p PHONE: (#{@admin_venue.phone}) 
+          - else
+            p PHONE: No phone number !!!!!!!!!!!
 
-      = link_to 'Edit', edit_admin_venue_path(:id => @admin_venue.id)
-      '  |
-      = link_to 'Back', admin_venues_path
+          - if @admin_venue.address.present?
+            p ADDRESS: #{@admin_venue.address}
+          - else
+            p ADRESS: !!!!!!!!!!!!!!!!
+
+          - if @admin_venue.postcode.present?
+            p POSTCODE: #{@admin_venue.postcode}
+          - else
+            p POSTCODE: !!!!!!!!!!!!!!!!
+
+          - if @admin_venue.email.present?
+            p EMAIL: #{@admin_venue.email}
+
+          - if @admin_venue.url.present?
+            p URL: #{@admin_venue.url}
+            - if @admin_venue.LinkAlt.present?
+              p LINK ALT: @admin_venue.LinkAlt
+            - else
+              p LINK ALT: !!!!!!!!!
+
+      .panel.panel-default
+        .panel-heading
+          ' Content
+        .panel-body
+          - if @admin_venue.content.present?
+            = @admin_venue.content.html_safe
+          - else
+            p NO CONTENT !!!!!!!!!!!!!!!!!
+
+    
+      .panel.panel-default
+        .panel-body
+          = link_to 'Edit', edit_admin_venue_path(:id => @admin_venue.id), class: "btn btn-primary"
+          '  
+          = link_to 'Delete', edit_admin_venue_path(@admin_venue), :method => :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger"               
+      
+    .col-md-4
+      .panel.panel-default
+        .panel-heading
+          ' Image
+        .panel-body
+          - if @admin_venue.image.present?
+            = image_tag @admin_venue.image, width: 250, height: 132
+            - if @admin_venue.image_alt.present?
+              p ALT TEXT: #{@admin_venue.image_alt}
+            - else
+              p ALT TEST: No alt test !!!!!!!!!!!!!
+          - else
+            img src="http://placehold.it/225x150"
