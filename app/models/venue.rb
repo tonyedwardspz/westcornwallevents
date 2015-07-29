@@ -5,6 +5,5 @@ class Venue < ActiveRecord::Base
   validates :name, presence: true
   validates :address, presence: true
   validates :postcode, presence: true
-  validates :url, presence: true
   has_many :events
 end
