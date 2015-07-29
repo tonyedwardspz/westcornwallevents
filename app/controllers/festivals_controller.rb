@@ -33,7 +33,7 @@ class FestivalsController < ApplicationController
 
     respond_to do |format|
       if @festival.save
-        format.html { redirect_to admin_festival_path(@festival), notice: 'Festival was successfully created.' }
+        format.html { redirect_to admin_festival_path(:id => @festival.id), notice: 'Festival was successfully created.' }
       else
         format.html { render :new }
       end
@@ -66,18 +66,6 @@ class FestivalsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_festival
       @festival = Festival.friendly.find(params[:id])
-      if @festival.image.present?
-        startString = @festival.image[0,4].downcase
-        if startString != "http"
-          if startString == "www."
-            @festival.image = @festival.image.prepend("http://")
-          elsif startString[0,1] == "/"
-            @festival.image = @festival.image.prepend("http://www.westcornwallevents.co.uk/images")
-          else
-            @festival.image = @festival.image.prepend("http://www.westcornwallevents.co.uk/images/")
-          end
-        end
-      end
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

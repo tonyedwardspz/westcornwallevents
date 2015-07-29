@@ -1,4 +1,4 @@
-= simple_form_for(@admin_festival, html: {class: 'form-vertical'}) do |f|
+= simple_form_for(@admin_festival, html: {class: 'form-vertical', multipart: true}) do |f|
   = f.error_notification
 
   .col-md-6
@@ -24,9 +24,21 @@
       .panel-heading
         ' Images
       .panel-body
-        = f.input :image, label: "Image URL", input_html: { placeholder: "foldername/file_name.jpg" }
+
+        p
+          - unless @admin_festival.image.blank?
+            = image_tag @admin_festival.image, width: 250
+          - else 
+            = f.file_field :image, label: "Image URL"
         = f.input :image_alt, label: "Image Alt Text", input_html: { placeholder: "3 - 5 word description of image" }
-        = f.input :image2, label: "Image URL", input_html: { placeholder: "foldername/file_name.jpg" }
+
+        hr
+
+        p
+          - unless @admin_festival.image2.blank?
+            = image_tag @admin_festival.image2, width: 250
+          - else 
+            = f.file_field :image2, label: "Image2 URL"
         = f.input :image2_alt, label: "Image Alt Text", input_html: { placeholder: "3 - 5 word description of image" }
 
     .panel.panel-default
