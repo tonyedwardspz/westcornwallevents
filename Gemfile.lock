@@ -101,6 +101,8 @@ GEM
       thor (>= 0.14, < 2.0)
     json (1.8.2)
     kgio (2.9.3)
+    lazyload-rails (0.3.1)
+      nokogiri (~> 1.5)
     loofah (2.0.1)
       nokogiri (>= 1.5.9)
     mail (2.6.3)
@@ -242,6 +244,7 @@ DEPENDENCIES
   friendly_id (~> 5.1.0)
   jbuilder (~> 2.0)
   jquery-rails
+  lazyload-rails
   minitest-documentation
   minitest-rails
   minitest-rails-capybara
@@ -259,4 +262,4 @@ DEPENDENCIES
   web-console (~> 2.0)
 
 BUNDLED WITH
-   1.10.5
+   1.10.6
