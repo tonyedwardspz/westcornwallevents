@@ -17,7 +17,7 @@ class EventsController < ApplicationController
       end
       @page_title = "#{params[:year]} events and festivals"
     else
-      @events = Event.where('date > ?', DateTime.now).order('date')
+      @events = Event.where('date > ?', DateTime.now).order('date').limit(5)
       @page_title = "Upcoming events and festivals"
     end
 
