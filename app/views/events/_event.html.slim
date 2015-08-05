@@ -12,7 +12,7 @@
   p.details
     - if event.venue
       ' LOCATION - 
-      = link_to event.venue.name, venue_path(event.venue_id)
+      = link_to event.venue.name, event.venue
     - else
       ' LOCATION - #{event.location}
     br
