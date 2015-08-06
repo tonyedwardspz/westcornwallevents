@@ -27,16 +27,21 @@ SitemapGenerator::Sitemap.create do
   #   end
   add events_path, :priority => 0.7, :changefreq => 'daily'
   Event.find_each do |event|
-    #add event_path(event), :lastmod => event.updated_at
+    add event_path(event), :lastmod => event.updated_at
   end
 
   add festivals_path, :priority => 0.7, :changefreq => 'weekly'
   Event.find_each do |festival|
-    #add festival_path(festival), :lastmod => festival.updated_at
+    add festival_path(festival), :lastmod => festival.updated_at
   end
 
   add venues_path, :priority => 0.7, :changefreq => 'weekly'
   Venue.find_each do |venue|
-    #add venue_path(venue), :lastmod => venue.updated_at
+    add venue_path(venue), :lastmod => venue.updated_at
+  end
+
+  add pages_path, :priority => 0.7, :changefreq => 'weekly'
+  Page.find_each do |page|
+    add page_path(page), :lastmod => page.updated_at
   end
 end
