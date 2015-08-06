@@ -1,3 +1,4 @@
+Sitemap: http://westcornwallevents.co.uk/sitemap.xml.gz
 User-agent: *
 Allow: /
 
