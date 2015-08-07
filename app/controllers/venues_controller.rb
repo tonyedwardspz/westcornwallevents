@@ -5,7 +5,7 @@ class VenuesController < ApplicationController
   # GET /venues
   # GET /venues.json
   def index
-    @venues = Venue.all
+    @venues = Venue.all.order('name')
     @page_title = "Event venues around Cornwall"
   end
 
