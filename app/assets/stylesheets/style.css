@@ -743,3 +743,12 @@ div#event.container {
 #content textarea {
     width: 80%;
 }
+
+
+/* Advert stuff */
+.sideSlot {
+    width:100%;
+    display: inline-block;
+    min-height:100px;
+    text-align: center;
+}

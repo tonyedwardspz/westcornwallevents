@@ -4,7 +4,7 @@ class Admin::VenuesController < Admin::AdminAreaController
   # GET /admin/venues
   # GET /admin/venues.json
   def index
-    @admin_venues = Venue.all
+    @admin_venues = Venue.all.order('name')
     @page_title = "All Venues"
   end
 
