@@ -25,7 +25,7 @@
 
 .event_info.unit.span-grid
   - unless event.image_link.blank?
-    = image_tag event.image_link.thumb, alt: event.imageAlt, width: 225, height: 132, class: "post-image"
+    = image_tag event.image_link, alt: event.imageAlt, width: 225, height: 132, class: "post-image"
   
   p #{event.description.html_safe}
 
