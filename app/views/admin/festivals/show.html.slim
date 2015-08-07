@@ -39,7 +39,7 @@
           ' Image
         .panel-body
           - if @admin_festival.image.present?
-            = image_tag @admin_festival.image, width: 250, height: 132
+            = image_tag @admin_festival.image.thumb
             - if @admin_festival.image_alt.present?
               p ALT TEXT: #{@admin_festival.image_alt}
             - else

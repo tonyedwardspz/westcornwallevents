@@ -73,7 +73,7 @@
         .panel-body
           p DEBUG INFO: #{@event.image_link.url}
           - if @event.image_link.present?
-            = image_tag @event.image_link, alt: @event.imageAlt, width: 250
+            = image_tag @event.image_link.thumb, alt: @event.imageAlt, width: 250
             - if @event.imageAlt.present?
               p ALT TEXT: #{@event.imageAlt}
             - else

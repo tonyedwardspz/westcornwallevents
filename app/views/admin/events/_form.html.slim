@@ -37,7 +37,7 @@
       .panel-body
         p
           - unless @event.image_link.blank?
-            = image_tag @event.image_link, alt: @event.imageAlt, width: 250
+            = image_tag @event.image_link.thumb, alt: @event.imageAlt, width: 250
           - else 
             = f.file_field :image_link, label: "Image URL", input_html: { placeholder: "foldername/file_name.jpg" }
         = f.input :imageAlt, label: "Image Alt Text", input_html: { placeholder: "3 - 5 word description of image" }

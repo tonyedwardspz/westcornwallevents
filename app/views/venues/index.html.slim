@@ -3,8 +3,8 @@ h1 Venues around West Cornwall
 - @venues.each do |venue|
   .event_details.unit.span-grid
     h4 = link_to "#{venue.name}", venue
-    - if venue.image
-      = image_tag(venue.image, alt: venue.image_alt, class: "post-image float-right", height: "125")
+    - if venue.image.present?
+      = image_tag(venue.image.thumb, alt: venue.image_alt, class: "post-image float-right", height: "125")
     p #{venue.address}, #{venue.postcode}
     = link_to 'View venue details', venue, class: "more"
 

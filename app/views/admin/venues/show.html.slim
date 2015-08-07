@@ -60,7 +60,7 @@
           ' Image
         .panel-body
           - if @admin_venue.image.present?
-            = image_tag @admin_venue.image, width: 250, height: 132
+            = image_tag @admin_venue.image.thumb, width: 250, height: 132
             - if @admin_venue.image_alt.present?
               p ALT TEXT: #{@admin_venue.image_alt}
             - else

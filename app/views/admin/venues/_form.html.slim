@@ -31,7 +31,7 @@
         ' Image
       .panel-body
         - unless @admin_venue.image.blank?
-          = image_tag @admin_venue.image, width: 250
+          = image_tag @admin_venue.image.thumb, width: 250
         - else 
           = f.file_field :image, label: "Image URL"
         = f.input :image_alt, label: "Image Alt Text", input_html: { placeholder: "3 - 5 word description of venue" }
