@@ -57,7 +57,7 @@ var applyActiveClass = function(){
 
 
 var injectMobileNav = function(){
-    $("#nav").addClass("js").before('<div id="menu"><img src="http://www.westcornwallevents.co.uk/images/nav-icon.png" alt="Navigation"></div>');
+    $("#nav").addClass("js").before('<div id="menu" class="sprite nav-icon"></div>');
 }
 
 /*!
