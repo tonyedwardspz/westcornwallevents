@@ -7,7 +7,7 @@ var googleAdvertsInit = function(){
 	// get refrence to the adverts containers and insert the add into div
 	$(".google-ad-body").append(responsiveAd);
 
-	if (window.innerWidth > 650 && $(document.height > 1000)){
+	if (window.innerWidth > 650 && $(document).height() > 1500){
       $('#sideSlot').append(sideAdvert)
   }
 
