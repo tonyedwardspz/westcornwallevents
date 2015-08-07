@@ -19,4 +19,6 @@ p
 - if @venue_events
   h2 Upcoming Events
 
+  = render partial: 'shared/social_share'
+
   = render :partial => @venue_events, :as => :event
