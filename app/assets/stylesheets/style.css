@@ -752,3 +752,13 @@ div#event.container {
     min-height:100px;
     text-align: center;
 }
+
+.socialShareButtons {
+    clear: both;
+}
+
+.socialShareButtons h3 {
+    margin-bottom: 10px;
+    padding-bottom: 0;
+}
+
