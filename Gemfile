@@ -1,4 +1,5 @@
 source 'https://rubygems.org'
+source 'http://rails-assets.org'
 
 ruby '2.2.2'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
@@ -38,6 +39,7 @@ gem 'carrierwave', '~> 0.9'
 gem 'simple_form', '~> 3.1.0'
 gem 'sitemap_generator'
 gem "mini_magick"
+gem 'rails-assets-RRSSB'
 gem 'factory_girl', group: [:development, :test]
 gem 'minitest-rails'
 gem 'minitest-rails-capybara', group: :test
