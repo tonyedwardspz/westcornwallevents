@@ -108,6 +108,7 @@ GEM
     mail (2.6.3)
       mime-types (>= 1.16, < 3)
     mime-types (2.4.3)
+    mini_magick (4.2.7)
     mini_portile (0.6.2)
     minitest (5.5.1)
     minitest-capybara (0.7.1)
@@ -247,6 +248,7 @@ DEPENDENCIES
   jbuilder (~> 2.0)
   jquery-rails
   lazyload-rails
+  mini_magick
   minitest-documentation
   minitest-rails
   minitest-rails-capybara

@@ -37,6 +37,7 @@ gem 'lazyload-rails'
 gem 'carrierwave', '~> 0.9'
 gem 'simple_form', '~> 3.1.0'
 gem 'sitemap_generator'
+gem "mini_magick"
 gem 'factory_girl', group: [:development, :test]
 gem 'minitest-rails'
 gem 'minitest-rails-capybara', group: :test
