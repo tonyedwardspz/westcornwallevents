@@ -3,7 +3,7 @@ p#notice = notice
 h1#top = @venue.name
 
 - if @venue.image.present?
-  = image_tag(@venue.image, :alt => @venue.image_alt, :class => "float-right")
+  = image_tag(@venue.image.thumb, :alt => @venue.image_alt, :class => "float-right")
 
 p 
   strong #{@venue.name}

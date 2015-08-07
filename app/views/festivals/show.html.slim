@@ -6,7 +6,7 @@ h1 = @festival.title
 - elsif @festival.date.present?
   p DATE: #{@festival.date.day.ordinalize} to #{@festival.end_date.day.ordinalize} #{@festival.end_date.strftime("%b %Y")}
 p
-  = image_tag("#{@festival.image}", alt: "#{@festival.image_alt}", class: "float-right")
+  = image_tag("#{@festival.image.thumb}", alt: "#{@festival.image_alt}", class: "float-right")
 
   = @festival.content.html_safe
 
