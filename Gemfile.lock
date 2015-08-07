@@ -253,7 +253,7 @@ DEPENDENCIES
   minitest-rg
   pg
   rails (= 4.2.1)
-  rails-assets-RRSSB
+  rails-assets-RRSSB!
   sass-rails (~> 5.0)
   seed_dump
   simple_form (~> 3.1.0)
