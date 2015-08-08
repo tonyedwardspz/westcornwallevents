@@ -38,13 +38,13 @@ html lang="en"
                 = link_to 'Submit Event', submit_event_path, title: "Submit event"
 
           #search
-            / form action="#" id="cse-search-box"
-            /   div
-            /     input type="hidden" name="cx" value="partner-pub-7067632003386523:kdhqd52i32x"
-            /     input type="hidden" name="cof" value="FORID:10"
-            /     input type="hidden" name="ie" value="ISO-8859-1"
-            /     input type="text" name="q" size="22"
-            /     input type="submit" name="sa" value="Search"
+            form action="#" id="cse-search-box"
+              div
+                input type="hidden" name="cx" value="partner-pub-7067632003386523:kdhqd52i32x"
+                input type="hidden" name="cof" value="FORID:10"
+                input type="hidden" name="ie" value="ISO-8859-1"
+                input type="text" name="q" size="22"
+                input type="submit" name="sa" value="Search"
 
     #title-wrap
       .container
@@ -139,7 +139,7 @@ html lang="en"
                 a href="#top" title="Top" Top
 
 
-    / script src="http://www.google.co.uk/cse/brand?form=cse-search-box&amp;lang=en"
+    script src="http://www.google.co.uk/cse/brand?form=cse-search-box&amp;lang=en"
     script src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
     = javascript_include_tag 'application'
 
