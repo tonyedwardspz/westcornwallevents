@@ -5,7 +5,9 @@
 
 .event_details.unit.four-of-five
   - if @event.festival
-  h2 #{@event.title}
+    h2 = link_to @event.title, @event.festival
+  - else
+    h2 = link_to @event.title, @event
   
   - if @event.venue
     ' LOCATION - 
