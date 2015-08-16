@@ -11,7 +11,7 @@
   
   - if @event.venue
     ' LOCATION - 
-    span(itemscope itemtype="http://schema.org/Place" itemprop="location") #{@event.venue.name}
+    span(itemscope itemtype="http://schema.org/Place" itemprop="location") = link_to @event.venue.name, @event.venue
   - else
     ' LOCATION - 
     span(itemscope itemtype="http://schema.org/Place" itemprop="location") #{@event.location}
