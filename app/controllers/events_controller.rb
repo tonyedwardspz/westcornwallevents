@@ -32,8 +32,6 @@ class EventsController < ApplicationController
   # GET /events/1.json
   def show
     @page_title = @event.title
-    # @page_meta_title = @event.title
-    # @page_meta_title.gsub! "&", "%26"
     if @event.image_link.present?
       @image_meta_url = "http://westcornwallevents.co.uk"
       @image_meta_url << @event.image_link.thumb.to_s
