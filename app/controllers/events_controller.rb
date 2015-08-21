@@ -31,7 +31,7 @@ class EventsController < ApplicationController
   # GET /events/1
   # GET /events/1.json
   def show
-    # @page_title = @event.title
+    @page_title = @event.title
     # @page_meta_title = @event.title
     # @page_meta_title.gsub! "&", "%26"
     if @event.image_link.present?
