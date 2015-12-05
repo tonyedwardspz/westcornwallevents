@@ -1,0 +1,10 @@
+
+@media (min-width: 811px) {    
+  .container{
+    width:810px;
+  }
+}
+
+.user_event_image {
+	max-width: 100%;
+}

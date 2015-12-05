@@ -1,0 +1,10 @@
+.page-header
+  h1 Edit your event
+  p.lead Please use the form below to edit your submission.
+
+.row
+  == render 'form'
+
+  = link_to 'Show', @user_event
+  '|
+  = link_to 'Back', user_events_path

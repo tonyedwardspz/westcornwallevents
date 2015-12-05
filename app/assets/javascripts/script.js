@@ -14,6 +14,7 @@ $(document).ready(function(e){
     });
 
     googleAdvertsInit();
+    
     $('.lazy-image').lazyload({
          threshold : 200
     });

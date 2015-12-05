@@ -1,0 +1,70 @@
+.page-header
+  h1 Thank you
+  p.lead Thanks for submitting your event. You can review your event below and edit if neccessary.
+  p We check every event before adding it to the website. Once it has been added to the main site you will recieve an email with the link.
+
+.row
+
+  .col-sm-12
+    .panel.panel-default
+      .panel-heading
+        ' Event Details
+      .panel-body
+        p
+          strong Title: 
+          = @user_event.title
+        p
+          strong Description: 
+          = @user_event.description
+        p
+          strong Location: 
+          = @user_event.location
+        p
+          strong Link: 
+          = @user_event.link
+
+  .col-sm-6
+    .panel.panel-default
+      .panel-heading
+        ' Date and time
+      .panel-body
+        p
+          strong Date: 
+          = @user_event.date
+        p
+          strong End date: 
+          = @user_event.end_date
+        p
+          strong Time: 
+          = @user_event.time
+  .col-sm-6
+    .panel.panel-default
+      .panel-heading
+        ' Event Image
+      .panel-body
+        - if @user_event.image.present?
+          = image_tag @user_event.image.thumb, alt: @user_event.imageAlt, class: 'user_event_image' 
+        - else
+          = image_tag 'no-image-available.jpg', class: 'user_event_image'
+
+  .col-sm-12
+    .panel.panel-default
+      .panel-heading
+        ' Your Details
+      .panel-body
+        p
+          strong Your name: 
+          = @user_event.user_name
+        p
+          strong Your email: 
+          = @user_event.user_email
+        p
+          strong Added to mailing list:  
+          = @user_event.add_to_mailling_list
+
+  .col-sm-12
+    .panel.panel-default
+      .panel-body
+        = link_to 'Return to Homepage', 'http://westcornwallevents.co.uk', class: "btn btn-primary"
+        '   
+        = link_to 'Edit', edit_user_event_path(@user_event), class: "btn btn-warning"

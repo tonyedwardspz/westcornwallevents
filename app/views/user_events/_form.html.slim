@@ -1,0 +1,53 @@
+= simple_form_for(@user_event, html: {class: 'form-vertical', multipart: true}) do |f|
+  = f.error_notification
+
+  .form-inputs
+
+    .col-sm-12
+      .panel.panel-default
+        .panel-heading
+          ' Event Details
+        .panel-body
+            = f.input :title, required: true
+            = f.input :description, required: true, input_html: {rows: 10}
+            = f.input :location, required: true
+            = f.input :link
+
+    .col-sm-6
+      .panel.panel-default
+        .panel-heading
+          ' Date and time
+        .panel-body
+          = f.input :date, as: :string, label: "Start Date", required: :true, input_html: { placeholder: "22/07/2015", id: "date_start"}
+          = f.input :end_date, as: :string, label: "End Date (if multi day)", input_html: { placeholder: "23/07/2015", id: "end_date"}
+          = f.input :time, required: true, as: :time, input_html: { min: '00:00', step: 'any' }
+    .col-sm-6
+      .panel.panel-default
+        .panel-heading
+          ' Upload image
+        .panel-body
+          = f.file_field :image, label: "Image URL", class: "btn"
+           / = f.input :image
+          - if @user_event.image.present?
+            = image_tag @user_event.image.thumb, alt: @user_event.imageAlt, class: 'user_event_image' 
+          - else
+            = image_tag 'no-image-available.jpg', class: 'user_event_image'
+
+    .col-sm-12
+      .panel.panel-default
+        .panel-heading
+          ' Your Details
+        .panel-body
+          p We use this information to send you a message once the event has been added to the website. We will never share your details with anyone.
+
+          = f.input :user_name, required: true, label: "Your name"
+          = f.input :user_email, required: true
+          = f.input :add_to_mailling_list, as: :boolean, label: "", inline_label: "Join our mailing list (max 4 emails a year)"
+  
+    .clearfix
+    .col-sm-12
+      .panel.panel-default
+        .panel-body.form-actions
+          = f.button :submit, class: "btn btn-primary"
+          '   
+          = link_to "Cancel", user_events_path, class: "btn btn-warning"
