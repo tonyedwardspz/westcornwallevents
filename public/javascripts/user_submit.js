@@ -2,7 +2,11 @@ $(document).ready( function() {
 
 	// Setup the datepickers
 	$('#date_start').datepicker({
-    dateFormat: 'dd/mm/yy'
+    dateFormat: 'dd/mm/yy',
+    minDate: 0,
+    onSelect: function( selectedDate ) {
+        $( "#end_date" ).datepicker( "option", "minDate", selectedDate );
+      }
   });
   $('#end_date').datepicker({
     dateFormat: 'dd/mm/yy'
