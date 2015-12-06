@@ -21,7 +21,7 @@ Rails.application.routes.draw do
   get 'user_events' => 'user_events#new'
 
   namespace :admin do
-    resources :venues, :festivals, :events, :users, :festivals, :pages, :user_events
+    resources :venues, :festivals, :events, :users, :festivals, :pages, :user_events, :event_users
     get 'events/index'
   end
 
