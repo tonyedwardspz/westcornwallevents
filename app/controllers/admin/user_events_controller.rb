@@ -10,6 +10,10 @@ class Admin::UserEventsController < Admin::AdminAreaController
   # GET /events/1.json
   def show
     @page_title = @user_event.title
+    puts "event image link"
+    inspect @image_event
+    puts @user_event.image
+    puts "event image link"
   end
 
   def edit
@@ -19,7 +23,10 @@ class Admin::UserEventsController < Admin::AdminAreaController
     @event.dateend = @user_event.end_date
     @event.location = @user_event.location
     @event.link = @user_event.link
+    @event.linktitle = @user_event.title
     @event.description = @user_event.description
+    @event.image_link = @user_event.image
+    @event.imageAlt = @user_event.title
   end
 
   # PATCH/PUT /events/1

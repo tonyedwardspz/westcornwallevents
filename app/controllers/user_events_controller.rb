@@ -29,6 +29,7 @@ class UserEventsController < ApplicationController
   # POST /user_events.json
   def create
     @user_event = UserEvent.new(user_event_params)
+    puts @user_event.image
     SubscribeJob.new.perform(@user_event)
 
     respond_to do |format|
