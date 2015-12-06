@@ -10,14 +10,15 @@ class SubscribeJob
 
       begin
         g = Gibbon::Request.new(api_key: Rails.application.secrets.mailchimp_api_key)
-        g.lists(list_id).members.create(body: {email_address: email, status: "subscribed", merge_fields: {FNAME: first_name, LNAME: last_name}, send_welcome: true})
+        g.lists(list_id).members.create(body: {email_address: email, status_if_new: "subscribed", merge_fields: {FNAME: first_name, LNAME: last_name}})
 
       rescue Gibbon::MailChimpError => mce
         # SuckerPunch.logger.error("subscribe failed: due to #{mce.message}")
-        raise mce
+        Rails.logger.error("Mailchimp failed because: #{mce.detail}")
+        Rails.logger.error(mce.body)
       rescue Exception => e
         # SuckerPunch.logger.error("subscribe failed: due to #{e.message}")
-        raise e
+        Rails.logger.error(e.detail)
       end
     end
   end
