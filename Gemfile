@@ -1,6 +1,8 @@
 source 'https://rubygems.org'
 
 ruby '2.2.2'
+
+gem 'dotenv-rails', :groups => [:development, :test]
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.1'
 # Use postgresql as the database for Active Record
@@ -33,7 +35,7 @@ source 'http://rails-assets.org' do
   gem 'rails-assets-RRSSB'
 end
 
-gem 'dotenv-rails', :groups => [:development, :test]
+
 
 gem 'seed_dump'
 gem 'friendly_id', '~> 5.1.0'
@@ -58,3 +60,5 @@ gem 'capistrano-bundler', require: false
 gem 'capistrano-rails', require: false
 gem 'capistrano-pending', require: false
 gem 'gibbon', github: "amro/gibbon"
+gem 'rack-cors', :require => 'rack/cors'
+gem "recaptcha", :require => "recaptcha/rails", :git => 'https://github.com/ambethia/recaptcha.git'
