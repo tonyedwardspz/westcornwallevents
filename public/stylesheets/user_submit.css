@@ -8,3 +8,11 @@
 .user_event_image {
 	max-width: 100%;
 }
+
+.first {
+	padding-left: 0;
+}
+
+.last {
+	padding-right: 0;
+}
