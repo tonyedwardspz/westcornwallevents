@@ -36,7 +36,6 @@ nav class="navbar navbar-default navbar-static-top" role="navigation" style="mar
                         strong See All Alerts
                         <i class="fa fa-angle-right"></i>
 
-
         li.dropdown
             a.dropdown-toggle data-toggle="dropdown" href="#"
                 <i class="fa fa-gear fa-fw"></i>  <i class="fa fa-caret-down"></i>
@@ -48,7 +47,6 @@ nav class="navbar navbar-default navbar-static-top" role="navigation" style="mar
                     = link_to logout_path do
                         i.fa.fa-sign-out.fa-fw
                         ' Logout
-
 
     .navbar-default.sidebar role="navigation"
         .sidebar-nav.navbar-collapse
@@ -75,14 +73,6 @@ nav class="navbar navbar-default navbar-static-top" role="navigation" style="mar
                         li = link_to "View Submited Events", admin_user_events_path   
                 li
                     a href="#"
-                        i.fa.fa-user.fa-fw
-                        ' Users
-                        span.fa.arrow
-                    ul.nav.nav-second-level
-                        li = link_to "View Users", admin_users_path
-                        li = link_to "Create New User", new_admin_user_path
-                li
-                    a href="#"
                         i.fa.fa-smile-o.fa-fw
                         ' Festivals
                         span.fa.arrow
@@ -105,3 +95,19 @@ nav class="navbar navbar-default navbar-static-top" role="navigation" style="mar
                     ul.nav.nav-second-level
                         li = link_to "View Pages", admin_pages_path
                         li = link_to "Create New Page", new_admin_page_path
+                li
+                    a href="#"
+                        i.fa.fa-user.fa-fw
+                        ' Admin Users
+                        span.fa.arrow
+                    ul.nav.nav-second-level
+                        li = link_to "View Users", admin_users_path
+                        li = link_to "Create New User", new_admin_user_path
+                li
+                    a href="#"
+                        i.fa.fa-user.fa-fw
+                        ' Admin Users
+                        span.fa.arrow
+                    ul.nav.nav-second-level
+                        li = link_to "View Users", admin_event_users_path
+                        li = link_to "Create New User", new_admin_event_user_path
