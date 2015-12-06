@@ -66,8 +66,13 @@ nav class="navbar navbar-default navbar-static-top" role="navigation" style="mar
                     ul.nav.nav-second-level
                         li = link_to "View Events", admin_events_path
                         li = link_to "Create New Event", new_admin_event_path
-                        li
-                            a href="#" Authorise Events
+                li
+                    a href="#"
+                        i.fa.fa-calendar.fa-fw
+                        ' Submited Events
+                        span.fa.arrow
+                    ul.nav.nav-second-level
+                        li = link_to "View Submited Events", admin_user_events_path   
                 li
                     a href="#"
                         i.fa.fa-user.fa-fw
