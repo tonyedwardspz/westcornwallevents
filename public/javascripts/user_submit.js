@@ -9,5 +9,9 @@ $(document).ready( function() {
   });
 
   // Setup the time pickers
-  $('.user_event_time').clockpicker();
+  $('.user_event_time').clockpicker({
+  	donetext: 'Done',
+  	autoclose: true,
+    'default': 'now'
+  });
 });
