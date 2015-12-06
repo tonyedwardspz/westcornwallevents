@@ -20,7 +20,7 @@
         .panel-body
           = f.input :date, as: :string, label: "Start Date", required: :true, input_html: { placeholder: "22/07/2015", id: "date_start"}
           = f.input :end_date, as: :string, label: "End Date (if multi day)", input_html: { placeholder: "23/07/2015", id: "end_date"}
-          = f.input :time, required: true, as: :time, input_html: { min: '00:00', step: 'any' }
+          = f.input :time, required: true, input_html: { value: "09:30" }
     .col-sm-6
       .panel.panel-default
         .panel-heading
