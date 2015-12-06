@@ -15,11 +15,11 @@ head
   = stylesheet_link_tag 'font-awesome.min'
   = stylesheet_link_tag 'user_submit'
   = stylesheet_link_tag 'bootstrap-clockpicker.min.css'
-  link href='https://code.jquery.com/ui/1.11.4/themes/ui-lightness/jquery-ui.css' type="text/css" rel="stylesheet"
+  = stylesheet_link_tag 'https://code.jquery.com/ui/1.11.4/themes/ui-lightness/jquery-ui.css'
 
   /[if lt IE 9]
-    script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"
-    script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"
+    = javascript_include_tag "https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"
+    = javascript_include_tag "https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"
     = stylesheet_link_tag 'custom-theme/jquery-ui-1.10.0.ie'
 
 body
@@ -27,7 +27,7 @@ body
       = yield
 
   = javascript_include_tag 'jquery.min'
-  script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"
+  = javascript_include_tag "https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"
   = javascript_include_tag 'bootstrap.min'
-  = javascript_include_tag 'bootstrap-clockpicker.min.js'
+  = javascript_include_tag 'bootstrap-clockpicker.min'
   = javascript_include_tag 'user_submit.js'
