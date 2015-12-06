@@ -34,16 +34,25 @@ class Admin::UserEventsController < Admin::AdminAreaController
       event_user.first_name = @user_event.first_name
       event_user.last_name = @user_event.last_name
       event_user.email = @user_event.user_email
-      event_user.number_submitted = 1
       event_user.events << @event
       if event_user.save!
         puts "Event user saved: #{event_user.email}"
       end
     else
       event_user = EventUser.where("email = ?", @user_event.user_email).first
-
       event_user.events << @event
       event_user.save!
+    end
+
+    @user_event.destroy!
+  end
+
+
+  def destroy
+    @user_event.destroy
+    respond_to do |format|
+      format.html { redirect_to admin_user_events_url, notice: 'User event was successfully destroyed.' }
+      format.json { head :no_content }
     end
   end
 
