@@ -5,24 +5,24 @@
   # GET /admin/users.json
   def index
     @admin_users = User.all
-    @page_title = "View all Users | West Cornwall Events"
+    @page_title = "View all Users"
   end
 
   # GET /admin/users/1
   # GET /admin/users/1.json
   def show
-    @page_title = "View User | West Cornwall Events"
+    @page_title = "View User"
   end
 
   # GET /admin/users/new
   def new
     @admin_user = User.new
-    @page_title = "New User | West Cornwall Events"
+    @page_title = "New User"
   end
 
   # GET /admin/users/1/edit
   def edit
-    @page_title = "Edit User | West Cornwall Events"
+    @page_title = "Edit User"
   end
 
   # POST /admin/users

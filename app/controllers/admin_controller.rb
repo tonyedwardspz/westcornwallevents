@@ -8,6 +8,6 @@ class AdminController < ApplicationController
     @total_users = User.count
     @recently_added_events = Event.order('updated_at DESC').limit(10)
     @new_events = 13
-    @page_title = "Admin | West Cornwall Events"
+    @page_title = "Admin"
   end
 end
