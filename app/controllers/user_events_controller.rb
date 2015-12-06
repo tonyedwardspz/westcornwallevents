@@ -17,18 +17,19 @@ class UserEventsController < ApplicationController
   # GET /user_events/new
   def new
     @user_event = UserEvent.new
+    @page_title = "Submit a new event | West Cornwall Events"
   end
 
   # GET /user_events/1/edit
   def edit
+    @page_title = "Edit event | West Cornwall Events"
   end
 
   # POST /user_events
   # POST /user_events.json
   def create
     @user_event = UserEvent.new(user_event_params)
-    @event_user = EventUser.new(user_event_params[:user_firstname], user_event_params[:user_lastname], user_event_params[:user_email])
-    SubscribeJob.new.perform(@event_user.user_email)
+    SubscribeJob.new.perform(@user_event)
 
     respond_to do |format|
       if @user_event.save
@@ -73,6 +74,6 @@ class UserEventsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_event_params
-      params.require(:user_event).permit(:title, :date, :end_date, :location, :link, :image, :time, :description, :user_firstname, :user_lastname, :user_email, :add_to_mailing_list)
+      params.require(:user_event).permit(:title, :date, :end_date, :location, :link, :image, :time, :description, :first_name, :last_name, :user_email, :add_to_mailing_list)
     end
 end

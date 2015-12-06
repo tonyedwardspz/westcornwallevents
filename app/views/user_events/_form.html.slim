@@ -40,9 +40,10 @@
         .panel-body
           p We use this information to send you a message once the event has been added to the website. We will never share your details with anyone.
 
-          = f.input :user_name, required: true, label: "Your name"
+          = f.input :first_name, required: true, label: "First name"
+          = f.input :last_name, required: true, label: "Last name"
           = f.input :user_email, required: true
-          = f.input :add_to_mailling_list, as: :boolean, label: "", inline_label: "Join our mailing list (max 4 emails a year)"
+          = f.input :add_to_mailling_list, as: :boolean, label: "", inline_label: "Join our mailing list (approx 4 emails a year)"
   
     .clearfix
     .col-sm-12
