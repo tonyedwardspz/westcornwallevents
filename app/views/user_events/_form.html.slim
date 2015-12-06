@@ -11,7 +11,7 @@
             = f.input :title, required: true
             = f.input :description, required: true, input_html: {rows: 10}
             = f.input :location, required: true, input_html: { placeholder: "Penlee Park, Penzance, TR18 4EX"}
-            = f.input :link, input_html: { placeholder: "www.awebsite.co.uk"}
+            = f.input :link, as: :url, input_html: { placeholder: "www.awebsite.co.uk"}
 
     .col-sm-6
       .panel.panel-default
@@ -21,12 +21,13 @@
           = f.input :date, as: :string, label: "Start Date", required: :true, input_html: { placeholder: "22/07/2015", id: "date_start"}
           = f.input :end_date, as: :string, label: "End Date (if multi day)", input_html: { placeholder: "23/07/2015", id: "end_date"}
           = f.input :time, required: true
+
     .col-sm-6
       .panel.panel-default
         .panel-heading
           ' Upload image
         .panel-body
-          = f.file_field :image, label: "Image URL", class: "btn"
+          = f.file_field :image, label: "Image", class: "btn"
            / = f.input :image
           - if @user_event.image.present?
             = image_tag @user_event.image.thumb, alt: @user_event.imageAlt, class: 'user_event_image' 
@@ -38,13 +39,12 @@
         .panel-heading
           ' Your Details
         .panel-body
-          p We use this information to send you a message once the event has been added to the website. We will never share your details with anyone.
-
+          p We use this information to send you a message once the event has been added to the website. We will never share your details with anyone.x
           .col-sm-6.first
             = f.input :first_name, required: true, label: "First name"
           .col-sm-6.last
             = f.input :last_name, required: true, label: "Last name"
-          = f.input :user_email, required: true, label: "Email"
+          = f.input :user_email, as: :email, required: true, label: "Email"
           = f.input :add_to_mailling_list, as: :boolean, label: "", inline_label: "Join our mailing list (approx 4 emails a year)"
   
     .clearfix
