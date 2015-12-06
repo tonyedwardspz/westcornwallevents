@@ -27,11 +27,30 @@ class Admin::UserEventsController < Admin::AdminAreaController
     @event.description = @user_event.description
     @event.image_link = @user_event.image
     @event.imageAlt = @user_event.title
+    @event.save!
+
+    if EventUser.where("email = ?", @user_event.user_email).empty?
+      event_user = EventUser.new
+      event_user.first_name = @user_event.first_name
+      event_user.last_name = @user_event.last_name
+      event_user.email = @user_event.user_email
+      event_user.number_submitted = 1
+      event_user.events << @event
+      if event_user.save!
+        puts "Event user saved: #{event_user.email}"
+      end
+    else
+      event_user = EventUser.where("email = ?", @user_event.user_email).first
+
+      event_user.events << @event
+      event_user.save!
+    end
   end
 
   # PATCH/PUT /events/1
   # PATCH/PUT /events/1.json
   def update
+    puts "User event update"
     respond_to do |format|
       if @event.update(event_params)
         format.html { redirect_to @event, notice: 'Event was successfully added.' }
