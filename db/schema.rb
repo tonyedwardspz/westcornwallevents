@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151206001730) do
+ActiveRecord::Schema.define(version: 20151206123107) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,9 +26,16 @@ ActiveRecord::Schema.define(version: 20151206001730) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "event_users", force: :cascade do |t|
+    t.string  "first_name"
+    t.string  "last_name"
+    t.string  "email"
+    t.integer "number_submitted"
+  end
+
   create_table "events", force: :cascade do |t|
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
     t.date     "date"
     t.date     "dateend"
     t.string   "title"
@@ -47,8 +54,10 @@ ActiveRecord::Schema.define(version: 20151206001730) do
     t.integer  "venue_id"
     t.string   "slug"
     t.text     "description4"
+    t.integer  "event_user_id"
   end
 
+  add_index "events", ["event_user_id"], name: "index_events_on_event_user_id", using: :btree
   add_index "events", ["festival_id"], name: "index_events_on_festival_id", using: :btree
   add_index "events", ["slug"], name: "index_events_on_slug", unique: true, using: :btree
   add_index "events", ["venue_id"], name: "index_events_on_venue_id", using: :btree
@@ -105,10 +114,10 @@ ActiveRecord::Schema.define(version: 20151206001730) do
     t.string   "image"
     t.string   "time"
     t.text     "description"
-    t.datetime "created_at",           null: false
-    t.datetime "updated_at",           null: false
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
     t.string   "user_email"
-    t.boolean  "add_to_mailling_list"
+    t.boolean  "add_to_mailling_list", default: true
     t.string   "first_name"
     t.string   "last_name"
   end
@@ -136,4 +145,5 @@ ActiveRecord::Schema.define(version: 20151206001730) do
 
   add_index "venues", ["slug"], name: "index_venues_on_slug", unique: true, using: :btree
 
+  add_foreign_key "events", "event_users"
 end
