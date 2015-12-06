@@ -11,7 +11,7 @@
           = f.input :date, as: :string, label: "Start Date", required: :true, input_html: { placeholder: "22/07/2015"}
         .col-xs-6.dateEnd
           = f.input :dateend, as: :string, label: "End Date (if multi day)", input_html: { placeholder: "23/07/2015"}
-        = f.input :time, input_html: { placeholder: "9:00 pm" }
+        = f.input :time, input_html: { value: "09:30" }
 
     .panel.panel-default
       .panel-heading
@@ -29,7 +29,7 @@
       .panel-body
         = f.association :venue, collection: Venue.order('name')
         .text-center OR
-        = f.input :location, label: "Address", input_html: { placeholder: "Penlee Park, Penzance, TR18 2XX"}
+        = f.input :location, label: "Address", input_html: { placeholder: "Penlee Park, Penzance, TR18 4EX"}
 
     .panel.panel-default
       .panel-heading
