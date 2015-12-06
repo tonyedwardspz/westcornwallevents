@@ -1,0 +1,19 @@
+  tr
+    - if user_event.title.present?
+      td #{user_event.title}
+    - else
+      td !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+    - if user_event.date.present?
+      td #{user_event.date.day.ordinalize} #{user_event.date.strftime("%b %Y")}
+    -else
+      td !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+    - if user_event.location.present?
+      td #{user_event.location}
+    - else
+      td !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+    td.center = link_to 'Show', admin_user_event_path(:id => user_event.id)
+    td.center = link_to 'Edit', edit_admin_user_event_path(:id => user_event.id)
+    td.center = link_to 'Delete', admin_user_event_path(:id => user_event.id), :method => :delete, data: { confirm: 'Are you sure?' }
