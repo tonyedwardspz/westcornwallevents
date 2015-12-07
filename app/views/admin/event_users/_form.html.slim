@@ -1,0 +1,18 @@
+= simple_form_for(@event_user) do |f|
+  = f.error_notification
+
+  .col-xs-12
+    .panel.panel-default
+      .panel-heading
+        ' Event User details
+      .panel-body
+        = f.input :first_name, required: true
+        = f.input :last_name, required: true
+        = f.input :user_email, required: true
+
+  .col-xs-12
+    .panel.panel-default
+      .panel-body
+        = f.button :submit, class: "btn btn-primary"
+        '   
+        = link_to "Cancel", admin_event_user_path, class: "btn btn-warning"
