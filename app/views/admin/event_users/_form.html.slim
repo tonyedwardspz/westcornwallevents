@@ -1,4 +1,4 @@
-= simple_form_for(@event_user) do |f|
+= simple_form_for([:admin, @event_user]) do |f|
   = f.error_notification
 
   .col-xs-12
@@ -8,7 +8,7 @@
       .panel-body
         = f.input :first_name, required: true
         = f.input :last_name, required: true
-        = f.input :user_email, required: true
+        = f.input :email, required: true
 
   .col-xs-12
     .panel.panel-default

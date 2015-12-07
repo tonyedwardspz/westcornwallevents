@@ -56,6 +56,10 @@ class UsereventAttachmentUploader < CarrierWave::Uploader::Base
   def filename
     o = [('a'..'z'), ('A'..'Z')].map { |i| i.to_a }.flatten
     string = (0...50).map { o[rand(o.length)] }.join
+
+    Rails.logger.info "==> Generating filename:  prefix: #{string}"
+
+
     "#{string}#{original_filename}" if original_filename
   end
 
