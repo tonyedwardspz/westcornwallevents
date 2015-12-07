@@ -34,6 +34,7 @@ class Admin::UserEventsController < Admin::AdminAreaController
       event_user.first_name = @user_event.first_name
       event_user.last_name = @user_event.last_name
       event_user.email = @user_event.user_email
+      event_user.subscribed = @user_event.add_to_mailling_list
       event_user.events << @event
       if event_user.save!
         puts "Event user saved: #{event_user.email}"
