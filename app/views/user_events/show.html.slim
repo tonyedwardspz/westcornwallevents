@@ -43,7 +43,7 @@
         ' Event Image
       .panel-body
         - if @user_event.image.present?
-          = image_tag @user_event.image class: 'img-responsive'
+          = image_tag @user_event.image, class: 'img-responsive'
         - else
           = image_tag 'no-image-available.jpg', class: 'img-responsive'
   .col-sm-12
@@ -68,5 +68,3 @@
     .panel.panel-default
       .panel-body
         = link_to 'Return to Homepage', 'http://westcornwallevents.co.uk', class: "btn btn-primary"
-        '   
-        = link_to 'Edit', edit_user_event_path(@user_event), class: "btn btn-warning"
