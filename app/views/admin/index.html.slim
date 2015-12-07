@@ -10,44 +10,44 @@
               .col-xs-3
                 i.fa.fa-calendar.fa-5x
               .col-xs-9.text-right
-                .huge #{@new_events} 
-                div New Events!
-          a href="#" 
+                .huge #{@total_future_events} 
+                div Future Events
           .panel-footer
-            span.pull-left Process Events
+            span.pull-left = link_to "Add New Event", new_admin_event_path
             span.pull-right
               i.fa.fa-arrow-circle-right
             .clearfix
+      
       .col-lg-3.col-md-6
         .panel.panel-green
           .panel-heading
             .row
               .col-xs-3
-                i.fa.fa-tasks.fa-5x
+                i.fa.fa-calendar-check-o.fa-5x
               .col-xs-9.text-right
-                .huge 12
-                div New Tasks!
-          a href="#" 
+                .huge #{@number_submitted}
+                div Unprocesed Events
           .panel-footer
-            span.pull-left View Details
-            span.pull-right
+            span.pull-left = link_to "Process Events", admin_user_events_path
+            span.pull-right 
               i.fa.fa-arrow-circle-right
             .clearfix
+      
       .col-lg-3.col-md-6
         .panel.panel-yellow
           .panel-heading
             .row
               .col-xs-3
-                i.fa.fa-shopping-cart.fa-5x
+                i.fa.fa-users.fa-5x
               .col-xs-9.text-right
-                .huge 124
-                div New Orders!
-          a href="#" 
+                .huge #{@event_users}
+                div Event Users
           .panel-footer
-            span.pull-left View Details
+            span.pull-left = link_to "View Event Users", admin_event_users_path
             span.pull-right
               i.fa.fa-arrow-circle-right
             .clearfix
+      
       .col-lg-3.col-md-6
         .panel.panel-red
           .panel-heading
@@ -63,6 +63,7 @@
             span.pull-right
               i.fa.fa-arrow-circle-right
             .clearfix
+    
     .row
       .col-lg-8
         .panel.panel-default
@@ -107,6 +108,10 @@
               a.list-group-item href="/admin/pages" 
                 i.fa.fa-file-text-o.fa-fw
                 | #{@total_pages} Total pages
+              a.list-group-item href="/admin/event_users" 
+                i.fa.fa-users.fa-fw
+                | #{@event_users} Total event users
               a.list-group-item href="/admin/users" 
                 i.fa.fa-user.fa-fw
-                | #{@total_users} Total users
+                | #{@total_users} Total admin users
+
