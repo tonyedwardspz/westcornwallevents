@@ -54,13 +54,12 @@ class UsereventAttachmentUploader < CarrierWave::Uploader::Base
   # Override the filename of the uploaded files:
   # Avoid using model.id or version_name here, see uploader/store.rb for details.
   def filename
-    o = [('a'..'z'), ('A'..'Z')].map { |i| i.to_a }.flatten
-    string = (0...50).map { o[rand(o.length)] }.join
+     "#{secure_token(10)}.#{file.extension}" if original_filename.present?
+  end
 
-    Rails.logger.info "==> Generating filename:  prefix: #{string}"
-
-
-    "#{string}#{original_filename}" if original_filename
+  protected
+  def secure_token(length=16)
+    model.image_secure_token ||= SecureRandom.hex(length / 2)
   end
 
 end
