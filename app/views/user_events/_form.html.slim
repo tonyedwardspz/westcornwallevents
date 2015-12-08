@@ -28,9 +28,10 @@
           ' Upload image
         .panel-body
           = f.file_field :image, label: "Image", class: "btn"
-
-          - if @user_event.image.present?
-            = image_tag @user_event.image.thumb, class: 'user_event_image' 
+          = f.hidden_field :image_cache
+          = image_tag(@user_event.image_url) if @user_event.image?
+          - if @user_event.image?
+            = image_tag @user_event.image_url, class: 'user_event_image' 
           - else
             = image_tag 'no-image-available.jpg', class: 'user_event_image'
 
