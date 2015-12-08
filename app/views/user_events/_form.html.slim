@@ -29,11 +29,10 @@
         .panel-body
           = f.file_field :image, label: "Image", class: "btn"
           = f.hidden_field :image_cache
-          = image_tag(@user_event.image_url) if @user_event.image?
           - if @user_event.image?
-            = image_tag @user_event.image_url, class: 'user_event_image' 
+            = image_tag @user_event.image.url, class: 'img-responsive', id: "user_image"
           - else
-            = image_tag 'no-image-available.jpg', class: 'user_event_image'
+            = image_tag 'no-image-available.jpg', class: 'img-responsive', id: "user_image"
 
     .col-sm-12
       .panel.panel-default
