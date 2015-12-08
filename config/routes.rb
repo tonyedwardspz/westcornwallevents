@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   get 'user_events/show'
   end
 
-  resources :user_events
+  resources :user_events, only: [:new, :create, :show]
   resources :pages
   resources :venues
   resources :festivals

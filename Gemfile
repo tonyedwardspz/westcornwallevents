@@ -36,7 +36,7 @@ source 'http://rails-assets.org' do
 end
 
 
-
+gem 'skylight'
 gem 'seed_dump'
 gem 'friendly_id', '~> 5.1.0'
 gem 'slim-rails'
