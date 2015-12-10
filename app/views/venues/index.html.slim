@@ -7,26 +7,3 @@ h1 Venues around West Cornwall
       = image_tag(venue.image.thumb, alt: venue.image_alt, class: "post-image float-right", height: "125")
     p #{venue.address}, #{venue.postcode}
     = link_to 'View venue details', venue, class: "more"
-
-
-
-
-
-/ table
-
-/   tbody
-/     - @venues.each do |venue|
-/       tr
-/         td = venue.name
-/         td = venue.phone
-/         td = venue.email
-/         td = venue.url
-/         td = venue.address
-/         td = venue.postcode
-/         td = venue.image
-/         td = venue.image_alt
-/         td = venue.content
-/         td = link_to 'Show', venue
-/         td = link_to 'Edit', edit_venue_path(venue)
-/         td = link_to 'Destroy', venue, data: {:confirm => 'Are you sure?'}, :method => :delete
-
