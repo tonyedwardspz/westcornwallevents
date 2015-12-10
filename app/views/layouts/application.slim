@@ -77,7 +77,7 @@ html lang="en"
                 h4
                   = link_to "Annual Festivals", festivals_path, title: "Annual West Cornwall Events"
                 ul
-                  - cache "sidebar_festivals", expires_in: Date.beginning_of_week do
+                  - cache "sidebar_festivals", expires_in: Time.now.beginning_of_week do
                     = render "shared/sidebar_festivals"
 
               #sideSlot
