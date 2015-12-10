@@ -1,7 +1,7 @@
 h1 Venues around West Cornwall
 
 - @venues.each do |venue|
-  .event_details.unit.one-of-two
+  .event_details.unit.one-of-two.venue-details
     - if venue.image.present?
       = image_tag(venue.image.thumb, alt: venue.image_alt, class: "post-image float-right")
     h4 = link_to "#{venue.name}", venue
