@@ -58,7 +58,7 @@
   # DELETE /admin/users/1
   # DELETE /admin/users/1.json
   def destroy
-    @event_user.destroy
+    @event_user.destroy!
     respond_to do |format|
       format.html { redirect_to admin_event_users_url, notice: 'User was successfully destroyed.' }
       format.json { head :no_content }

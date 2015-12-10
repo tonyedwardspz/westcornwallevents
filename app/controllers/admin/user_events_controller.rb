@@ -29,7 +29,7 @@ class Admin::UserEventsController < Admin::AdminAreaController
     @event.imageAlt = @user_event.title
     @event.save!
 
-    if EventUser.where("email = ?", @user_event.user_email).empty?
+    if EventUser.where(email: @user_event.user_email).empty?
       event_user = EventUser.new
       event_user.first_name = @user_event.first_name
       event_user.last_name = @user_event.last_name
@@ -45,7 +45,7 @@ class Admin::UserEventsController < Admin::AdminAreaController
       event_user.save!
     end
 
-    # @user_event.destroy!
+    @user_event.destroy!
   end
 
 

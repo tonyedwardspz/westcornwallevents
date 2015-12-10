@@ -11,15 +11,19 @@
             table.table.table-stripedt.able-bordered.table-hover#dataTables-example data-page-length="30"
               thead
                 tr
-                  th First Name
-                  th Last Name
+                  th Name
                   th Email
                   th No. Events
+                  th Subscribed
+                  th
               tbody 
                 - @event_users.each do |event_user|
                   tr 
-                    td #{event_user.first_name}
-                    td #{event_user.last_name}
+                    td #{event_user.first_name} #{event_user.last_name}
                     td #{event_user.email}
                     td #{event_user.events.count}
+                    td = event_user.subscribed ? "Yes" : "No"
+                    td = link_to 'Show', admin_event_user_path(event_user)
                     td = link_to 'Edit', edit_admin_event_user_path(event_user)
+                    td = link_to 'Delete', admin_event_user_path(event_user), :method => :delete, data: { confirm: 'Are you sure?' }
+
