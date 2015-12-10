@@ -7,10 +7,10 @@ var googleAdvertsInit = function(){
 	// get refrence to the adverts containers and insert the add into div
 	$(".google-ad-body").append(responsiveAd);
 
-	if (window.innerWidth > 650 && $(document).height() > 1500){
-      $('#sideSlot').append(sideAdvert)
+	if (window.innerWidth > 650){
+      $('#sideSlot').append(responsiveAd);
   }
 
 	// fire off googles own insert method
 	(adsbygoogle = window.adsbygoogle || []).push({});
-}
+};
