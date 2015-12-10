@@ -756,6 +756,7 @@ td:first-child, th:first-child { padding: 5px 30px 5px 0;}
 
 .socialShareButtons {
     clear: both;
+    margin-bottom: 20px;
 }
 
 .socialShareButtons h3 {
