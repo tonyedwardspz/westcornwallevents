@@ -1,15 +1,15 @@
-p#notice = notice
+- cache "#{@festival.title}_cache", expires: @festival.date
 
-h1 = @festival.title
-- if @festival.end_date.blank?
-  p DATE: #{@festival.date.day.ordinalize} #{@festival.date.strftime("%b %Y")}
-- elsif @festival.date.present?
-  p DATE: #{@festival.date.day.ordinalize} to #{@festival.end_date.day.ordinalize} #{@festival.end_date.strftime("%b %Y")}
-p
-  = image_tag("#{@festival.image.thumb}", alt: "#{@festival.image_alt}", class: "float-right")
+  h1 = @festival.title
+  - if @festival.end_date.blank?
+    p DATE: #{@festival.date.day.ordinalize} #{@festival.date.strftime("%b %Y")}
+  - elsif @festival.date.present?
+    p DATE: #{@festival.date.day.ordinalize} to #{@festival.end_date.day.ordinalize} #{@festival.end_date.strftime("%b %Y")}
+  p
+    = image_tag("#{@festival.image.thumb}", alt: "#{@festival.image_alt}", class: "float-right")
 
-  = @festival.content.html_safe
+    = @festival.content.html_safe
 
-= render partial: 'shared/social_share'
+  = render partial: 'shared/social_share'
 
-= render 'shared/monthly_navigation'
+  = render 'shared/monthly_navigation'
