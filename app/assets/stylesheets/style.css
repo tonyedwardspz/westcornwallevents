@@ -766,7 +766,7 @@ td:first-child, th:first-child { padding: 5px 30px 5px 0;}
 
 .venue-details img{
     clear:both;
-    text-align: center;
     margin: 0 auto;
+    display: block;
 }
 
