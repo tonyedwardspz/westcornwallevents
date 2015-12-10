@@ -16,10 +16,12 @@ p
                     
 = @venue.content.html_safe
 
-  = render partial: 'shared/social_share'
+= render partial: 'shared/social_share'
+
 
 - if @venue_events
+  - cache "venue_#{@venue.name}_events", expires_in: "#{(Date.today + 1).beginning_of_day}" do
 
-  h2 Upcoming Events
+    h2 Upcoming Events
 
-  = render :partial => @venue_events, :as => :event
+    = render :partial => @venue_events, :as => :event
