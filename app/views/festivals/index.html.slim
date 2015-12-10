@@ -1,9 +1,9 @@
 h1 Annual Events and Festivals
+- cache "festival_index_cache" do
+  - @festivals.each do |festival|
 
-- @festivals.each do |festival|
-
-  .event_details.unit.span-grid
-    h4 = link_to "#{festival.title}", festival
-    = image_tag(festival.image.thumb, alt: festival.image_alt, class: "post-image")
-    p #{festival.summary}
-    = link_to 'View more details', festival, class: "more"
+    .event_details.unit.span-grid
+      h4 = link_to "#{festival.title}", festival
+      = image_tag(festival.image.thumb, alt: festival.image_alt, class: "post-image")
+      p #{festival.summary}
+      = link_to 'View more details', festival, class: "more"
