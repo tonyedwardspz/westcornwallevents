@@ -19,7 +19,7 @@ p
 = render partial: 'shared/social_share'
 
 - if @venue_events
-  - cache "venue_#{@venue.name}_events", expires_in: "#{(Date.today + 1).beginning_of_day}" do
+  - cache "venue_#{@venue.name}_events", expires_in: (Date.today + 1).beginning_of_day do
 
     h2 Upcoming Events
 
