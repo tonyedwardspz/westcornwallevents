@@ -16,31 +16,16 @@ class Admin::UserEventsController < Admin::AdminAreaController
     puts "event image link"
   end
 
+  # Convert user event to event and event user before editing
   def edit
-    @event = Event.new
-    @event.title = @user_event.title
-    @event.date = @user_event.date
-    @event.dateend = @user_event.end_date
-    @event.location = @user_event.location
-    @event.link = @user_event.link
-    @event.linktitle = @user_event.title
-    @event.description = @user_event.description
-    @event.image_link = @user_event.image
-    @event.imageAlt = @user_event.title
+    @event = Event.event_from_user_event(@user_event)
     @event.save!
 
     if EventUser.where(email: @user_event.user_email).empty?
-      event_user = EventUser.new
-      event_user.first_name = @user_event.first_name
-      event_user.last_name = @user_event.last_name
-      event_user.email = @user_event.user_email
-      event_user.subscribed = @user_event.add_to_mailling_list
-      event_user.events << @event
-      if event_user.save!
-        puts "Event user saved: #{event_user.email}"
-      end
+      event_user = EventUser.event_user_from_user_event(@user_event, @event)
+      event_user.save!
     else
-      event_user = EventUser.where("email = ?", @user_event.user_email).first
+      event_user = EventUser.where(email: @user_event.user_email).first
       event_user.events << @event
       event_user.save!
     end

@@ -65,6 +65,8 @@
           = link_to 'Edit', edit_admin_event_path(:id => @event.id), class: "btn btn-primary"
           '   
           = link_to 'Delete', admin_event_path(:id => @event.id), :method => :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger"
+          '
+          = link_to 'View Live', event_path(:id => @event.id), class: "btn btn-success"
 
     .col-md-4
       .panel.panel-default
