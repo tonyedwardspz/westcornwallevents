@@ -17,18 +17,7 @@ class Admin::UserEventsController < Admin::AdminAreaController
   end
 
   def edit
-    @event = Event.new
-    @event.title = @user_event.title
-    @event.date = @user_event.date
-    @event.dateend = @user_event.end_date
-    @event.location = @user_event.location
-    @event.link = @user_event.link
-    @event.linktitle = @user_event.title
-    @event.description = @user_event.description
-    @event.image_link = @user_event.image
-    if @event.image_link.present?
-      @event.imageAlt = @user_event.title
-    end
+    @event = Event.event_from_user_event(@user_event)
     @event.save!
 
     if EventUser.where(email: @user_event.user_email).empty?

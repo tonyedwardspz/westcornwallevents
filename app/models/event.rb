@@ -7,4 +7,20 @@ class Event < ActiveRecord::Base
   validates :title, presence: true
   validates :date, presence: true
   validates :description, presence: true
+
+  def self.event_from_user_event(user_event)
+    event = Event.new
+    event.title = user_event.title
+    event.date = user_event.date
+    event.dateend = user_event.end_date
+    event.location = user_event.location
+    event.link = user_event.link
+    event.linktitle = user_event.title
+    event.description = user_event.description
+    event.image_link = user_event.image
+    if event.image_link.present?
+      event.imageAlt = user_event.title
+    end
+    return event
+  end
 end
