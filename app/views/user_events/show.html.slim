@@ -31,9 +31,10 @@
         p
           strong Date: 
           = @user_event.date
-        p
-          strong End date: 
-          = @user_event.end_date
+        - if @user_event.end_date.present?
+          p
+            strong End date: 
+            = @user_event.end_date
         p
           strong Time: 
           = @user_event.time
