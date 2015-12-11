@@ -26,7 +26,9 @@ class Admin::UserEventsController < Admin::AdminAreaController
     @event.linktitle = @user_event.title
     @event.description = @user_event.description
     @event.image_link = @user_event.image
-    @event.imageAlt = @user_event.title
+    if @event.image_link.present?
+      @event.imageAlt = @user_event.title
+    end
     @event.save!
 
     if EventUser.where(email: @user_event.user_email).empty?
