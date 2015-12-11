@@ -1,7 +1,7 @@
 = simple_form_for(@user_event, html: {class: 'form-vertical', multipart: true}) do |f|
   = f.error_notification
 
-  .form-inputs
+  .form-inputs.user_submit
 
     .col-sm-12
       .panel.panel-default
@@ -45,13 +45,13 @@
           .col-sm-6.last
             = f.input :last_name, required: true, label: "Last name"
           = f.input :user_email, as: :email, required: true, label: "Email"
-          = f.input :add_to_mailling_list, as: :boolean, label: "", inline_label: "Join our mailing list (approx 4 emails a year)"
+          = f.input :add_to_mailling_list, as: :boolean, label: "", inline_label: "Join our mailing list"
   
     .clearfix
     .col-sm-12
       .panel.panel-default
         .panel-body.form-actions
           = recaptcha_tags :ssl => true
-          = f.button :submit, class: "btn btn-primary"
+          = f.button :submit, "Submit Event", class: "btn btn-primary"
           '   
           = link_to "Cancel", user_events_path, class: "btn btn-warning"

@@ -16,3 +16,11 @@
 .last {
 	padding-right: 0;
 }
+
+.user_submit .form-actions .btn {
+	margin-top: 20px;
+}
+
+.user_submit .btn-primary {
+	margin-right: 15px;
+}
