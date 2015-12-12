@@ -1,6 +1,6 @@
 class Event < ActiveRecord::Base
   extend FriendlyId
-  mount_uploader :image_link, UsereventAttachmentUploader
+  mount_uploader :image_link, AttachmentUploader
   friendly_id :title, use: [:slugged, :finders]
   belongs_to :festival
   belongs_to :venue
