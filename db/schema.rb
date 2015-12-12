@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151212155450) do
+ActiveRecord::Schema.define(version: 20151212222634) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -85,3 +85,69 @@ ActiveRecord::Schema.define(version: 20151212155450) do
 
   add_index "festivals", ["slug"], name: "index_festivals_on_slug", unique: true, using: :btree
 
+  create_table "friendly_id_slugs", force: :cascade do |t|
+    t.string   "slug",                      null: false
+    t.integer  "sluggable_id",              null: false
+    t.string   "sluggable_type", limit: 50
+    t.string   "scope"
+    t.datetime "created_at"
+  end
+
+  add_index "friendly_id_slugs", ["slug", "sluggable_type", "scope"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type_and_scope", unique: true, using: :btree
+  add_index "friendly_id_slugs", ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type", using: :btree
+  add_index "friendly_id_slugs", ["sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_id", using: :btree
+  add_index "friendly_id_slugs", ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type", using: :btree
+
+  create_table "pages", force: :cascade do |t|
+    t.string   "title"
+    t.string   "slug"
+    t.text     "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "user_events", force: :cascade do |t|
+    t.string   "title"
+    t.date     "date"
+    t.date     "end_date"
+    t.string   "location"
+    t.string   "link"
+    t.string   "image"
+    t.string   "time"
+    t.text     "description"
+    t.datetime "created_at",                           null: false
+    t.datetime "updated_at",                           null: false
+    t.string   "user_email"
+    t.boolean  "add_to_mailling_list", default: true
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "image_secure_token"
+    t.string   "time_end"
+    t.boolean  "archived",             default: false, null: false
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "name"
+    t.string "password_digest"
+  end
+
+  create_table "venues", force: :cascade do |t|
+    t.string   "name"
+    t.string   "phone"
+    t.string   "email"
+    t.string   "url"
+    t.string   "address"
+    t.string   "postcode"
+    t.string   "image"
+    t.string   "image_alt"
+    t.text     "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string   "slug"
+    t.string   "LinkAlt"
+  end
+
+  add_index "venues", ["slug"], name: "index_venues_on_slug", unique: true, using: :btree
+
+  add_foreign_key "events", "event_users"
+end
