@@ -30,7 +30,8 @@ class Admin::UserEventsController < Admin::AdminAreaController
       event_user.save!
     end
 
-    @user_event.destroy!
+    # Replace with archiving
+    # @user_event.destroy!
   end
 
 
