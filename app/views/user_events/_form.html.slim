@@ -53,6 +53,8 @@
       .panel.panel-default
         .panel-body.form-actions
           = recaptcha_tags :ssl => true
-          = f.button :submit, "Submit Event", class: "btn btn-primary"
+          = f.button :submit, "Submit Event", class: "btn btn-success"
           '   
-          = link_to "Cancel", user_events_path, class: "btn btn-warning"
+          = link_to "Reset Form", user_events_path, class: "btn btn-warning"
+          '
+          = link_to "Return Home", root_path, title: "Home", class: "btn btn-primary"
