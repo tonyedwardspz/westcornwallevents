@@ -19,6 +19,12 @@ $(document).ready( function() {
     'default': 'now'
   });
 
+  $('.user_event_time_end').clockpicker({
+    donetext: 'Done',
+    autoclose: true,
+    'default': 'now'
+  });
+
   $("#user_event_image").change(readURL);
 });
     

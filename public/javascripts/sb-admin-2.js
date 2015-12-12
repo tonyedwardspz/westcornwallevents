@@ -24,6 +24,12 @@ $(function() {
     autoclose: true,
     'default': 'now'
   });
+
+  $('.event_time_end').clockpicker({
+    donetext: 'Done',
+    autoclose: true,
+    'default': 'now'
+  });
 });
 
 //Loads the correct sidebar on window load,
