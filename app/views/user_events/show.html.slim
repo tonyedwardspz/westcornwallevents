@@ -38,6 +38,10 @@
         p
           strong Time: 
           = @user_event.time
+        - if @user_event.time_end.present?
+          strong Time end: 
+          = @user_event.time_end
+
   .col-sm-6
     .panel.panel-default
       .panel-heading

@@ -11,7 +11,8 @@
           = f.input :date, as: :string, label: "Start Date", required: :true, input_html: { placeholder: "22/07/2015"}
         .col-xs-6.dateEnd
           = f.input :dateend, as: :string, label: "End Date (if multi day)", input_html: { placeholder: "23/07/2015"}
-        = f.input :time, input_html: { placeholder: "9:00 pm" }
+        = f.input :time, input_html: { placeholder: "9:00" }
+        = f.input :time_end, input_html: { placeholder: "18:00" }
 
     .panel.panel-default
       .panel-heading
@@ -36,10 +37,9 @@
         ' Images
       .panel-body
         p
+        = f.file_field :image_link, label: "Image URL", input_html: { placeholder: "foldername/file_name.jpg" }
           - unless @event.image_link.blank?
             = image_tag @event.image_link.thumb, alt: @event.imageAlt, width: 250
-          - else 
-            = f.file_field :image_link, label: "Image URL", input_html: { placeholder: "foldername/file_name.jpg" }
         = f.input :imageAlt, label: "Image Alt Text", input_html: { placeholder: "3 - 5 word description of image" }
 
     .panel.panel-default
