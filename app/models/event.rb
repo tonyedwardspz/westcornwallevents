@@ -15,6 +15,8 @@ class Event < ActiveRecord::Base
     event.dateend = user_event.end_date
     event.location = user_event.location
     event.link = user_event.link
+    event.time = user_event.time
+    event.time_end = user_event.time_end
     event.linktitle = user_event.title
     event.description = user_event.description
     event.image_link = user_event.image
