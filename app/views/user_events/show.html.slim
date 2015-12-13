@@ -20,10 +20,14 @@
           = @user_event.description
         p
           strong Location: 
-          = @user_event.location
-        p
-          strong Link: 
-          = @user_event.link
+          - if @user_event.location.present?
+            = @user_event.location
+          - elsif @user_event.venue.present?
+            = @user_event.venue.name
+        - if @user_event.link.present?
+          p
+            strong Link: 
+            = @user_event.link
 
   .col-sm-6
     .panel.panel-default
@@ -61,16 +65,13 @@
       .panel-body
         p
           strong Your name: 
-          = @user_event.first_name
-        p
-          strong Your name: 
-          = @user_event.last_name
+          ' #{@user_event.first_name} #{@user_event.last_name}
         p
           strong Your email: 
           = @user_event.user_email
         p
           strong Added to mailing list:  
-          = @user_event.add_to_mailling_list
+          = @user_event.add_to_mailling_list ? "Yes" : "No"
 
   .col-sm-12
     .panel.panel-default
