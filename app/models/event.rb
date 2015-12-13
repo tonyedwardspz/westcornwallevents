@@ -19,7 +19,7 @@ class Event < ActiveRecord::Base
     event.description = user_event.description
 
     if user_event.link.present?
-      if user_event.link.start_with("www.")
+      if user_event.link.start_with?("www.")
         event.link = user_event.link.prepend("http://").squish
       else
         event.link = user_event.link.squish
