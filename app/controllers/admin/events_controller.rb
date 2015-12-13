@@ -45,8 +45,14 @@ class Admin::EventsController < Admin::AdminAreaController
   # PATCH/PUT /events/1.json
   def update
     respond_to do |format|
-      if @event.update(event_params)
-        format.html { redirect_to @event, notice: 'Event was successfully updated.' }
+      if @event.image_link_change
+        if @event.update(event_params)
+          format.html { redirect_to admin_event_path(@event), notice: 'Event was successfully updated.' }
+        else
+          format.html { render :edit }
+        end
+      elsif @event.update(event_params_without_image)
+        format.html { redirect_to admin_event_path(@event), notice: 'Event was successfully updated.' }
       else
         format.html { render :edit }
       end

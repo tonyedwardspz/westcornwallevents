@@ -1,6 +1,6 @@
 class UserEventsController < ApplicationController
   layout 'layouts/user_events_layout'
-  skip_before_action :authorize, only: [:index, :show, :edit, :update, :new, :create]
+  skip_before_action :authorize, only: [:show, :new, :create]
   before_action :set_user_event, only: [:show, :edit, :update, :destroy]
 
   # GET /user_events
