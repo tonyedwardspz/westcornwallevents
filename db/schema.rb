@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151212222634) do
+ActiveRecord::Schema.define(version: 20151213104435) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -124,7 +124,10 @@ ActiveRecord::Schema.define(version: 20151212222634) do
     t.string   "image_secure_token"
     t.string   "time_end"
     t.boolean  "archived",             default: false, null: false
+    t.integer  "venue_id"
   end
+
+  add_index "user_events", ["venue_id"], name: "index_user_events_on_venue_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string "name"
