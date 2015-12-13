@@ -20,6 +20,10 @@ class AttachmentUploader < CarrierWave::Uploader::Base
     process resize_to_limit: [250,nil]
   end
 
+  version :large_thumb do
+    process resize_to_limit: [400, nil]
+  end
+
   # Provide a default URL as a default if there hasn't been a file uploaded:
   # def default_url
   #   # For Rails 3.1+ asset pipeline compatibility:
@@ -56,5 +60,4 @@ class AttachmentUploader < CarrierWave::Uploader::Base
   def filename
     "#{original_filename}" if original_filename
   end
-
 end
