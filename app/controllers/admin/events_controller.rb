@@ -34,6 +34,7 @@ class Admin::EventsController < Admin::AdminAreaController
 
     respond_to do |format|
       if @event.save
+        expire_venue_cache()
         format.html { redirect_to @event, notice: 'Event was successfully created.' }
       else
         format.html { render :new }
@@ -47,11 +48,13 @@ class Admin::EventsController < Admin::AdminAreaController
     respond_to do |format|
       if @event.image_link_change
         if @event.update(event_params)
+          expire_venue_cache()
           format.html { redirect_to admin_event_path(@event), notice: 'Event was successfully updated.' }
         else
           format.html { render :edit }
         end
       elsif @event.update(event_params_without_image)
+        expire_venue_cache()
         format.html { redirect_to admin_event_path(@event), notice: 'Event was successfully updated.' }
       else
         format.html { render :edit }
@@ -77,5 +80,11 @@ class Admin::EventsController < Admin::AdminAreaController
     # Never trust parameters from the scary internet, only allow the white list through.
     def event_params
       params.require(:event).permit(:date, :dateend, :title, :location, :link, :linktitle, :time, :time_end, :more_link, :moreTitle, :description, :description2, :description3, :description4, :image_link, :imageAlt, :festival_id, :venue_id)
+    end
+
+    def expire_venue_cache
+      if @event.venue.present?
+        expire_fragment('venue_#{@event.venue.name}_events')
+      end
     end
 end
