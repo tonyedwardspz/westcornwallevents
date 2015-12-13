@@ -1,7 +1,9 @@
 .page-header
   h1 Thank you
-  p.lead Thanks for submitting your event.
-  p We check every event before adding it to the website. Once it has been added to the main site you'll recieve an email containing the link.
+  p.lead Thanks for submitting your event for inclusion on West Cornwall Events.
+  p We check every event before adding it to the website. Once it's been added to the website you'll recieve an email containing a link to your event
+  - if @user_event.add_to_mailling_list?
+    p Thank you for subscribing to our newsletter. We will send you occasional roundups of events around West Cornwall
 
 .row
 
