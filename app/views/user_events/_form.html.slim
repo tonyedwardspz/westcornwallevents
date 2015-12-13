@@ -10,7 +10,13 @@
         .panel-body
             = f.input :title, required: true
             = f.input :description, required: true, input_html: {rows: 10}
-            = f.input :location, required: true, input_html: { placeholder: "Penlee Park, Penzance, TR18 4EX"}
+            .col-sm-4.first
+              = f.association :venue, collection: Venue.order('name')
+            .col-sm-1
+              p &nbsp
+              p.vertical-center OR
+            .col-sm-7.first
+              = f.input :location, input_html: { placeholder: "Penlee Park, Penzance, TR18 4EX"}
             = f.input :link, as: :url, input_html: { placeholder: "www.awebsite.co.uk"}
 
     .col-sm-6
