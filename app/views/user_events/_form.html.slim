@@ -18,10 +18,14 @@
         .panel-heading
           ' Date and time
         .panel-body
-          = f.input :date, as: :string, label: "Start Date", required: :true, input_html: { placeholder: "22/07/2015", id: "date_start"}
-          = f.input :end_date, as: :string, label: "End Date (if multi day)", input_html: { placeholder: "23/07/2015", id: "end_date"}
-          = f.input :time, required: true
-          = f.input :time_end
+          .col-sm-6.first
+            = f.input :date, as: :string, label: "Start Date", required: :true, input_html: { placeholder: "22/07/2015", id: "date_start"}
+          .col-sm-6.first
+            = f.input :end_date, as: :string, label: "End Date", input_html: { placeholder: "23/07/2015", id: "end_date"}
+          .col-sm-6.first
+            = f.input :time, required: true, label: "Start Time"
+          .col-sm-6.first
+            = f.input :time_end, label: "End Time"
 
     .col-sm-6
       .panel.panel-default
