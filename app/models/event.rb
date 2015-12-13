@@ -26,7 +26,7 @@ class Event < ActiveRecord::Base
       end
     end
 
-    if user_event.location.length > 5
+    if user_event.location.length > 0
       event.location = user_event.location.squish
     end
 
