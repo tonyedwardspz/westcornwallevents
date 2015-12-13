@@ -31,14 +31,12 @@ $(document).ready( function() {
   if(lsTest() === true){
     if (localStorage.getItem("wceUser") !== null){
       fetchUserDetails();
-      console.log('local storage available');
     }
     $("#submission-btn").hover(saveUserDetails);
   }
-
-  
 });
 
+// Retrieve user details from localstorage
 function fetchUserDetails() {
   var lsUser = localStorage.getItem('wceUser');
   var user = JSON.parse(lsUser);
@@ -50,6 +48,7 @@ function fetchUserDetails() {
   }
 }
 
+// Save user details to localstorage
 function saveUserDetails() {
   var user = {
     'first': $('#user_event_first_name').val(),
