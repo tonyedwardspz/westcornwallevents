@@ -26,7 +26,53 @@ $(document).ready( function() {
   });
 
   $("#user_event_image").change(readURL);
+
+  // If localstorage is available
+  if(lsTest() === true){
+    if (localStorage.getItem("wceUser") !== null){
+      fetchUserDetails();
+    }
+    $("#submission-btn").hover(saveUserDetails);
+  }
 });
+
+// Retrieve user details from localstorage
+function fetchUserDetails() {
+  var lsUser = localStorage.getItem('wceUser');
+  var user = JSON.parse(lsUser);
+
+  if (isRealValue(user)){
+    $('#user_event_first_name').val(user.first);
+    $('#user_event_last_name').val(user.last);
+    $('#user_event_user_email').val(user.email);
+  }
+}
+
+// Save user details to localstorage
+function saveUserDetails() {
+  var user = {
+    'first': $('#user_event_first_name').val(),
+    'last': $('#user_event_last_name').val(),
+    'email': $('#user_event_user_email').val()
+  };
+  localStorage.setItem('wceUser', JSON.stringify(user));
+}
+
+// Check an object for null
+function isRealValue(obj){
+ return obj && obj !== "null" && obj!== "undefined";
+}
+
+function lsTest(){
+    var test = 'test';
+    try {
+        localStorage.setItem(test, test);
+        localStorage.removeItem(test);
+        return true;
+    } catch(e) {
+        return false;
+    }
+}
     
 function readURL(e) {
   console.log("Read URL");

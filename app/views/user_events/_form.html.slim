@@ -8,9 +8,15 @@
         .panel-heading
           ' Event Details
         .panel-body
-            = f.input :title, required: true
+            = f.input :title, required: true, placeholder: "Your event title"
             = f.input :description, required: true, input_html: {rows: 10}
-            = f.input :location, required: true, input_html: { placeholder: "Penlee Park, Penzance, TR18 4EX"}
+            .col-sm-4.first
+              = f.association :venue, collection: Venue.order('name')
+            .col-sm-1
+              p &nbsp
+              p.vertical-center OR
+            .col-sm-7.first
+              = f.input :location, input_html: { placeholder: "Penlee Park, Penzance, TR18 4EX"}
             = f.input :link, as: :url, input_html: { placeholder: "www.awebsite.co.uk"}
 
     .col-sm-6
@@ -18,10 +24,14 @@
         .panel-heading
           ' Date and time
         .panel-body
-          = f.input :date, as: :string, label: "Start Date", required: :true, input_html: { placeholder: "22/07/2015", id: "date_start"}
-          = f.input :end_date, as: :string, label: "End Date (if multi day)", input_html: { placeholder: "23/07/2015", id: "end_date"}
-          = f.input :time, required: true
-          = f.input :time_end
+          .col-sm-6.first
+            = f.input :date, as: :string, label: "Start Date", required: :true, input_html: { placeholder: "22/07/2015", id: "date_start"}
+          .col-sm-6.first
+            = f.input :end_date, as: :string, label: "End Date", input_html: { placeholder: "23/07/2015", id: "end_date"}
+          .col-sm-6.first
+            = f.input :time, required: true, label: "Start Time", placeholder: "18:00"
+          .col-sm-6.first
+            = f.input :time_end, label: "End Time", placeholder: "21:00"
 
     .col-sm-6
       .panel.panel-default
@@ -53,6 +63,8 @@
       .panel.panel-default
         .panel-body.form-actions
           = recaptcha_tags :ssl => true
-          = f.button :submit, "Submit Event", class: "btn btn-primary"
+          = f.button :submit, "Submit Event", class: "btn btn-success", id: "submission-btn"
           '   
-          = link_to "Cancel", user_events_path, class: "btn btn-warning"
+          = link_to "Reset Form", user_events_path, class: "btn btn-warning"
+          '
+          = link_to "Return Home", root_path, title: "Home", class: "btn btn-primary"

@@ -116,3 +116,15 @@
 	background-color: #fff;
 	cursor: default;
 }
+
+@media (max-width: 767px) {
+	.first,
+	.last {
+		padding-right: 0;
+		padding-left: 0;
+	}
+}
+
+.vertical-center {
+    font-weight: 700;
+}

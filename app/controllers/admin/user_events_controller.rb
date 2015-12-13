@@ -2,7 +2,7 @@ class Admin::UserEventsController < Admin::AdminAreaController
   before_action :set_user_event, only: [:show, :edit, :update, :destroy]
 
   def index
-    @user_events = UserEvent.all.order('date DESC')
+    @user_events = UserEvent.where(archived: false).order('created_at DESC')
     @page_title = "View User Events"
   end
 
@@ -10,10 +10,6 @@ class Admin::UserEventsController < Admin::AdminAreaController
   # GET /events/1.json
   def show
     @page_title = @user_event.title
-    puts "event image link"
-    inspect @image_event
-    puts @user_event.image
-    puts "event image link"
   end
 
   # Convert user event to event and event user before editing
@@ -30,8 +26,8 @@ class Admin::UserEventsController < Admin::AdminAreaController
       event_user.save!
     end
 
-    # Replace with archiving
-    # @user_event.destroy!
+    @user_event.archived = true
+    @user_event.save!
   end
 
 

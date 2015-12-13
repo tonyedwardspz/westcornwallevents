@@ -1,7 +1,10 @@
   tr
     td = user_event.title.present? ? "#{user_event.title}" : "NOT SUPPLIED"
     td = user_event.date.present? ? "#{user_event.date.day.ordinalize} #{user_event.date.strftime("%b %Y")}" : "NOT SUPPLIED"
-    td = user_event.location.present? ? "#{user_event.location}" : "NOT SUPPLIED"
+    - if user_event.location.present?
+      td = user_event.location
+    - elsif user_event.venue.present?
+      td = user_event.venue.name
 
     td.center = link_to 'Add to website', edit_admin_user_event_path(:id => user_event.id)
     td.center = link_to 'Delete', admin_user_event_path(:id => user_event.id), :method => :delete, data: { confirm: 'Are you sure?' }
