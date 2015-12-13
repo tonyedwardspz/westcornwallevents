@@ -13,11 +13,18 @@ class Event < ActiveRecord::Base
     event.title = user_event.title.squish
     event.date = user_event.date
     event.dateend = user_event.end_date
-    event.link = user_event.link.squish
     event.time = user_event.time
     event.time_end = user_event.time_end
     event.linktitle = user_event.title.squish
     event.description = user_event.description
+
+    if user_event.link.present?
+      if user_event.link.start_with("www.")
+        event.link = user_event.link.prepend("http://").squish
+      else
+        event.link = user_event.link.squish
+      end
+    end
 
     if user_event.location.length > 5
       event.location = user_event.location.squish
