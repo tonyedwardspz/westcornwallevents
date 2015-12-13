@@ -8,7 +8,7 @@
         .panel-heading
           ' Event Details
         .panel-body
-            = f.input :title, required: true
+            = f.input :title, required: true, placeholder: "Your event title"
             = f.input :description, required: true, input_html: {rows: 10}
             .col-sm-4.first
               = f.association :venue, collection: Venue.order('name')
@@ -29,9 +29,9 @@
           .col-sm-6.first
             = f.input :end_date, as: :string, label: "End Date", input_html: { placeholder: "23/07/2015", id: "end_date"}
           .col-sm-6.first
-            = f.input :time, required: true, label: "Start Time"
+            = f.input :time, required: true, label: "Start Time", placeholder: "18:00"
           .col-sm-6.first
-            = f.input :time_end, label: "End Time"
+            = f.input :time_end, label: "End Time", placeholder: "21:00"
 
     .col-sm-6
       .panel.panel-default
