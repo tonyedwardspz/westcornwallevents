@@ -6,7 +6,7 @@ class AdminController < ApplicationController
     @total_festivals = Festival.count
     @total_pages = Page.count
     @total_users = User.count
-    @event_users = EventUser.all.count
+    @event_users = EventUser.where(archived: false).count
     @number_submitted = UserEvent.all.count
     @recently_added_events = Event.order('updated_at DESC').limit(10)
     @new_events = 13
