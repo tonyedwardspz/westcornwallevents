@@ -53,7 +53,7 @@
       .panel.panel-default
         .panel-body.form-actions
           = recaptcha_tags :ssl => true
-          = f.button :submit, "Submit Event", class: "btn btn-success"
+          = f.button :submit, "Submit Event", class: "btn btn-success", id: "submission-btn"
           '   
           = link_to "Reset Form", user_events_path, class: "btn btn-warning"
           '
