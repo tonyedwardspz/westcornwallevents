@@ -99,6 +99,9 @@
               a.list-group-item href="/admin/events" 
                 i.fa.fa-calendar.fa-fw
                 | #{@total_events} Total events
+              a.list-group-item href="/admin/user_events" 
+                i.fa.fa-calendar-check-o.fa-fw
+                | #{@number_submitted} Total unprocessed events
               a.list-group-item href="/admin/festivals" 
                 i.fa.fa-smile-o.fa-fw
                 | #{@total_festivals} Total festivals
@@ -114,4 +117,3 @@
               a.list-group-item href="/admin/users" 
                 i.fa.fa-user.fa-fw
                 | #{@total_users} Total admin users
-
