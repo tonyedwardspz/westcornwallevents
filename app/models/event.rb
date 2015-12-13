@@ -30,7 +30,6 @@ class Event < ActiveRecord::Base
     if user_event.image.present?
       event.image_link = user_event.image
       event.image_link.recreate_versions!
-      # event.image_link.save
       event.imageAlt = user_event.title
     end
     return event
