@@ -10,4 +10,14 @@ class UserEvent < ActiveRecord::Base
   validates :first_name, presence: true
   validates :last_name, presence: true
   validates :user_email, presence: true
+  validates :venue, presence: true, unless: :location?
+  validates :location, presence: true, unless: :venue?
+
+  def location?
+    self.location.present?
+  end
+
+  def venue?
+    self.venue.present?
+  end
 end

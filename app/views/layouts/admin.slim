@@ -11,12 +11,10 @@ head
 
   title #{@page_title}
 
-  = stylesheet_link_tag 'bootstrap.min'
-  = stylesheet_link_tag 'https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css'
-  = stylesheet_link_tag 'sb-admin-2'
-  = stylesheet_link_tag 'dataTables.bootstrap'
-  = stylesheet_link_tag 'bootstrap-clockpicker.min.css'
   = stylesheet_link_tag 'admin'
+    /[if lt IE 9]
+      = javascript_include_tag "https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"
+      = javascript_include_tag "https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"
 
 body
   #wrapper
@@ -24,12 +22,4 @@ body
     = render 'shared/admin_sidebar'
     = yield
 
-  = javascript_include_tag 'jquery.min'
-  = javascript_include_tag 'application'
-  = javascript_include_tag "https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"
-  = javascript_include_tag "https://cdn.datatables.net/1.10.7/js/jquery.dataTables.min.js"
-  = javascript_include_tag 'bootstrap.min'
-  = javascript_include_tag 'bootstrap-clockpicker.min'
-  = javascript_include_tag 'metisMenu.min'
-  = javascript_include_tag 'dataTables.bootstrap'
-  = javascript_include_tag 'sb-admin-2'
+  = javascript_include_tag 'admin'

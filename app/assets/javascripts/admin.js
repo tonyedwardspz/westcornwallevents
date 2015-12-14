@@ -11,7 +11,10 @@
 // about supported directives.
 //
 //= require jquery
-//= require jquery_ujs
-//= require RRSSB
-//= require lazyload
-//= require script
+//= require jquery-ui
+//= require bootstrap.min
+//= require bootstrap-clockpicker.min
+//= require metisMenu.min
+//= require datatables
+//= require dataTables.bootstrap
+//= require sb-admin-2

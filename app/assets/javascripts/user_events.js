@@ -11,7 +11,7 @@
 // about supported directives.
 //
 //= require jquery
-//= require jquery_ujs
-//= require RRSSB
-//= require lazyload
-//= require script
+//= require jquery-ui
+//= require bootstrap.min
+//= require bootstrap-clockpicker.min
+//= require user_submit
