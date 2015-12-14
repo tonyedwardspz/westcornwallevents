@@ -8,7 +8,13 @@ class Event < ActiveRecord::Base
   validates :date, presence: true
   validates :description, presence: true
 
-  def self.event_from_user_event(user_event)
+  def self.create_from_user_event(user_event)
+     e = new_from_user_event(user_event)
+     e.save!
+     e
+  end
+
+  def self.new_from_user_event(user_event)
     event = Event.new
     event.title = user_event.title.squish
     event.date = user_event.date

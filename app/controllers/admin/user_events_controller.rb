@@ -14,8 +14,8 @@ class Admin::UserEventsController < Admin::AdminAreaController
 
   # Convert user event to event and event user before editing
   def edit
-    @event = Event.event_from_user_event(@user_event)
-    @event.save!
+    @event = Event.create_from_user_event(@user_event)
+    # @event.save!
 
     if EventUser.where(email: @user_event.user_email).empty?
       event_user = EventUser.event_user_from_user_event(@user_event, @event)
