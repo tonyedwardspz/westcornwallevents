@@ -54,9 +54,9 @@ var applyActiveClass = function(){
             $("li.submit").addClass("navActive");
             break;
     }
-}
+};
 
 
 var injectMobileNav = function(){
     $("#nav").addClass("js").before('<div id="menu" class="sprite nav-icon"></div>');
-}
+};
