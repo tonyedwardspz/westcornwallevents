@@ -28,8 +28,8 @@
         p
           - unless @admin_festival.image.blank?
             = image_tag @admin_festival.image, class: "img-responsive"
-          - else 
-            = f.file_field :image, label: "Image URL"
+          = f.file_field :image, label: "Image URL"
+          = f.hidden_field :image_cache
         = f.input :image_alt, label: "Image Alt Text", input_html: { placeholder: "3 - 5 word description of image" }, class: "img-responsive"
 
         hr
@@ -37,8 +37,8 @@
         p
           - unless @admin_festival.image2.blank?
             = image_tag @admin_festival.image2, width: 250
-          - else 
-            = f.file_field :image2, label: "Image2 URL"
+          = f.file_field :image2, label: "Image2 URL"
+          = f.hidden_field :image2_cache
         = f.input :image2_alt, label: "Image Alt Text", input_html: { placeholder: "3 - 5 word description of image" }
 
     .panel.panel-default
