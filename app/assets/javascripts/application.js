@@ -14,4 +14,5 @@
 //= require jquery_ujs
 //= require RRSSB
 //= require lazyload
+//= require google_ads
 //= require script
