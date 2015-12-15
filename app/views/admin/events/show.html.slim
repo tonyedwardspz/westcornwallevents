@@ -75,10 +75,10 @@
         .panel-body
           p DEBUG INFO: #{@event.image_link.url}
           - if @event.image_link.present?
-            = image_tag @event.image_link.thumb, alt: @event.imageAlt, width: 250
+            = image_tag @event.image_link.thumb, class: "img-responsive"
             - if @event.imageAlt.present?
               p ALT TEXT: #{@event.imageAlt}
             - else
               p ALT TEXT: No alt test !!!!!!!!!!!!!
           - else
-            img src="http://placehold.it/225x150"
+            img src="http://placehold.it/225x150" class="img-responsive"

@@ -60,10 +60,10 @@
           ' Image
         .panel-body
           - if @admin_venue.image.present?
-            = image_tag @admin_venue.image.thumb, width: 250, height: 132
+            = image_tag @admin_venue.image.thumb, class: "img-responsive"
             - if @admin_venue.image_alt.present?
               p ALT TEXT: #{@admin_venue.image_alt}
             - else
               p ALT TEST: No alt test !!!!!!!!!!!!!
           - else
-            img src="http://placehold.it/225x150"
+            img src="http://placehold.it/225x150" class="img-responsive"

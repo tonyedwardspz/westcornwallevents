@@ -27,10 +27,10 @@
 
         p
           - unless @admin_festival.image.blank?
-            = image_tag @admin_festival.image, width: 250
+            = image_tag @admin_festival.image, class: "img-responsive"
           - else 
             = f.file_field :image, label: "Image URL"
-        = f.input :image_alt, label: "Image Alt Text", input_html: { placeholder: "3 - 5 word description of image" }
+        = f.input :image_alt, label: "Image Alt Text", input_html: { placeholder: "3 - 5 word description of image" }, class: "img-responsive"
 
         hr
 
