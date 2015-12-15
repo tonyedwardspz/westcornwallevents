@@ -15,4 +15,5 @@
 //= require RRSSB
 //= require lazyload
 //= require google_ads
+//= require image-preview
 //= require script

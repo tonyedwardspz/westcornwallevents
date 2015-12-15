@@ -17,4 +17,5 @@
 //= require metisMenu.min
 //= require datatables
 //= require dataTables.bootstrap
+//= require image-preview
 //= require sb-admin-2
