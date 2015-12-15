@@ -15,4 +15,5 @@
 //= require bootstrap.min
 //= require bootstrap-clockpicker.min
 //= require application
+//= require image-preview
 //= require user_submit
