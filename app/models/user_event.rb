@@ -10,6 +10,7 @@ class UserEvent < ActiveRecord::Base
   validates :first_name, presence: true
   validates :last_name, presence: true
   validates :user_email, presence: true
+  validates_format_of :user_email, :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i, :message => "email does not appear to be valid"
   validates :venue, presence: true, unless: :location?
   validates :location, presence: true, unless: :venue?
 
