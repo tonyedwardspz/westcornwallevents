@@ -10,7 +10,7 @@ p
   br
   | #{@venue.address}, #{@venue.postcode}
   br
-  a href="#{@venue.url}" title="#{@venue.name}" #{@venue.url}
+  a href="#{@venue.url}" title="#{@venue.name}" #{format_url(@venue.url)}
                     
 = @venue.content.html_safe
 
