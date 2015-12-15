@@ -29,15 +29,13 @@ class UserEventsController < ApplicationController
   # POST /user_events.json
   def create
     @user_event = UserEvent.new(user_event_params)
-    if @user_event.venue.present? || @user_event.location.length > 3
-      if verify_recaptcha(model: @user_event) && @user_event.save
-        if @user_event.add_to_mailling_list
-          SubscribeJob.new.perform(@user_event)
-        end
-        respond_to do |format|
-          format.html { redirect_to @user_event, notice: 'User event was successfully created.' }
-          format.json { render :show, status: :created, location: @user_event }
-        end
+    if verify_recaptcha(model: @user_event) && @user_event.save
+      if @user_event.add_to_mailling_list
+        SubscribeJob.new.perform(@user_event)
+      end
+      respond_to do |format|
+        format.html { redirect_to @user_event, notice: 'User event was successfully created.' }
+        format.json { render :show, status: :created, location: @user_event }
       end
     else
       @user_event.valid?
