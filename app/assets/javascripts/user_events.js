@@ -14,4 +14,5 @@
 //= require jquery-ui
 //= require bootstrap.min
 //= require bootstrap-clockpicker.min
+//= require application
 //= require user_submit
