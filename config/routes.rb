@@ -1,12 +1,4 @@
 Rails.application.routes.draw do
-  namespace :admin do
-  get 'user_events/index'
-  end
-
-  namespace :admin do
-  get 'user_events/show'
-  end
-
   resources :user_events, only: [:new, :create, :show]
   resources :pages
   resources :venues
@@ -22,7 +14,10 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resources :venues, :festivals, :events, :users, :festivals, :pages, :user_events, :event_users
+    get 'user_events/show'
+    get 'user_events/index'
     get 'events/index'
+    post 'events/reprocess_images' => 'events#reprocess_images', as: :reprocess_images
   end
 
   controller :sessions do

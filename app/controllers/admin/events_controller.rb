@@ -71,6 +71,18 @@ class Admin::EventsController < Admin::AdminAreaController
     end
   end
 
+  def reprocess_images
+    events = Event.where.not(image_link: 'nil')
+    begin
+      events.each { |e|
+        e.image_link.recreate_versions!
+      }
+    rescue => e
+      logger.warn "WARN: Image reprocess - #{e}"
+    end
+    redirect_to admin_events_url, notice: 'Images successfully reprocessed.'
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_event

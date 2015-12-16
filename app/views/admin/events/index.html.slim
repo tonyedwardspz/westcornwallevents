@@ -22,3 +22,6 @@
                     p No results found
 
                 = render @events
+      .panel.panel-default
+        .panel-body
+          = button_to "Reprocess Images", admin_reprocess_images_path, class: "btn btn-danger"
