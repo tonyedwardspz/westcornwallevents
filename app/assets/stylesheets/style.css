@@ -773,11 +773,30 @@ td:first-child, th:first-child { padding: 5px 30px 5px 0;}
 .inner-third {
     width: 49.5%;
     display: inline-block;
+    margin-top: 15px;
 }
 
-@media screen and (max-width: 720px) {
+.inner-third img {
+    margin: 0 auto;
+    display:block;
+}
+
+.submit-text {
+    clear: left;
+}
+
+.home-info {
+    font-style: italic;
+    color: #ccc;
+}
+
+@media screen and (max-width: 600px) {
     .inner-third {
         width: 100%;
         display: block;
+        margin-top: 100px
+    }
+    .inner-third{
+        clear: both;
     }
 }

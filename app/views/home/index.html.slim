@@ -5,17 +5,30 @@ h1
 p
   | West Cornwall Events brings you the best of the local festivals, live music, theatre groups, one off shows, club nights, charity events, poetry reading and everything else you can imagine. All just one click away.
 
-- @home_events.each do |e|
-  .inner-third
-    h2 #{e.title}
-    - if e.image_link.grid_thumb.present?
-      = image_tag e.image_link.grid_thumb, alt: "#{e.title}"
-    - elsif e.image_link.present?
-      = image_tag e.image_link, alt: "#{e.title}"
-    p #{e.description}
+h2 Upcoming Events
 
+.home-events
+  - @home_events.each do |e|
+    .inner-third
+      h2 = link_to e.title, e
+      - if e.image_link.grid_thumb.present?
+        = image_tag e.image_link.grid_thumb, alt: "#{e.title}"
+      - elsif e.image_link.present?
+        = image_tag e.image_link, alt: "#{e.title}"
+      p.home-info 
+        ' #{e.date.day.ordinalize} #{e.date.strftime("%b %Y")}
+        - if e.venue
+          ' - 
+          = link_to e.venue.name, e.venue
+        - else
+          ' - #{e.location}
+      p #{e.description}
 
-p 
-  ' We're solely an events site we can list all details in an easy to read format with no fuss or frills. All this information is free to use and it's also free to
-  a href="http://westcornwallevents.co.uk/submit_event" title="submit your cornish event free"  submit events to us
-  ' . We're nice like that!
+      = link_to 'Find out more',  e, class: "more"
+
+p = link_to "view this months listings", events_path(:year => "#{Time.now.year}", :month => "#{Date.today.strftime("%B")}"), :title => "Events in Cornwall #{Time.now.year}", class: "more"
+
+p.submit-text 
+  ' Everything on this site is free, including submitting your events
+  a href="http://westcornwallevents.co.uk/submit_event" title="submit your cornish event free"  submitting your events 
+  ' to us. We're nice like that!
