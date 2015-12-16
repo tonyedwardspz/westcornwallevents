@@ -800,6 +800,11 @@ td:first-child, th:first-child { padding: 5px 30px 5px 0;}
     color: #ccc;
 }
 
+.h2-home {
+    min-height:54px;
+    vertical-align: top;
+}
+
 @media screen and (max-width: 600px) {
     .inner-third {
         width: 100%;
@@ -817,5 +822,9 @@ td:first-child, th:first-child { padding: 5px 30px 5px 0;}
 
     .inner-third:nth-of-type(2n) {
         padding-left: 0;
+    }
+
+    .h2-home {
+        min-height:0;
     }
 }

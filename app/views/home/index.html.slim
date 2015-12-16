@@ -10,7 +10,8 @@ h2 Upcoming Events
 .home-events
   - @home_events.each do |e|
     .inner-third
-      h2 = link_to e.title, e
+      .h2-home
+        h2 = link_to e.title, e
       - if e.image_link.grid_thumb.present?
         = image_tag e.image_link.grid_thumb, alt: "#{e.title}"
       - elsif e.image_link.present?
@@ -22,7 +23,7 @@ h2 Upcoming Events
           = link_to e.venue.name, e.venue
         - else
           ' - #{e.location}
-      p #{e.description.split.first(25).join(' ')} ......
+      p #{e.description.split.first(25).join(' ')}......
 
       = link_to 'Find out more', e, class: "more"
 
