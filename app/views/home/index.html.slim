@@ -24,7 +24,7 @@ h2 Upcoming Events
           ' - #{e.location}
       p #{e.description.split.first(25).join(' ')} ......
 
-      = link_to 'Find out more',  e, class: "more"
+      = link_to 'Find out more', e, class: "more"
 
 p = link_to "view this months listings", events_path(:year => "#{Time.now.year}", :month => "#{Date.today.strftime("%B")}"), :title => "Events in Cornwall #{Time.now.year}", class: "more"
 
