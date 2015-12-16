@@ -72,10 +72,10 @@ class Admin::EventsController < Admin::AdminAreaController
   end
 
   def reprocess_images
-    events = Event.all
+    events = Event.where.not(image_link: '')
     begin
       events.each { |e|
-        e.image_link.recreate_versions! if  e.image_link.present?
+        e.image_link.recreate_versions!
       }
     rescue => e
       logger.warn "WARN: Image reprocess - #{e}"
