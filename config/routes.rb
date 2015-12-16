@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   resources :users
 
 
-  get 'submit_event' => 'submit_event#index', as: :submit_event
+  get 'submit_event' => 'user_events#new', as: :submit_event
   get 'sessions' => "sessions#destroy", as: :logout
   get '/admin' => 'admin#index'
   get 'user_events' => 'user_events#new'
