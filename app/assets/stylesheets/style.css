@@ -774,6 +774,7 @@ td:first-child, th:first-child { padding: 5px 30px 5px 0;}
     width: 49.5%;
     display: inline-block;
     margin-top: 15px;
+    min-height: 530px;
 }
 
 .inner-third:nth-of-type(2n+1) {
@@ -802,7 +803,8 @@ td:first-child, th:first-child { padding: 5px 30px 5px 0;}
     .inner-third {
         width: 100%;
         display: block;
-        margin-top: 100px
+        margin-top: 100px;
+        min-height: 0;
     }
     .inner-third{
         clear: both;
