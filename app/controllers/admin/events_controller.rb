@@ -72,7 +72,7 @@ class Admin::EventsController < Admin::AdminAreaController
   end
 
   def reprocess_images
-    events = Event.where('date > ?', DateTime.now).where.not(image_link: '').
+    events = Event.where('date > ?', DateTime.now).where.not(image_link: '')
     events.each { |e|
       begin
         e.image_link.recreate_versions!
