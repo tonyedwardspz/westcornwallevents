@@ -72,13 +72,17 @@ class Admin::EventsController < Admin::AdminAreaController
   end
 
   def reprocess_images
-    events = Event.where.not(image_link: '')
+    events = Event.where('date > ?', DateTime.now).where.not(image_link: '').
     begin
       events.each { |e|
-        e.image_link.recreate_versions!
+        begin
+          e.image_link.recreate_versions!
+        rescue =>
+          logger.warn "Failed individual reprocess: #{e}"
+        end
       }
     rescue => e
-      logger.warn "WARN: Image reprocess - #{e}"
+      logger.warn "WARN: Image reprocess: #{e}"
     end
     redirect_to admin_events_url, notice: 'Images successfully reprocessed.'
   end
