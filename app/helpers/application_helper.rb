@@ -17,7 +17,7 @@ module ApplicationHelper
     end
 
     if !url.start_with?('www.')
-      url.prepend!('www.')
+      url.prepend('www.')
     end
 
     if url.end_with?('/')
