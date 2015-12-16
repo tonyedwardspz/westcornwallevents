@@ -31,6 +31,9 @@
           - if @event.time.present?
             p TIME: #{@event.time}
 
+          - if @event.time_end.present?
+            p TIME END: #{@event.time_end}
+
           - if @event.link.present?
             p LINK: #{@event.link}
             - if @event.linktitle.present?
