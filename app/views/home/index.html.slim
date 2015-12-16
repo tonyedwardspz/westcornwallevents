@@ -4,11 +4,14 @@ h1
   .fb-like data-action="like" data-layout="standard" data-share="true" data-show-faces="false" 
 p
   | West Cornwall Events brings you the best of the local festivals, live music, theatre groups, one off shows, club nights, charity events, poetry reading and everything else you can imagine. All just one click away.
-img.post-image alt="Mazey Day, Penzance" src="images/golowan_statue.jpg"
-p
-  | We cover the entire West Cornwall area including Penzance, St. Ives, Hayle, Marazion, Helston, Newlyn, Camborne, Redruth and all the towns and villages in between. All events are sorted by month and displayed by date with no fuss or frills.
-p 
-  '  All the major Penwith events are covered, including Mazey Day &amp; the Golowan Festival, Helston Flora Day, The Newlyn Fish Festival, St. Ives September Festival, The Montol Festival. We also cover the  November Fireworks Displays as well as the Christmas Lights switch on.
+
+- @home_events.each do |e|
+  .inner-third
+    h2 #{e.title}
+    = image_tag e.image_link, title: e.title
+    p #{e.description}
+
+
 p 
   ' We're solely an events site we can list all details in an easy to read format with no fuss or frills. All this information is free to use and it's also free to
   a href="http://westcornwallevents.co.uk/submit_event" title="submit your cornish event free"  submit events to us
