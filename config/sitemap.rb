@@ -31,7 +31,7 @@ SitemapGenerator::Sitemap.create do
   end
 
   add festivals_path, :priority => 0.7, :changefreq => 'weekly'
-  Event.find_each do |festival|
+  Festival.find_each do |festival|
     add festival_path(festival), :lastmod => festival.updated_at
   end
 
@@ -40,7 +40,7 @@ SitemapGenerator::Sitemap.create do
     add venue_path(venue), :lastmod => venue.updated_at
   end
 
-  add pages_path, :priority => 0.7, :changefreq => 'weekly'
+  add pages_path, :priority => 0.4, :changefreq => 'monthly'
   Page.find_each do |page|
     add page_path(page), :lastmod => page.updated_at
   end
