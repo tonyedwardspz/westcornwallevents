@@ -22,7 +22,7 @@ h2 Upcoming Events
           = link_to e.venue.name, e.venue
         - else
           ' - #{e.location}
-      p #{e.description}
+      p #{e.description.split.first(25).join(' ')} ......
 
       = link_to 'Find out more',  e, class: "more"
 
