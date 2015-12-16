@@ -8,7 +8,10 @@ p
 - @home_events.each do |e|
   .inner-third
     h2 #{e.title}
-    = image_tag e.image_link, title: e.title
+    - if e.image_link.grid_thumb.present?
+      = image_tag e.image_link.grid_thumb, alt: "#{e.title}"
+    - elsif e.image_link.present?
+      = image_tag e.image_link, alt: "#{e.title}"
     p #{e.description}
 
 
