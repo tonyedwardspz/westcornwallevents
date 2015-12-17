@@ -66,10 +66,8 @@ Rails.application.configure do
   config.action_mailer.default_url_options = { :host => "http://westcornwallevents.co.uk" }
   config.action_mailer.smtp_settings = {
     adress: "smtp.sendgrid.net",
-    port: 587
-
+    port: 587,
     enable_starttls_auto: true
-    #authentication: 'login'
   }
 
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
