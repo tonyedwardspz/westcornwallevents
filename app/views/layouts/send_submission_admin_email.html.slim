@@ -1,0 +1,8 @@
+doctype html
+html lang="en"
+head
+  meta content='text/html; charset=UTF-8' http-equiv='Content-Type'
+body
+  h1 A new event has been submitted
+  p Go sort it out
+  = link_to 'authorise event', edit_admin_user_event_path(:id => @event.id)
