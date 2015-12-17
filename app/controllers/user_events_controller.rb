@@ -30,7 +30,11 @@ class UserEventsController < ApplicationController
   def create
     @user_event = UserEvent.new(user_event_params)
     if verify_recaptcha(model: @user_event) && @user_event.save
-      EventAdminNotifier.send_submission_admin_email(@user_event).deliver_now
+      begin
+        EventAdminNotifier.send_submission_admin_email(@user_event).deliver_now
+      rescue => e
+        logger.warn "Failed to send email: #{e}"
+      end
       if @user_event.add_to_mailling_list
         SubscribeJob.new.perform(@user_event)
       end
