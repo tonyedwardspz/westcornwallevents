@@ -66,8 +66,8 @@ Rails.application.configure do
   # 127.0.0.1:8080
   config.action_mailer.default_url_options = { :host => '127.0.0.1:8080' }
   config.action_mailer.smtp_settings = {
-    user_name: Rails.application.secrets.sendgrid_username,
-    password: Rails.application.secrets.sendgrid_password,
+    user_name: ENV["SENDGRID_USERNAME"],
+    password: ENV["SENDGRID_PASSWORD"],
     domain: 'westcornwallevents.co.uk',
     address: 'smtp.sendgrid.net',
     port: 587,
