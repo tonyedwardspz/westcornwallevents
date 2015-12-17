@@ -66,10 +66,13 @@ Rails.application.configure do
   # 127.0.0.1:8080
   config.action_mailer.default_url_options = { :host => '127.0.0.1:8080' }
   config.action_mailer.smtp_settings = {
-    adress: "smtp.sendgrid.net",
+    user_name: Rails.application.secrets.sendgrid_username,
+    password: Rails.application.secrets.sendgrid_password,
+    domain: 'westcornwallevents.co.uk',
+    address: 'smtp.sendgrid.net',
     port: 587,
-    enable_starttls_auto: true,
-    domain: 'westcornwallevents.co.uk'
+    authentication: :plain,
+    enable_starttls_auto: true
   }
 
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
