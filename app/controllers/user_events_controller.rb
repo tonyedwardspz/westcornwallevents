@@ -29,9 +29,10 @@ class UserEventsController < ApplicationController
   # POST /user_events.json
   def create
     @user_event = UserEvent.new(user_event_params)
-    if verify_recaptcha(model: @user_event) && @user_event.save
+    if @user_event.save #&& verify_recaptcha(model: @user_event)
       begin
         EventAdminNotifier.send_submission_admin_email(@user_event).deliver_now
+        SubmissionThankYou.submission_thankyou_email(@user_event).deliver_now
       rescue => e
         logger.warn "Failed to send email: #{e}"
       end
