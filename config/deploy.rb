@@ -55,7 +55,15 @@ namespace :deploy do
       execute :sudo, 'service', 'unicorn', 'restart'
     end
   end
+
+  task :env do
+    on roles(:web) do
+      upload!('.env', "#{shared_path}/.env")
+    end
+  end
 end
 
+
+before 'deploy:restart', 'deploy:env'
 after 'deploy', 'deploy:restart'
 after 'deploy', 'deploy:sitemap:refresh'
