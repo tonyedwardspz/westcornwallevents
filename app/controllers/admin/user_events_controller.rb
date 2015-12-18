@@ -27,7 +27,13 @@ class Admin::UserEventsController < Admin::AdminAreaController
     end
 
     @user_event.archived = true
-    @user_event.save!
+    if @event.save!
+      begin
+        SubmissionLive.submission_live_email(@user_event, @event)
+      rescue => e
+        logger.warn "Failed to send emails (submission_live): #{e}"
+      end
+    end
   end
 
 
@@ -42,7 +48,7 @@ class Admin::UserEventsController < Admin::AdminAreaController
   # PATCH/PUT /events/1
   # PATCH/PUT /events/1.json
   def update
-    puts "User event update"
+    logger.warn "User event update"
     respond_to do |format|
       if @event.update(event_params)
         format.html { redirect_to @event, notice: 'Event was successfully added.' }

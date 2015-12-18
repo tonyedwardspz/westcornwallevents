@@ -67,6 +67,7 @@ class EventsController < ApplicationController
   # PATCH/PUT /events/1
   # PATCH/PUT /events/1.json
   def update
+    logger.warn "Standard event controller"
     respond_to do |format|
       if @event.image_link_change
         if @event.update(event_params)
