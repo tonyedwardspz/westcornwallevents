@@ -45,20 +45,36 @@ class Admin::EventsController < Admin::AdminAreaController
   # PATCH/PUT /events/1
   # PATCH/PUT /events/1.json
   def update
+    logger.debug 'LOG: Admin event update'
     respond_to do |format|
       if @event.image_link_change
         if @event.update(event_params)
           expire_venue_cache()
           format.html { redirect_to admin_event_path(@event), notice: 'Event was successfully updated.' }
+          send_confirmation(@event)
         else
           format.html { render :edit }
         end
       elsif @event.update(event_params_without_image)
         expire_venue_cache()
         format.html { redirect_to admin_event_path(@event), notice: 'Event was successfully updated.' }
+        send_confirmation(@event)
       else
         format.html { render :edit }
       end
+    end
+  end
+
+  def send_confirmation(event)
+    if event.event_user.present?
+      begin
+        logger.debug "LOGGER: Send confirmation to #{event.event_user.email}"
+        SubmissionLive.submission_live_email(@event)
+      rescue => e
+        logger.warn "Failed to send emails (submission_live): #{e}"
+      end
+    else
+      logger.debug "Confirmation email not sent"
     end
   end
 

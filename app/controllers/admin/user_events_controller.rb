@@ -27,13 +27,7 @@ class Admin::UserEventsController < Admin::AdminAreaController
     end
 
     @user_event.archived = true
-    if @event.save!
-      begin
-        SubmissionLive.submission_live_email(@user_event, @event)
-      rescue => e
-        logger.warn "Failed to send emails (submission_live): #{e}"
-      end
-    end
+    @event.save!
   end
 
 
