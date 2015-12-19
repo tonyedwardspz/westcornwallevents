@@ -5,7 +5,7 @@ head
 body
   p 
     ' Hi 
-    = @this_event.event_user.first_name
+    = @event.event_user.first_name
   p Your event has been successfully received. A huge thanks from us to you for submitting an event to West Cornwall Events.
   p We check every event before adding it to the website. Once it has been added we will send you a short email 
   ' with a link to the live page.
@@ -15,7 +15,7 @@ body
     '  and 
     a href="http://twitter.com/WestCornwall" Twitter
     ' .
-  h2 Give us feedback
+  h2 We'd love your feedback
   p 
     ' We recently rebuilt the event submission system from scratch. To make sure we're getting things right, it would be great 
     ' if you could complete a very short 
