@@ -1,6 +1,5 @@
 class UserEvent < ActiveRecord::Base
   mount_uploader :image, UsereventAttachmentUploader
-  belongs_to :event_user
   belongs_to :venue
 
   validates :title, presence: true
