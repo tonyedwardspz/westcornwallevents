@@ -46,6 +46,8 @@ class Event < ActiveRecord::Base
       event.image_link.recreate_versions!
       event.imageAlt = user_event.title
     end
+    user_event.archived = true
+    user_event.save!
     return event
   end
 end

@@ -69,7 +69,7 @@ class Admin::EventsController < Admin::AdminAreaController
     if event.event_user.present?
       begin
         logger.debug "LOGGER: Send confirmation to #{event.event_user.email}"
-        SubmissionLive.submission_live_email(event)
+        SubmissionLive.submission_live_email(event).deliver_now
       rescue => e
         logger.warn "Failed to send emails (submission_live): #{e}"
       end
