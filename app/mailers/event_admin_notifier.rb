@@ -6,6 +6,6 @@ class EventAdminNotifier < ApplicationMailer
   def send_submission_admin_email(event)
     @event = event
     mail( to: 'tony.edwards@gmail.com',
-    subject: 'A new event has been submitted: #{event.title}' )
+    subject: "A new event has been submitted: #{event.title}" )
   end
 end
