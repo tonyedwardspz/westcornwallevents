@@ -9,6 +9,13 @@
 
   .col-sm-12
     .panel.panel-default
+      .panel-body
+        = link_to 'Return to Homepage', 'http://westcornwallevents.co.uk', class: "btn btn-success"
+        '
+        = link_to 'Add Another Event', new_user_event_path, class: "btn btn-primary"
+
+  .col-sm-12
+    .panel.panel-default
       .panel-heading
         ' Event Details
       .panel-body
@@ -72,10 +79,3 @@
         p
           strong Added to mailing list:  
           = @user_event.add_to_mailling_list ? "Yes" : "No"
-
-  .col-sm-12
-    .panel.panel-default
-      .panel-body
-        = link_to 'Return to Homepage', 'http://westcornwallevents.co.uk', class: "btn btn-success"
-        '
-        = link_to 'Add Another Event', new_user_event_path, class: "btn btn-primary"
