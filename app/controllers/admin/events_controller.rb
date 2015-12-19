@@ -27,10 +27,10 @@ class Admin::EventsController < Admin::AdminAreaController
   # POST /events.json
   def create
     @event = Event.new(event_params)
-    @event.date = @event.date.strftime("%m/%d/%Y")
-    if @event.dateend.present?
-      @event.dateend = @event.dateend.strftime("%m/%d/%Y")
-    end
+    # @event.date = @event.date.strftime("%m/%d/%Y")
+    # if @event.dateend.present?
+    #   @event.dateend = @event.dateend.strftime("%m/%d/%Y")
+    # end
 
     respond_to do |format|
       if @event.save
