@@ -12,6 +12,7 @@ class UserEventsController < ApplicationController
   # GET /user_events/1
   # GET /user_events/1.json
   def show
+    @page_title = "Event Submitted: #{@user_event.title}"
   end
 
   # GET /user_events/new
