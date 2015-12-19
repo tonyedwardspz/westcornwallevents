@@ -3,11 +3,17 @@ html lang="en"
 head
   meta content='text/html; charset=UTF-8' http-equiv='Content-Type'
 body
-  h1 Your event is now live on West Cornwall Events.
   p 
-    ' You can view the event on  
+    ' Hi 
+    = @this_event.event_user.first_name
+  p 
+    ' Just a quick email to let you know that we've just added your event to the website. You can view the event on  
     a href="http://westcornwallevents.co.uk/events/#{@this_event.slug}" this page
     ' .
-  p Thank you for taking the time to add an event to West Cornwall Events. As a community led website, your submission makes a real difference.
+  p Thank you for taking the time to add an event. As a community led website, your submission makes a real difference.
+  p 
+    ' If you have a spare minute and you've not yet completed our short, anonymous
+    a href="http://goo.gl/forms/eLb0qIzwAj" 4 question survey
+    ' , nows your chance. We really appreciate every response, and each one helps us to make the site more useful for the local community.
   p Best of luck with the event.
   p Tony
