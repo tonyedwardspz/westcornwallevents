@@ -1,6 +1,5 @@
 class SubmissionLive < ApplicationMailer
   default from: 'thanks@westcornwallevents.co.uk'
-  # layout 'send_submission_admin_email'
 
   def submission_live_email(event)
     @this_event = event
