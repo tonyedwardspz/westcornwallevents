@@ -8,7 +8,11 @@ $(function() {
     dateFormat: 'dd/mm/yy'
   });
   $('#event_date').datepicker({
-    dateFormat: 'dd/mm/yy'
+    dateFormat: 'dd/mm/yy',
+    minDate: 0,
+    onSelect: function( selectedDate ) {
+        $( "#event_dateend" ).datepicker( 'option', 'minDate', selectedDate );
+      }
   });
   $('#event_dateend').datepicker({
     dateFormat: 'dd/mm/yy'
