@@ -34,6 +34,8 @@ $(function() {
     autoclose: true,
     'default': 'now'
   });
+
+  $("#event_image_input").change(readURL);
 });
 
 //Loads the correct sidebar on window load,

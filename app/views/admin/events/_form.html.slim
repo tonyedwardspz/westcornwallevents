@@ -37,7 +37,7 @@
         ' Images
       .panel-body
         p
-        = f.file_field :image_link, label: "Image URL", input_html: { placeholder: "foldername/file_name.jpg" }
+        = f.file_field :image_link, label: "Image URL", input_html: { placeholder: "foldername/file_name.jpg" }, id: "#event_image_input"
         = f.hidden_field :image_link_cache
         - if @event.image_link.present?
           = image_tag @event.image_link.thumb, class: 'img-responsive', id: "user_image"
