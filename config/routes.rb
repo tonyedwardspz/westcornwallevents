@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   resources :pages
   resources :venues
   resources :festivals
-  resources :events
+  resources :events, only: [:index, :show]
   resources :users
 
 
