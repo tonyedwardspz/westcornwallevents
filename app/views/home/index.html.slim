@@ -8,7 +8,7 @@ p
 h2 Upcoming Events
 
 .home-events
-  - @home_events.each do |e|
+  - @home_events.each_with_index do |e, i|
     .inner-third
       .h2-home
         h2 = link_to e.title, e
@@ -26,10 +26,13 @@ h2 Upcoming Events
       p #{e.description.split.first(25).join(' ')}......
 
       = link_to 'Find out more', e, class: "more"
+    - if i == 1
+      .ad
+        = render "shared/google_ad" 
 
 p = link_to "view this months listings", events_path(:year => "#{Time.now.year}", :month => "#{Date.today.strftime("%B")}"), :title => "Events in Cornwall #{Time.now.year}", class: "more"
 
 p.submit-text 
-  ' Everything on this site is free, including submitting your events
-  a href="http://westcornwallevents.co.uk/submit_event" title="submit your cornish event free"  submitting your events 
+  ' Everything on this site is free, including 
+  a href="http://westcornwallevents.co.uk/submit_event" title="submit your cornish event free" submitting your events 
   ' to us. We're nice like that!
