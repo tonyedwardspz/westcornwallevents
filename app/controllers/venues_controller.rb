@@ -1,6 +1,6 @@
 class VenuesController < ApplicationController
   skip_before_action :authorize, only: [:index, :show]
-  before_action :set_venue, only: [:show, :edit, :update, :destroy]
+  before_action :set_venue, only: [:show]
 
   # GET /venues
   # GET /venues.json
@@ -14,51 +14,6 @@ class VenuesController < ApplicationController
   def show
     @page_title = @venue.name
     @venue_events = @venue.events.where('date > ?', DateTime.now).order('date').limit(5)
-  end
-
-  # GET /venues/new
-  def new
-    @venue = Venue.new
-    @page_title = "New venue"
-  end
-
-  # GET /venues/1/edit
-  def edit
-    @page_title = "Edit venue"
-  end
-
-  # POST /venues
-  # POST /venues.json
-  def create
-    @venue = Venue.new(venue_params)
-    respond_to do |format|
-      if @venue.save
-        format.html { redirect_to admin_venue_url(@venue), notice: 'Venue was successfully created.' }
-      else
-        format.html { render :new }
-      end
-    end
-  end
-
-  # PATCH/PUT /venues/1
-  # PATCH/PUT /venues/1.json
-  def update
-    respond_to do |format|
-      if @venue.update(venue_params)
-        format.html { redirect_to admin_venue_url(@venue), notice: 'Venue was successfully updated.' }
-      else
-        format.html { render :edit }
-      end
-    end
-  end
-
-  # DELETE /venues/1
-  # DELETE /venues/1.json
-  def destroy
-    @venue.destroy
-    respond_to do |format|
-      format.html { redirect_to admin_venue_url, notice: 'Venue was successfully destroyed.' }
-    end
   end
 
   private
