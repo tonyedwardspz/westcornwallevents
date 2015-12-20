@@ -4,12 +4,14 @@
     - else
       td !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
+    td #{event.created_at.strftime("%d/%m/%Y")}
+
     - if event.date.present?
       td #{event.date.day.ordinalize} #{event.date.strftime("%b %Y")}
-    -else
+    - else
       td !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
-    -if event.venue.present?
+    - if event.venue.present?
       td #{event.venue.name}
     - elsif event.location.present?
       td #{event.location}
