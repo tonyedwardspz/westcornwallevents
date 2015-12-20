@@ -16,7 +16,7 @@ p
 
 = render partial: 'shared/social_share'
 
-- if @venue_events
+- if @venue_events.present?
   .ad
     = render "shared/google_ad" 
   - cache "venue_#{@venue.name}_events", expires_in: (Date.today + 1).beginning_of_day do
