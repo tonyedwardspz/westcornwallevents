@@ -27,15 +27,11 @@ class Admin::EventsController < Admin::AdminAreaController
   # POST /events.json
   def create
     @event = Event.new(event_params)
-    # @event.date = @event.date.strftime("%m/%d/%Y")
-    # if @event.dateend.present?
-    #   @event.dateend = @event.dateend.strftime("%m/%d/%Y")
-    # end
 
     respond_to do |format|
       if @event.save
         expire_venue_cache()
-        format.html { redirect_to @event, notice: 'Event was successfully created.' }
+        format.html { redirect_to admin_event_path(@event), notice: 'Event was successfully created.' }
       else
         format.html { render :new }
       end
