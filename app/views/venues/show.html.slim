@@ -15,10 +15,10 @@ p
 = @venue.content.html_safe
 
 = render partial: 'shared/social_share'
-.ad
-  = render "shared/google_ad" 
 
 - if @venue_events
+  .ad
+    = render "shared/google_ad" 
   - cache "venue_#{@venue.name}_events", expires_in: (Date.today + 1).beginning_of_day do
 
     h2 Upcoming Events
