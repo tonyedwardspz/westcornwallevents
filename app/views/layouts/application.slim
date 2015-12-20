@@ -62,7 +62,7 @@ head
           #content.unit.three-of-four
             = yield
 
-            .google-ad-body
+            = render "shared/google_ad" 
 
           / Sidebar
           #sidebar.unit.one-of-four
@@ -81,6 +81,7 @@ head
                   = render "shared/sidebar_festivals"
 
               #sideSlot
+                = render "shared/google_ad" 
 
     /Footer
     div style="clear: both;"
