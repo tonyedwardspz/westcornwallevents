@@ -1,4 +1,4 @@
-= simple_form_for(@admin_page, html: {class: 'form-vertical'}) do |f|
+= simple_form_for([:admin, @admin_page], html: {class: 'form-vertical'}) do |f|
   = f.error_notification
 
   .col-xs-12
