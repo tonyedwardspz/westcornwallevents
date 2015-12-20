@@ -14,7 +14,7 @@ function readURL(e) {
         .attr('src', e.target.result);
     };
   reader.onerror = function(event) {
-      alert("I AM ERROR: " + event.target.error.code);
+      console.log('Error showing added image.');
   };
   reader.readAsDataURL(inputFile);
 }
