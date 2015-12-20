@@ -39,8 +39,10 @@
         p
         = f.file_field :image_link, label: "Image URL", input_html: { placeholder: "foldername/file_name.jpg" }
         = f.hidden_field :image_link_cache
-          - unless @event.image_link.blank?
-            = image_tag @event.image_link.thumb, alt: @event.imageAlt, class: "img-responsive"
+        - if @event.image_link.present?
+          = image_tag @event.image_link.thumb, class: 'img-responsive', id: "user_image"
+        - else
+          = image_tag 'no-image-available.jpg', class: 'img-responsive', id: "user_image"
         = f.input :imageAlt, label: "Image Alt Text", input_html: { placeholder: "3 - 5 word description of image" }
 
     .panel.panel-default
