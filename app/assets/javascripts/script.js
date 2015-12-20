@@ -16,6 +16,8 @@ $(document).ready(function(e){
     $('.lazy-image').lazyload({
          threshold : 200
     });
+
+    googleAdCheck();
 });
 
 
@@ -28,6 +30,13 @@ $(window).resize(function(){
         $(".body_navigation").removeAttr("style");
     }  
 });
+
+
+var googleAdCheck = function(){
+    if ($('#content').height() < 1000) {
+        $('#sideSlot').remove();
+    }
+};
 
 
 var applyActiveClass = function(){
