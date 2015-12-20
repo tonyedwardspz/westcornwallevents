@@ -805,6 +805,12 @@ td:first-child, th:first-child { padding: 5px 30px 5px 0;}
     vertical-align: top;
 }
 
+.ad {
+    display: block;
+    width:100%;
+    margin: 15px 0;
+}
+
 @media screen and (max-width: 600px) {
     .inner-third {
         width: 100%;
