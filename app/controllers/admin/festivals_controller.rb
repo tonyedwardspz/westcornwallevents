@@ -29,10 +29,6 @@ class Admin::FestivalsController < Admin::AdminAreaController
   # POST /admin/festivals.json
   def create
     @admin_festival = Festival.new(admin_festival_params)
-    @admin_festival.date = @admin_festival.date.strftime("%m/%d/%Y")
-    if @admin_festival.end_date.present?
-      @admin_festival.end_date = @admin_festival.end_date.strftime("%m/%d/%Y")
-    end
 
     respond_to do |format|
       if @admin_festival.save
