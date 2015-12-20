@@ -1,7 +1,7 @@
 class UserEventsController < ApplicationController
   layout 'layouts/user_events_layout'
   skip_before_action :authorize, only: [:show, :new, :create]
-  before_action :set_user_event, only: [:show, :edit, :update, :destroy]
+  before_action :set_user_event, only: [:show]
 
   # GET /user_events
   # GET /user_events.json
@@ -19,11 +19,6 @@ class UserEventsController < ApplicationController
   def new
     @user_event = UserEvent.new
     @page_title = "Submit a new event | West Cornwall Events"
-  end
-
-  # GET /user_events/1/edit
-  def edit
-    @page_title = "Edit event | West Cornwall Events"
   end
 
   # POST /user_events
@@ -50,30 +45,6 @@ class UserEventsController < ApplicationController
         format.html { render :new }
         format.json { render json: @user_event.errors, status: :unprocessable_entity }
       end
-    end
-  end
-
-  # PATCH/PUT /user_events/1
-  # PATCH/PUT /user_events/1.json
-  def update
-    respond_to do |format|
-      if @user_event.update(user_event_params)
-        format.html { redirect_to @user_event, notice: 'User event was successfully updated.' }
-        format.json { render :show, status: :ok, location: @user_event }
-      else
-        format.html { render :edit }
-        format.json { render json: @user_event.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
-  # DELETE /user_events/1
-  # DELETE /user_events/1.json
-  def destroy
-    @user_event.destroy
-    respond_to do |format|
-      format.html { redirect_to user_events_url, notice: 'User event was successfully destroyed.' }
-      format.json { head :no_content }
     end
   end
 
