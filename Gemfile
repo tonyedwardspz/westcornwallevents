@@ -38,7 +38,7 @@ end
 
 
 gem 'skylight'
-gem 'seed_dump'
+# gem 'seed_dump'
 gem 'friendly_id', '~> 5.1.0'
 gem 'slim-rails'
 gem 'unicorn'
