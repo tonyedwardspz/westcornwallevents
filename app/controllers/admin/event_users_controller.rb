@@ -32,11 +32,9 @@
 
     respond_to do |format|
       if @event_user.save
-        format.html { redirect_to @event_user, notice: 'User was successfully created.' }
-        format.json { render :show, status: :created, location: @event_user }
+        format.html { redirect_to admin_event_user_path(@event_user), notice: 'User was successfully created.' }
       else
         format.html { render :new }
-        format.json { render json: @event_user.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -46,11 +44,9 @@
   def update
     respond_to do |format|
       if @event_user.update(event_user_params)
-        format.html { redirect_to @event_user, notice: 'User was successfully updated.' }
-        format.json { render :show, status: :ok, location: @event_user }
+        format.html { redirect_to admin_event_user_path(@event_user), notice: 'User was successfully updated.' }
       else
         format.html { render :edit }
-        format.json { render json: @event_user.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -61,7 +57,6 @@
     @event_user.destroy!
     respond_to do |format|
       format.html { redirect_to admin_event_users_url, notice: 'User was successfully destroyed.' }
-      format.json { head :no_content }
     end
   end
 
