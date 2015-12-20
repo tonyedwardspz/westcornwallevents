@@ -1,10 +1,9 @@
 Rails.application.routes.draw do
   resources :user_events, only: [:new, :create, :show]
-  resources :pages
-  resources :venues
-  resources :festivals
-  resources :events
-  resources :users
+  resources :pages, only: [:index, :show]
+  resources :venues, only: [:index, :show]
+  resources :festivals, only: [:index, :show]
+  resources :events, only: [:index, :show]
 
 
   get 'submit_event' => 'user_events#new', as: :submit_event

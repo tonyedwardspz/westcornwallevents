@@ -1,6 +1,6 @@
 class EventsController < ApplicationController
   skip_before_action :authorize, only: [:index, :show]
-  before_action :set_event, only: [:show, :edit, :update, :destroy]
+  before_action :set_event, only: [:show]
 
   # GET /events
   # GET /events.json
@@ -37,59 +37,6 @@ class EventsController < ApplicationController
       @image_meta_url << @event.image_link.thumb.to_s
     end
     @page_meta_description = @event.description
-  end
-
-  # GET /events/new
-  def new
-    @page_title = "Create a new festival"
-    @event = Event.new
-  end
-
-  # GET /events/1/edit
-  def edit
-    @page_title = "Edit festival #{@event.title}"
-  end
-
-  # POST /events
-  # POST /events.json
-  def create
-    @event = Event.new(event_params)
-
-    respond_to do |format|
-      if @event.save
-        format.html { redirect_to admin_event_path(@event), notice: 'Event was successfully created.' }
-      else
-        format.html { render :new }
-      end
-    end
-  end
-
-  # PATCH/PUT /events/1
-  # PATCH/PUT /events/1.json
-  def update
-    logger.debug "Standard event controller"
-    respond_to do |format|
-      if @event.image_link_change
-        if @event.update(event_params)
-          format.html { redirect_to admin_event_path(@event), notice: 'Event was successfully updated.' }
-        else
-          format.html { render :edit }
-        end
-      elsif @event.update(event_params_without_image)
-        format.html { redirect_to admin_event_path(@event), notice: 'Event was successfully updated.' }
-      else
-        format.html { render :edit }
-      end
-    end
-  end
-
-  # DELETE /events/1
-  # DELETE /events/1.json
-  def destroy
-    @event.destroy
-    respond_to do |format|
-      format.html { redirect_to admin_events_url, notice: 'Event was successfully destroyed.' }
-    end
   end
 
   private

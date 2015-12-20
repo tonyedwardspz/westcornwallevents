@@ -1,6 +1,6 @@
 class FestivalsController < ApplicationController
   skip_before_action :authorize, only: [:index, :show]
-  before_action :set_festival, only: [:show, :edit, :update, :destroy]
+  before_action :set_festival, only: [:show]
 
   # GET /festivals
   # GET /festivals.json
@@ -13,53 +13,6 @@ class FestivalsController < ApplicationController
   # GET /festivals/1.json
   def show
     @page_title = @festival.title
-  end
-
-  # GET /festivals/new
-  def new
-    @festival = Festival.new
-    @page_title = "Create new festival"
-  end
-
-  # GET /festivals/1/edit
-  def edit
-    @page_title = "Edit festival: #{@festival.title}"
-  end
-
-  # POST /festivals
-  # POST /festivals.json
-  def create
-    @festival = Festival.new(festival_params)
-
-    respond_to do |format|
-      if @festival.save
-        format.html { redirect_to admin_festival_path(:id => @festival.id), notice: 'Festival was successfully created.' }
-      else
-        format.html { render :new }
-      end
-    end
-  end
-
-  # PATCH/PUT /festivals/1
-  # PATCH/PUT /festivals/1.json
-  def update
-    respond_to do |format|
-      if @festival.update(festival_params)
-        format.html { redirect_to admin_festival_url(:id => @festival.id), notice: 'Festival was successfully updated.' }
-      else
-        format.html { redirect_to edit_admin_festival_path(@festival) }
-      end
-    end
-  end
-
-  # DELETE /festivals/1
-  # DELETE /festivals/1.json
-  def destroy
-    @festival.destroy
-    respond_to do |format|
-      format.html { redirect_to admin_festival_url, notice: 'Festival was successfully destroyed.' }
-      format.json { head :no_content }
-    end
   end
 
   private
