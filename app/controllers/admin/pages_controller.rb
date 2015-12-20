@@ -11,7 +11,7 @@ class Admin::PagesController < Admin::AdminAreaController
   # GET /admin/pages/1
   # GET /admin/pages/1.json
   def show
-    @page_title = @admin_page.title}
+    @page_title = @admin_page.title
   end
 
   # GET /admin/pages/new
