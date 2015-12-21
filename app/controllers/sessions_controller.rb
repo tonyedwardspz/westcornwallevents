@@ -1,6 +1,7 @@
 class SessionsController < ApplicationController
   skip_before_action :authorize
   def new
+    @page_title = "Login"
   end
 
   def create
