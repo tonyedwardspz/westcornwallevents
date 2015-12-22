@@ -39,6 +39,10 @@ set :rbenv_path, "$HOME/.rbenv"
 set :rbenv_type, :user # or :system, depends on your rbenv setup
 set :rbenv_ruby, File.read('.ruby-version').strip
 
+set :rollbar_token, ENV['ROLLBAR_ACCESS']
+set :rollbar_env, Proc.new { fetch :stage }
+set :rollbar_role, Proc.new { :app }
+
 namespace :deploy do
 
   after :restart, :clear_cache do
