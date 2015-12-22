@@ -36,8 +36,8 @@ source 'http://rails-assets.org' do
   gem 'rails-assets-RRSSB'
 end
 
-
-gem 'skylight'
+gem 'rollbar', '~> 2.5.0'
+gem 'skylight', group: :production
 # gem 'seed_dump'
 gem 'friendly_id', '~> 5.1.0'
 gem 'slim-rails'
