@@ -1,0 +1,14 @@
+javascript:
+  {
+    "@context": "http://schema.org",
+    "@type": "Event",
+    "name": "#{@event.title}",
+    "startDate" : "#{@event.date}T#{@event.time}",
+    "url" : "http://westcornwallevents.co.uk/events/#{@event.slug}",
+    "location" : {
+      "@type" : "Place",
+      "sameAs" : "#{@event.venue.url}",
+      "name" : "#{@event.venue.name}",
+      "address" : "#{@event.venue.address}, #{@event.venue.postcode}"
+    }
+  }

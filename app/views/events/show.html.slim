@@ -1,27 +1,30 @@
-.event_date.unit.one-of-five(itemscope, itemtype="http://schema.org/Event") 
+- if @event.venue.present?
+  = render "shared/event_rich_snippet"
+  
+.event_date.unit.one-of-five
   p.dateinfo 
     ' #{@event.date.strftime("%b")}
     span #{@event.date.strftime("%d")}
 
 .event_details.unit.four-of-five
   - if @event.festival
-    h2 itemprop="name" #{@event.festival.title}
+    h2 #{@event.festival.title}
   - else
-    h2 itemprop="name" #{@event.title}
+    h2 #{@event.title}
   
   - if @event.venue
     ' LOCATION - 
-    span(itemscope itemtype="http://schema.org/Place" itemprop="location") = link_to @event.venue.name, @event.venue
+    span = link_to @event.venue.name, @event.venue
   - else
     ' LOCATION - 
-    span(itemscope itemtype="http://schema.org/Place" itemprop="location") #{@event.location}
+    span #{@event.location}
   br
   - unless @event.dateend.blank?
     ' DATE: 
-    span itemprop="startDate" #{@event.date.day.ordinalize} to #{@event.dateend.day.ordinalize} #{@event.dateend.strftime("%b %Y")}
+    span #{@event.date.day.ordinalize} to #{@event.dateend.day.ordinalize} #{@event.dateend.strftime("%b %Y")}
   - else
     ' DATE: 
-    span itemprop="startDate" #{@event.date.day.ordinalize} #{@event.date.strftime("%b %Y")}
+    span #{@event.date.day.ordinalize} #{@event.date.strftime("%b %Y")}
   - unless @event.time.blank?
     '  - TIME: #{@event.time}
   - unless @event.time_end.blank?
