@@ -5,7 +5,7 @@ class FestivalsController < ApplicationController
   # GET /festivals
   # GET /festivals.json
   def index
-    @festivals = Festival.all
+    @festivals = Festival.all.order('date DESC')
     @page_title = "Annual festivals and events accross West Cornwall"
   end
 
