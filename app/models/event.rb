@@ -9,7 +9,7 @@ class Event < ActiveRecord::Base
   validates :date, presence: true
   validates :description, presence: true
   validates :venue, presence: true, unless: :location?
-  validates :location, presence: true, unless: :venue?
+  validates :location, presence: true, unless: :venue_id?
   scope :by_month_year, -> (month, year) {where('extract(month from date) = ?', month).where('extract(year from date) = ?', year).order('date')}
   scope :by_year, -> (year) {where('extract(year from date) = ?', year).limit(5)}
   scope :by_year_future, -> (year) {where('extract(year from date) = ?', year).where('date > ?', DateTime.now).order('date').limit(5)}
