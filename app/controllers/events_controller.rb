@@ -11,13 +11,13 @@ class EventsController < ApplicationController
       @page_title = "#{params[:month]} #{params[:year]} Events | West Cornwall Events"
     elsif params[:year]
       if params[:year] > Time.now.year.to_s
-        @events = Event.where('extract(year from date) = ?', params[:year]).limit(5)
+        @events = Event.by_year(params[:year])
       else
-        @events = Event.where('extract(year from date) = ?', params[:year]).where('date > ?', DateTime.now).order('date').limit(5)
+        @events = Event.by_year_future(params[:year])
       end
       @page_title = "#{params[:year]} events and festivals"
     else
-      @events = Event.where('date > ?', DateTime.now).order('date').limit(5)
+      @events = Event.future
       @page_title = "Upcoming events and festivals"
     end
 

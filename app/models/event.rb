@@ -11,6 +11,10 @@ class Event < ActiveRecord::Base
   validates :venue, presence: true, unless: :location?
   validates :location, presence: true, unless: :venue?
   scope :by_month_year, -> (month, year) {where('extract(month from date) = ?', month).where('extract(year from date) = ?', year).order('date')}
+  scope :by_year, -> (year) {where('extract(year from date) = ?', year).limit(5)}
+  scope :by_year_future, -> (year) {where('extract(year from date) = ?', year).where('date > ?', DateTime.now).order('date').limit(5)}
+  scope :future, -> {where('date > ?', DateTime.now).order('date').limit(5)}
+  scope :homepage, -> {where('date > ?', DateTime.now).where.not(image_link: 'nil').order('date').limit(6)}
 
   def self.create_from_user_event(user_event)
      e = new_from_user_event(user_event)
