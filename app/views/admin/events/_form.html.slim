@@ -28,7 +28,7 @@
       .panel-heading
         ' Event location
       .panel-body
-        = f.association :venue, collection: Venue.order('name')
+        = f.association :venue, collection: Venue.is_open
         .text-center OR
         = f.input :location, label: "Address", input_html: { placeholder: "Penlee Park, Penzance, TR18 2XX"}
 
