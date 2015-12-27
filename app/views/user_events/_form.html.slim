@@ -11,7 +11,7 @@
             = f.input :title, required: true, placeholder: "Your event title"
             = f.input :description, required: true, input_html: {rows: 10}
             .col-sm-4.first
-              = f.association :venue, collection: Venue.order('name')
+              = f.association :venue, collection: Venue.is_open
             .col-sm-1
               p &nbsp
               p.vertical-center OR
