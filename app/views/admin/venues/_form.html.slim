@@ -36,6 +36,13 @@
           = image_tag @admin_venue.image.thumb, class: "img-responsive"
         = f.input :image_alt, label: "Image Alt Text", input_html: { placeholder: "3 - 5 word description of venue" }
 
+
+    .panel.panel-default
+      .panel-heading
+        ' Archived
+      .panel-body
+        = f.input :archived, as: :boolean
+
   .col-xs-12
     .panel.panel-default
       .panel-body
