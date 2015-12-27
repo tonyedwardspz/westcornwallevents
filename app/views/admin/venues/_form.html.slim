@@ -30,10 +30,12 @@
       .panel-heading
         ' Image
       .panel-body
-        = f.file_field :image, label: "Image URL"
+        = f.file_field :image, label: "Image URL", id: "event_image_input"
         = f.hidden_field :image_cache
-        - unless @admin_venue.image.blank?
-          = image_tag @admin_venue.image.thumb, class: "img-responsive"
+        - if @admin_venue.image.present?
+          = image_tag @admin_venue.image.thumb, class: "img-responsive", id: "user_image"
+        - else
+          = image_tag 'no-image-available.jpg', class: 'img-responsive', id: "user_image"
         = f.input :image_alt, label: "Image Alt Text", input_html: { placeholder: "3 - 5 word description of venue" }
 
 

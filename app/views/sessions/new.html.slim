@@ -4,10 +4,13 @@
 h1 Please log in
 
 = form_tag do |t|
-  = label_tag :name, 'Name:'
-  = text_field_tag :name, params[:name]
-  = label_tag :password
-  = password_field_tag :password, params[:password]
-  = submit_tag 'Login'
+  p
+    = label_tag :name, 'Name:'
+    = text_field_tag :name, params[:name]
+    = label_tag :password
+    = password_field_tag :password, params[:password]
+  p
+    = recaptcha_tags :ssl => true
+    = submit_tag 'Login'
 
 end
