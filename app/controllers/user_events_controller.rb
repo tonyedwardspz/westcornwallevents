@@ -37,13 +37,11 @@ class UserEventsController < ApplicationController
       end
       respond_to do |format|
         format.html { redirect_to @user_event, notice: 'User event was successfully created.' }
-        format.json { render :show, status: :created, location: @user_event }
       end
     else
       @user_event.valid?
       respond_to do |format|
         format.html { render :new }
-        format.json { render json: @user_event.errors, status: :unprocessable_entity }
       end
     end
   end
