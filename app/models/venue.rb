@@ -7,4 +7,5 @@ class Venue < ActiveRecord::Base
   validates :postcode, presence: true
   has_many :events
   has_many :user_events
+  scope :is_open, -> {where(archived: 'false').order('name')}
 end
