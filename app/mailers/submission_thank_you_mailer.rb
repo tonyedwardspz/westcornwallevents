@@ -1,4 +1,4 @@
-class SubmissionThankYou < ApplicationMailer
+class SubmissionThankYouMailer < ApplicationMailer
   default from: 'thankyou@westcornwallevents.co.uk'
 
   def submission_thankyou_email(event)

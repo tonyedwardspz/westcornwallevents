@@ -1,4 +1,4 @@
-class SubmissionLive < ApplicationMailer
+class SubmissionLiveMailer < ApplicationMailer
   default from: 'thankyou@westcornwallevents.co.uk'
 
   def submission_live_email(event)

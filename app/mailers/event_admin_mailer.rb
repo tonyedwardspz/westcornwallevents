@@ -1,4 +1,4 @@
-class EventAdminNotifier < ApplicationMailer
+class EventAdminMailer < ApplicationMailer
   default from: 'admin@westcornwallevents.co.uk'
   # layout 'send_submission_admin_email'
 
