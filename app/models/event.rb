@@ -8,8 +8,9 @@ class Event < ActiveRecord::Base
   validates :title, presence: true
   validates :date, presence: true
   validates :description, presence: true
-    validates :venue, presence: true, unless: :location?
+  validates :venue, presence: true, unless: :location?
   validates :location, presence: true, unless: :venue?
+  scope :by_month_year, -> (month, year) {where('extract(month from date) = ?', month).where('extract(year from date) = ?', year).order('date')}
 
   def self.create_from_user_event(user_event)
      e = new_from_user_event(user_event)

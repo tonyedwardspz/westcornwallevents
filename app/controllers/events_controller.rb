@@ -7,7 +7,7 @@ class EventsController < ApplicationController
   def index
     if params[:month] && params[:year]
       month = Date::MONTHNAMES.index(params[:month])
-      @events = Event.where('extract(month from date) = ?', month).where('extract(year from date) = ?', params[:year]).order('date')
+      @events = Event.by_month_year(month, params[:year])
       @page_title = "#{params[:month]} #{params[:year]} Events | West Cornwall Events"
     elsif params[:year]
       if params[:year] > Time.now.year.to_s
