@@ -23,3 +23,5 @@
           = link_to 'Edit', edit_admin_page_path(@admin_page), class: "btn btn-primary"
           '   
           = link_to 'Delete', admin_page_path(@admin_page), :method => :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger"
+          '
+          = link_to 'View Live', page_path(:id => @admin_page.id), class: "btn btn-success"
