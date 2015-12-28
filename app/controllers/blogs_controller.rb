@@ -1,22 +1,22 @@
 class BlogsController < ApplicationController
   skip_before_action :authorize, only: [:index, :show]
+  before_action :set_blog, only: [:show]
 
-  # GET /festivals
-  # GET /festivals.json
   def index
-    @blogs = Blog.all.order('date_published DESC')
+    @blogs = Blog.all
     @page_title = "Blog Posts"
   end
 
-  # GET /festivals/1
-  # GET /festivals/1.json
   def show
     @page_title = @blog.title
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
     def set_blog
-      @blog = Blog.find(params[:id])
+      @blog = Blog.friendly.find(params[:id])
+    end
+
+    def blog_params
+      params.require(:blog).permit(:title, :content, :date_published, :image, :image_cache, :image_alt, :description, :published, :slug)
     end
 end
