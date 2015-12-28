@@ -2,7 +2,7 @@
 
   h1 = @festival.title
   - if @festival.end_date.blank?
-    p DATE: #{@festival.date.day.ordinalize} #{@festival.date.strftime("%b %Y")}
+    p DATE: #{@festival.date.day.ordinalize} #{@festival.date.strftime("%B %Y")}
   - elsif @festival.date.present?
     p DATE: #{@festival.date.day.ordinalize} to #{@festival.end_date.day.ordinalize} #{@festival.end_date.strftime("%b %Y")}
   p
