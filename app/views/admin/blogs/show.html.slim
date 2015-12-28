@@ -26,7 +26,7 @@
           '   
           = link_to 'Delete', admin_blog_path(@admin_blog), :method => :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger"
           '
-          = link_to 'View Live', blog_path(:id => @admin_blog.id), class: "btn btn-success"
+          = link_to 'View Live', blog_path(@admin_blog), class: "btn btn-success"
 
     .col-md-4
       .panel.panel-default
