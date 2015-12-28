@@ -1,0 +1,26 @@
+#page-wrapper
+  .row
+
+    .col-lg-12
+      h1.page-header 
+        = @page_title || "Page Title"
+      
+      .panel.panel-default
+        .panel-body
+          .dataTable_wrapper
+            table.table.table-stripedt.able-bordered.table-hover#dataTables-example data-page-length="30"
+              thead
+                tr
+                  th Name
+                  th Start Date
+                  th 
+                  th 
+                  th 
+              tbody 
+                - @admin_blogs.each do |admin_blog|
+                  tr
+                    td = admin_blog.title
+                    td = admin_blog.date_published
+                    td = link_to 'Show', admin_blog_path(:id => admin_blog.id)
+                    td = link_to 'Edit', edit_admin_blog_path(:id => admin_blog.id)
+                    td = link_to 'Destroy', admin_blog_path(:id => admin_blog.id), data: {:confirm => 'Are you sure?'}, :method => :delete

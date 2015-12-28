@@ -1,0 +1,43 @@
+#page-wrapper
+  .row
+    .col-lg-12
+      h1.page-header 
+        = @admin_blog.title
+
+    .col-md-8
+      .panel.panel-default
+        .panel-heading
+          ' Blog Details
+        .panel-body
+
+          p = @admin_blog.date_published.present? ? "DATE: #{@admin_blog.date_published}" : "DATE: !!!!!"
+
+      .panel.panel-default
+        .panel-heading
+          ' blog Content
+        .panel-body
+
+          - if @admin_blog.content.present?
+            =  @admin_blog.content.html_safe
+          - else
+            p CONTENT: No Content !!!!!!!!!!
+
+      .panel.panel-default
+        .panel-body
+          = link_to 'Edit', edit_admin_blog_path(@admin_blog), class: "btn btn-primary"
+          '   
+          = link_to 'Delete', admin_blog_path(@admin_blog), :method => :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger"
+          '
+          = link_to 'View Live', blog_path(:id => @admin_blog.id), class: "btn btn-success"
+
+    .col-md-4
+      .panel.panel-default
+        .panel-heading
+          ' Image
+        .panel-body
+          - if @admin_blog.image.present?
+            = image_tag @admin_blog.image, class: "img-responsive"
+          - else
+            img src="http://placehold.it/225x150" class="img-responsive"
+
+          p = @admin_blog.image_alt.present? ? "ALT TEXT: #{@admin_blog.image_alt}" : "ALT TEST: !!!!!!"

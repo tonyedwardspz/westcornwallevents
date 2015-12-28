@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :venues, only: [:index, :show]
   resources :festivals, only: [:index, :show]
   resources :events, only: [:index, :show]
+  resources :blogs, only: [:index, :show]
 
 
   get 'submit_event' => 'user_events#new', as: :submit_event
@@ -12,7 +13,7 @@ Rails.application.routes.draw do
   get 'user_events' => 'user_events#new'
 
   namespace :admin do
-    resources :venues, :festivals, :events, :users, :festivals, :pages, :user_events, :event_users
+    resources :venues, :festivals, :events, :users, :festivals, :pages, :user_events, :event_users, :blogs
     get 'user_events/show'
     get 'user_events/index'
     get 'events/index'

@@ -105,8 +105,16 @@ nav class="navbar navbar-default navbar-static-top" role="navigation" style="mar
                         li = link_to "Create New User", new_admin_user_path
                 li
                     a href="#"
-                        i.fa.fa-user.fa-fw
+                        i.fa.fa-users.fa-fw
                         ' Event Users
                         span.fa.arrow
                     ul.nav.nav-second-level
                         li = link_to "View Users", admin_event_users_path
+                li
+                    a href="#"
+                        i.fa.fa-pencil-square-o.fa-fw
+                        ' Blog Posts
+                        span.fa.arrow
+                    ul.nav.nav-second-level
+                        li = link_to "View Blogs", admin_blogs_path
+                        li = link_to "Create New Blog Post", new_admin_blog_path
