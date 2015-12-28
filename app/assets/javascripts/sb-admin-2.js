@@ -18,6 +18,10 @@ $(function() {
     dateFormat: 'dd/mm/yy'
   });
 
+  $('#blog_date_published').datepicker({
+    dateFormat: 'dd/mm/yy'
+  });
+
   $('#dataTables-example').DataTable({
     responsive: true,
     order: [[1, 'desc']]
