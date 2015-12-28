@@ -60,6 +60,11 @@ var applyActiveClass = function(){
         case "pageSubmit":
             $("li.submit").addClass("navActive");
             break;
+        case "blog":
+            $("li.submit").addClass("navActive");
+            break;
+        default:
+            break;
     }
 };
 
