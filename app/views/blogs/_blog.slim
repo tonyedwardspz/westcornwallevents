@@ -4,7 +4,8 @@
   - if blog.image.present?
     = image_tag blog.image.thumb, alt: blog.image_alt, width: 225, height: 132, class: "post-image, lazy: true blog-post-image"
   p.blog-date
-    ' #{blog.date_published.day.ordinalize} #{blog.date_published.strftime("%B %Y")}
+    ' #{blog.date_published.day.ordinalize} #{blog.date_published.strftime("%B %Y")} 
+    '  by #{blog.user.display_name}
 
   p #{blog.snippet}
 
