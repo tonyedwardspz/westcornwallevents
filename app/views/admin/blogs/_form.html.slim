@@ -1,0 +1,43 @@
+= simple_form_for([:admin, @admin_blog], html: {class: 'form-vertical', multipart: true}) do |f|
+  = f.error_notification
+
+  .col-md-8
+    .panel.panel-default
+      .panel-heading
+        ' Basic Details
+      .panel-body
+        = f.input :title, required: :true, label: "blog Name", input_html: { placeholder: "Awesome blog Name" }
+        = f.input :content, label: "Content", required: :true, input_html: { placeholder: "Say something beautiful......"}
+  
+  .col-md-4
+    .panel.panel-default
+      .panel-heading
+        ' Images
+      .panel-body
+        = f.input :date_published, as: :string, label: "Start Date", input_html: { placeholder: "23/07/2015"}, required: :true
+        = f.input :published, as: :boolean
+
+    .panel.panel-default
+      .panel-heading
+        ' Images
+      .panel-body
+
+        p
+          - unless @admin_blog.image.blank?
+            = image_tag @admin_blog.image, class: "img-responsive"
+          = f.file_field :image, label: "Image URL"
+
+        = f.input :image_alt, label: "Image Alt Text", input_html: { placeholder: "3 - 5 word description of image" }, class: "img-responsive"
+
+    .panel.panel-default
+      .panel-heading
+        ' Seo Stuff
+      .panel-body
+        = f.input :description, label: "Meta Description"
+
+  .col-xs-12
+    .panel.panel-default
+      .panel-body
+        = f.button :submit, class: "btn btn-primary"
+        '   
+        = link_to "Cancel", admin_blogs_path, class: "btn btn-warning"

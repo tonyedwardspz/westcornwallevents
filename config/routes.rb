@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   get 'user_events' => 'user_events#new'
 
   namespace :admin do
-    resources :venues, :festivals, :events, :users, :festivals, :pages, :user_events, :event_users
+    resources :venues, :festivals, :events, :users, :festivals, :pages, :user_events, :event_users, :blogs
     get 'user_events/show'
     get 'user_events/index'
     get 'events/index'

@@ -1,4 +1,4 @@
-  class Admin::EventUsersController < Admin::AdminAreaController
+class Admin::EventUsersController < Admin::AdminAreaController
   before_action :set_event_user, only: [:show, :edit, :update, :destroy]
 
   # GET /admin/users
