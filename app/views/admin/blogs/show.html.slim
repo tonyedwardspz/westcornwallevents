@@ -18,7 +18,7 @@
         .panel-body
 
           - if @admin_blog.content.present?
-            =  @admin_blog.content
+            =  @admin_blog.content.html_safe
           - else
             p CONTENT: No Content !!!!!!!!!!
 
