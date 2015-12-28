@@ -10,9 +10,14 @@
             ' User Details
           .panel-body      
             p
-              strong Name: 
-              = @admin_user.name
+              strong Display Name: 
+              = @admin_user.display_name
             p
+              strong Twter Username: 
+              = @admin_user.twitter
+            p
+              strong Email Address: 
+              = @admin_user.name
   .row
     .col-lg-12
       .panel.panel-default

@@ -6,7 +6,10 @@
       .panel-heading
         ' Admin details
       .panel-body
-        = f.input :name, required: true
+        = f.input :display_name, required: true, label: "Public Display Name"
+        = f.input :name, required: true, label: "Email Address"
+        = f.input :twitter, label: "Twitter Username"
+
         = f.input :password, required: true
         = f.input :password_confirmation, required: true
 
