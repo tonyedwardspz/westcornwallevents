@@ -68,6 +68,6 @@ before_action :set_admin_blog, only: [:show, :edit, :update, :destroy]
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def admin_blog_params
-      params.require(:blog).permit(:title, :content, :date_published, :image, :image_cache, :image_alt, :description, :published, :slug)
+      params.require(:blog).permit(:title, :content, :date_published, :image, :image_cache, :image_alt, :description, :published, :slug, :snippet)
     end
 end
