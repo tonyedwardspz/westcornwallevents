@@ -4,6 +4,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_action :authorize
   $sidebar_festivals = Festival.all.order('date').limit('6')
+  $recent_additions = Event.all.order('updated_at DESC').limit(6)
 
   def not_found
     raise ActionController::RoutingError.new('Not Found')

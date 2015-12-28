@@ -117,10 +117,9 @@ head
           #col-c.unit.one-of-three.footer-list
             h5 Recently Added Events
             ul
-              li Event 1
-              li Event 2
-              li Event 3
-              li event 4
+              - $recent_additions.each do |e|
+                li
+                  = link_to "#{e.title}", e, title: "#{e.title}"
 
           .unit.one-of-two.bottom_footer.footer_left
             ul
