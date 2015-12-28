@@ -23,19 +23,20 @@
       .panel-heading
         ' Images
       .panel-body
-
         p
-          - unless @admin_blog.image.blank?
-            = image_tag @admin_blog.image, class: "img-responsive"
-          = f.file_field :image, label: "Image URL"
-
-        = f.input :image_alt, label: "Image Alt Text", input_html: { placeholder: "3 - 5 word description of image" }, class: "img-responsive"
+          = f.file_field :image, label: "Image URL", input_html: { placeholder: "foldername/file_name.jpg" }, id: "event_image_input"
+          = f.hidden_field :image_cache
+          - if @admin_blog.image.present?
+            = image_tag @admin_blog.image.thumb, class: 'img-responsive', id: "user_image"
+          - else
+            = image_tag 'no-image-available.jpg', class: 'img-responsive', id: "user_image"
+          = f.input :image_alt, label: "Image Alt Text", input_html: { placeholder: "3 - 5 word description of image" }
 
     .panel.panel-default
       .panel-heading
         ' Seo Stuff
       .panel-body
-        = f.input :description, label: "Meta Description"
+        = f.input :description, label: "Meta Description", required: :true
 
   .col-xs-12
     .panel.panel-default

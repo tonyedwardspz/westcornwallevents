@@ -1,26 +1,24 @@
 #page-wrapper
   .row
-    .col-lg-12
+    .col-md-12
       h1.page-header 
         = @admin_blog.title
 
     .col-md-8
       .panel.panel-default
         .panel-heading
-          ' Blog Details
+          ' Details Details
         .panel-body
 
-          p = @admin_blog.date_published.present? ? "DATE: #{@admin_blog.date_published}" : "DATE: !!!!!"
+          p = @admin_blog.date_published.present? ? "DATE PUBLISHED: #{@admin_blog.date_published}" : "DATE PUBLISHED: !!!!!"
+          p SNIPPET: #{@admin_blog.snippet}
+          p META DESCRIPTION: #{@admin_blog.description}
 
       .panel.panel-default
         .panel-heading
-          ' blog Content
+          ' Post Content
         .panel-body
-
-          - if @admin_blog.content.present?
-            =  @admin_blog.content.html_safe
-          - else
-            p CONTENT: No Content !!!!!!!!!!
+          = @admin_blog.content.present? ? @admin_blog.content.html_safe : "CONTENT: No Content !!!!!!!!!!"
 
       .panel.panel-default
         .panel-body
@@ -33,7 +31,7 @@
     .col-md-4
       .panel.panel-default
         .panel-heading
-          ' Image
+          ' Post Image
         .panel-body
           - if @admin_blog.image.present?
             = image_tag @admin_blog.image, class: "img-responsive"
