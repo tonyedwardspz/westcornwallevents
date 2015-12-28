@@ -4,7 +4,13 @@ h1 Annual Events and Festivals
 
     .event_details.unit.span-grid
       h2 = link_to "#{festival.title}", festival
-      p.festival-date #{festival.date.day.ordinalize} #{festival.date.strftime("%B %Y")}
+
+      p.festival-date 
+        ' #{festival.date.day.ordinalize} #{festival.date.strftime("%B %Y")}
+        - if festival.end_date.present?
+          '  to #{festival.end_date.day.ordinalize} #{festival.end_date.strftime("%b %Y")}
+          
       = image_tag(festival.image.thumb, alt: festival.image_alt, class: "post-image")
+
       p #{festival.summary}
       = link_to 'View more details', festival, class: "more"
