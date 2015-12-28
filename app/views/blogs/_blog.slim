@@ -1,11 +1,12 @@
 
 .event_info.unit.span-grid
+  h2 = link_to "#{blog.title}" ,blog_path(blog)
   p.blog-date
     ' #{blog.date_published.day.ordinalize} #{blog.date_published.strftime("%b %Y")}
 
   - unless blog.image.blank?
     = image_tag blog.image.thumb, alt: blog.image_alt, width: 225, height: 132, class: "post-image, lazy: true blog-post-image"
 
-  p #{blog.content.html_safe}
+  p #{blog.snippet}
   
 
