@@ -19,6 +19,8 @@
         = f.input :date_published, as: :string, label: "Start Date", input_html: { placeholder: "23/07/2015"}, required: :true
         = f.input :published, as: :boolean
 
+        = f.association :user, collection: User.all
+
     .panel.panel-default
       .panel-heading
         ' Images

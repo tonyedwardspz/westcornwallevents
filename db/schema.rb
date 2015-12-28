@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151228152613) do
+ActiveRecord::Schema.define(version: 20151228162015) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -37,7 +37,10 @@ ActiveRecord::Schema.define(version: 20151228152613) do
     t.boolean "published",      default: false
     t.string  "slug"
     t.string  "snippet"
+    t.integer "user_id"
   end
+
+  add_index "blogs", ["user_id"], name: "index_blogs_on_user_id", using: :btree
 
   create_table "event_users", force: :cascade do |t|
     t.string  "first_name"
@@ -155,6 +158,8 @@ ActiveRecord::Schema.define(version: 20151228152613) do
   create_table "users", force: :cascade do |t|
     t.string "name"
     t.string "password_digest"
+    t.string "display_name"
+    t.string "twitter"
   end
 
   create_table "venues", force: :cascade do |t|
@@ -176,5 +181,6 @@ ActiveRecord::Schema.define(version: 20151228152613) do
 
   add_index "venues", ["slug"], name: "index_venues_on_slug", unique: true, using: :btree
 
+  add_foreign_key "blogs", "users"
   add_foreign_key "events", "event_users"
 end
