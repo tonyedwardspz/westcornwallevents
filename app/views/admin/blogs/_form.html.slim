@@ -7,8 +7,6 @@
       .panel-heading
         ' Post Content
       .panel-body
-
-
         = f.input :title, required: :true, label: "Post title", input_html: { placeholder: "Awesome post title" }
         = f.text_area :content, label: "Content", required: :true, input_html: { placeholder: "Say something beautiful......", rows: 20}, class: "tinymce"
         = tinymce :plugins => ["wordcount", "paste"]
