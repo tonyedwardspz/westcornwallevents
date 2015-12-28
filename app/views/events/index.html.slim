@@ -2,9 +2,7 @@ h1
   - if params[:month]
     a#top #{params[:month]} #{params[:year]} Events Calendar
   - else
-    a#top Upcoming Events
-.fb-wrap
-  .fb-like data-action="like" data-layout="standard" data-share="true" data-show-faces="false" 
+    a#top Upcoming Events 
 #event.container
   .grid
 
@@ -14,7 +12,6 @@ h1
       p No results found
 
     = render @events
-
 
 p
   ' Can't find the event you were looking for? If we've missed something important let us know it's happening on 
