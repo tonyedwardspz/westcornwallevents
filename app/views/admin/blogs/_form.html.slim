@@ -1,18 +1,22 @@
+
 = simple_form_for([:admin, @admin_blog], html: {class: 'form-vertical', multipart: true}) do |f|
   = f.error_notification
 
   .col-md-8
     .panel.panel-default
       .panel-heading
-        ' Basic Details
+        ' Post Content
       .panel-body
-        = f.input :title, required: :true, label: "blog Name", input_html: { placeholder: "Awesome blog Name" }
-        = f.input :content, label: "Content", required: :true, input_html: { placeholder: "Say something beautiful......"}
+
+
+        = f.input :title, required: :true, label: "Post title", input_html: { placeholder: "Awesome post title" }
+        = f.text_area :content, label: "Content", required: :true, input_html: { placeholder: "Say something beautiful......", rows: 20}, class: "tinymce"
+        = tinymce :plugins => ["wordcount", "paste"]
   
   .col-md-4
     .panel.panel-default
       .panel-heading
-        ' Images
+        ' Publish Details
       .panel-body
         = f.input :date_published, as: :string, label: "Start Date", input_html: { placeholder: "23/07/2015"}, required: :true
         = f.input :published, as: :boolean
