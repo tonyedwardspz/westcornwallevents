@@ -33,7 +33,7 @@
           '   
           = link_to 'Delete', admin_festival_path(@admin_festival), :method => :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger"
           '
-          = link_to 'View Live', festival_path(:id => @festival.id), class: "btn btn-success"
+          = link_to 'View Live', festival_path(:id => @admin_festival.id), class: "btn btn-success"
 
     .col-md-4
       .panel.panel-default
