@@ -9,6 +9,11 @@ class BlogsController < ApplicationController
 
   def show
     @page_title = @blog.title
+    if @blog.image.present?
+      @image_meta_url = "https://westcornwallevents.co.uk"
+      @image_meta_url << @blog.image.to_s
+    end
+    @page_meta_description = @blog.description
   end
 
   private
