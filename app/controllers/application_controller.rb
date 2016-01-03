@@ -3,7 +3,8 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
   before_action :authorize
-  $sidebar_festivals = Festival.all.order('date').limit('6')
+  $sidebar_events = Event.future
+  $upcoming_festivals = Festival.where('date > ?', DateTime.now).order('date').limit(1)
   $recent_additions = Event.all.order('updated_at DESC').limit(6)
 
   def not_found

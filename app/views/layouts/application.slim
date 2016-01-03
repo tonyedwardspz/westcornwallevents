@@ -68,18 +68,7 @@ head
           / Sidebar
           #sidebar.unit.one-of-four
             .grid
-              #social.unit.span-grid.sidemenu
-                a href="https://www.facebook.com/WestCornwallEvents" title="Facebook" 
-                  i.sprite.facebook
-                a href="https://twitter.com/WestCornwall" title="Twitter" 
-                  i.sprite.twitter
-                a href="https://www.youtube.com/user/purelypenzance" title="Youtube" 
-                  i.sprite.you-tube
-              #annual_event.unit.span-grid.sidemenu.popular
-                h4
-                  = link_to "Annual Festivals", festivals_path, title: "Annual West Cornwall Events"
-                ul
-                  = render "shared/sidebar_festivals"
+              = render "shared/sidebar_festivals"
 
               #sideSlot.ad.unit.span-grid.sidemenu
                 = render "shared/google_ad" 
