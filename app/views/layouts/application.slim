@@ -73,66 +73,7 @@ head
               #sideSlot.ad.unit.span-grid.sidemenu
                 = render "shared/google_ad" 
 
-    /Footer
-    div style="clear: both;"
-    #footer-wrap
-      .container
-        .grid
-          #col-a.unit.one-of-three
-            h5 Get Involved
-            a href="https://www.facebook.com/WestCornwallEvents" title="Facebook" 
-              i.sprite.facebook
-            a href="https://twitter.com/WestCornwall" title="Twitter" 
-              i.sprite.twitter
-            a href="https://www.youtube.com/user/purelypenzance" title="Youtube" 
-              i.sprite.you-tube
-          
-          #col-b.unit.one-of-three.footer-list
-            h5 Popular Pages
-            ul
-              li
-                = link_to "Cornwall #{Time.now.year} Events", events_path(:year => "#{Time.now.year}"), :title => "Events in Cornwall #{Time.now.year}"
-              li
-                = link_to "Cornwall #{1.year.from_now.year} Events", events_path(:year => "#{1.year.from_now.year}"), :title => "Events in Cornwall #{1.year.from_now.year}"
-              li
-                = link_to "Annual Festivals", festivals_path, title: "Annual Events and Festivals"
-              li
-                = link_to "Event Venues", venues_path, title: "West Cornwall Event Venues"
-              li
-                = link_to "Blog Posts", blogs_path, title: "Blog posts"
-              li
-                = link_to 'Submit Event', submit_event_path, title: "Submit event"
-
-          #col-c.unit.one-of-three.footer-list
-            h5 Recently Added Events
-            ul
-              - $recent_additions.each do |e|
-                li
-                  = link_to "#{e.title}", e, title: "#{e.title}"
-
-          .unit.one-of-two.bottom_footer.footer_left
-            ul
-              li &copy; #{Time.now.year}
-              li 
-                '  - Developed by 
-                = link_to "Purely Web Design", "http://purelywebdesign.co.uk", :target => "_blank", :title => "Tony Edwards Web App Developer"
-          
-          .unit.one-of-two.bottom_footer.footer_right
-            ul
-              li
-                = link_to "Home", root_path, title: "Home"
-                '  |    
-              li 
-                = link_to "Privacy", "https://westcornwallevents.co.uk/pages/legal-information", title: "Privacy"
-                '  |    
-              li
-                = link_to "About", "https://westcornwallevents.co.uk/pages/about", title: "About us"
-                '  | 
-              li
-                = link_to "Credits", "https://westcornwallevents.co.uk/pages/credits", title: "Credits and thanks"
-                '  | 
-              li
-                a href="#top" title="Top" Top
+    = render "shared/footer"
 
 
     script src="https://www.google.co.uk/cse/brand?form=cse-search-box&amp;lang=en"
