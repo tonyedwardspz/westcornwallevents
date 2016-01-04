@@ -13,6 +13,11 @@ class FestivalsController < ApplicationController
   # GET /festivals/1.json
   def show
     @page_title = @festival.title
+    if @festival.image.present?
+      @image_meta_url = "https://westcornwallevents.co.uk"
+      @image_meta_url << @festival.image.to_s
+    end
+    @page_meta_description = @festival.meta_description
   end
 
   private

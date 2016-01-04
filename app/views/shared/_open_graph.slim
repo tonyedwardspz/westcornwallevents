@@ -1,15 +1,11 @@
-meta property="og:title" content="#{@page_meta_title}"
+meta property="og:title" name="twitter:title" content="#{@page_meta_title}"
 meta property="og:type" content="website"
 meta property="og:url" content="#{request.original_url}"
-meta property="og:description" content="#{@page_meta_description}"
+meta property="og:description" name="twitter:description" content="#{@page_meta_description}"
 meta property="og:site_name" content="West Cornwall Events"
 - if @image_meta_url.present?
-  meta property="og:image" content="#{@image_meta_url}"
+  meta property="og:image" name="twitter:image" content="#{@image_meta_url}"
 
 meta name="twitter:card" content="summary"
 meta name="twitter:site" content="@WestCornwall"
 meta name="twitter:creator" content="@tonyedwardspz"
-meta name="twitter:title" content="#{@page_meta_title}"
-meta name="twitter:description" content="#{@page_meta_description}"
-- if @image_meta_url.present?
-  meta name="twitter:image" content="#{@image_meta_url}"

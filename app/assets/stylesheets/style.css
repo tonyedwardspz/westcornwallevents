@@ -501,6 +501,15 @@ td:first-child, th:first-child { padding: 5px 30px 5px 0;}
     #sidebar { display: none; }
 }
 
+.upcoming-sidebar .date {
+    display:block;
+    font-weight: bold;
+}
+
+.upcoming-sidebar span {
+    margin-bottom: 5px;
+}
+
 
 /*-----------------------------------*\
     FOOTER

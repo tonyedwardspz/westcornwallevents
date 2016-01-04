@@ -1,5 +1,23 @@
-- $sidebar_festivals.each do |festival|
-  
-  li
-    = link_to "#{festival.title}", festival
-    span #{festival.snippet}
+#social.unit.span-grid.sidemenu
+  a href="https://www.facebook.com/WestCornwallEvents" title="Facebook" 
+    i.sprite.facebook
+  a href="https://twitter.com/WestCornwall" title="Twitter" 
+    i.sprite.twitter
+  a href="https://www.youtube.com/user/purelypenzance" title="Youtube" 
+    i.sprite.you-tube
+#annual_event.unit.span-grid.sidemenu.popular
+  h4
+    = link_to "Upcoming Events", events_path, title: "Upcoming Events Calendar"
+  ul
+    - $sidebar_events.each do |event|
+      li.upcoming-sidebar
+        = link_to "#{event.title}", event
+        span.date #{event.date.day.ordinalize} #{event.date.strftime("%B %Y")}
+  h4 
+    = link_to "Next Festival", festivals_path, title: "Next West Cornwall Event"
+  ul
+    - $upcoming_festivals.each do |festival|
+      li.upcoming-sidebar
+        = link_to "#{festival.title}", festival
+        span.date #{festival.date.day.ordinalize} #{festival.date.strftime("%B %Y")}
+        span #{festival.snippet}
