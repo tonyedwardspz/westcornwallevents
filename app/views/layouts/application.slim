@@ -29,10 +29,14 @@ head
                 = link_to "Home", root_path, title: "Home"
               li.blog
                 = link_to "Blog", blogs_path, title: "Blog"
-              li.2015
-                = link_to "#{Time.now.year} Events", events_path(:year => "#{Time.now.year}"), :title => "Events in Cornwall #{Time.now.year}"
-              li.2016
-                = link_to "#{1.year.from_now.year} Events", events_path(:year => "#{1.year.from_now.year}"), :title => "Events in Cornwall #{1.year.from_now.year}"
+              li.this_week
+                = link_to "This Week", events_path(:week => 'this'), :title => "This Weeks Events in Cornwall"
+              li.next_week
+                = link_to "Next Week", events_path(:week => 'next'), :title => "Next Weeks Events in Cornwall"
+              li.this_month
+                = link_to "Next 30 Days", events_path(:year => "#{Time.now.year}"), :title => "Events in Cornwall #{Time.now.year}"
+              li.next_year
+                = link_to "All Events", events_path(:year => "#{Time.now.year}"), :title => "Events in Cornwall #{Time.now.year}"
               li.annual
                 = link_to "Annual Events", festivals_path, title: "Annual Festivals"
               li.submit
