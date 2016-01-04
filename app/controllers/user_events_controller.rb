@@ -18,7 +18,7 @@ class UserEventsController < ApplicationController
   # GET /user_events/new
   def new
     @user_event = UserEvent.new
-    @page_title = "Submit a new event | West Cornwall Events"
+    @page_title = "Submit a new event"
   end
 
   # POST /user_events
