@@ -16,6 +16,9 @@ class Event < ActiveRecord::Base
   scope :future, -> {where('date > ?', DateTime.now).order('date').limit(5)}
   scope :homepage, -> {where('date > ?', DateTime.now).where.not(image_link: 'nil').order('date').limit(6)}
 
+  scope :next_seven_days, -> {where('date > ?', DateTime.now).where('date < ?', (DateTime.now + 7.days)).order('date')}
+  scope :next_thirty_days, -> {where('date > ?', DateTime.now).where('date < ?', (DateTime.now + 30.days))}
+
   def self.create_from_user_event(user_event)
      e = new_from_user_event(user_event)
      e.save!

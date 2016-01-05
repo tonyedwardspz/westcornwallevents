@@ -29,14 +29,16 @@ head
                 = link_to "Home", root_path, title: "Home"
               li.blog
                 = link_to "Blog", blogs_path, title: "Blog"
-              li.2015
-                = link_to "#{Time.now.year} Events", events_path(:year => "#{Time.now.year}"), :title => "Events in Cornwall #{Time.now.year}"
-              li.2016
-                = link_to "#{1.year.from_now.year} Events", events_path(:year => "#{1.year.from_now.year}"), :title => "Events in Cornwall #{1.year.from_now.year}"
+              li.next-seven
+                = link_to "Next 7 Days", events_path(:time => '7'), :title => "This Weeks Events in Cornwall"
+              li.next-thirty
+                = link_to "Next 30 Days", events_path(:time => '30'), :title => "Events in Cornwall #{Time.now.year}"
+              li.aal-events
+                = link_to "By Month", events_path(:year => "#{Time.now.year}"), :title => "Events in Cornwall #{Time.now.year}"
               li.annual
-                = link_to "Annual Events", festivals_path, title: "Annual Festivals"
+                = link_to "Festivals", festivals_path, title: "Annual Festivals"
               li.submit
-                = link_to 'Submit Event', submit_event_path, title: "Submit event"
+                = link_to 'Submit', submit_event_path, title: "Submit event"
 
           #search
             form action="https://westcornwallevents.co.uk/pages/search-results" id="cse-search-box"
