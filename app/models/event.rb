@@ -18,6 +18,7 @@ class Event < ActiveRecord::Base
 
   scope :this_week, -> {where('date > ?', DateTime.now.beginning_of_week).where('date < ?', DateTime.now.end_of_week).order('date')}
   scope :next_week, -> {where('date > ?', DateTime.now.end_of_week).where('date < ?', (DateTime.now.end_of_week + 7)).order('date')}
+  scope :next_thirty_days, -> {where('date > ?', DateTime.now).where('date < ?', (DateTime.now + 30.days))}
 
   def self.create_from_user_event(user_event)
      e = new_from_user_event(user_event)
