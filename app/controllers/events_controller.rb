@@ -5,28 +5,13 @@ class EventsController < ApplicationController
   # GET /events
   # GET /events.json
   def index
-
-    # TODO: UPDATE LOGIC FOR MEW LINKS
-
-# if week
-#   if week = this
-#   elsif week = next
-#   elsif week = 4
-# elsif month && year
-#
-# elsif year
-#
-# else
-#   all events
-
-
     if params[:time]
       if params[:time] == '7'
-        @events =  Event.this_week
-        @page_title = "This weeks events and festivals"
+        @events =  Event.next_seven_days
+        @page_title = "Next 7 Days of events and festivals"
       elsif params[:time] == '30'
-        @events = Event.next_week
-        @page_title = "Next weeks events and festivals"
+        @events = Event.next_thirty_days
+        @page_title = "Next 30 Days of events and festivals"
       end
     elsif params[:month] && params[:year]
       month = Date::MONTHNAMES.index(params[:month])
