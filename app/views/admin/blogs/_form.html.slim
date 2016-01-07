@@ -15,7 +15,7 @@
       .panel-heading
         ' Linked Events and Festivals
       .panel-body
-        = f.association :events, collection: Event.all, as: :select, multiple: true, input_html: {size: 15}
+        = f.association :events, collection: Event.all_future, as: :select, multiple: true, input_html: {size: 15}
         = f.association :festivals, collection: Festival.all, as: :select, input_html: {size: 10}
 
   .col-md-4
@@ -26,7 +26,7 @@
         = f.input :date_published, as: :string, label: "Start Date", input_html: { placeholder: "23/07/2015"}, required: :true
         = f.input :published, as: :boolean
 
-        = f.association :user, collection: User.all
+        = f.association :user, collection: User.all, :selected => 1
 
     .panel.panel-default
       .panel-heading
