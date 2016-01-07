@@ -11,6 +11,9 @@ class Event < ActiveRecord::Base
   validates :description, presence: true
   validates :venue, presence: true, unless: :location?
   validates :location, presence: true, unless: :venue_id?
+  validates :imageAlt, presence: true, if: "image_link.present?"
+  validates :moreTitle, presence: true, if: "more_link.present?"
+  validates :linktitle, presence: true, if: "link.present?"
   scope :by_month_year, -> (month, year) {where('extract(month from date) = ?', month).where('extract(year from date) = ?', year).order('date')}
   scope :by_year, -> (year) {where('extract(year from date) = ?', year).limit(5)}
   scope :by_year_future, -> (year) {where('extract(year from date) = ?', year).where('date > ?', DateTime.now).order('date').limit(5)}
