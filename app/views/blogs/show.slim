@@ -3,12 +3,21 @@
     .unit.span-grid
       h1.blog-title = @blog.title
           
-    .event_info.unit.span-grid
+    .blog-post.unit.span-grid
       p.blog-date
         ' #{@blog.date_published.day.ordinalize} #{@blog.date_published.strftime("%B %Y")}
         '  by #{@blog.user.display_name}
 
       - unless @blog.image.blank?
-        = image_tag @blog.image.thumb, alt: @blog.image_alt, width: 225, height: 132, class: "post-image, lazy: true blog-post-image"
+        = image_tag @blog.image.thumb, alt: @blog.image_alt, width: 225, class: "post-image blog-post-image"
 
       p #{@blog.content.html_safe}
+
+      = render partial: 'shared/social_share'
+
+    - if @blog.events.present?
+      .ad
+        = render "shared/google_ad"
+
+      h2 Fetured Events
+      = render partial: 'event', collection: @blog.events, as: :event
