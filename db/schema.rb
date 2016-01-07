@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151228162015) do
+ActiveRecord::Schema.define(version: 20160107154852) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -38,9 +38,21 @@ ActiveRecord::Schema.define(version: 20151228162015) do
     t.string  "slug"
     t.string  "snippet"
     t.integer "user_id"
+    t.integer "event_id"
+    t.integer "festival_id"
   end
 
+  add_index "blogs", ["event_id"], name: "index_blogs_on_event_id", using: :btree
+  add_index "blogs", ["festival_id"], name: "index_blogs_on_festival_id", using: :btree
   add_index "blogs", ["user_id"], name: "index_blogs_on_user_id", using: :btree
+
+  create_table "blogs_events", force: :cascade do |t|
+    t.integer "blog_id"
+    t.integer "event_id"
+  end
+
+  add_index "blogs_events", ["blog_id"], name: "index_blogs_events_on_blog_id", using: :btree
+  add_index "blogs_events", ["event_id"], name: "index_blogs_events_on_event_id", using: :btree
 
   create_table "event_users", force: :cascade do |t|
     t.string  "first_name"

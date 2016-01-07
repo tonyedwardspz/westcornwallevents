@@ -10,7 +10,13 @@
         = f.input :title, required: :true, label: "Post title", input_html: { placeholder: "Awesome post title" }
         = f.input :snippet, required: :true, label: 'Snippet', input_html: { placeholder: "A paragraph snippet to entice people in...", rows: 5}
         = f.input :content, label: "Content", required: :true, input_html: { placeholder: "Say something beautiful......", rows: 20}
-  
+
+    .panel.panel-default
+      .panel-heading
+        ' Linked Events and Festivals
+      .panel-body
+        = f.association :events, collection: Event.all, as: :select, multiple: true, input_html: {size: 15}
+
   .col-md-4
     .panel.panel-default
       .panel-heading

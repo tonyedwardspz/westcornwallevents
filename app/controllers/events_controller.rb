@@ -5,11 +5,11 @@ class EventsController < ApplicationController
   # GET /events
   # GET /events.json
   def index
-    if params[:time]
-      if params[:time] == '7'
+    if params[:days]
+      if params[:days] == '7'
         @events =  Event.next_seven_days
         @page_title = "Next 7 Days of events and festivals"
-      elsif params[:time] == '30'
+      elsif params[:days] == '30'
         @events = Event.next_thirty_days
         @page_title = "Next 30 Days of events and festivals"
       end
@@ -71,9 +71,9 @@ class EventsController < ApplicationController
         startString = event.image_link[0,4].downcase
         if startString != "http"
           if startString == "www."
-            event.image_link = event.image_link.prepend("http://")
+            event.image_link = event.image_link.prepend("https://")
           else
-            event.image_link = event.image_link.prepend("http://www.westcornwallevents.co.uk/images/")
+            event.image_link = event.image_link.prepend("https://westcornwallevents.co.uk/images/")
           end
         end
       end
