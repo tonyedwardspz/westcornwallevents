@@ -39,3 +39,11 @@
             img src="http://placehold.it/225x150" class="img-responsive"
 
           p = @admin_blog.image_alt.present? ? "ALT TEXT: #{@admin_blog.image_alt}" : "ALT TEST: !!!!!!"
+          
+      - if @admin_blog.events.present?
+        .panel.panel-default
+          .panel-heading
+            ' Linked Events
+          .panel-body
+            - @admin_blog.events.each do |e|
+              p #{e.title}
