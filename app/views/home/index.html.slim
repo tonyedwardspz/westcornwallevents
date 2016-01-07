@@ -26,7 +26,8 @@ h2 Upcoming Events
       = link_to 'Find out more', e, class: "more"
     - if i == 1
       .ad
-        = render "shared/google_ad" 
+        = render "shared/google_ad"
+      .clear
 
 p = link_to "view this months listings", events_path(:year => "#{Time.now.year}", :month => "#{Date.today.strftime("%B")}"), :title => "Events in Cornwall #{Time.now.year}", class: "more"
 
