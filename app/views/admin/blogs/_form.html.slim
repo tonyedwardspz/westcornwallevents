@@ -15,7 +15,7 @@
       .panel-heading
         ' Linked Events and Festivals
       .panel-body
-        = f.association :events, collection: Event.all, as: :select, multiple: true, input_html: {size: 15}
+        = f.association :events, collection: Event.all_future, as: :select, multiple: true, input_html: {size: 15}
         = f.association :festivals, collection: Festival.all, as: :select, input_html: {size: 10}
 
   .col-md-4

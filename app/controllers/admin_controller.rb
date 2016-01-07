@@ -5,6 +5,7 @@ class AdminController < ApplicationController
     @total_venues = Venue.count
     @total_festivals = Festival.count
     @total_pages = Page.count
+    @total_blog_posts = Blog.count
     @total_users = User.count
     @event_users = EventUser.all.count
     @number_submitted = UserEvent.where(archived: false).count
