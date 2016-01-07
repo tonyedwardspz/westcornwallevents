@@ -67,7 +67,7 @@ nav class="navbar navbar-default navbar-static-top" role="navigation" style="mar
                 li
                     a href="#"
                         i.fa.fa-calendar.fa-fw
-                        ' Submited Events
+                        ' User Submited Events
                         span.fa.arrow
                     ul.nav.nav-second-level
                         li = link_to "View Submited Events", admin_user_events_path   
@@ -87,6 +87,14 @@ nav class="navbar navbar-default navbar-static-top" role="navigation" style="mar
                     ul.nav.nav-second-level
                         li = link_to "View Venues", admin_venues_path
                         li = link_to "Create New Venue", new_admin_venue_path
+                li
+                    a href="#"
+                        i.fa.fa-pencil-square-o.fa-fw
+                        ' Blog Posts
+                        span.fa.arrow
+                    ul.nav.nav-second-level
+                        li = link_to "View Blogs", admin_blogs_path
+                        li = link_to "Create New Blog Post", new_admin_blog_path
                 li
                     a href="#"
                         i.fa.fa-file-text-o.fa-fw
@@ -110,11 +118,3 @@ nav class="navbar navbar-default navbar-static-top" role="navigation" style="mar
                         span.fa.arrow
                     ul.nav.nav-second-level
                         li = link_to "View Users", admin_event_users_path
-                li
-                    a href="#"
-                        i.fa.fa-pencil-square-o.fa-fw
-                        ' Blog Posts
-                        span.fa.arrow
-                    ul.nav.nav-second-level
-                        li = link_to "View Blogs", admin_blogs_path
-                        li = link_to "Create New Blog Post", new_admin_blog_path
