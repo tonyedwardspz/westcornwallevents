@@ -1,7 +1,5 @@
-class Admin::SettingsController < ApplicationController
+class Admin::SettingsController < Admin::AdminAreaController
   def general
-  end
-
-  def adminUsers
+    @page_title = "General Settings"
   end
 end

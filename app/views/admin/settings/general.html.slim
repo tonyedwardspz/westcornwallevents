@@ -1,2 +1,10 @@
-h1 Admin::Settings#general
-p Find me in app/views/admin/settings/general.html.slim
+#page-wrapper
+  .row
+
+    .col-lg-12
+      h1.page-header 
+        = @page_title || "Page Title"
+      
+      .panel.panel-default
+        .panel-body
+          = button_to "Reprocess Images", admin_reprocess_images_path, class: "btn btn-danger"
