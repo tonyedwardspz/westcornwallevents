@@ -1,4 +1,12 @@
 Rails.application.routes.draw do
+  namespace :admin do
+  get 'settings/general'
+  end
+
+  namespace :admin do
+  get 'settings/adminUsers'
+  end
+
   resources :user_events, only: [:new, :create, :show]
   resources :pages, only: [:index, :show]
   resources :venues, only: [:index, :show]
