@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_action :authorize
   $sidebar_events = Event.future
-  $upcoming_festivals = Festival.where('date > ?', DateTime.now).order('date').limit(1)
+  $upcoming_festivals = Festival.where('date > ?', DateTime.now).order('date').limit(2)
   $recent_additions = Event.all.order('updated_at DESC').limit(6)
 
   def not_found
