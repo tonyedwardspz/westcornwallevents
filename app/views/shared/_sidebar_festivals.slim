@@ -5,19 +5,22 @@
     i.sprite.twitter
   a href="https://www.youtube.com/user/purelypenzance" title="Youtube" 
     i.sprite.you-tube
+
 #annual_event.unit.span-grid.sidemenu.popular
-  h4
-    = link_to "Upcoming Events", events_path, title: "Upcoming Events Calendar"
-  ul
-    - $sidebar_events.each do |event|
-      li.upcoming-sidebar
-        = link_to "#{event.title}", event
-        span.date #{event.date.day.ordinalize} #{event.date.strftime("%B %Y")}
   h4 
-    = link_to "Next Festival", festivals_path, title: "Next West Cornwall Event"
+    = link_to "Upcoming Festivals", festivals_path, title: "Festivals in Cornwall #{Time.now.year}"
   ul
     - $upcoming_festivals.each do |festival|
       li.upcoming-sidebar
         = link_to "#{festival.title}", festival
         span.date #{festival.date.day.ordinalize} #{festival.date.strftime("%B %Y")}
         span #{festival.snippet}
+
+  h4
+    = link_to "Upcoming Events", events_path, title: "Upcoming Events Calendar"
+  ul
+    - $sidebar_events.each do |event|
+      li.upcoming-sidebar
+        = link_to "#{event.title}", event
+        span = event.venue.present? ? "#{event.venue.name}" : "#{event.location}"
+        span.date #{event.date.day.ordinalize} #{event.date.strftime("%B %Y")}

@@ -2,3 +2,4 @@ public/eventimages
 bower_components
 config/secrets.yml
 coverage
+public/uploads
