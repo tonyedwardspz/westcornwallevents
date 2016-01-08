@@ -40,8 +40,8 @@ nav class="navbar navbar-default navbar-static-top" role="navigation" style="mar
             a.dropdown-toggle data-toggle="dropdown" href="#"
                 <i class="fa fa-gear fa-fw"></i>  <i class="fa fa-caret-down"></i>
             ul.dropdown-menu.dropdown-user
-                li
-                    <a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
+                li = link_to fa_to("fa-gear fa-fw") + 'Settings', admin_settings_general_path
+                li = link_to fa_to("fa-user fa-fw") + 'Admin Users', admin_users_path
                 li.divider
                 li
                     = link_to logout_path do
@@ -103,14 +103,6 @@ nav class="navbar navbar-default navbar-static-top" role="navigation" style="mar
                     ul.nav.nav-second-level
                         li = link_to "View Pages", admin_pages_path
                         li = link_to "Create New Page", new_admin_page_path
-                li
-                    a href="#"
-                        i.fa.fa-user.fa-fw
-                        ' Admin Users
-                        span.fa.arrow
-                    ul.nav.nav-second-level
-                        li = link_to "View Users", admin_users_path
-                        li = link_to "Create New User", new_admin_user_path
                 li
                     a href="#"
                         i.fa.fa-users.fa-fw
