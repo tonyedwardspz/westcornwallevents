@@ -1,4 +1,4 @@
-class Event < ActiveRecord::Base
+ class Event < ActiveRecord::Base
   extend FriendlyId
   mount_uploader :image_link, AttachmentUploader
   friendly_id :title, use: [:slugged, :finders]

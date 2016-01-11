@@ -13,4 +13,5 @@ class Blog < ActiveRecord::Base
   validates :image_alt, presence: true, if: "image.present?"
   validates :description, presence: true
   validates :snippet, presence: true
+  scope :published, -> {where('date_published <= ?', DateTime.now).where('published = ?', true).order('date_published DESC')}
 end

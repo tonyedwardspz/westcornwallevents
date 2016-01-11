@@ -3,7 +3,7 @@ class BlogsController < ApplicationController
   before_action :set_blog, only: [:show]
 
   def index
-    @blogs = Blog.all
+    @blogs = Blog.published
     @page_title = "Blog Posts"
   end
 
