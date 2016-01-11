@@ -1,6 +1,7 @@
  class Event < ActiveRecord::Base
   extend FriendlyId
   include PgSearch
+  multisearchable :against => [:title, :description]
   mount_uploader :image_link, AttachmentUploader
   friendly_id :title, use: [:slugged, :finders]
   belongs_to :festival
