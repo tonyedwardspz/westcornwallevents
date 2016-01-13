@@ -877,12 +877,22 @@ td:first-child, th:first-child { padding: 5px 30px 5px 0;}
     border-bottom: none;
 }
 
+.results h2 {
+    margin-bottom: 1em;
+}
+
 .result {
     margin-bottom: 2em;
+    clear: both;
+    overflow: auto;
 }
 
 .result a{
     font-size: 1.5em;
+}
+
+.result a.more{
+    font-size: 1em;
 }
 
 .result .details {

@@ -1,14 +1,45 @@
-h1 Results page - #{params['q']}
+.results
+  h1 Search Results #{params['q'].present? ? "- #{params['q']}" : ""}
 
-- @results.each do |r|
-  - result = r.searchable
-  .result
-    = link_to "#{result.title}", result
-    p.details 
-      - unless result.dateend.blank?
-        ' DATE: #{result.date.day.ordinalize} #{result.dateend.strftime("%b")} to #{result.dateend.day.ordinalize} #{result.dateend.strftime("%b %Y")}
-      - else
-        ' DATE: #{result.date.day.ordinalize} #{result.date.strftime("%b %Y")}
-      - unless result.time.blank?
-        '  - TIME: #{result.time}
-    p #{result.description}
+  - if @search_festivals.present?
+    h2 Festivals
+
+  - if @search_future_events.present? 
+    h2 Future Events
+    - @search_future_events.each do |result|
+      .result
+        - unless result.image_link.blank?
+          = image_tag result.image_link.thumb, alt: result.imageAlt, width: 225, height: 132, class: "post-image lazy-image", lazy: true
+        = link_to "#{result.title}", result
+        p.details 
+          - unless result.dateend.blank?
+            ' DATE: #{result.date.day.ordinalize} #{result.dateend.strftime("%b")} to #{result.dateend.day.ordinalize} #{result.dateend.strftime("%b %Y")}
+          - else
+            ' DATE: #{result.date.day.ordinalize} #{result.date.strftime("%b %Y")}
+          - unless result.time.blank?
+            '  - TIME: #{result.time}
+        p #{result.description.html_safe}
+
+        = link_to 'View event', result, class: "more"
+
+  - if @search_blogs.present?
+    h2 Blog Posts
+    
+  - if @search_venues.present?
+    h2 Venues
+
+  - if @search_past_events.present? 
+    h2 Past Events
+    - @search_past_events.each do |result|
+      .result
+        - unless result.image_link.blank?
+          = image_tag result.image_link.thumb, alt: result.imageAlt, width: 225, height: 132, class: "post-image lazy-image", lazy: true
+        = link_to "#{result.title}", result
+        p.details 
+          - unless result.dateend.blank?
+            ' DATE: #{result.date.day.ordinalize} #{result.dateend.strftime("%b")} to #{result.dateend.day.ordinalize} #{result.dateend.strftime("%b %Y")}
+          - else
+            ' DATE: #{result.date.day.ordinalize} #{result.date.strftime("%b %Y")}
+          - unless result.time.blank?
+            '  - TIME: #{result.time}
+        p #{result.description.html_safe}
