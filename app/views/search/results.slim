@@ -1,6 +1,9 @@
 .results
   h1 Search Results #{params['q'].present? ? "- #{params['q']}" : ""}
 
+  - if @results.empty?
+    p No results found
+
   - if @search_festivals.present?
     h2 Festivals
 
