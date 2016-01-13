@@ -877,4 +877,16 @@ td:first-child, th:first-child { padding: 5px 30px 5px 0;}
     border-bottom: none;
 }
 
+.result {
+    margin-bottom: 2em;
+}
 
+.result a{
+    font-size: 1.5em;
+}
+
+.result .details {
+    margin-top: 5px;
+    font-style: italic;
+    color: #bbb;
+}

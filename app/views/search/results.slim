@@ -1,5 +1,14 @@
-h1 Results page
+h1 Results page - #{params['q']}
 
 - @results.each do |r|
-  - result = r.searchable 
-  p #{result.title}
+  - result = r.searchable
+  .result
+    = link_to "#{result.title}", result
+    p.details 
+      - unless result.dateend.blank?
+        ' DATE: #{result.date.day.ordinalize} #{result.dateend.strftime("%b")} to #{result.dateend.day.ordinalize} #{result.dateend.strftime("%b %Y")}
+      - else
+        ' DATE: #{result.date.day.ordinalize} #{result.date.strftime("%b %Y")}
+      - unless result.time.blank?
+        '  - TIME: #{result.time}
+    p #{result.description}
