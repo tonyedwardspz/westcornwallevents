@@ -1,5 +1,7 @@
 class Venue < ActiveRecord::Base
   extend FriendlyId
+  include PgSearch
+  multisearchable :against => [:name, :address, :content]
   friendly_id :name,  use: [:slugged, :finders]
   mount_uploader :image, AttachmentUploader
   validates :name, presence: true
