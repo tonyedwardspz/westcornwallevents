@@ -27,9 +27,27 @@
 
   - if @search_blogs.present?
     h2 Blog Posts
+    - @search_blogs.each do |blog|
+      .result
+        h2 = link_to "#{blog.title}" ,blog_path(blog)
+        - if blog.image.present?
+          = image_tag blog.image.thumb, alt: blog.image_alt, width: 225, height: 132, class: "post-image, lazy: true blog-post-image"
+        p.blog-date
+          ' #{blog.date_published.day.ordinalize} #{blog.date_published.strftime("%B %Y")} 
+          '  by #{blog.user.display_name}
+
+    p #{blog.snippet}
     
   - if @search_venues.present?
     h2 Venues
+    - @search_venues.each do |venue|
+      .result
+        - if venue.image.present?
+          = image_tag(venue.image.large_thumb, alt: venue.image_alt)
+        h4 = link_to "#{venue.name}", venue
+        
+        p #{venue.address}, #{venue.postcode}
+        = link_to 'View venue details', venue, class: "more"
 
   - if @search_past_events.present? 
     h2 Past Events
