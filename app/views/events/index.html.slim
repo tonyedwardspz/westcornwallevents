@@ -1,6 +1,8 @@
 h1
-  - if params[:month]
+  - if params[:month] && params[:year]
     a#top #{params[:month]} #{params[:year]} Events Calendar
+  - elsif params[:year]
+    a#top #{DateTime.now.strftime("%B")} #{params[:year]} Events Calendar
   - elsif params[:days]
     a#top Upcoming Events Calendar
   - else

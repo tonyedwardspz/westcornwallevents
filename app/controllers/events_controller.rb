@@ -21,7 +21,7 @@ class EventsController < ApplicationController
       if params[:year] > Time.now.year.to_s
         @events = Event.by_year(params[:year])
       else
-        @events = Event.by_year_future(params[:year])
+        @events = Event.by_month_year(Time.now.month, params[:year])
       end
       @page_title = "#{params[:year]} events and festivals"
     else
