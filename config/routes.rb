@@ -12,6 +12,7 @@ Rails.application.routes.draw do
 
 
   get 'submit_event' => 'user_events#new', as: :submit_event
+  get 'search' => 'search#results', as: :search
   get 'sessions' => "sessions#destroy", as: :logout
   get '/admin' => 'admin#index'
   get 'user_events' => 'user_events#new'

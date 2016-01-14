@@ -1,6 +1,8 @@
 h1
   - if params[:month]
     a#top #{params[:month]} #{params[:year]} Events Calendar
+  - elsif params[:days]
+    a#top Upcoming Events Calendar
   - else
     a#top Upcoming Events 
 #event.container

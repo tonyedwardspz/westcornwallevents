@@ -3,3 +3,4 @@ bower_components
 config/secrets.yml
 coverage
 public/uploads
+db/seeds.rb

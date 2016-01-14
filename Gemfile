@@ -39,7 +39,8 @@ end
 gem 'rollbar', '~> 2.5.0', group: :production
 gem 'skylight', group: :production
 gem 'tinymce-rails'
-# gem 'seed_dump'
+gem 'pg_search'
+gem 'seed_dump'
 gem 'friendly_id', '~> 5.1.0'
 gem 'slim-rails'
 gem 'unicorn'
