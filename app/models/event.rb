@@ -20,7 +20,7 @@
   scope :by_year, -> (year) {where('extract(year from date) = ?', year).limit(5)}
   scope :by_year_future, -> (year) {where('extract(year from date) = ?', year).where('date > ?', DateTime.now).order('date').limit(5)}
   scope :future, -> {where('date > ?', DateTime.now).order('date').limit(5)}
-  scope :all_future, -> {where('date > ?', DateTime.now).order('date').limit(5)}
+  scope :all_future, -> {where('date > ?', DateTime.now).order('date')}
   scope :homepage, -> {where('date > ?', DateTime.now).where.not(image_link: 'nil').order('date').limit(6)}
   scope :next_thirty_days, -> {where('date > ?', DateTime.now).where('date < ?', (DateTime.now + 30.days)).order('date')}
 
