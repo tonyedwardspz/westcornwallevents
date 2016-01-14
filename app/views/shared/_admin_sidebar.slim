@@ -105,6 +105,14 @@ nav class="navbar navbar-default navbar-static-top" role="navigation" style="mar
                         li = link_to "Create New Page", new_admin_page_path
                 li
                     a href="#"
+                        i.fa.fa-pencil-square-o.fa-fw
+                        ' Categories
+                        span.fa.arrow
+                    ul.nav.nav-second-level
+                        li = link_to "Categories", admin_categories_path
+                        li = link_to "Create Category", new_admin_category_path
+                li
+                    a href="#"
                         i.fa.fa-users.fa-fw
                         ' Event Users
                         span.fa.arrow
