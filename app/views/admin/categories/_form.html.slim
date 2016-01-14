@@ -1,0 +1,17 @@
+= simple_form_for([:admin, @category], html: {class: 'form-vertical', multipart: true}) do |f|
+  = f.error_notification
+
+  .col-md-12
+    .panel.panel-default
+      .panel-heading
+        ' Content
+      .panel-body
+        = f.input :title,  required: :true
+        = f.input :description, label: "Summary Text", 
+
+  .col-xs-12
+    .panel.panel-default
+      .panel-body
+        = f.button :submit, class: "btn btn-primary"
+        '   
+        = link_to "Cancel", admin_categories_path, class: "btn btn-warning"
