@@ -18,7 +18,7 @@ class Admin::CategoriesController < Admin::AdminAreaController
 
     respond_to do |format|
       if @category.save
-        format.html { redirect_to admin_category_path(@category), notice: 'User was successfully created.' }
+        format.html { redirect_to admin_categories_path, notice: 'User was successfully created.' }
       else
         format.html { render :new }
       end
@@ -28,7 +28,7 @@ class Admin::CategoriesController < Admin::AdminAreaController
   def update
     respond_to do |format|
       if @category.update(category_params)
-        format.html { redirect_to admin_category_path(@category), notice: 'User was successfully updated.' }
+        format.html { redirect_to admin_categories, notice: 'User was successfully updated.' }
       else
         format.html { render :edit }
       end
@@ -39,7 +39,7 @@ class Admin::CategoriesController < Admin::AdminAreaController
   def destroy
     @category.destroy!
     respond_to do |format|
-      format.html { redirect_to admin_category_url, notice: 'User was successfully destroyed.' }
+      format.html { redirect_to admin_categories, notice: 'User was successfully destroyed.' }
     end
   end
 
@@ -53,6 +53,4 @@ class Admin::CategoriesController < Admin::AdminAreaController
     def category_params
       params.require(:category).permit(:name, :description)
     end
-end
-
 end
