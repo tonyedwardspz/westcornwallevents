@@ -11,7 +11,8 @@
     h2 #{@event.festival.title}
   - else
     h2 #{@event.title}
-  
+  - if @event.free
+    .free
   - if @event.venue
     ' LOCATION - 
     span = link_to @event.venue.name, @event.venue

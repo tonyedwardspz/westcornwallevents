@@ -10,6 +10,8 @@
     h2 = link_to event.title, event
   
   p.details
+    - if event.free
+      .free
     - unless event.dateend.blank?
       ' DATE: #{event.date.day.ordinalize} #{event.dateend.strftime("%b")} to #{event.dateend.day.ordinalize} #{event.dateend.strftime("%b %Y")}
     - else
