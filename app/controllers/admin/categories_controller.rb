@@ -1,5 +1,4 @@
-class Admin::CategoriesController < ApplicationController
-
+class Admin::CategoriesController < Admin::AdminAreaController
   def index
     @categories = Category.all
     @page_title = "View all Event Users"
