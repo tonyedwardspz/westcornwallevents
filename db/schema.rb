@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160111224826) do
+ActiveRecord::Schema.define(version: 20160114161942) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,19 +27,21 @@ ActiveRecord::Schema.define(version: 20160111224826) do
   end
 
   create_table "blogs", force: :cascade do |t|
-    t.string  "title"
-    t.text    "content"
-    t.date    "date_published"
-    t.string  "image"
-    t.string  "blogs"
-    t.string  "image_alt"
-    t.text    "description"
-    t.boolean "published",      default: false
-    t.string  "slug"
-    t.string  "snippet"
-    t.integer "user_id"
-    t.integer "event_id"
-    t.integer "festival_id"
+    t.string   "title"
+    t.text     "content"
+    t.date     "date_published"
+    t.string   "image"
+    t.string   "blogs"
+    t.string   "image_alt"
+    t.text     "description"
+    t.boolean  "published",      default: false
+    t.string   "slug"
+    t.string   "snippet"
+    t.integer  "user_id"
+    t.integer  "event_id"
+    t.integer  "festival_id"
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
   end
 
   add_index "blogs", ["event_id"], name: "index_blogs_on_event_id", using: :btree
