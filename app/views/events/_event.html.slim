@@ -10,6 +10,9 @@
     h2 = link_to event.title, event
   
   p.details
+    '
+    - if event.free
+      .free
     - if event.venue
       ' LOCATION - 
       = link_to event.venue.name, event.venue
