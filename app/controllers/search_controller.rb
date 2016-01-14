@@ -20,6 +20,7 @@ class SearchController < ApplicationController
         end
       end
       @page_title = "#{params['q']} - Search Results"
+      @search_future_events.sort_by{|e| e[:date]}
     else
       @page_title = "Search Results"
     end
