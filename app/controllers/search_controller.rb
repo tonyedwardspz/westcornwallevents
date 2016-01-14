@@ -9,6 +9,7 @@ class SearchController < ApplicationController
       @search_blogs = []
       @search_festivals = []
       @search_venues = []
+
       @results.each do |result|
         r = result.searchable
         if r.class.name == "Event"
@@ -17,8 +18,15 @@ class SearchController < ApplicationController
           else
             @search_past_events << r
           end
+        elsif r.class.name == "Blog"
+          @search_blogs << r
+        elsif r.class.name == "Festival"
+          @search_festivals << r
+        elsif r.class.name == "Venue"
+          @search_venues << r
         end
       end
+
       @page_title = "#{params['q']} - Search Results"
       @search_future_events.sort_by{|e| e[:date]}
     else
