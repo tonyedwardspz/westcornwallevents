@@ -1,16 +1,18 @@
 class Admin::CategoriesController < Admin::AdminAreaController
+  before_action :set_category, only: [:edit, :update, :destroy]
+
   def index
     @categories = Category.all
-    @page_title = "View all Event Users"
+    @page_title = "View all categories"
   end
 
   def new
     @category = Category.new
-    @page_title = "New Event User"
+    @page_title = "New Category"
   end
 
   def edit
-    @page_title = "Edit Event User"
+    @page_title = "Edit Category"
   end
 
   def create
@@ -18,7 +20,7 @@ class Admin::CategoriesController < Admin::AdminAreaController
 
     respond_to do |format|
       if @category.save
-        format.html { redirect_to admin_categories_path, notice: 'User was successfully created.' }
+        format.html { redirect_to admin_categories_path, notice: 'Category was successfully created.' }
       else
         format.html { render :new }
       end
@@ -28,7 +30,7 @@ class Admin::CategoriesController < Admin::AdminAreaController
   def update
     respond_to do |format|
       if @category.update(category_params)
-        format.html { redirect_to admin_categories, notice: 'User was successfully updated.' }
+        format.html { redirect_to admin_categories_path , notice: 'Category was successfully updated.' }
       else
         format.html { render :edit }
       end
@@ -39,7 +41,7 @@ class Admin::CategoriesController < Admin::AdminAreaController
   def destroy
     @category.destroy!
     respond_to do |format|
-      format.html { redirect_to admin_categories, notice: 'User was successfully destroyed.' }
+      format.html { redirect_to admin_categories_path , notice: 'Category was successfully destroyed.' }
     end
   end
 
