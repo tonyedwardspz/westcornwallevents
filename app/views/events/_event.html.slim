@@ -23,11 +23,13 @@
       ' DATE: #{event.date.day.ordinalize} #{event.date.strftime("%b %Y")}
     - unless event.time.blank?
       '  - TIME: #{event.time}
+    - if event.categories.present? || event.free
+      br
     - if event.free
-      .free
+      span.bullet.free-bullet FREE
     - if event.categories.present?
       -event.categories.each do |cat|
-        span.category #{cat}
+        span.bullet.category-bullet #{cat.name}
 
 .event_info.unit.span-grid
   - unless event.image_link.blank?
