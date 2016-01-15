@@ -14,6 +14,7 @@
         = f.input :time, input_html: { placeholder: "9:00" }
         = f.input :time_end, input_html: { placeholder: "18:00" }
         = f.input :free, as: :boolean, input_html: { value: :free }
+        = f.association :categories, collection: Category.all.order('name'), multiple: true, input_html: {size: 5}
 
     .panel.panel-default
       .panel-heading

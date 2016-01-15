@@ -11,8 +11,6 @@
   
   p.details
     '
-    - if event.free
-      .free
     - if event.venue
       ' LOCATION - 
       = link_to event.venue.name, event.venue
@@ -25,6 +23,13 @@
       ' DATE: #{event.date.day.ordinalize} #{event.date.strftime("%b %Y")}
     - unless event.time.blank?
       '  - TIME: #{event.time}
+    - if event.categories.present? || event.free
+      br
+    - if event.free
+      span.bullet.free-bullet FREE
+    - if event.categories.present?
+      -event.categories.each do |cat|
+        span.bullet.category-bullet #{cat.name}
 
 .event_info.unit.span-grid
   - unless event.image_link.blank?

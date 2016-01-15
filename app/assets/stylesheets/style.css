@@ -887,7 +887,7 @@ td:first-child, th:first-child { padding: 5px 30px 5px 0;}
     overflow: auto;
 }
 
-.result a{
+.result .title{
     font-size: 1.5em;
 }
 
@@ -901,19 +901,22 @@ td:first-child, th:first-child { padding: 5px 30px 5px 0;}
     color: #bbb;
 }
 
-.free {
-    float: right;
+.bullet {
     color: #fff;
-    background-color: #5cb85c;
-    border-color: #5cb85c;
     border-radius: 20px;
     width: auto;
     height: 22px;
     text-align: center;
-    padding: 0 15px;
+    padding: 3px 15px;
+    margin-right: 0.7em;
 }
 
-.free:after {
-    content: "FREE";
-    padding-bottom: 2px;
+.category-bullet {
+    background-color: #31b0d5;
+    border-color: #2aabd2;
+}
+
+.free-bullet {
+    background-color: #5cb85c;
+    border-color: #5cb85c;
 }

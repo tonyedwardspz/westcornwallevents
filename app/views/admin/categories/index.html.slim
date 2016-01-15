@@ -1,0 +1,26 @@
+#page-wrapper
+  .row
+
+    .col-lg-12
+      h1.page-header 
+        = @page_title || "Page Title"
+      
+      .panel.panel-default
+        .panel-body
+          = link_to "New Category", new_admin_category_path, class: 'btn btn-primary'
+
+          .dataTable_wrapper
+            table.table.table-stripedt.able-bordered.table-hover
+              thead
+                tr
+                  th Name
+                  th Description
+                  th 
+                  th 
+              tbody 
+                - @categories.each do |cat|
+                  tr
+                    td = cat.name
+                    td = cat.description
+                    td = link_to 'Edit', edit_admin_category_path(:id => cat.id)
+                    td = link_to 'Destroy', admin_category_path(:id => cat.id), data: {:confirm => 'Are you sure?'}, :method => :delete

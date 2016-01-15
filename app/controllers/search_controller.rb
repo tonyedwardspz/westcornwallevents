@@ -2,7 +2,7 @@ class SearchController < ApplicationController
   skip_before_action :authorize
 
   def results
-    if params['q'].present?
+    if params['q'].present? && params['q'].length > 0
       @results = PgSearch.multisearch(params[:q])
       @search_future_events = []
       @search_past_events = []
