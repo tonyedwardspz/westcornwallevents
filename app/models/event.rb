@@ -7,7 +7,7 @@
   belongs_to :festival
   belongs_to :venue
   belongs_to :event_user
-  belongs_to :category
+  has_and_belongs_to_many :categories
   has_and_belongs_to_many :blogs
   validates :title, presence: true
   validates :date, presence: true
