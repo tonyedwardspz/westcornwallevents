@@ -16,7 +16,7 @@ e.results
       .result
         - unless result.image_link.blank?
           = image_tag result.image_link.thumb, alt: result.imageAlt, width: 225, height: 132, class: "post-image lazy-image", lazy: true
-        = link_to "#{result.title}", result
+        = link_to "#{result.title}", result, class: "title"
         p.details 
           - unless result.dateend.blank?
             ' DATE: #{result.date.day.ordinalize} #{result.dateend.strftime("%b")} to #{result.dateend.day.ordinalize} #{result.dateend.strftime("%b %Y")}
