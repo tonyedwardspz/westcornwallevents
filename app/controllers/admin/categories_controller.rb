@@ -2,7 +2,7 @@ class Admin::CategoriesController < Admin::AdminAreaController
   before_action :set_category, only: [:edit, :update, :destroy]
 
   def index
-    @categories = Category.all
+    @categories = Category.all.order('name')
     @page_title = "View all categories"
   end
 
