@@ -16,11 +16,13 @@
                   th Name
                   th Description
                   th 
-                  th 
+                  th
+                  th
               tbody 
                 - @categories.each do |cat|
                   tr
                     td = cat.name
                     td = cat.description
+                    td = link_to 'Show', admin_category_path(:id => cat.id)
                     td = link_to 'Edit', edit_admin_category_path(:id => cat.id)
                     td = link_to 'Destroy', admin_category_path(:id => cat.id), data: {:confirm => 'Are you sure?'}, :method => :delete

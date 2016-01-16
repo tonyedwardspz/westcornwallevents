@@ -1,0 +1,35 @@
+#page-wrapper
+  .row
+    .col-lg-12
+      h1.page-header Show Category
+  .row
+    .col-lg-9
+      p#notice = notice
+
+      .panel.panel-default
+        .panel-heading
+          ' Category Details
+        .panel-body
+          p NAME: #{@category.name}
+          p DESCRIPTION: #{@category.description}
+
+          
+    .col-lg-3
+      p#notice = notice
+
+      .panel.panel-default
+        .panel-heading
+          ' Category Details
+        .panel-body
+          = link_to 'Edit Category', edit_admin_category_path(@category), class: "btn btn-primary"
+
+    .col-lg-12
+      .panel.panel-default
+        .panel-heading
+          ' Category Events
+        .panel-body
+          - if @category.events.present?
+            - @category.events.each_with_index do |event, i|
+              p 
+                ' #{i+1} - #{event.title} - 
+                = link_to 'View Event', admin_events_path(event)
