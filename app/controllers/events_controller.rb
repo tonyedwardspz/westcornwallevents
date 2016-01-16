@@ -42,7 +42,7 @@ class EventsController < ApplicationController
     @page_title = @event.title
     if @event.image_link.present?
       @image_meta_url = "https://westcornwallevents.co.uk"
-      @image_meta_url << @event.image_link.thumb.to_s
+      @image_meta_url << @event.image_link.to_s
     end
     @page_meta_description = @event.description
   end
