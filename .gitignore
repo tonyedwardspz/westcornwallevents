@@ -4,3 +4,4 @@ config/secrets.yml
 coverage
 public/uploads
 db/seeds.rb
+.idea
