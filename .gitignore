@@ -5,3 +5,4 @@ coverage
 public/uploads
 db/seeds.rb
 .idea
+node_modules
