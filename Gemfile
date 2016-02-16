@@ -50,7 +50,7 @@ gem 'simple_form', '~> 3.1.0'
 gem 'sitemap_generator', group: :production
 gem "mini_magick"
 gem 'whenever', :require => false
-gem 'factory_girl', group: [:development, :test]
+gem 'factory_girl_rails', group: [:development, :test]
 gem 'minitest-rails'
 gem 'minitest-rails-capybara', group: :test
 gem 'minitest-rg', group: :test

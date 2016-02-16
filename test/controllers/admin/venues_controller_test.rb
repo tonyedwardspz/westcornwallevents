@@ -2,8 +2,8 @@ require "test_helper"
 
 class Admin::VenuesControllerTest < ActionController::TestCase
 
-  def admin_venue
-    @admin_venue ||= admin_venues :one
+  def venue
+    @venue ||= FactoryGirl.create(:venue)
   end
 
   def test_index
@@ -18,11 +18,13 @@ class Admin::VenuesControllerTest < ActionController::TestCase
   end
 
   def test_create
-    assert_difference('Admin::Venue.count') do
-      post :create, admin_venue: {  }
+    attrs = FactoryGirl.attributes_for(:venue)
+
+    assert_difference('Venue.count') do
+      post :create, venue: attrs
     end
 
-    assert_redirected_to admin_venue_path(assigns(:admin_venue))
+    assert_redirected_to venue_path(assigns(:venue))
   end
 
   def test_show

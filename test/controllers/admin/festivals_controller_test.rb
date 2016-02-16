@@ -18,7 +18,7 @@ class Admin::FestivalsControllerTest < ActionController::TestCase
   end
 
   def test_create
-    assert_difference('Admin::Festival.count') do
+    assert_difference('Festival.count') do
       post :create, admin_festival: {  }
     end
 
@@ -41,7 +41,7 @@ class Admin::FestivalsControllerTest < ActionController::TestCase
   end
 
   def test_destroy
-    assert_difference('Admin::Festival.count', -1) do
+    assert_difference('Festival.count', -1) do
       delete :destroy, id: admin_festival
     end
 
