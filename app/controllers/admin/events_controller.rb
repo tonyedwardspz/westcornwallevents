@@ -63,11 +63,15 @@ class Admin::EventsController < Admin::AdminAreaController
 
   def send_confirmation(event)
     if event.event_user.present?
-      begin
-        logger.debug "LOGGER: Send confirmation to #{event.event_user.email}"
-        SubmissionLiveMailer.submission_live_email(event).deliver_now
-      rescue => e
-        logger.warn "Failed to send emails (submission_live): #{e}"
+      unless event.confirmed?
+        begin
+          logger.debug "LOGGER: Send confirmation to #{event.event_user.email}"
+          SubmissionLiveMailer.submission_live_email(event).deliver_now
+          event.confirmed = true
+          event.save!
+        rescue => e
+          logger.warn "Failed to send emails (submission_live): #{e}"
+        end
       end
     else
       logger.debug "Confirmation email not sent"
