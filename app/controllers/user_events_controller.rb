@@ -54,6 +54,6 @@ class UserEventsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_event_params
-      params.require(:user_event).permit(:title, :date, :end_date, :location, :link, :image, :time, :time_end, :description, :first_name, :last_name, :user_email, :add_to_mailling_list, :venue_id, :image_cache)
+      params.require(:user_event).permit(:title, :date, :end_date, :location, :link, :image, :time, :time_end, :description, :first_name, :last_name, :user_email, :add_to_mailling_list, :venue_id, :image_cache, , :free, :category_ids => [])
     end
 end

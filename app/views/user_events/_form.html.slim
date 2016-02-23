@@ -32,6 +32,9 @@
             = f.input :time, required: true, label: "Start Time", placeholder: "18:00"
           .col-sm-6.first
             = f.input :time_end, label: "End Time", placeholder: "21:00"
+          .col-sm-12.first
+            = f.input :free, as: :boolean, input_html: { value: :free }
+            = f.association :categories, collection: Category.all.order('name'), multiple: true, input_html: {size: 5}
 
     .col-sm-6
       .panel.panel-default

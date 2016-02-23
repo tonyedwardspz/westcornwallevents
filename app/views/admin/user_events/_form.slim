@@ -13,6 +13,8 @@
           = f.input :dateend, as: :string, label: "End Date (if multi day)", input_html: { placeholder: "23/07/2015"}
         = f.input :time, input_html: { placeholder: "09:30" }
         = f.input :time_end, input_html: { placeholder: "18:30" }
+        = f.input :free, as: :boolean, input_html: { value: :free }
+        = f.association :categories, collection: Category.all.order('name'), multiple: true, input_html: {size: 5}
 
     .panel.panel-default
       .panel-heading
