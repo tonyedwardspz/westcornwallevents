@@ -1,6 +1,7 @@
 class UserEvent < ActiveRecord::Base
   mount_uploader :image, UsereventAttachmentUploader
   belongs_to :venue
+  has_and_belongs_to_many :categories
 
   validates :title, presence: true
   validates :date, presence: true

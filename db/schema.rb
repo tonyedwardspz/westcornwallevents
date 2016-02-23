@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160216171338) do
+ActiveRecord::Schema.define(version: 20160223172825) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -78,6 +78,14 @@ ActiveRecord::Schema.define(version: 20160216171338) do
 
   add_index "categories_events", ["category_id"], name: "index_categories_events_on_category_id", using: :btree
   add_index "categories_events", ["event_id"], name: "index_categories_events_on_event_id", using: :btree
+
+  create_table "categories_user_events", force: :cascade do |t|
+    t.integer "user_event_id"
+    t.integer "category_id"
+  end
+
+  add_index "categories_user_events", ["category_id"], name: "index_categories_user_events_on_category_id", using: :btree
+  add_index "categories_user_events", ["user_event_id"], name: "index_categories_user_events_on_user_event_id", using: :btree
 
   create_table "event_users", force: :cascade do |t|
     t.string  "first_name"
@@ -192,8 +200,11 @@ ActiveRecord::Schema.define(version: 20160216171338) do
     t.string   "time_end"
     t.boolean  "archived",             default: false, null: false
     t.integer  "venue_id"
+    t.boolean  "free",                 default: false
+    t.integer  "category_id"
   end
 
+  add_index "user_events", ["category_id"], name: "index_user_events_on_category_id", using: :btree
   add_index "user_events", ["venue_id"], name: "index_user_events_on_venue_id", using: :btree
 
   create_table "users", force: :cascade do |t|
@@ -225,4 +236,5 @@ ActiveRecord::Schema.define(version: 20160216171338) do
   add_foreign_key "blogs", "users"
   add_foreign_key "events", "categories"
   add_foreign_key "events", "event_users"
+  add_foreign_key "user_events", "categories"
 end
