@@ -33,8 +33,8 @@
           .col-sm-6.first
             = f.input :time_end, label: "End Time", placeholder: "21:00"
           .col-sm-12.first
-            = f.input :free, as: :boolean, input_html: { value: :free }
-            = f.association :categories, collection: Category.all.order('name'), multiple: true, input_html: {size: 5}
+            = f.input :free, as: :boolean, input_html: { value: :free }, label: "Free to attend?"
+            = f.association :categories, collection: Category.all.order('name'), multiple: true, input_html: {size: 5}, label: "Category"
 
     .col-sm-6
       .panel.panel-default
