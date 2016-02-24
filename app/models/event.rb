@@ -40,6 +40,8 @@
     event.time_end = user_event.time_end
     event.linktitle = user_event.title.squish
     event.description = user_event.description
+    event.free = user_event.free
+    event.categories = user_event.categories
 
     if user_event.link.present?
       if user_event.link.start_with?("www.")

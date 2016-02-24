@@ -55,6 +55,10 @@
           strong Time end: 
           = @user_event.time_end
 
+        p 
+          ' FREE: 
+          = @user_event.free ? "Yes" : "No" 
+
   .col-sm-6
     .panel.panel-default
       .panel-heading
