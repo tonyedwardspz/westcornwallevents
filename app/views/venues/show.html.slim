@@ -19,9 +19,9 @@ p
 - if @venue_events.present?
   .ad
     = render "shared/google_ad" 
-  - cache "venue_#{@venue.name}_events", expires_in: (Date.today + 1).beginning_of_day do
+  
 
-    h2 Upcoming Events
+  h2 Upcoming Events
 
-    / = render :partial => @venue_events, :as => :event
-    = render partial: 'event', collection: @venue_events, as: :event
+  / = render :partial => @venue_events, :as => :event
+  = render partial: 'event', collection: @venue_events, as: :event
