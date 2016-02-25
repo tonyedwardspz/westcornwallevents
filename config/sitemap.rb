@@ -3,6 +3,7 @@ SitemapGenerator::Sitemap.sitemaps_path = 'shared/'
 
 SitemapGenerator::Sitemap.create do
   add root_path, :priority => 0.9, :changefreq => 'daily'
+  add submit_event_path, :priority => 0.8, :changefreq => 'monthly'
 
   add events_path, :priority => 0.7, :changefreq => 'daily'
   Event.find_each do |event|
