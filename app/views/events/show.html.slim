@@ -30,6 +30,13 @@
     '  - TIME: #{@event.time}
   - unless @event.time_end.blank?
     '  til #{@event.time_end}
+  - if @event.categories.present? || @event.free
+    br
+  - if @event.free
+    span.bullet.free-bullet FREE
+  - if @event.categories.present?
+    - @event.categories.each do |cat|
+      span.bullet.category-bullet #{cat.name}
 
 .event_info.unit.span-grid
   - unless @event.image_link.blank?
