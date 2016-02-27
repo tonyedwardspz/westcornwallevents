@@ -163,6 +163,8 @@ GEM
       activerecord (>= 3.1)
       activesupport (>= 3.1)
       arel
+    quiet_assets (1.1.0)
+      railties (>= 3.1, < 5.0)
     rack (1.6.4)
     rack-cors (0.4.0)
     rack-test (0.6.3)
@@ -291,6 +293,7 @@ DEPENDENCIES
   minitest-rg
   pg
   pg_search
+  quiet_assets
   rack-cors
   rails (~> 4.2.1)
   rails-assets-RRSSB!
@@ -311,4 +314,4 @@ DEPENDENCIES
   whenever
 
 BUNDLED WITH
-   1.10.6
+   1.11.2
