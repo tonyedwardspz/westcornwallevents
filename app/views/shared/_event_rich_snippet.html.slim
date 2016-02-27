@@ -1,9 +1,9 @@
-<script type="application/ld+json">
+javascript:
   {
     "@context": "http://schema.org",
     "@type": "Event",
     "name": "#{@event.title}",
-    "startDate" : "#{@event.date}:00T#{@event.time}(+)00:00",
+    "startDate" : "#{@event.date}T#{@event.time}",
     "url" : "http://westcornwallevents.co.uk/events/#{@event.slug}",
     "location" : {
       "@type" : "Place",
@@ -12,4 +12,3 @@
       "address" : "#{@event.venue.address}, #{@event.venue.postcode}"
     }
   }
-</script>
