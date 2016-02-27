@@ -99,6 +99,11 @@ class Admin::EventsController < Admin::AdminAreaController
     redirect_to admin_events_url, notice: 'Images successfully reprocessed.'
   end
 
+  def delete_cache
+    Rails.cache.clear
+    redirect_to admin_settings_general_url, notice: 'Cache deleted'
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_event

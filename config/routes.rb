@@ -21,6 +21,7 @@ Rails.application.routes.draw do
 
     # Settings
     post 'events/reprocess_images' => 'events#reprocess_images', as: :reprocess_images
+    post 'events/delete_cache' => 'events#delete_cache', as: :delete_cache
     get 'settings/general'
     get 'settings/adminUsers'
   end
