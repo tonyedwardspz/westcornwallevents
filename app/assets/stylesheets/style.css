@@ -539,7 +539,9 @@ td:first-child, th:first-child { padding: 5px 30px 5px 0;}
     padding: 0;
 }
 
-.footer-list ul li { border-bottom: 1px solid #326B8D; }
+.footer-list ul li { 
+    border-bottom: 1px solid #326B8D; 
+}
 
 .footer-list ul li a:link,
 .footer-list ul li a:visited {
