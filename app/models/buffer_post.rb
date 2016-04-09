@@ -14,7 +14,7 @@ class BufferPost < ActiveRecord::Base
   def self.from_string(message)
     buffer = Buffer::Client.new(ENV['BUFFER_ACCESS_TOKEN'])
     buffer.create_update(create_post_object(message))
-    return 
+    return
   end
 
   private
@@ -22,9 +22,9 @@ class BufferPost < ActiveRecord::Base
   def self.create_post_object(message)
     return { body: {
       text: message, profile_ids: [
-        '56f80e1deffee10e24af61d1',
-        '56d83b4466da7be537d36a6e',
-        '56f8f7510909552d39e25ce6']
+        ENV['BUFFER_TWITTER_KEY'],
+        ENV['BUFFER_FACEBOOK_KEY'],
+        ENV['BUFFER_GOOGLE_KEY']]
       }
     }
   end
@@ -32,7 +32,7 @@ class BufferPost < ActiveRecord::Base
   def self.post_to_twitter(event)
     return { body: {
         text: twitter_message(event),
-        profile_ids: ['56f80e1deffee10e24af61d1']
+        profile_ids: [ENV['BUFFER_TWITTER_KEY']]
       }
     }
   end
@@ -40,7 +40,7 @@ class BufferPost < ActiveRecord::Base
   def self.post_to_facebook(event)
     return { body: {
         text: facebook_message(event),
-        profile_ids: ['56f8f7510909552d39e25ce6']
+        profile_ids: [ENV['BUFFER_FACEBOOK_KEY']]
       }
     }
   end
@@ -48,7 +48,7 @@ class BufferPost < ActiveRecord::Base
   def self.post_to_google(event)
     return { body: {
         text: google_message(event),
-        profile_ids: ['56d83b4466da7be537d36a6e']
+        profile_ids: [ENV['BUFFER_GOOGLE_KEY']]
       }
     }
   end
@@ -62,7 +62,7 @@ class BufferPost < ActiveRecord::Base
   def self.google_message(event)
     # TODO Ensure the message is not too long. How long
     # can it be, taking into account the actual url length
-    return "Today: #{event.title}#{event_url(event)}"
+    return "Today: #{event.title} #{event_url(event)}"
   end
 
   def self.facebook_message(event)
@@ -71,6 +71,6 @@ class BufferPost < ActiveRecord::Base
 
     # TODO Should I only post the event to facebook if there isa
     # no image? Afterall... they have not interactions
-    return "Today: #{event.title} - #{event_url(event)}"
+    return "Today: #{event.title} #{event_url(event)}"
   end
 end
