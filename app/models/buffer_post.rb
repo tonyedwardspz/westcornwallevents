@@ -5,22 +5,15 @@ Rails.application.routes.default_url_options[:host] = 'https://westcornwallevent
 class BufferPost < ActiveRecord::Base
 
   def self.from_event(event)
-    # Instantiate buffer object with key
-    buffer = Buffer::Client.new(ENV['BUFFER_ACCESS_TOKEN'])
+    twitter_content = post_to_twitter(event)
+    BufferJob.perform_now(twitter_content)
 
-    # Create the string we're posting
-    # TODO Create different messages for each social network
-    twitter_message = twitter_message(event)
+    facebook_content = post_to_facebook(event)
+    BufferJob.perform_now(facebook_content)
 
-    # Create the buffer post object
-    # TODO Post each message to the respective social network
-    content = create_post_object(twitter_message)
-
-    # Post the message to buffer
-    # TODO Add this to an 'async' queue, return true or false instead
-    return buffer.create_update(content)
-
-    # TODO If related to Penzance, post it to Purely Penzance too.
+    google_content = post_to_google(event)
+    BufferJob.perform_now(google_content)
+    return
   end
 
   def self.from_string(message)
@@ -31,14 +24,34 @@ class BufferPost < ActiveRecord::Base
 
   private
 
-  def self.create_post_object(message)
-    return { body: {
-      text: message, profile_ids: [
-        '56f80e1deffee10e24af61d1',
-        '56d83b4466da7be537d36a6e',
-        '56f8f7510909552d39e25ce6']
+  def self.post_to_twitter(event)
+    message = twitter_message(event)
+    content = { body: {
+        text: message,
+        profile_ids: ['56f80e1deffee10e24af61d1']
       }
     }
+    return content
+  end
+
+  def self.post_to_facebook(event)
+    message = facebook_message(event)
+    content = { body: {
+        text: message,
+        profile_ids: ['56f8f7510909552d39e25ce6']
+      }
+    }
+    return content
+  end
+
+  def self.post_to_google(event)
+    message = google_message(event)
+    content = { body: {
+        text: message,
+        profile_ids: ['56d83b4466da7be537d36a6e']
+      }
+    }
+    return content
   end
 
   def self.twitter_message(event)
