@@ -26,8 +26,8 @@ Rails.application.routes.draw do
     get 'settings/adminUsers'
 
     # Buffer
-    post 'buffer/auth_with_buffer' => 'buffer#auth_with_buffer', as: :auth_with_buffer
-    post 'buffer/send_buffer_update' => 'buffer#send_buffer_update', as: :send_buffer_update
+    post 'buffer/post_string_to_buffer' => 'buffer#post_string_to_buffer', as: :post_string_to_buffer
+    post 'buffer/post_event_to_buffer' => 'buffer#post_event_to_buffer', as: :post_event_to_buffer
   end
 
   controller :sessions do
