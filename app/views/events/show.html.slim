@@ -1,8 +1,8 @@
 - if @event.venue.present?
   = render "shared/event_rich_snippet"
-  
+
 .event_date.unit.one-of-five
-  p.dateinfo 
+  p.dateinfo
     ' #{@event.date.strftime("%b")}
     span #{@event.date.strftime("%d")}
 
@@ -14,17 +14,17 @@
   - if @event.free
     .free
   - if @event.venue
-    ' LOCATION - 
+    ' LOCATION -
     span = link_to @event.venue.name, @event.venue
   - else
-    ' LOCATION - 
+    ' LOCATION -
     span #{@event.location}
   br
   - unless @event.dateend.blank?
-    ' DATE: 
+    ' DATE:
     span #{@event.date.day.ordinalize} to #{@event.dateend.day.ordinalize} #{@event.dateend.strftime("%b %Y")}
   - else
-    ' DATE: 
+    ' DATE:
     span #{@event.date.day.ordinalize} #{@event.date.strftime("%b %Y")}
   - unless @event.time.blank?
     '  - TIME: #{@event.time}
@@ -41,7 +41,7 @@
 .event_info.unit.span-grid
   - unless @event.image_link.blank?
     = image_tag @event.image_link.thumb, alt: @event.imageAlt, class: "post-image"
-  
+
   p itemprop="description" #{@event.description.html_safe}
 
   - unless @event.description2.blank?
