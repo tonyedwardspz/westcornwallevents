@@ -5,53 +5,52 @@ Rails.application.routes.default_url_options[:host] = 'https://westcornwallevent
 class BufferPost < ActiveRecord::Base
 
   def self.from_event(event)
-    twitter_content = post_to_twitter(event)
-    BufferJob.perform_now(twitter_content)
-
-    facebook_content = post_to_facebook(event)
-    BufferJob.perform_now(facebook_content)
-
-    google_content = post_to_google(event)
-    BufferJob.perform_now(google_content)
+    BufferJob.perform_now(post_to_twitter(event))
+    BufferJob.perform_now(post_to_facebook(event))
+    BufferJob.perform_now(post_to_google(event))
     return
   end
 
   def self.from_string(message)
     buffer = Buffer::Client.new(ENV['BUFFER_ACCESS_TOKEN'])
-    content = create_post_object(twitter_message)
-    return buffer.create_update(content)
+    buffer.create_update(create_post_object(message))
+    return 
   end
 
   private
 
+  def self.create_post_object(message)
+    return { body: {
+      text: message, profile_ids: [
+        '56f80e1deffee10e24af61d1',
+        '56d83b4466da7be537d36a6e',
+        '56f8f7510909552d39e25ce6']
+      }
+    }
+  end
+
   def self.post_to_twitter(event)
-    message = twitter_message(event)
-    content = { body: {
-        text: message,
+    return { body: {
+        text: twitter_message(event),
         profile_ids: ['56f80e1deffee10e24af61d1']
       }
     }
-    return content
   end
 
   def self.post_to_facebook(event)
-    message = facebook_message(event)
-    content = { body: {
-        text: message,
+    return { body: {
+        text: facebook_message(event),
         profile_ids: ['56f8f7510909552d39e25ce6']
       }
     }
-    return content
   end
 
   def self.post_to_google(event)
-    message = google_message(event)
-    content = { body: {
-        text: message,
+    return { body: {
+        text: google_message(event),
         profile_ids: ['56d83b4466da7be537d36a6e']
       }
     }
-    return content
   end
 
   def self.twitter_message(event)
