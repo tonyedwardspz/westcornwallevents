@@ -38,6 +38,9 @@ source 'http://rails-assets.org' do
   gem 'rails-assets-RRSSB'
 end
 
+gem 'buffer', :github => 'bufferapp/buffer-ruby'
+gem 'omniauth-buffer2'
+
 gem 'rollbar', '~> 2.5.0', group: :production
 gem 'skylight', group: :production
 gem 'tinymce-rails'

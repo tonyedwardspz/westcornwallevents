@@ -4,35 +4,14 @@ lock '3.4.0'
 set :application, 'west_cornwall_events'
 set :repo_url, 'git@github.com:tonyedwardspz/westcornwallevents.git'
 
-# Default branch is :master
-# ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
-
 # Default deploy_to directory is /var/www/my_app_name
 set :deploy_to, "/home/rails/apps/#{fetch :application}"
-
-# Default value for :scm is :git
-# set :scm, :git
-
-# Default value for :format is :pretty
-# set :format, :pretty
-
-# Default value for :log_level is :debug
-# set :log_level, :debug
-
-# Default value for :pty is false
-# set :pty, true
 
 # Default value for :linked_files is []
 set :linked_files, fetch(:linked_files, []).push('config/database.yml', 'config/secrets.yml', '.env')
 
 # Default value for linked_dirs is []
 set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', 'public/system', 'public/uploads', 'public/eventimages')
-
-# Default value for default_env is {}
-# set :default_env, { path: "/opt/ruby/bin:$PATH" }
-
-# Default value for keep_releases is 5
-# set :keep_releases, 5
 
 # Setup Rbenv
 set :rbenv_path, "$HOME/.rbenv"
@@ -42,6 +21,10 @@ set :rbenv_ruby, File.read('.ruby-version').strip
 set :rollbar_token, ENV['ROLLBAR_ACCESS']
 set :rollbar_env, Proc.new { fetch :stage }
 set :rollbar_role, Proc.new { :app }
+
+require 'whenever/capistrano'
+set :whenever_environment, defer { stage }
+set :whenever_command, 'bundle exec whenever'
 
 namespace :deploy do
 
@@ -66,7 +49,6 @@ namespace :deploy do
     end
   end
 end
-
 
 before 'deploy:restart', 'deploy:env'
 after 'deploy', 'deploy:restart'

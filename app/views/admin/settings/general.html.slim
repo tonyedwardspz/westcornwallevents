@@ -2,10 +2,12 @@
   .row
 
     .col-lg-12
-      h1.page-header 
+      h1.page-header
         = @page_title || "Page Title"
-      
+
       .panel.panel-default
         .panel-body
           = button_to "Reprocess Images", admin_reprocess_images_path, class: "btn btn-danger"
           = button_to "Delete Cache", admin_delete_cache_path, class: "btn btn-danger"
+          = button_to 'Post string to Buffer', admin_post_string_to_buffer_path, class: 'btn btn-danger'
+          = button_to 'Post event to Buffer', admin_post_event_to_buffer_path, class: 'btn btn-danger'

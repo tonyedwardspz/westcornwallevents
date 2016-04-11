@@ -24,6 +24,10 @@ Rails.application.routes.draw do
     post 'events/delete_cache' => 'events#delete_cache', as: :delete_cache
     get 'settings/general'
     get 'settings/adminUsers'
+
+    # Buffer
+    post 'buffer/post_string_to_buffer' => 'buffer#post_string_to_buffer', as: :post_string_to_buffer
+    post 'buffer/post_event_to_buffer' => 'buffer#post_event_to_buffer', as: :post_event_to_buffer
   end
 
   controller :sessions do
