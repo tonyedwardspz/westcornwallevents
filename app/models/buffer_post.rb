@@ -1,5 +1,5 @@
 class BufferPost < ActiveRecord::Base
-  include Rails.application.routes.url_helpers
+
   # Rails.application.routes.default_url_options[:host] = 'https://westcornwallevents.co.uk'
 
 
@@ -53,18 +53,21 @@ class BufferPost < ActiveRecord::Base
   end
 
   def self.twitter_message(event)
+    include Rails.application.routes.url_helpers
     # TODO Ensure the message is not too long. How long
     # can it be, taking into account the actual url length
     return "Today: #{event.title} - #{event_url(event)}"
   end
 
   def self.google_message(event)
+    include Rails.application.routes.url_helpers
     # TODO Ensure the message is not too long. How long
     # can it be, taking into account the actual url length
     return "Today: #{event.title} #{event_url(event)}"
   end
 
   def self.facebook_message(event)
+    include Rails.application.routes.url_helpers
     # TODO Ensure the message is not too long. How long
     # can it be, taking into account the actual url length
 
