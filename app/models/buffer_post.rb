@@ -56,14 +56,14 @@ class BufferPost
     include Rails.application.routes.url_helpers
     # TODO Ensure the message is not too long. How long
     # can it be, taking into account the actual url length
-    return "Today: #{event.title} - #{event_url(event)}"
+    return "Today: #{event.title} - #{ActionView::Helpers::event_url(event)}"
   end
 
   def self.google_message(event)
     include Rails.application.routes.url_helpers
     # TODO Ensure the message is not too long. How long
     # can it be, taking into account the actual url length
-    return "Today: #{event.title} #{event_url(event)}"
+    return "Today: #{event.title} #{ActionView::Helpers::event_url(event)}"
   end
 
   def self.facebook_message(event)
@@ -73,6 +73,6 @@ class BufferPost
 
     # TODO Should I only post the event to facebook if there isa
     # no image? Afterall... they have not interactions
-    return "Today: #{event.title} #{event_url(event)}"
+    return "Today: #{event.title} #{ActionView::Helpers::event_url(event)}"
   end
 end
