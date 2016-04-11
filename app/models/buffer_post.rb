@@ -1,8 +1,7 @@
-
-# include Rails.application.routes.url_helpers
-#Rails.application.routes.default_url_options[:host] = 'https://westcornwallevents.co.uk'
-
 class BufferPost < ActiveRecord::Base
+  include Rails.application.routes.url_helpers
+  # Rails.application.routes.default_url_options[:host] = 'https://westcornwallevents.co.uk'
+
 
   def self.from_event(event)
     BufferJob.perform_now(post_to_twitter(event))
