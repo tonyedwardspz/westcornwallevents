@@ -1,8 +1,4 @@
-class BufferPost
-
-  # Rails.application.routes.default_url_options[:host] = 'https://westcornwallevents.co.uk'
-
-
+class BufferPost < ActiveRecord::Base
   def self.from_event(event)
     BufferJob.perform_now(post_to_twitter(event))
     BufferJob.perform_now(post_to_facebook(event))
@@ -53,26 +49,23 @@ class BufferPost
   end
 
   def self.twitter_message(event)
-    include Rails.application.routes.url_helpers
     # TODO Ensure the message is not too long. How long
     # can it be, taking into account the actual url length
-    return "Today: #{event.title} - #{ActionView::Helpers::UrlHelper::event_url(event)}"
+    return "Today: #{event.title} - https://westcornwallevents.co.uk/events/#{event.slug}"
   end
 
   def self.google_message(event)
-    include Rails.application.routes.url_helpers
     # TODO Ensure the message is not too long. How long
     # can it be, taking into account the actual url length
-    return "Today: #{event.title} #{ActionView::Helpers::UrlHelper::event_url(event)}"
+    return "Today: #{event.title} https://westcornwallevents.co.uk/events/#{event.slug}"
   end
 
   def self.facebook_message(event)
-    include Rails.application.routes.url_helpers
     # TODO Ensure the message is not too long. How long
     # can it be, taking into account the actual url length
 
     # TODO Should I only post the event to facebook if there isa
     # no image? Afterall... they have not interactions
-    return "Today: #{event.title} #{ActionView::Helpers::UrlHelper::event_url(event)}"
+    return "Today: #{event.title} https://westcornwallevents.co.uk/events/#{event.slug}"
   end
 end
