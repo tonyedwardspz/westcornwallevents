@@ -1,4 +1,4 @@
-class BufferPost < ActiveRecord::Base
+class BufferPost
 
   # Rails.application.routes.default_url_options[:host] = 'https://westcornwallevents.co.uk'
 
