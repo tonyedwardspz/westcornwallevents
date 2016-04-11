@@ -1,5 +1,5 @@
 h1
-  a#top Welcome to West Cornwall Events 
+  a#top Welcome to West Cornwall Events
 p
   | West Cornwall Events brings you the best of the local festivals, live music, theatre groups, one off shows, club nights, charity events, poetry reading and everything else you can imagine. All just one click away.
 
@@ -14,10 +14,10 @@ h2 Upcoming Events
         = image_tag e.image_link.grid_thumb, alt: "#{e.title}"
       - elsif e.image_link.present?
         = image_tag e.image_link, alt: "#{e.title}"
-      p.home-info 
+      p.home-info
         ' #{e.date.day.ordinalize} #{e.date.strftime("%b %Y")}
         - if e.venue
-          ' - 
+          ' -
           = link_to e.venue.name, e.venue
         - else
           ' - #{e.location}
@@ -31,7 +31,7 @@ h2 Upcoming Events
 
 p = link_to "view this months listings", events_path(:year => "#{Time.now.year}", :month => "#{Date.today.strftime("%B")}"), :title => "Events in Cornwall #{Time.now.year}", class: "more"
 
-p.submit-text 
-  ' Everything on this site is free, including 
-  a href="http://westcornwallevents.co.uk/submit_event" title="submit your cornish event free" submitting your events 
+p.submit-text
+  ' Everything on this site is free, including
+  a href="http://westcornwallevents.co.uk/submit_event" title="submit your cornish event free" submitting your events
   ' to us. We're nice like that!
