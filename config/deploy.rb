@@ -22,6 +22,10 @@ set :rollbar_token, ENV['ROLLBAR_ACCESS']
 set :rollbar_env, Proc.new { fetch :stage }
 set :rollbar_role, Proc.new { :app }
 
+require 'whenever/capistrano'
+set :whenever_environment, defer { stage }
+set :whenever_command, 'bundle exec whenever'
+
 namespace :deploy do
 
   after :restart, :clear_cache do
