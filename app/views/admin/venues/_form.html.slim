@@ -18,6 +18,7 @@
         = f.input :address, required: :true, label: "Poastal Address", input_html: { placeholder: "42 George Street, Camborne, Cornwall" }
         = f.input :postcode, required: :true, label: "Postcode", input_html: { placeholder: "TR17 2GH" }
         = f.input :email, label: "Email Address", input_html: { placeholder: "hello@venue.com" }
+        = f.input :twitter_handle, label: "Twitter Handle", input_html: { placeholder: '@venue'}
 
     .panel.panel-default
       .panel-heading
@@ -25,7 +26,7 @@
       .panel-body
         = f.input :url, label: "URL", input_html: { placeholder: "http://www.venue.com" }
         = f.input :LinkAlt, label: "URL Title Text", input_html: { placeholder: "Venue Name, Town" }
-        
+
     .panel.panel-default
       .panel-heading
         ' Image
@@ -49,5 +50,5 @@
     .panel.panel-default
       .panel-body
         = f.button :submit, class: "btn btn-primary"
-        '   
+        '
         = link_to "Cancel", admin_venues_path, class: "btn btn-warning"

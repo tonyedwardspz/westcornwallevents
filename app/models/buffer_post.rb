@@ -49,9 +49,21 @@ class BufferPost < ActiveRecord::Base
   end
 
   def self.twitter_message(event)
-    # TODO Ensure the message is not too long. How long
-    # can it be, taking into account the actual url length
-    return "Today: #{event.title} - https://westcornwallevents.co.uk/events/#{event.slug}"
+    message = "Today: #{event.title}"
+
+    if message.length <= 116
+      if event.venue.present?
+        if event.venue.twitter_handle.length <= (115 - message.length)
+          return "#{message} #{event.venue.twitter_handle} https://westcornwallevents.co.uk/events/#{event.slug}"
+        else
+          return "#{message} https://westcornwallevents.co.uk/events/#{event.slug}"
+        end
+      else
+        return "#{message} https://westcornwallevents.co.uk/events/#{event.slug}"
+      end
+    else
+      return "Later Today - https://westcornwallevents.co.uk/events/#{event.slug}"
+    end
   end
 
   def self.google_message(event)
@@ -62,7 +74,7 @@ class BufferPost < ActiveRecord::Base
 
   def self.facebook_message(event)
     # TODO Ensure the message is not too long. How long
-    # can it be, taking into account the actual url length
+    # can it be, taking into account the actual url length.
 
     # TODO Should I only post the event to facebook if there isa
     # no image? Afterall... they have not interactions
