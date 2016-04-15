@@ -13,7 +13,7 @@ class VenuesController < ApplicationController
   # GET /venues/1.json
   def show
     @page_title = @venue.name
-    @venue_events = @venue.events.where('date >= ?', DateTime.now).order('date').limit(5)
+    @venue_events = @venue.events.where('date >= ?', DateTime.now).order('date').limit(5).includes(:festival)
   end
 
   private
