@@ -18,7 +18,7 @@ group :development, :test do
   gem 'spring'
   gem 'quiet_assets'
   gem 'factory_girl_rails'
-  gem 'bullet'
+
 end
 
 group :test do
@@ -28,6 +28,7 @@ group :test do
   gem 'simplecov', group: :test, require: false
 end
 
+gem 'bullet'
 gem 'buffer', :github => 'bufferapp/buffer-ruby'
 gem 'omniauth-buffer2'
 gem 'rollbar', '~> 2.8.3', group: :production
