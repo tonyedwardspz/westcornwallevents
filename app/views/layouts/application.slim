@@ -12,7 +12,7 @@ html lang="en"
 
     - if @page_meta_description.present?
       = render "shared/open_graph"
-    
+
     /[if lt IE 9]
       = javascript_include_tag "https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"
       = javascript_include_tag "https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"
@@ -27,8 +27,8 @@ html lang="en"
             ul#in-menu
               li.home
                 = link_to "Home", root_path, title: "Home"
-              li.blog
-                = link_to "Blog", blogs_path, title: "Blog"
+              / li.blog
+              /  = link_to "Blog", blogs_path, title: "Blog"
               li.next-thirty
                 = link_to "Upcoming Events", events_path(:days => '30'), :title => "Upcoming Events in Cornwall"
               li.all-events
@@ -51,7 +51,7 @@ html lang="en"
             = link_to "West Cornwall Events", root_path, title: "Home"
 
     div style="clear: both;"
-    
+
     / Content
     #content-wrap
       .container
@@ -60,17 +60,19 @@ html lang="en"
             = yield
 
             .ad
-              = render "shared/google_ad" 
+              = render "shared/google_ad"
 
           / Sidebar
           #sidebar.unit.one-of-four
             .grid
-              = render "shared/sidebar_festivals"
+              - cache "sidebar_cache", expires: Time.new.beginning_of_day
+                = render "shared/sidebar_festivals"
 
               #sideSlot.ad.unit.span-grid.sidemenu
-                = render "shared/google_ad" 
+                = render "shared/google_ad"
 
-    = render "shared/footer"
+    - cache "footer_cache", expires: Time.new.beginning_of_day
+      = render "shared/footer"
 
     script src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
     = javascript_include_tag 'application'
