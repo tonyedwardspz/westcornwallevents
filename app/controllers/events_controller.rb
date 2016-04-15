@@ -7,25 +7,25 @@ class EventsController < ApplicationController
   def index
     if params[:days]
       if params[:days] == '7'
-        @events =  Event.next_seven_days
+        @events =  Event.next_seven_days.includes(:festival, :venue, :categories)
         @page_title = "Next 7 Days of events and festivals"
       elsif params[:days] == '30'
-        @events = Event.next_thirty_days
+        @events = Event.next_thirty_days.includes(:festival, :venue, :categories)
         @page_title = "Next 30 Days of events and festivals"
       end
     elsif params[:month] && params[:year]
       month = Date::MONTHNAMES.index(params[:month])
-      @events = Event.by_month_year(month, params[:year])
+      @events = Event.by_month_year(month, params[:year]).includes(:festival, :venue, :categories)
       @page_title = "#{params[:month]} #{params[:year]} Events | West Cornwall Events"
     elsif params[:year]
       if params[:year] > Time.now.year.to_s
-        @events = Event.by_year(params[:year])
+        @events = Event.by_year(params[:year]).includes(:festival, :venue, :categories)
       else
-        @events = Event.by_month_year(Time.now.month, params[:year])
+        @events = Event.by_month_year(Time.now.month, params[:year]).includes(:festival, :venue, :categories)
       end
       @page_title = "#{params[:year]} events and festivals"
     else
-      @events = Event.future
+      @events = Event.future.includes(:festival, :venue, :categories)
       @page_title = "Upcoming events and festivals"
     end
 
