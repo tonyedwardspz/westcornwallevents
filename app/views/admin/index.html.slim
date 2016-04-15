@@ -1,8 +1,5 @@
 #page-wrapper
     .row
-      .col-lg-12
-        h1.page-header Dashboard
-    .row
       .col-lg-3.col-md-6
         .panel.panel-primary
           .panel-heading
@@ -10,14 +7,14 @@
               .col-xs-3
                 i.fa.fa-calendar.fa-5x
               .col-xs-9.text-right
-                .huge #{@total_future_events} 
+                .huge #{@total_future_events}
                 div Future Events
           .panel-footer
             span.pull-left = link_to "Add New Event", new_admin_event_path
             span.pull-right
               i.fa.fa-arrow-circle-right
             .clearfix
-      
+
       .col-lg-3.col-md-6
         .panel.panel-green
           .panel-heading
@@ -29,10 +26,10 @@
                 div Unprocesed Events
           .panel-footer
             span.pull-left = link_to "Process Events", admin_user_events_path
-            span.pull-right 
+            span.pull-right
               i.fa.fa-arrow-circle-right
             .clearfix
-      
+
       .col-lg-3.col-md-6
         .panel.panel-yellow
           .panel-heading
@@ -47,7 +44,7 @@
             span.pull-right
               i.fa.fa-arrow-circle-right
             .clearfix
-      
+
       .col-lg-3.col-md-6
         .panel.panel-red
           .panel-heading
@@ -57,13 +54,13 @@
               .col-xs-9.text-right
                 .huge 13
                 div Support Tickets!
-          a href="#" 
+          a href="#"
           .panel-footer
             span.pull-left View Details
             span.pull-right
               i.fa.fa-arrow-circle-right
             .clearfix
-    
+
     .row
       .col-lg-8
         .panel.panel-default
@@ -76,9 +73,9 @@
                 tr
                   th Title
                   th Start Date
-                  th 
-                  th 
-              tbody 
+                  th
+                  th
+              tbody
                 - for event in @recently_added_events
                   tr
                     td #{event.title}
@@ -93,30 +90,30 @@
             | Vital Statistics
           .panel-body
             .list-group
-              a.list-group-item href="/admin/events" 
+              a.list-group-item href="/admin/events"
                 i.fa.fa-calendar.fa-fw
                 | #{@total_future_events} Future events
-              a.list-group-item href="/admin/events" 
+              a.list-group-item href="/admin/events"
                 i.fa.fa-calendar.fa-fw
                 | #{@total_events} Total events
-              a.list-group-item href="/admin/user_events" 
+              a.list-group-item href="/admin/user_events"
                 i.fa.fa-calendar-check-o.fa-fw
                 | #{@number_submitted} Total unprocessed events
-              a.list-group-item href="/admin/festivals" 
+              a.list-group-item href="/admin/festivals"
                 i.fa.fa-smile-o.fa-fw
                 | #{@total_festivals} Total festivals
-              a.list-group-item href="/admin/venues" 
+              a.list-group-item href="/admin/venues"
                 i.fa.fa-building-o.fa-fw
                 | #{@total_venues} Total venues
-              a.list-group-item href="/admin/pages" 
+              a.list-group-item href="/admin/pages"
                 i.fa.fa-file-text-o.fa-fw
                 | #{@total_pages} Total pages
-              a.list-group-item href="/admin/blogs" 
+              a.list-group-item href="/admin/blogs"
                 i.fa.fa-file-text-o.fa-fw
                 | #{@total_blog_posts} Total blog posts
-              a.list-group-item href="/admin/event_users" 
+              a.list-group-item href="/admin/event_users"
                 i.fa.fa-users.fa-fw
                 | #{@event_users} Total event users
-              a.list-group-item href="/admin/users" 
+              a.list-group-item href="/admin/users"
                 i.fa.fa-user.fa-fw
                 | #{@total_users} Total admin users

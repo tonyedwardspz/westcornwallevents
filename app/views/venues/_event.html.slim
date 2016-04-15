@@ -1,5 +1,5 @@
 .event_date.unit.one-of-five
-  p.dateinfo 
+  p.dateinfo
     ' #{event.date.strftime("%b")}
     span #{event.date.strftime("%d")}
 
@@ -8,7 +8,7 @@
     h2 = link_to event.title, event.festival
   - else
     h2 = link_to event.title, event
-  
+
   p.details
     - if event.free
       .free
@@ -22,7 +22,7 @@
 .event_info.unit.span-grid
   - unless event.image_link.blank?
     = image_tag event.image_link.thumb, alt: event.imageAlt, class: "post-image"
-  
+
   p #{event.description.html_safe}
 
   - if event.festival
