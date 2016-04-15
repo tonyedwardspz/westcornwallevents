@@ -3,9 +3,9 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
   before_action :authorize
-  $sidebar_events = Event.future
+  $sidebar_events = Event.future.includes(:venue)
   $upcoming_festivals = Festival.where('date > ?', DateTime.now).order('date').limit(2)
-  $recent_additions = Event.all.order('updated_at DESC').limit(6)
+  $recent_additions = Event.all.order('updated_at DESC').limit(6).includes(:venue)
 
   def not_found
     raise ActionController::RoutingError.new('Not Found')
