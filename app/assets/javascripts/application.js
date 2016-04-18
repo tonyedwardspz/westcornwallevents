@@ -16,3 +16,4 @@
 //= require lazyload
 //= require image-preview
 //= require script
+//= require service-worker
