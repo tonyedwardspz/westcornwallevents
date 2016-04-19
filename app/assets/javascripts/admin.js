@@ -19,5 +19,4 @@
 //= require datatables
 //= require dataTables.bootstrap
 //= require image-preview
-//= require tinymce
 //= require sb-admin-2
