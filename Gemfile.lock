@@ -22,10 +22,9 @@ GIT
 
 GIT
   remote: git@github.com:tonyedwardspz/rails-service-worker-cache.git
-  revision: 29081b3aaa8a46ea40b3156119f03d214aba6c47
-  branch: master
+  revision: 1ce7b63c26576013f7010d160ec339100fac94a8
   specs:
-    rails_service_worker_cache (0.0.18)
+    rails_service_worker_cache (0.1.0)
 
 GIT
   remote: https://github.com/ambethia/recaptcha.git
@@ -346,7 +345,7 @@ DEPENDENCIES
   rack-cors
   rails (~> 4.2.1)
   rails-assets-RRSSB!
-  rails_service_worker_cache!
+  rails_service_worker_cache (~> 0.1.0)!
   recaptcha!
   rollbar (~> 2.8.3)
   sass-rails (~> 5.0)
