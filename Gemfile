@@ -11,6 +11,7 @@ gem 'coffee-rails', '~> 4.1.0'
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
 gem 'bcrypt', '~> 3.1.7'
+gem "rails_service_worker_cache", :git => "git@github.com:tonyedwardspz/rails-service-worker-cache.git", :branch => 'master'
 
 group :development, :test do
   gem 'byebug'
@@ -18,7 +19,6 @@ group :development, :test do
   gem 'spring'
   gem 'quiet_assets'
   gem 'factory_girl_rails'
-
 end
 
 group :test do
@@ -33,7 +33,6 @@ gem 'buffer', :github => 'bufferapp/buffer-ruby'
 gem 'omniauth-buffer2'
 gem 'rollbar', '~> 2.8.3', group: :production
 gem 'skylight', group: :production
-gem 'tinymce-rails'
 gem 'pg_search'
 gem 'seed_dump'
 gem 'friendly_id', '~> 5.1.0'
