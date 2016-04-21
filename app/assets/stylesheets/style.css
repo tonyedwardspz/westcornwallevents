@@ -90,7 +90,7 @@ h5 {
     padding-bottom: 10px;
 }
 
-img { 
+img {
     max-width: 100%;
     height: auto;
 }
@@ -107,13 +107,13 @@ img.float-left {
     clear: right;
 }
 
-ul li { 
-    padding: 0; 
-    margin: 0; 
+ul li {
+    padding: 0;
+    margin: 0;
 }
-ul a { 
-    padding: 0; 
-    display: block; 
+ul a {
+    padding: 0;
+    display: block;
 }
 
 
@@ -169,40 +169,40 @@ hr {
     }
 
 @media screen and (max-width: 720px) {
-    
+
     body{ font-size: small; }
-    
+
     .grid {
         margin-left: 0;
         max-width: none;
     }
-    
+
     .unit {
         width: auto;
         margin-left: 0;
         display: block;
     }
-    
+
     .span-grid { max-width: 100%; }
-    
+
     .container {
         padding: 0 10px 0 10px;
         padding: 0 0.5rem 0 0.5rem;
     }
-    
+
     #annual_event { display: none; }
-    
+
     #event { margin-left: 0; }
-    
+
     #social { height: auto; }
-            
-    h1 { 
-        font-size: 1.5em; 
+
+    h1 {
+        font-size: 1.5em;
         padding: 5px 0 0;
     }
-    
+
     h2 { font-size: 1.35em; }
-    
+
     h3 {font-size: 1.25em; }
 }
 
@@ -296,22 +296,22 @@ td:first-child, th:first-child { padding: 5px 30px 5px 0;}
         top: 0;
         z-index: 9999;
     }
-    
+
     #nav li a {
         float: left;
         padding: 10px 0;
         width: 100%;
     }
-    
+
     #nav { display: none; }
-    
+
     #nav ul { width: 100%;}
-    
+
     #nav li {
         width: 100%;
         border-right: none;
     }
-    
+
     #menu {
         width: 1.4em;
         display: block;
@@ -321,9 +321,9 @@ td:first-child, th:first-child { padding: 5px 30px 5px 0;}
         margin-top: 10px;
         cursor:pointer;
     }
-    
+
     #title {font: bold 25px'Trebuchet MS', 'Helvetica Neue', Arial, Sans-Serif;}
-    
+
     #title-wrap {
         min-height: 60px;
         margin-top: 45px;
@@ -366,8 +366,8 @@ td:first-child, th:first-child { padding: 5px 30px 5px 0;}
     width: 25%;
 }
 
-.body_navigation_select li { 
-    cursor: pointer; 
+.body_navigation_select li {
+    cursor: pointer;
     list-style: none;
 }
 
@@ -376,14 +376,14 @@ td:first-child, th:first-child { padding: 5px 30px 5px 0;}
         margin: 0;
         display: none;
     }
-    
+
     .body_navigation ul { list-style: none; }
 
     .body_navigation li {
         display: inline-block;
         width: 24%;
     }
-    
+
     .body_navigation a, .body_navigation_select a {
         border: 1px solid #2177A5;
         background-color: #227bad;
@@ -395,7 +395,7 @@ td:first-child, th:first-child { padding: 5px 30px 5px 0;}
         padding: 5px 0;
         margin: 5px 0;
     }
-    
+
     .body_navigation a:hover, .body_navigation_select a:hover {
         background-color: #FF409F;
         border: 1px solid #FF409F;
@@ -517,7 +517,7 @@ td:first-child, th:first-child { padding: 5px 30px 5px 0;}
 
 
 #footer-wrap {
-    
+
     background-color: #0a416b;
     background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAAAXNSR0IArs4c6QAAAfRJREFUOBFd1GtywjAMBGAnGAj86qV6nF6fR3ikfCrLZKqZYFta7a4VYPj6/llut1sT+/2+zfPcHo9H22w2bbvd1l6t996GYajz8/msdVmWNk1Tc75er4XpmiWRakBiXYOcNf8Xk1NbC44OYbcC3e/3ttvt6iFITE6NoJo80dzOjWDGV/goUuQAipfL5QM2CmQJrjR77DlX11dXDilAZsUFoLAaC1ceYkT0IZSzct8xI2Ff0hP7gOJwOBQpjJqI4/P5XDl59ZfIWIpA9oAKRJzzFt/gqhPl2niI5dsA/+rrlUCYucgBuzYij6a4gDsej+10OmkrcXhCozdrowlQ5FpmxQllGNeTy3W5TxCvb4sEoCF7NAgEQi6iiDWqyQm3IWDesN0Hu7EMwJU8kH1mhMgt3EZNXt97dn8OJQAQAHMgqCIH5jrzlEOsvnYOR6AjA6KI0JOfoiZCzpo1yXGNlAgxHAJPzwuQTIM1jjIv6/rq9pkjETzO9UtxkBSAmVMl3h8EkBIOXk9uw6neUdKGXU0By9m7HoxVyJu7nHFY9boVwW7DkTXztCqGRIPGzBiRWnCE5XzRixBZVAHz2+XYy1ITRLIiSF4/Mn31f0iZCxEy6nEo76qZo+GbWVwjJFAvBZFGtinac+LMnRWZfRxmZpmfFSnsLzywF6num0wBAAAAAElFTkSuQmCC);
     min-height: 160px;
@@ -539,8 +539,8 @@ td:first-child, th:first-child { padding: 5px 30px 5px 0;}
     padding: 0;
 }
 
-.footer-list ul li { 
-    border-bottom: 1px solid #326B8D; 
+.footer-list ul li {
+    border-bottom: 1px solid #326B8D;
 }
 
 .footer-list ul li a:link,
@@ -568,7 +568,7 @@ td:first-child, th:first-child { padding: 5px 30px 5px 0;}
 
 .bottom_footer { color: #c2dbe7;}
 
-.bottom_footer li a { 
+.bottom_footer li a {
     color: #fff;
     display: inline;
 }
@@ -583,7 +583,7 @@ td:first-child, th:first-child { padding: 5px 30px 5px 0;}
 
 @media screen and (max-width: 720px) {
     #col-a, #col-b, #col-c { margin-right: 0;}
-    
+
     .footer-list ul li {
         display: inline-block;
         margin-right: 10px;
@@ -596,12 +596,12 @@ td:first-child, th:first-child { padding: 5px 30px 5px 0;}
 \*-----------------------------------*/
 
 
-.event_date { 
+.event_date {
     margin: 15px 10px 0 0;
     clear: left;
 }
 
-.event_details { 
+.event_details {
     margin-top: 15px;
     clear: left;
 }
@@ -674,9 +674,9 @@ td:first-child, th:first-child { padding: 5px 30px 5px 0;}
         top: 10px;
         right: 10px;
     }
-    
+
     .event_date { width: 17.07%;}
-    
+
     .event_details { width: 77%; }
 }
 
@@ -703,11 +703,11 @@ td:first-child, th:first-child { padding: 5px 30px 5px 0;}
 }
 
 @media screen and (min-width: 720px) {
-    
+
     #menu { display: none; }
-    
+
     .hide_me {
-       display: none;  
+       display: none;
     }
 }
 
