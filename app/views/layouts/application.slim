@@ -71,7 +71,7 @@ html lang="en"
               #sideSlot.ad.unit.span-grid.sidemenu
                 = render "shared/google_ad"
 
-    - cache "footer_cache", expires: Time.new.beginning_of_day
+    - cache "footer_cache", expires: 1.day.from_now(Time.new.beginning_of_day)
       = render "shared/footer"
 
     script src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
