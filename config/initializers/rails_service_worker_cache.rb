@@ -1,3 +1,3 @@
 RailsServiceWorkerCache.configure do |config|
-  config.files = ['application.css', 'application.js']
+  config.assets = ['application.css', 'application.js']
 end

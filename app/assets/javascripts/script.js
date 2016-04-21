@@ -7,12 +7,12 @@ $(document).ready(function(e){
     });
 
     $(".hide_me").click(function(e){
-        
+
         var offsetTop = $(window).scrollTop();
-        
+
         $(".body_navigation").toggle();
     });
-    
+
     $('.lazy-image').lazyload({
          threshold : 500
     });
@@ -22,13 +22,13 @@ $(document).ready(function(e){
 
 
 $(window).resize(function(){
-    
+
     if(window.innerWidth > 650) {
         $("#nav").removeAttr("style");
-    }    
+    }
     if(window.innerWidth > 650) {
         $(".body_navigation").removeAttr("style");
-    }  
+    }
 });
 
 
