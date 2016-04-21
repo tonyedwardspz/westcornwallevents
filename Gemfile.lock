@@ -21,17 +21,16 @@ GIT
       yajl-ruby
 
 GIT
-  remote: git@github.com:tonyedwardspz/rails-service-worker-cache.git
-  revision: 1ce7b63c26576013f7010d160ec339100fac94a8
-  specs:
-    rails_service_worker_cache (0.1.0)
-
-GIT
   remote: https://github.com/ambethia/recaptcha.git
   revision: 9a172705ee44826df4934f205111761be9905d50
   specs:
     recaptcha (1.0.2)
       json
+
+PATH
+  remote: ../../rails-service-worker-cache
+  specs:
+    rails_service_worker_cache (0.1.1)
 
 GEM
   remote: https://rubygems.org/
@@ -345,7 +344,7 @@ DEPENDENCIES
   rack-cors
   rails (~> 4.2.1)
   rails-assets-RRSSB!
-  rails_service_worker_cache (~> 0.1.0)!
+  rails_service_worker_cache (~> 0.1.1)!
   recaptcha!
   rollbar (~> 2.8.3)
   sass-rails (~> 5.0)

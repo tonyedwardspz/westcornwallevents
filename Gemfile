@@ -11,7 +11,8 @@ gem 'coffee-rails', '~> 4.1.0'
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
 gem 'bcrypt', '~> 3.1.7'
-gem "rails_service_worker_cache", '~> 0.1.0', :git => "git@github.com:tonyedwardspz/rails-service-worker-cache.git"
+# gem "rails_service_worker_cache", '~> 0.1.0', :git => "git@github.com:tonyedwardspz/rails-service-worker-cache.git"
+gem "rails_service_worker_cache", '~> 0.1.1', :path => '../../rails-service-worker-cache'
 
 group :development, :test do
   gem 'byebug'
