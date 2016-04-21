@@ -10,14 +10,14 @@ e.results
   - if @search_festivals.present?
     h2 Festivals
 
-  - if @search_future_events.present? 
+  - if @search_future_events.present?
     h2 Future Events
     - @search_future_events.each do |result|
       .result
         - unless result.image_link.blank?
           = image_tag result.image_link.thumb, alt: result.imageAlt, width: 225, height: 132, class: "post-image lazy-image", lazy: true
         = link_to "#{result.title}", result, class: "title"
-        p.details 
+        p.details
           - unless result.dateend.blank?
             ' DATE: #{result.date.day.ordinalize} #{result.dateend.strftime("%b")} to #{result.dateend.day.ordinalize} #{result.dateend.strftime("%b %Y")}
           - else
@@ -36,11 +36,11 @@ e.results
         - if blog.image.present?
           = image_tag blog.image.thumb, alt: blog.image_alt, width: 225, height: 132, class: "post-image, lazy: true blog-post-image"
         p.blog-date
-          ' #{blog.date_published.day.ordinalize} #{blog.date_published.strftime("%B %Y")} 
+          ' #{blog.date_published.day.ordinalize} #{blog.date_published.strftime("%B %Y")}
           '  by #{blog.user.display_name}
 
     p #{blog.snippet}
-    
+
   - if @search_venues.present?
     h2 Venues
     - @search_venues.each do |venue|
@@ -48,18 +48,18 @@ e.results
         - if venue.image.present?
           = image_tag(venue.image.large_thumb, alt: venue.image_alt)
         h4 = link_to "#{venue.name}", venue
-        
+
         p #{venue.address}, #{venue.postcode}
         = link_to 'View venue details', venue, class: "more"
 
-  - if @search_past_events.present? 
+  - if @search_past_events.present?
     h2 Past Events
     - @search_past_events.each do |result|
       .result
         - unless result.image_link.blank?
           = image_tag result.image_link.thumb, alt: result.imageAlt, width: 225, height: 132, class: "post-image lazy-image", lazy: true
         = link_to "#{result.title}", result
-        p.details 
+        p.details
           - unless result.dateend.blank?
             ' DATE: #{result.date.day.ordinalize} #{result.dateend.strftime("%b")} to #{result.dateend.day.ordinalize} #{result.dateend.strftime("%b %Y")}
           - else

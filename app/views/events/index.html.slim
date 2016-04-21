@@ -6,7 +6,7 @@ h1
   - elsif params[:days]
     a#top Upcoming Events Calendar
   - else
-    a#top Upcoming Events 
+    a#top Upcoming Events
 #event.container
   .grid
 
@@ -17,11 +17,7 @@ h1
 
     = render @events
 
-p
-  ' Can't find the event you were looking for? If we've missed something important let us know it's happening on 
-  a href="http://www.facebook.com/WestCornwallEvents" title="Facebook"  facebook
-  ' . We'll do the rest!
-p
-  ' Event organisers can 
-  = link_to 'submit events', submit_event_path, title: "Submit event"
-  '  for free.
+p.submit-text
+  ' Everything on this site is free, including
+  a href="http://westcornwallevents.co.uk/submit_event" title="submit your cornish event free" submitting your events
+  '  to us. We're nice like that!
