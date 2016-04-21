@@ -3,7 +3,7 @@ class SearchController < ApplicationController
 
   def results
     if params['q'].present? && params['q'].length > 0
-      @results = PgSearch.multisearch(params[:q])
+      @results = PgSearch.multisearch(params[:q]).includes(:searchable)
       @search_future_events = []
       @search_past_events = []
       @search_blogs = []

@@ -22,7 +22,7 @@
   scope :by_year_future, -> (year) {where('extract(year from date) = ?', year).where('date > ?', Time.zone.now.beginning_of_day).order('date').limit(5)}
   scope :future, -> {where('date >= ?', Time.zone.now.beginning_of_day).order('date').limit(5)}
   scope :all_future, -> {where('date >= ?', Time.zone.now.beginning_of_day).order('date')}
-  scope :homepage, -> {where('date >= ?', Time.zone.now.beginning_of_day).where.not(image_link: 'nil').order('date').limit(6)}
+  scope :homepage, -> {where('date >= ?', Time.zone.now.beginning_of_day).where.not(image_link: 'nil').order('date').limit(6).includes(:venue)}
   scope :next_thirty_days, -> {where('date >= ?', Time.zone.now.beginning_of_day).where('date < ?', (Time.zone.now.beginning_of_day + 30.days)).order('date')}
 
   def self.create_from_user_event(user_event)
