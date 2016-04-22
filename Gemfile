@@ -12,7 +12,8 @@ gem 'jquery-ui-rails'
 gem 'bcrypt', '~> 3.1.7'
 # gem "service-worker-cache-rails", '~> 0.1.0', :git => "git@github.com:tonyedwardspz/service-worker-cache-rails.git"
 gem 'service-worker-cache-rails', '~> 0.1.3', :path => '../../service-worker-cache-rails'
-gem "autoprefixer-rails"
+gem 'autoprefixer-rails'
+gem 'csso-rails'
 
 group :development, :test do
   gem 'byebug'
