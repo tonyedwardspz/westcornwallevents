@@ -16,4 +16,4 @@
 //= require lazyload
 //= require image-preview
 //= require script
-//= require rails-service-worker-cache
+//= require service-worker-cache-rails

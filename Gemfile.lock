@@ -28,9 +28,9 @@ GIT
       json
 
 PATH
-  remote: ../../rails-service-worker-cache
+  remote: ../../service-worker-cache-rails
   specs:
-    rails_service_worker_cache (0.1.1)
+    service-worker-cache-rails (0.1.4)
 
 GEM
   remote: https://rubygems.org/
@@ -73,6 +73,8 @@ GEM
       tzinfo (~> 1.1)
     addressable (2.4.0)
     arel (6.0.3)
+    autoprefixer-rails (6.3.6)
+      execjs
     bcrypt (3.1.10)
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
@@ -313,6 +315,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  autoprefixer-rails
   bcrypt (~> 3.1.7)
   buffer!
   bullet
@@ -344,11 +347,11 @@ DEPENDENCIES
   rack-cors
   rails (~> 4.2.1)
   rails-assets-RRSSB!
-  rails_service_worker_cache (~> 0.1.1)!
   recaptcha!
   rollbar (~> 2.8.3)
   sass-rails (~> 5.0)
   seed_dump
+  service-worker-cache-rails (~> 0.1.3)!
   simple_form (~> 3.1.0)
   simplecov
   sitemap_generator
