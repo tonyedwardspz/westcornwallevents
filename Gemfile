@@ -10,8 +10,8 @@ gem 'coffee-rails', '~> 4.1.0'
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
 gem 'bcrypt', '~> 3.1.7'
-gem "service-worker-cache-rails", '~> 0.1.0', :git => "git@github.com:tonyedwardspz/service-worker-cache-rails.git"
-# gem 'service-worker-cache-rails', '~> 0.1.3', :path => '../../service-worker-cache-rails'
+# gem "service-worker-cache-rails", :git => "https://github.com/tonyedwardspz/service-worker-cache-rails.git"
+# gem 'service-worker-cache-rails', '~>0.1.0', :path => '../../service-worker-cache-rails'
 gem 'autoprefixer-rails'
 
 group :development, :test do
