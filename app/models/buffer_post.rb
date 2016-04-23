@@ -57,8 +57,8 @@ class BufferPost < ActiveRecord::Base
     if message.length <= 116
       if event.venue.present?
         if event.venue.twitter_handle.present?
-          if event.venue.twitter_handle.length <= (115 - message.length)
-            return "#{message} #{event.venue.twitter_handle} https://westcornwallevents.co.uk/events/#{event.slug}"
+          if event.venue.twitter_handle.length <= (110 - message.length)
+            return "#{message} via @#{event.venue.twitter_handle} https://westcornwallevents.co.uk/events/#{event.slug}"
           else
             return "#{message} https://westcornwallevents.co.uk/events/#{event.slug}"
           end
