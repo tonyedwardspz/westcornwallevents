@@ -9,6 +9,7 @@
   belongs_to :event_user
   has_and_belongs_to_many :categories
   has_and_belongs_to_many :blogs
+
   validates :title, presence: true
   validates :date, presence: true
   validates :description, presence: true
@@ -17,13 +18,14 @@
   validates :imageAlt, presence: true, if: "image_link.present?"
   validates :moreTitle, presence: true, if: "more_link.present?"
   validates :linktitle, presence: true, if: "link.present?"
+
   scope :by_month_year, -> (month, year) {where('extract(month from date) = ?', month).where('extract(year from date) = ?', year).order('date')}
   scope :by_year, -> (year) {where('extract(year from date) = ?', year).limit(5)}
-  scope :by_year_future, -> (year) {where('extract(year from date) = ?', year).where('date > ?', Time.zone.now.beginning_of_day).order('date').limit(5)}
-  scope :future, -> {where('date >= ?', Time.zone.now.beginning_of_day).order('date').limit(5)}
-  scope :all_future, -> {where('date >= ?', Time.zone.now.beginning_of_day).order('date')}
-  scope :homepage, -> {where('date >= ?', Time.zone.now.beginning_of_day).where.not(image_link: 'nil').order('date').limit(6).includes(:venue)}
-  scope :next_thirty_days, -> {where('date >= ?', Time.zone.now.beginning_of_day).where('date < ?', (Time.zone.now.beginning_of_day + 30.days)).order('date')}
+  scope :by_year_future, -> (year) {where('extract(year from date) = ?', year).where('date > ?', Time.now.beginning_of_day).order('date').limit(5)}
+  scope :future, -> {where('date >= ?', Time.now.beginning_of_day).order('date').limit(5)}
+  scope :all_future, -> {where('date >= ?', Time.now.beginning_of_day).order('date')}
+  scope :homepage, -> {where('date >= ?', Time.now.beginning_of_day).where.not(image_link: 'nil').order('date').limit(6).includes(:venue)}
+  scope :next_thirty_days, -> {where('date >= ?', Time.now.beginning_of_day).where('date < ?', (Time.now.beginning_of_day + 30.days)).order('date')}
 
   def self.create_from_user_event(user_event)
      e = new_from_user_event(user_event)
