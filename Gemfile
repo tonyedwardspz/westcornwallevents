@@ -10,7 +10,7 @@ gem 'coffee-rails', '~> 4.1.0'
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
 gem 'bcrypt', '~> 3.1.7'
-gem "service-worker-cache-rails", '~>0.1.16', :git => "https://github.com/tonyedwardspz/service-worker-cache-rails.git"
+gem "service-worker-cache-rails", '~>0.1.17', :git => "https://github.com/tonyedwardspz/service-worker-cache-rails.git"
 # gem 'service-worker-cache-rails', '~>0.1.0', :path => '../../service-worker-cache-rails'
 gem 'autoprefixer-rails'
 
@@ -29,11 +29,15 @@ group :test do
   gem 'simplecov', require: false
 end
 
+group :production do
+  gem 'rollbar', '~> 2.8.3', group: :production
+  gem 'skylight', group: :production
+  gem 'sitemap_generator', group: :production
+end
+
 gem 'bullet'
 gem 'buffer', :github => 'bufferapp/buffer-ruby'
 gem 'omniauth-buffer2'
-gem 'rollbar', '~> 2.8.3', group: :production
-gem 'skylight', group: :production
 gem 'pg_search'
 gem 'seed_dump'
 gem 'friendly_id', '~> 5.1.0'
@@ -42,7 +46,6 @@ gem 'unicorn'
 gem 'lazyload-rails'
 gem 'carrierwave', '~> 0.9'
 gem 'simple_form', '~> 3.1.0'
-gem 'sitemap_generator', group: :production
 gem "mini_magick"
 gem 'whenever', :require => false
 gem 'minitest-rails'
