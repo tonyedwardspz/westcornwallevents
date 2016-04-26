@@ -23,7 +23,9 @@ body {
 
 html { font: 100%/1.5;}
 
-a { text-decoration: none;}
+a {
+  text-decoration: none;
+}
 
 a:link,
 a:visited {
