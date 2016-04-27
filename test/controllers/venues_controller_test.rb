@@ -1,20 +1,19 @@
 require "test_helper"
 
-class VenuesControllerTest < ActionController::TestCase
+class VenuesControllerTest < ActionDispatch::IntegrationTest
 
-  let(:venue) { FactoryGirl.create(:venue) }
+  setup do
+    @venue = FactoryGirl.create(:venue)
+  end
 
-  def test_index
-    venue
-
+  test 'should get index' do
     get :index
     assert_response :success
     assert_not_nil assigns(:venues)
   end
 
-
-  def test_show
-    get :show, id: venue
+  test 'should get show view' do
+    get :show, id: @venue
     assert_response :success
   end
 end

@@ -19,14 +19,21 @@ group :development, :test do
   gem 'web-console', '~> 2.0'
   gem 'spring'
   gem 'quiet_assets'
-  gem 'factory_girl_rails'
 end
 
 group :test do
-  gem 'minitest-rails-capybara'
-  gem 'minitest-rg'
-  gem 'minitest-documentation'
+  gem 'minitest-spec-rails'
+  gem 'factory_girl_rails'
+  gem 'capybara'
+  gem 'minitest-reporters'
+  gem 'mocha'
+  gem 'launchy'
+  gem 'capybara_minitest_spec'
+  gem 'guard', require: false
+  gem 'guard-minitest', require: false
   gem 'simplecov', require: false
+  gem 'shoulda', '~> 3.5'
+  gem 'rails-controller-testing'
 end
 
 group :production do
