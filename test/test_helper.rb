@@ -3,13 +3,12 @@ require 'simplecov'
 SimpleCov.start
 
 require "minitest/reporters"
-Minitest::Reporters.use! Minitest::Reporters::JUnitReporter.new
+Minitest::Reporters.use! [Minitest::Reporters::DefaultReporter.new(:color => true)]
 
 ENV['RAILS_ENV'] ||= 'test'
 require File.expand_path('../../config/environment', __FILE__)
 require 'rails/test_help'
 require 'capybara/rails'
-
 
 
 class ActiveSupport::TestCase
