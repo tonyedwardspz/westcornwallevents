@@ -27,11 +27,6 @@ GIT
     recaptcha (1.0.2)
       json
 
-PATH
-  remote: ../../service-worker-cache-rails
-  specs:
-    service-worker-cache-rails (0.2.1)
-
 GEM
   remote: https://rubygems.org/
   remote: http://rails-assets.org/
@@ -402,7 +397,6 @@ DEPENDENCIES
   rollbar (~> 2.8.3)
   sass-rails (~> 5.0)
   seed_dump
-  service-worker-cache-rails (~> 0.2.0)!
   shoulda (~> 3.5)
   simple_form (~> 3.1.0)
   simplecov
