@@ -26,6 +26,7 @@
   scope :all_future, -> {where('date >= ?', Time.now.beginning_of_day).order('date')}
   scope :homepage, -> {where('date >= ?', Time.now.beginning_of_day).where.not(image_link: 'nil').order('date').limit(6).includes(:venue)}
   scope :next_thirty_days, -> {where('date >= ?', Time.now.beginning_of_day).where('date < ?', (Time.now.beginning_of_day + 30.days)).order('date')}
+  scope :created_between, lambda {|start_date, end_date| where("created_at >= ? AND created_at <= ?", start_date, end_date ).limit(3).includes(:venue)}
 
   def self.create_from_user_event(user_event)
      e = new_from_user_event(user_event)
