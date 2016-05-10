@@ -5,6 +5,9 @@ class BufferPost < ActiveRecord::Base
     BufferJob.perform_now(post_to_google(event))
 
     # If event is in penzance, post it to the Purely Penzance feed
+    # if event.locaition.downcase.include? 'penzance'
+    #   BufferJob.perform_now(post_to_facebook(event, ENV['BUFFER_PURELY_FACEBOOK_KEY']))
+    # end
 
     return
   end
@@ -35,10 +38,10 @@ class BufferPost < ActiveRecord::Base
     }
   end
 
-  def self.post_to_facebook(event)
+  def self.post_to_facebook(event, key = ENV['BUFFER_FACEBOOK_KEY'])
     return { body: {
         text: facebook_message(event),
-        profile_ids: [ENV['BUFFER_FACEBOOK_KEY']]
+        profile_ids: [key]
       }
     }
   end
