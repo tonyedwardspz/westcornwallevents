@@ -65,7 +65,7 @@ html lang="en"
           / Sidebar
           #sidebar.unit.one-of-four
             .grid
-              - cache "sidebar_cache", expires:  1.day.from_now(Time.now.beginning_of_day)
+              - cache('sidebar-cache', :expires_in => 3.hour) do
                 = render "shared/sidebar_festivals"
 
               #sideSlot.ad.unit.span-grid.sidemenu
